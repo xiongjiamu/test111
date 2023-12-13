@@ -1,0 +1,3 @@
+# dkdns
+
+基于golang实现一个dnsServer，若接收的请求域名解析后的IP在白名单列表中，则返回IP，否则将递归至最优的DNS server重新解析
