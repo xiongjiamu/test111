@@ -2,6 +2,7 @@ package databases
 
 import (
 	"dkdns/dkFramework/logger"
+	"fmt"
 	"github.com/boltdb/bolt"
 )
 
@@ -74,6 +75,18 @@ func (db *DB) Write(bucketName string, key string, value string) error {
 		}
 		err = b.Put([]byte(key), []byte(value))
 		return err
+	})
+	return err
+}
+
+// Delete 根据指定的 key 删除指定 bucket 中的数据
+func (db *DB) Delete(bucketName string, key string) error {
+	err := db.conn.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket([]byte(bucketName))
+		if b == nil {
+			return fmt.Errorf("Bucket %s not found", bucketName)
+		}
+		return b.Delete([]byte(key))
 	})
 	return err
 }

@@ -242,7 +242,7 @@
             <td>{{$key}}</td>
             <td>{{$value}}</td>
             <td>
-              <button key="{{$key}}">删除</button>
+              <button class="btn btn-danger delete-btn" data-key="{{$key}}">删除</button>
             </td>
             <td>0</td>
           </tr>
@@ -255,6 +255,9 @@
 </main>
 <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      /**
+       * add Special key val
+       */
       document.getElementById('resolutionForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -298,11 +301,43 @@
                 .then(data => {
                   // 处理成功响应的逻辑
                   console.log('Success:', data);
+                  window.location.href = '/'; // 将页面重定向到首页
                 })
                 .catch(error => {
                   // 处理错误的逻辑
                   console.error('Error:', error);
                 });
+      });
+      // 找到所有的删除按钮
+      const deleteButtons = document.querySelectorAll('.delete-btn');
+      deleteButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          // 获取按钮上存储的 key 值
+          const key = button.dataset.key;
+
+          // 向后端发送请求，并传递 key 值
+          fetch(`/delspecial?key=${key}`, {
+            method: 'DELETE' // 假设是 DELETE 请求
+          })
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                  })
+                  .then(data => {
+                    // 处理成功响应的逻辑
+                    alert("delete success!")
+                    // 删除对应行的数据
+                    const row = button.closest('tr');
+                    row.remove();
+                  })
+                  .catch(error => {
+                    // 处理错误的逻辑
+                    alert("delete failed!")
+                    console.error('Error:', error);
+                  });
+        });
       });
     </script>
 </body>

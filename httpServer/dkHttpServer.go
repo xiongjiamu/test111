@@ -15,6 +15,7 @@ func StartGinServer() {
 	// 设置路由
 	router.GET("/", controllers.DefaultHandler)
 	router.POST("/addspecial", controllers.AddSpecialHandler)
+	router.DELETE("/delspecial", controllers.DelSpecialHandler)
 
 	logger.Info("http://localhost:8080")
 	// 启动服务器

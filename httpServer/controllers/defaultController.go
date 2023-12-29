@@ -49,6 +49,23 @@ func IsValidIP(ip string) bool {
 	return net.ParseIP(ip) != nil
 }
 
+func DelSpecialHandler(c *gin.Context) {
+
+	key := c.Query("key")
+
+	err := databases.Boltdb.Delete("special_list", key)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": 0,
+		})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"code": 1,
+	})
+
+}
+
 func AddSpecialHandler(c *gin.Context) {
 
 	type SpecialData struct {
@@ -81,7 +98,7 @@ func AddSpecialHandler(c *gin.Context) {
 	err := databases.Boltdb.Write("special_list", domain, ip)
 
 	if err != nil {
-		c.JSON(http.StatusOK, gin.H{
+		c.JSON(http.StatusBadRequest, gin.H{
 			"code": 0,
 		})
 		return
