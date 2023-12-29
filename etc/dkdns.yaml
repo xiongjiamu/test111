@@ -1,0 +1,13 @@
+logging:
+  output_type: file
+  output_path: dk_dnslog.log
+  max_size_mb: 10
+
+dns:
+  port: 53
+  recursive_dns: "172.16.10.10"
+  whitelist: "output.txt"
+  cache_timeout: "24h"
+
+https:
+  port: 443
