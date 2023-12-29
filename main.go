@@ -4,6 +4,7 @@ import (
 	"dkdns/dkFramework/configs"
 	"dkdns/dkFramework/logger"
 	dkdnserver "dkdns/dnsServer"
+	dkHttpServer "dkdns/httpServer"
 )
 
 func main() {
@@ -20,6 +21,8 @@ func main() {
 	// 启动DNS Server
 	go dkdnserver.RunDNSServer(config)
 
+	// 启动HttpServer
+	go dkHttpServer.StartGinServer()
 	// 主协程等待，否则程序会立即退出
 	select {}
 }
