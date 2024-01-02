@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"dkdns/dkFramework/databases"
-	"dkdns/dkFramework/logger"
 	"github.com/gin-gonic/gin"
 	"html/template"
 	"net"
@@ -82,9 +81,6 @@ func AddSpecialHandler(c *gin.Context) {
 	domain := specialData.Domain
 	ip := specialData.IP
 
-	logger.Println(domain, "dfsdfsdfs")
-	logger.Info(ip)
-
 	if !IsValidDomain(domain) {
 		c.String(http.StatusOK, "Invalid domain format")
 		return
@@ -95,7 +91,7 @@ func AddSpecialHandler(c *gin.Context) {
 		return
 	}
 
-	err := databases.Boltdb.Write("special_list", domain, ip)
+	err := databases.Boltdb.Write("special_list", domain+".", ip)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{

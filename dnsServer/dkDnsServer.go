@@ -3,6 +3,7 @@ package dkdnserver
 import (
 	"dkdns/dkFramework/configs"
 	"dkdns/dkFramework/logger"
+	special_list "dkdns/httpServer/services"
 	"fmt"
 	"github.com/miekg/dns"
 	"io/ioutil"
@@ -96,6 +97,35 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 		name := strings.ToLower(q.Name)
 		if q.Qtype == dns.TypeA {
 			queryKey := fmt.Sprintf("%s-%d", name, q.Qtype)
+			/**
+			先查询 Special_list ,
+			*/
+
+			special_ip, special_err := special_list.NewService().Read(name)
+			logger.Println(name, "   err:  ", special_err, "    ", special_ip, "dd")
+			if special_ip != "" {
+				resp := new(dns.Msg)
+				resp.SetReply(r)
+				resp.Id = r.Id // Set the response ID to match the query ID
+
+				// Constructing an A record type (IPv4) response
+				answer := &dns.A{
+					Hdr: dns.RR_Header{Name: dns.Fqdn(name), Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 3600},
+					A:   net.ParseIP(special_ip), // Convert the fetched IP string to net.IP
+				}
+
+				// Add the answer to the response
+				resp.Answer = append(resp.Answer, answer)
+
+				// Write the DNS message response
+				w.WriteMsg(resp)
+
+				return
+			}
+
+			/**
+			查询缓存
+			*/
 			cachedResponse, found := lookupFromCache(queryKey)
 			if found {
 				logger.Println("Cache hit for:", name)
@@ -109,6 +139,10 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 				w.WriteMsg(resp)
 				return
 			}
+
+			/**
+			本地查询
+			*/
 
 			ip, err := net.LookupIP(name)
 			if err == nil {
@@ -128,6 +162,9 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 				}
 			}
 
+			/**
+			递归查询
+			*/
 			recursiveAddr := appConfigs.DNS.RecursiveDNS
 			c := new(dns.Client)
 			resp, _, err := c.Exchange(r, recursiveAddr+":53")
