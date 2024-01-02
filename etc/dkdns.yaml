@@ -11,3 +11,4 @@ dns:
 
 https:
   port: 443
+  server_path: "C:\\Users\\yubx\\IdeaProjects\\dkdns\\httpServer"

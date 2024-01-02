@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"dkdns/dkFramework/configs"
 	"dkdns/dkFramework/databases"
 	"github.com/gin-gonic/gin"
 	"html/template"
@@ -14,7 +15,7 @@ func DefaultHandler(c *gin.Context) {
 	specicalMap, err := databases.Boltdb.ReadBucket("special_list")
 
 	// 渲染模板并将数据传递给模板
-	tmpl, err := template.ParseFiles("httpserver/views/index.html")
+	tmpl, err := template.ParseFiles(configs.AppConfigInstance.HTTPS.ServerPath + "/views/index.html")
 	if err != nil {
 		c.String(http.StatusInternalServerError, "Error parsing template")
 		return

@@ -20,9 +20,12 @@ type Config struct {
 		CacheTimeout    time.Duration // Add cache timeout configuration
 	} `yaml:"dns"`
 	HTTPS struct {
-		Port int `yaml:"port"`
+		Port       int    `yaml:"port"`
+		ServerPath string `yaml:"server_path"`
 	} `yaml:"https"`
 }
+
+var AppConfigInstance *Config
 
 func LoadConfig(path string) (*Config, error) {
 	file, err := ioutil.ReadFile(path)
@@ -45,5 +48,6 @@ func LoadConfig(path string) (*Config, error) {
 		config.DNS.CacheTimeout = duration
 	}
 
+	AppConfigInstance = config
 	return config, nil
 }

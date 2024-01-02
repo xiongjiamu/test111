@@ -22,7 +22,7 @@ func main() {
 	go dkdnserver.RunDNSServer(config)
 
 	// 启动HttpServer
-	go dkHttpServer.StartGinServer()
+	go dkHttpServer.StartGinServer(config)
 	// 主协程等待，否则程序会立即退出
 	select {}
 }
