@@ -3,6 +3,7 @@ package controllers
 import (
 	"dkdns/dkFramework/configs"
 	"dkdns/dkFramework/databases"
+	dkdnserver "dkdns/dnsServer"
 	"github.com/gin-gonic/gin"
 	"html/template"
 	"net"
@@ -35,6 +36,42 @@ func DefaultHandler(c *gin.Context) {
 		c.String(http.StatusInternalServerError, "Error executing template")
 		return
 	}
+}
+
+func CacheListHandler(c *gin.Context) {
+
+	cacheListMap := dkdnserver.GetCacheMap()
+	// 渲染模板并将数据传递给模板
+	tmpl, err := template.ParseFiles(configs.AppConfigInstance.HTTPS.ServerPath + "/views/cache.html")
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Error parsing template")
+		return
+	}
+
+	// 如果需要在模板中使用读取到的数据，可以将其放入一个结构体中，然后传递给模板
+	type ViewData struct {
+		YourData map[string]dkdnserver.CachedResponse // 请根据你的数据结构定义这个字段
+	}
+
+	viewData := ViewData{
+		YourData: cacheListMap, // 假设数据是字符串类型，将字节数组转换为字符串
+	}
+
+	err = tmpl.Execute(c.Writer, viewData)
+	if err != nil {
+		c.String(http.StatusInternalServerError, "Error executing template")
+		return
+	}
+}
+
+func DelCacheHandler(c *gin.Context) {
+
+	key := c.Query("key")
+	dkdnserver.DeleteFromCache(key)
+	c.JSON(http.StatusOK, gin.H{
+		"code": 1,
+	})
+
 }
 
 func IsValidDomain(domain string) bool {

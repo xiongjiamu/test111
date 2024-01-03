@@ -27,6 +27,29 @@ var (
 	cacheMutex sync.RWMutex
 )
 
+func GetCacheMap() (cacheMap map[string]CachedResponse) {
+	return cache
+}
+
+func isPrivateIP(ip net.IP) bool {
+	cidrs := []string{
+		"10.0.0.0/8",
+		"172.16.0.0/12",
+		"192.168.0.0/16",
+	}
+
+	for _, cidr := range cidrs {
+		_, ipNet, err := net.ParseCIDR(cidr)
+		if err != nil {
+			panic(err)
+		}
+		if ipNet.Contains(ip) {
+			return true
+		}
+	}
+	return false
+}
+
 func lookupFromCache(queryKey string) (*dns.Msg, bool) {
 	cacheMutex.RLock()
 	defer cacheMutex.RUnlock()
@@ -44,6 +67,13 @@ func storeInCache(queryKey string, response *dns.Msg, timeout time.Duration) {
 		Msg:      response.Copy(),
 		ExpireAt: time.Now().Add(timeout),
 	}
+}
+
+// 删除指定 key 的缓存项
+func DeleteFromCache(queryKey string) {
+	cacheMutex.Lock()
+	defer cacheMutex.Unlock()
+	delete(cache, queryKey)
 }
 
 func isIPInRange(ip string, ipRanges []*net.IPNet) bool {
@@ -101,9 +131,10 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 			先查询 Special_list ,
 			*/
 
-			special_ip, special_err := special_list.NewService().Read(name)
-			logger.Println(name, "   err:  ", special_err, "    ", special_ip, "dd")
+			special_ip, _ := special_list.NewService().Read(name)
+
 			if special_ip != "" {
+				logger.Println("SepcialList Hit:  name: " + name + " ip: " + special_ip)
 				resp := new(dns.Msg)
 				resp.SetReply(r)
 				resp.Id = r.Id // Set the response ID to match the query ID
@@ -148,6 +179,17 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 			if err == nil {
 				for _, addr := range ip {
 					ipStr := addr.String()
+					if isPrivateIP(addr) {
+						rr := &dns.A{
+							Hdr: dns.RR_Header{Name: name, Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 60},
+							A:   addr,
+						}
+						m.Answer = append(m.Answer, rr)
+						logger.Println("localPrivateDNS:", m.String())
+						storeInCache(queryKey, m, appConfigs.DNS.CacheTimeout) // Cache the response
+						w.WriteMsg(m)
+						return
+					}
 					if isIPInRange(ipStr, ipRanges) {
 						rr := &dns.A{
 							Hdr: dns.RR_Header{Name: name, Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 60},

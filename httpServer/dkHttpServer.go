@@ -15,8 +15,10 @@ func StartGinServer(appConfigs *configs.Config) {
 	router.StaticFS("/assets", http.Dir(appConfigs.HTTPS.ServerPath+"/views/assets")) // 将 assert 文件夹及其子文件夹设置为静态资源文件夹
 	// 设置路由
 	router.GET("/", controllers.DefaultHandler)
+	router.GET("/cachelist", controllers.CacheListHandler)
 	router.POST("/addspecial", controllers.AddSpecialHandler)
 	router.DELETE("/delspecial", controllers.DelSpecialHandler)
+	router.DELETE("/delcache", controllers.DelCacheHandler)
 
 	logger.Info("http://localhost:8080")
 	// 启动服务器
