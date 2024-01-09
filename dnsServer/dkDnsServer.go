@@ -116,6 +116,9 @@ func loadIPRangesFromFile(filepath string) ([]*net.IPNet, error) {
 func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Config) {
 	m := new(dns.Msg)
 	m.SetReply(r)
+	startTime := time.Now() // 记录开始处理请求的时间
+	// 获取客户端IP
+	clientIP, _, _ := net.SplitHostPort(w.RemoteAddr().String())
 
 	ipRanges, err := loadIPRangesFromFile(appConfigs.DNS.Whitelist)
 	if err != nil {
@@ -134,7 +137,6 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 			special_ip, _ := special_list.NewService().Read(name)
 
 			if special_ip != "" {
-				logger.Println("SepcialList Hit:  name: " + name + " ip: " + special_ip)
 				resp := new(dns.Msg)
 				resp.SetReply(r)
 				resp.Id = r.Id // Set the response ID to match the query ID
@@ -150,7 +152,9 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 
 				// Write the DNS message response
 				w.WriteMsg(resp)
-
+				endTime := time.Now()                            // 记录处理完成的时间
+				elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
+				logger.Println("client: "+clientIP+" elapsedTime: ", elapsed, "ms  SepcialList Hit:  name: "+name+" ip: "+special_ip)
 				return
 			}
 
@@ -159,8 +163,6 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 			*/
 			cachedResponse, found := lookupFromCache(queryKey)
 			if found {
-				logger.Println("Cache hit for:", name)
-
 				resp := new(dns.Msg)
 				resp.SetReply(r)
 				resp.Answer = cachedResponse.Answer // Copy answers from cached response
@@ -168,6 +170,9 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 				resp.Id = r.Id // Set the response ID to match the query ID
 
 				w.WriteMsg(resp)
+				endTime := time.Now()                            // 记录处理完成的时间
+				elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
+				logger.Println("client: "+clientIP+" elapsedTime: ", elapsed, "ms  Cache hit for:", name)
 				return
 			}
 
@@ -185,9 +190,11 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 							A:   addr,
 						}
 						m.Answer = append(m.Answer, rr)
-						logger.Println("localPrivateDNS:", m.String())
 						storeInCache(queryKey, m, appConfigs.DNS.CacheTimeout) // Cache the response
 						w.WriteMsg(m)
+						endTime := time.Now()                            // 记录处理完成的时间
+						elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
+						logger.Println("client: "+clientIP+" elapsedTime: ", elapsed, "ms  name: ", name, " localPrivateDNS:", m.String())
 						return
 					}
 					if isIPInRange(ipStr, ipRanges) {
@@ -196,9 +203,11 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 							A:   addr,
 						}
 						m.Answer = append(m.Answer, rr)
-						logger.Println("localDNS:", m.String())
 						storeInCache(queryKey, m, appConfigs.DNS.CacheTimeout) // Cache the response
 						w.WriteMsg(m)
+						endTime := time.Now()                            // 记录处理完成的时间
+						elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
+						logger.Println("client: "+clientIP+" elapsedTime: ", elapsed, "ms name: ", name, " localDNS:", m.String())
 						return
 					}
 				}
@@ -214,9 +223,11 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 				logger.Println("Error:", err)
 				return
 			}
-			logger.Println("recursiveDNS:", resp.String())
 			storeInCache(queryKey, resp, appConfigs.DNS.CacheTimeout) // Cache the response
 			w.WriteMsg(resp)
+			endTime := time.Now()                            // 记录处理完成的时间
+			elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
+			logger.Println("client: "+clientIP+"  elapsedTime: ", elapsed, "ms name: ", name, "  recursiveDNS:", resp.String())
 		}
 	}
 }
