@@ -1,6 +1,7 @@
 package dkdnserver
 
 import (
+	"bufio"
 	"dkdns/dkFramework/configs"
 	"dkdns/dkFramework/logger"
 	special_list "dkdns/httpServer/services"
@@ -113,6 +114,57 @@ func loadIPRangesFromFile(filepath string) ([]*net.IPNet, error) {
 
 	return ipRanges, nil
 }
+
+func performRecursiveDNSQuery(r *dns.Msg, recursiveAddr string) (*dns.Msg, time.Duration, error) {
+	c := new(dns.Client)
+	return c.Exchange(r, recursiveAddr+":53")
+}
+
+func getLocalDNSServers() ([]string, error) {
+	resolvConfPath := "/etc/resolv.conf" // Replace with the actual path on your system
+
+	file, err := os.Open(resolvConfPath)
+	if err != nil {
+		return nil, fmt.Errorf("Error opening resolv.conf file: %v", err)
+	}
+	defer file.Close()
+
+	var servers []string
+	scanner := bufio.NewScanner(file)
+
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		if strings.HasPrefix(line, "nameserver") {
+			fields := strings.Fields(line)
+			if len(fields) >= 2 {
+				servers = append(servers, fields[1])
+			}
+		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		return nil, fmt.Errorf("Error reading resolv.conf file: %v", err)
+	}
+
+	if len(servers) == 0 {
+		return nil, fmt.Errorf("No DNS servers found in resolv.conf")
+	}
+
+	return servers, nil
+}
+
+func extractIPAddressesFromResponse(resp *dns.Msg) ([]net.IP, error) {
+	var ipAddresses []net.IP
+
+	for _, answer := range resp.Answer {
+		if a, ok := answer.(*dns.A); ok {
+			ipAddresses = append(ipAddresses, a.A)
+		}
+	}
+
+	return ipAddresses, nil
+}
+
 func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Config) {
 	m := new(dns.Msg)
 	m.SetReply(r)
@@ -180,31 +232,41 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 			本地查询
 			*/
 
-			ip, err := net.LookupIP(name)
+			localDnsServers, err := getLocalDNSServers()
+			localResp := new(dns.Msg)
+			for _, localDnsServer := range localDnsServers {
+				localResp, _, err = performRecursiveDNSQuery(r, localDnsServer)
+				if err == nil {
+					logger.Println("localDnsServer: ", localDnsServer, " resolved: ", localResp.String())
+					break
+				}
+			}
+			//ip, err := net.LookupIP(name)
+			ips, err := extractIPAddressesFromResponse(localResp)
 			if err == nil {
-				for _, addr := range ip {
+				for _, addr := range ips {
 					ipStr := addr.String()
 					if isPrivateIP(addr) {
-						rr := &dns.A{
-							Hdr: dns.RR_Header{Name: name, Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 60},
-							A:   addr,
-						}
-						m.Answer = append(m.Answer, rr)
-						storeInCache(queryKey, m, appConfigs.DNS.CacheTimeout) // Cache the response
-						w.WriteMsg(m)
+						//rr := &dns.A{
+						//	Hdr: dns.RR_Header{Name: name, Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 60},
+						//	A:   addr,
+						//}
+						//m.Answer = append(m.Answer, rr)
+						storeInCache(queryKey, localResp, appConfigs.DNS.CacheTimeout) // Cache the response
+						w.WriteMsg(localResp)
 						endTime := time.Now()                            // 记录处理完成的时间
 						elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
 						logger.Println("client: "+clientIP+" elapsedTime: ", elapsed, "ms  name: ", name, " localPrivateDNS:", m.String())
 						return
 					}
 					if isIPInRange(ipStr, ipRanges) {
-						rr := &dns.A{
-							Hdr: dns.RR_Header{Name: name, Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 60},
-							A:   addr,
-						}
-						m.Answer = append(m.Answer, rr)
-						storeInCache(queryKey, m, appConfigs.DNS.CacheTimeout) // Cache the response
-						w.WriteMsg(m)
+						//rr := &dns.A{
+						//	Hdr: dns.RR_Header{Name: name, Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 60},
+						//	A:   addr,
+						//}
+						//m.Answer = append(m.Answer, rr)
+						storeInCache(queryKey, localResp, appConfigs.DNS.CacheTimeout) // Cache the response
+						w.WriteMsg(localResp)
 						endTime := time.Now()                            // 记录处理完成的时间
 						elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
 						logger.Println("client: "+clientIP+" elapsedTime: ", elapsed, "ms name: ", name, " localDNS:", m.String())
@@ -212,22 +274,19 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 					}
 				}
 			}
-
-			/**
-			递归查询
-			*/
+			// 递归查询
 			recursiveAddr := appConfigs.DNS.RecursiveDNS
-			c := new(dns.Client)
-			resp, _, err := c.Exchange(r, recursiveAddr+":53")
+			remoteResp, _, err := performRecursiveDNSQuery(r, recursiveAddr)
 			if err != nil {
 				logger.Println("Error:", err)
 				return
 			}
-			storeInCache(queryKey, resp, appConfigs.DNS.CacheTimeout) // Cache the response
-			w.WriteMsg(resp)
+			storeInCache(queryKey, remoteResp, appConfigs.DNS.CacheTimeout) // Cache the response
+			w.WriteMsg(remoteResp)
 			endTime := time.Now()                            // 记录处理完成的时间
 			elapsed := endTime.Sub(startTime).Milliseconds() // 计算处理耗时（毫秒）
-			logger.Println("client: "+clientIP+"  elapsedTime: ", elapsed, "ms name: ", name, "  recursiveDNS:", resp.String())
+			logger.Println("client: "+clientIP+"  elapsedTime: ", elapsed, "ms name: ", name, "  recursiveDNS:", remoteResp.String())
+
 		}
 	}
 }

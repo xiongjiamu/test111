@@ -6,6 +6,7 @@ import (
 	"dkdns/httpServer/controllers"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 )
 
 func StartGinServer(appConfigs *configs.Config) {
@@ -20,9 +21,10 @@ func StartGinServer(appConfigs *configs.Config) {
 	router.DELETE("/delspecial", controllers.DelSpecialHandler)
 	router.DELETE("/delcache", controllers.DelCacheHandler)
 
-	logger.Info("http://localhost:8080")
+	portString := strconv.Itoa(appConfigs.HTTPS.Port)
+	logger.Info("http://localhost:" + portString)
 	// 启动服务器
-	if err := router.Run(":8080"); err != nil {
+	if err := router.Run(":" + portString); err != nil {
 		panic(err)
 	}
 
