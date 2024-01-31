@@ -241,6 +241,10 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 					break
 				}
 			}
+			if localResp == nil {
+				logger.Println("localResp is nil  localDnsServer: ", localDnsServers)
+				return
+			}
 			//ip, err := net.LookupIP(name)
 			ips, err := extractIPAddressesFromResponse(localResp)
 			if err == nil {
