@@ -1,16 +1,44 @@
 ---
-linkTitle: Documentation
-title: Introduction
+linkTitle: 帮助文档
+title: 帮助文档
 ---
 
-👋 Welcome to the demo of the Hugo Blox Documentation template!
+欢迎来到GitCode！GitCode致力于为广大开发者提供一个开放、协作、自由的编程环境，探索开源世界的无限可能。
 
-<!--more-->
+为了帮助你更好地使用GitCode，我们特地为你准备了这份产品使用说明文档。在接下来的内容中，我们将详细介绍如何使用GitCode的主要功能以及常见问题解决方法。
 
-This site is a demo of the Hugo Blox Documentation theme. For the full documentation on how to use this template, refer to the [Hugo Blox Documentation](https://docs.hugoblox.com/).
+## 一、注册账号
 
-## Next
+1. 打开GitCode官方网站(https://gitcode.com)，点击页面右上角“注册”按钮，根据引导完成注册即可。
 
-{{< cards >}}
-  {{< card url="getting-started" title="Get Started" icon="document-text" subtitle="Create your docs in just 5 minutes!" >}}
-{{< /cards >}}
+## 二、功能概述
+
+### 1. 发布和分享代码
+	* 在网站创建一个新的代码仓库
+	* 将你的代码提交到该仓库中
+	* 通过分享链接让其他人访问你的代码 
+### 2. 参与讨论和交流
+	* 在项目的issue内，反馈关于代码的问题或者想法
+    * 在项目的讨论内，可以参与回复、投票等活动，与他人交流
+    * 在组织社区内，可以了解该组织最新活动、内容推荐，了解组织的最新动向。
+### 3. 协作编程
+	* 参与他人的项目，共同解决问题或开发新功能
+	* 通过Pull Request向项目提交你的修改和建议
+### 4. 阅读和学习他人代码
+	* 通过搜索找到感兴趣的项目或代码仓库
+	* 查看项目的源代码、文档和贡献者信息
+
+## 三、常见问题及解决方法
+
+**1. 无法连接到服务器** 
+
+*  检查网络连接是否正常，尝试重新启动客户端或更换网络环境
+* 确认你的账户是否存在异常，如有需要请联系GitCode客服（ kefu@gitcode.com ）支持
+
+**2. 无法创建项目**
+* 检查你的账户权限是否正确
+* 确认你的账户是否存在异常，如有需要请联系GitCode客服（ kefu@gitcode.com ）支持
+
+**3. 无法提交代码到仓库**
+* 检查你的提交信息是否填写正确，包括提交说明、文件内容和分支选择等
+* 确认你的账户权限是否正确，如有需要请联系GitCode客服（ kefu@gitcode.com ）支持
