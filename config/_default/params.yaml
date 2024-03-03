@@ -14,8 +14,8 @@ marketing:
     site_type: Project
     local_business_type: ''
     org_name: ''
-    description: 'A highly-customizable Hugo documentation theme powered by Hugo Blox website builder.'
-    twitter: 'GetResearchDev'
+    description: 'GitCode 用户帮助中心'
+    twitter: ''
   analytics:
     google_analytics: ''
     google_tag_manager: ''
@@ -41,20 +41,20 @@ header:
       filename: "logo.svg"
     button:
       enable: true
-      text: "Get Started"
-      url: "https://hugoblox.com/templates/details/docs/"
+      text: "立即使用"
+      url: "https://gitcode.com/"
     show_search: true
     show_theme_chooser: true
 
 # Site footer
 footer:
   copyright:
-    notice: '© {year} My Company. This work is licensed under {license}'
-    license:
-      enable: true
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
+    notice: '© {year} GitCode'
+    # license:
+    #   enable: true
+    #   allow_derivatives: false
+    #   share_alike: true
+    #   allow_commercial: false
 
 # Localization
 locale:

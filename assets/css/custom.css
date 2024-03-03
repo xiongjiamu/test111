@@ -1,0 +1,12 @@
+.navbar-brand svg {
+    height: 1.5em;
+    max-width: 100%;
+}
+
+.max-w-prose {
+    display: none;
+}
+
+.powered-by {
+    display: none;
+}

@@ -1,36 +1,22 @@
 ---
-title: Community
+title: 社区支持
 toc: true
 reading_time: false
 pager: false
 ---
 
-## Support
+## 社区支持
 
-Get support fast. Hugo Blox has the largest Hugo community on Discord, consisting of thousands of creators, developers, and startups.
+如您在使用过程中遇到问题，请通过以下方式联系我们：
 
-## Docs
+## 产品bug
 
-- View the [Hugo Blox Documentation](https://docs.hugoblox.com/)
+- 如遇到产品bug，请点此[提交issue](https://gitcode.com/Gitcode-offical-team/GitCode-Docs/issues)
 
-## Live Chat {#chat}
+## 产品建议
 
-- Join the [Hugo Blox Online Chat](https://discord.gg/z8wNYzb)
-  - _#using-hugo-blox_ for user help
-  - _#contributors_ for contributing help
+- 关于产品的使用建议或者需求，请在[讨论](https://gitcode.com/Gitcode-offical-team/GitCode-Docs/discussion/1)中提出
 
-## Feature requests {#feature-requests}
+## 联系客服
 
-For new feature requests, create a post on our [GitHub Issues](https://github.com/HugoBlox/hugo-blox-builder/issues). You can also upvote existing feature requests with a 👍
-
-## News {#news}
-
-Follow us so you are the first to know when new features and templates are launched:
-
-- [Subscribe to the _#announcement_ channel on Discord](https://discord.gg/z8wNYzb)
-- [Follow us on Twitter](https://twitter.com/GetResearchDev)
-- [Subscribe to the Hugo Blox blog](https://hugoblox.com/blog/)
-
-## Further Resources
-
-- [Hugo Forums](https://discourse.gohugo.io/) for help installing Hugo and resolving Hugo error messages
+- 帮助文档无法帮您解决的问题 / 想要申请组织入驻，请及时联系在线客服(kefu@gitcode.com)，为了更及时地为您解决问题，请在邮件标题中写明【申请入驻】/【问题】+ 具体情况描述哦～
