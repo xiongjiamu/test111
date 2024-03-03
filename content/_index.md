@@ -18,7 +18,7 @@ sections:
         icon: rocket-launch
       secondary_action:
         text: API 文档
-        url: https://docs.gitcode.com/api
+        url: /docs/api/
       # announcement:
       #   text: "Announcing the release of version 2."
       #   link:

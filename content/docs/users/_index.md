@@ -3,7 +3,7 @@ linkTitle: 用户
 title: 用户
 weight: 1
 sidebar:
-  open: true
+  open: false
 ---
 
 

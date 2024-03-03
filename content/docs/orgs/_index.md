@@ -3,7 +3,7 @@ linkTitle: 组织
 title: 组织
 weight: 2
 sidebar:
-  open: true
+  open: false
 ---
 
 

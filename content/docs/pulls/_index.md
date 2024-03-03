@@ -3,7 +3,7 @@ linkTitle: Pull Requests
 title: Pull Requests
 weight: 5
 sidebar:
-  open: true
+  open: false
 ---
 
 GitCode 的pull requests是协作和代码审查的关键部分，它允许团队成员共同审查、讨论和合并代码更改。它基于分支，允许开发者提交新代码或更改至主项目。这个功能的核心原理是将开发者的更改与项目的代码库进行比较和审查。
