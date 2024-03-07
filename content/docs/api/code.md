@@ -21,6 +21,7 @@ sidebar:
 | file_path  | string | query | true | 文件路径          |
 
 ### 响应
+
 返回码: 200
 
 ```json
@@ -71,6 +72,7 @@ sidebar:
 | ref        | string | query | true | commit、分支、tag |
 
 ### 响应
+
 返回码: 200
 
 ```text
@@ -93,6 +95,7 @@ aaaacc
 | description | string | body | false | 分支描述          |
 
 ### 响应
+
 返回码: 201
 
 | 参数名                     | 类型                           | 描述         |
@@ -114,6 +117,7 @@ aaaacc
 | can_push                | boolean                      | 是否能推送      |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -131,6 +135,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -138,6 +143,7 @@ aaaacc
 | avatar_url | string | 用户头像 |
 
 #### DivergingCommitCounts
+
 | 参数名    | 类型      | 描述  |
 |--------|---------|-----|
 | behind | integer | 滞后  |
@@ -200,6 +206,7 @@ aaaacc
 | branch     | string | query | true | 分支名称 |
 
 ### 响应
+
 返回码: 204
 
 ## 5. 分支列表
@@ -222,6 +229,7 @@ aaaacc
 | per_page    | integer | query | false | 20           | 分页参数-每页条数                                                                                     |
 
 ### 响应
+
 返回码: 200
 
 | 参数名                     | 类型                           | 描述         | 返回数据             |
@@ -243,6 +251,7 @@ aaaacc
 | can_push                | boolean                      | 是否能推送      | all              |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -260,6 +269,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -267,6 +277,7 @@ aaaacc
 | avatar_url | string | 用户头像 |
 
 #### DivergingCommitCounts
+
 | 参数名    | 类型      | 描述  |
 |--------|---------|-----|
 | behind | integer | 滞后  |
@@ -274,47 +285,47 @@ aaaacc
 
 ```json
 [
-    {
-        "name": "branch1",
-        "default": false,
-        "commit": {
-            "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-            "message": " ",
-            "parent_ids": [
-              "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-            ],
-            "authored_date": "2023-09-19T10:07:44.000Z",
-            "author_name": "xxx",
-            "committed_date": "2023-09-19T10:07:44.000Z",
-            "committer_name": "xxx",
-            "short_id": "a655c6cf",
-            "title": "feat: 修改README.md ",
-            "author_avatar_url": "https://xxx",
-            "author_nick_name": "xx",
-            "committer_avatar_url": "https://xxx",
-            "committer_nick_name": "xx"
-        },
-        "merged": false,
-        "protected": false,
-        "created_at": "2023-09-19T20:18:13.627+08:00",
-        "creator": {
-          "username": "xxx",
-          "nick_name": "xx",
-          "avatar_url": "https://xxx"
-        },
-        "description": "aaa",
-        "create_source": "main",
-        "create_source_exists": true,
-        "latest_pipeline": null,
-        "opened_mr_count": 0,
-        "diverging_commit_counts": {
-          "behind": 0,
-          "ahead": 0
-        },
-        "developers_can_push": false,
-        "developers_can_merge": false,
-        "can_push": true
-    }
+  {
+    "name": "branch1",
+    "default": false,
+    "commit": {
+      "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+      "message": " ",
+      "parent_ids": [
+        "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+      ],
+      "authored_date": "2023-09-19T10:07:44.000Z",
+      "author_name": "xxx",
+      "committed_date": "2023-09-19T10:07:44.000Z",
+      "committer_name": "xxx",
+      "short_id": "a655c6cf",
+      "title": "feat: 修改README.md ",
+      "author_avatar_url": "https://xxx",
+      "author_nick_name": "xx",
+      "committer_avatar_url": "https://xxx",
+      "committer_nick_name": "xx"
+    },
+    "merged": false,
+    "protected": false,
+    "created_at": "2023-09-19T20:18:13.627+08:00",
+    "creator": {
+      "username": "xxx",
+      "nick_name": "xx",
+      "avatar_url": "https://xxx"
+    },
+    "description": "aaa",
+    "create_source": "main",
+    "create_source_exists": true,
+    "latest_pipeline": null,
+    "opened_mr_count": 0,
+    "diverging_commit_counts": {
+      "behind": 0,
+      "ahead": 0
+    },
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true
+  }
 ]
 ```
 
@@ -326,23 +337,25 @@ aaaacc
 
 ### 参数
 
-| 参数名           | 类型      | IN    | 必选    | 描述               |
-|---------------|---------|:------|:------|------------------|
-| project_id    | string  | path  | true  | 项目id             |
-| ref_name      | string  | query | false | 分支、tag           |
-| since         | string  | query | false | 时间筛选-起始时间        |
-| until         | string  | query | false | 时间筛选-终止时间        |
-| path          | string  | query | false | 文件路径             |
-| message       | string  | query | false | 提交信息或commit id查询 |
-| author        | string  | query | false | 提交者查询            |
-| follow        | boolean | query | false | 文件重命名追踪参数        |
-| page          | integer | query | false | 分页参数-当前页         |
-| per_page      | integer | query | false | 分页参数-每页条数        |
+| 参数名        | 类型      | IN    | 必选    | 描述               |
+|------------|---------|:------|:------|------------------|
+| project_id | string  | path  | true  | 项目id             |
+| ref_name   | string  | query | false | 分支、tag           |
+| since      | string  | query | false | 时间筛选-起始时间        |
+| until      | string  | query | false | 时间筛选-终止时间        |
+| path       | string  | query | false | 文件路径             |
+| message    | string  | query | false | 提交信息或commit id查询 |
+| author     | string  | query | false | 提交者查询            |
+| follow     | boolean | query | false | 文件重命名追踪参数        |
+| page       | integer | query | false | 分页参数-当前页         |
+| per_page   | integer | query | false | 分页参数-每页条数        |
 
 ### 响应
+
 返回码: 200
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -377,7 +390,7 @@ aaaacc
     "author_nick_name": "xx",
     "committer_avatar_url": "https://xxx",
     "committer_nick_name": "xx"
-  }  
+  }
 ]
 ```
 
@@ -395,9 +408,11 @@ aaaacc
 | sha        | string | path | true | commit、分支、tag |
 
 ### 响应
+
 返回码: 200
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -451,6 +466,7 @@ aaaacc
 | release_description | string | body | false | release描述                 |
 
 ### 响应
+
 返回码: 201
 
 | 参数名     | 类型             | 描述        |
@@ -462,6 +478,7 @@ aaaacc
 | release | Release object | release信息 |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -479,6 +496,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Release
+
 | 参数名         | 类型     | 描述        |
 |-------------|--------|-----------|
 | tag_name    | string | tag名称     |
@@ -486,30 +504,30 @@ aaaacc
 
 ```json
 {
-    "name": "t11",
-    "message": "tag11",
-    "target": "b96cb71b9de3866b3ac6b1f408e047bfe4f14090",
-    "commit": {
-        "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-        "message": " ",
-        "parent_ids": [
-            "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-        ],
-        "authored_date": "2023-09-19T10:07:44.000Z",
-        "author_name": "xxx",
-        "committed_date": "2023-09-19T10:07:44.000Z",
-        "committer_name": "xxx",
-        "short_id": "a655c6cf",
-        "title": "feat: 修改README.md ",
-        "author_avatar_url": "https://xxx",
-        "author_nick_name": "xx",
-        "committer_avatar_url": "https://xxx",
-        "committer_nick_name": "xx"
-    },
-    "release": {
-        "tag_name": "t11",
-        "description": "release11"
-    }
+  "name": "t11",
+  "message": "tag11",
+  "target": "b96cb71b9de3866b3ac6b1f408e047bfe4f14090",
+  "commit": {
+    "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+    "message": " ",
+    "parent_ids": [
+      "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+    ],
+    "authored_date": "2023-09-19T10:07:44.000Z",
+    "author_name": "xxx",
+    "committed_date": "2023-09-19T10:07:44.000Z",
+    "committer_name": "xxx",
+    "short_id": "a655c6cf",
+    "title": "feat: 修改README.md ",
+    "author_avatar_url": "https://xxx",
+    "author_nick_name": "xx",
+    "committer_avatar_url": "https://xxx",
+    "committer_nick_name": "xx"
+  },
+  "release": {
+    "tag_name": "t11",
+    "description": "release11"
+  }
 }
 ```
 
@@ -521,12 +539,13 @@ aaaacc
 
 ### 参数
 
-| 参数名                 | 类型     | IN   | 必选    | 描述    |
-|---------------------|--------|:-----|:------|-------|
-| project_id          | string | path | true  | 项目id  |
-| tag_name            | string | path | true  | tag名称 |
+| 参数名        | 类型     | IN   | 必选   | 描述    |
+|------------|--------|:-----|:-----|-------|
+| project_id | string | path | true | 项目id  |
+| tag_name   | string | path | true | tag名称 |
 
 ### 响应
+
 返回码: 204
 
 ## 10. tag列表
@@ -549,6 +568,7 @@ aaaacc
 | per_page   | integer | query | false | 20      | 分页参数-每页条数                 |
 
 ### 响应
+
 返回码: 200
 
 | 参数名                  | 类型             | 描述       | 返回数据                |
@@ -564,6 +584,7 @@ aaaacc
 | create_source_exists | boolean        | 创建来源是否存在 | detail              |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -581,6 +602,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -589,37 +611,37 @@ aaaacc
 
 ```json
 [
-    {
-        "name": "t9",
-        "message": "tag5",
-        "target": "b96cb71b9de3866b3ac6b1f408e047bfe4f14090",
-        "commit": {
-            "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-            "message": " ",
-            "parent_ids": [
-            "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-            ],
-            "authored_date": "2023-09-19T10:07:44.000Z",
-            "author_name": "xxx",
-            "committed_date": "2023-09-19T10:07:44.000Z",
-            "committer_name": "xxx",
-            "short_id": "a655c6cf",
-            "title": "feat: 修改README.md ",
-            "author_avatar_url": "https://xxx",
-            "author_nick_name": "xx",
-            "committer_avatar_url": "https://xxx",
-            "committer_nick_name": "xx"
-        },
-        "protected": false,
-        "created_at": "2023-09-20 11:03:03 +0800",
-        "creator": {
-            "username": "xxx",
-            "nick_name": "xx",
-            "avatar_url": "https://xxx"
-        },
-        "create_source": "b96cb71b9de3866b3ac6b1f408e047bfe4f14090",
-        "create_source_exists": true
-    }
+  {
+    "name": "t9",
+    "message": "tag5",
+    "target": "b96cb71b9de3866b3ac6b1f408e047bfe4f14090",
+    "commit": {
+      "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+      "message": " ",
+      "parent_ids": [
+        "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+      ],
+      "authored_date": "2023-09-19T10:07:44.000Z",
+      "author_name": "xxx",
+      "committed_date": "2023-09-19T10:07:44.000Z",
+      "committer_name": "xxx",
+      "short_id": "a655c6cf",
+      "title": "feat: 修改README.md ",
+      "author_avatar_url": "https://xxx",
+      "author_nick_name": "xx",
+      "committer_avatar_url": "https://xxx",
+      "committer_nick_name": "xx"
+    },
+    "protected": false,
+    "created_at": "2023-09-20 11:03:03 +0800",
+    "creator": {
+      "username": "xxx",
+      "nick_name": "xx",
+      "avatar_url": "https://xxx"
+    },
+    "create_source": "b96cb71b9de3866b3ac6b1f408e047bfe4f14090",
+    "create_source_exists": true
+  }
 ]
 ```
 
@@ -640,18 +662,20 @@ aaaacc
 | description | string | body | true | release描述               |
 
 ### 响应
+
 返回码: 201
 
-| 参数名         | 类型              | 描述        |
-|-------------|-----------------|-----------|
-| tag_name    | string          | tag名称     |
-| description | string          | release描述 |
-| name        | string          | release名称 |
-| created_at  | string          | 创建时间      |
-| commit      | Commit object   | commit信息  |
-| creator     | Creator object  | 创建者信息     |
+| 参数名         | 类型             | 描述        |
+|-------------|----------------|-----------|
+| tag_name    | string         | tag名称     |
+| description | string         | release描述 |
+| name        | string         | release名称 |
+| created_at  | string         | 创建时间      |
+| commit      | Commit object  | commit信息  |
+| creator     | Creator object | 创建者信息     |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -669,6 +693,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -677,32 +702,32 @@ aaaacc
 
 ```json
 {
-    "tag_name": "tag2",
-    "description": "release2",
-    "name": "release2",
-    "created_at": "2023-09-20T17:31:55.128+08:00",
-    "commit": {
-        "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-        "message": " ",
-        "parent_ids": [
-        "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-        ],
-        "authored_date": "2023-09-19T10:07:44.000Z",
-        "author_name": "xxx",
-        "committed_date": "2023-09-19T10:07:44.000Z",
-        "committer_name": "xxx",
-        "short_id": "a655c6cf",
-        "title": "feat: 修改README.md ",
-        "author_avatar_url": "https://xxx",
-        "author_nick_name": "xx",
-        "committer_avatar_url": "https://xxx",
-        "committer_nick_name": "xx"
-    },
-    "creator": {
-        "username": "xxx",
-        "nick_name": "xx",
-        "avatar_url": "https://xxx"
-    }
+  "tag_name": "tag2",
+  "description": "release2",
+  "name": "release2",
+  "created_at": "2023-09-20T17:31:55.128+08:00",
+  "commit": {
+    "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+    "message": " ",
+    "parent_ids": [
+      "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+    ],
+    "authored_date": "2023-09-19T10:07:44.000Z",
+    "author_name": "xxx",
+    "committed_date": "2023-09-19T10:07:44.000Z",
+    "committer_name": "xxx",
+    "short_id": "a655c6cf",
+    "title": "feat: 修改README.md ",
+    "author_avatar_url": "https://xxx",
+    "author_nick_name": "xx",
+    "committer_avatar_url": "https://xxx",
+    "committer_nick_name": "xx"
+  },
+  "creator": {
+    "username": "xxx",
+    "nick_name": "xx",
+    "avatar_url": "https://xxx"
+  }
 }
 ```
 
@@ -720,18 +745,20 @@ aaaacc
 | tag_name   | string | path | true | tag名称 |
 
 ### 响应
+
 返回码: 200
 
-| 参数名         | 类型              | 描述        |
-|-------------|-----------------|-----------|
-| tag_name    | string          | tag名称     |
-| description | string          | release描述 |
-| name        | string          | release名称 |
-| created_at  | string          | 创建时间      |
-| commit      | Commit object   | commit信息  |
-| creator     | Creator object  | 创建者信息     |
+| 参数名         | 类型             | 描述        |
+|-------------|----------------|-----------|
+| tag_name    | string         | tag名称     |
+| description | string         | release描述 |
+| name        | string         | release名称 |
+| created_at  | string         | 创建时间      |
+| commit      | Commit object  | commit信息  |
+| creator     | Creator object | 创建者信息     |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -749,6 +776,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -757,32 +785,32 @@ aaaacc
 
 ```json
 {
-    "tag_name": "tag2",
-    "description": "release2",
-    "name": "release2",
-    "created_at": "2023-09-20T17:31:55.128+08:00",
-    "commit": {
-        "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-        "message": " ",
-        "parent_ids": [
-        "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-        ],
-        "authored_date": "2023-09-19T10:07:44.000Z",
-        "author_name": "xxx",
-        "committed_date": "2023-09-19T10:07:44.000Z",
-        "committer_name": "xxx",
-        "short_id": "a655c6cf",
-        "title": "feat: 修改README.md ",
-        "author_avatar_url": "https://xxx",
-        "author_nick_name": "xx",
-        "committer_avatar_url": "https://xxx",
-        "committer_nick_name": "xx"
-    },
-    "creator": {
-        "username": "xxx",
-        "nick_name": "xx",
-        "avatar_url": "https://xxx"
-    }
+  "tag_name": "tag2",
+  "description": "release2",
+  "name": "release2",
+  "created_at": "2023-09-20T17:31:55.128+08:00",
+  "commit": {
+    "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+    "message": " ",
+    "parent_ids": [
+      "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+    ],
+    "authored_date": "2023-09-19T10:07:44.000Z",
+    "author_name": "xxx",
+    "committed_date": "2023-09-19T10:07:44.000Z",
+    "committer_name": "xxx",
+    "short_id": "a655c6cf",
+    "title": "feat: 修改README.md ",
+    "author_avatar_url": "https://xxx",
+    "author_nick_name": "xx",
+    "committer_avatar_url": "https://xxx",
+    "committer_nick_name": "xx"
+  },
+  "creator": {
+    "username": "xxx",
+    "nick_name": "xx",
+    "avatar_url": "https://xxx"
+  }
 }
 ```
 
@@ -802,18 +830,20 @@ aaaacc
 | description | string | body | true | release描述 |
 
 ### 响应
+
 返回码: 200
 
-| 参数名         | 类型              | 描述        |
-|-------------|-----------------|-----------|
-| tag_name    | string          | tag名称     |
-| description | string          | release描述 |
-| name        | string          | release名称 |
-| created_at  | string          | 创建时间      |
-| commit      | Commit object   | commit信息  |
-| creator     | Creator object  | 创建者信息     |
+| 参数名         | 类型             | 描述        |
+|-------------|----------------|-----------|
+| tag_name    | string         | tag名称     |
+| description | string         | release描述 |
+| name        | string         | release名称 |
+| created_at  | string         | 创建时间      |
+| commit      | Commit object  | commit信息  |
+| creator     | Creator object | 创建者信息     |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -831,6 +861,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -839,32 +870,32 @@ aaaacc
 
 ```json
 {
-    "tag_name": "tag2",
-    "description": "release2",
-    "name": "release2",
-    "created_at": "2023-09-20T17:31:55.128+08:00",
-    "commit": {
-        "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-        "message": " ",
-        "parent_ids": [
-        "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-        ],
-        "authored_date": "2023-09-19T10:07:44.000Z",
-        "author_name": "xxx",
-        "committed_date": "2023-09-19T10:07:44.000Z",
-        "committer_name": "xxx",
-        "short_id": "a655c6cf",
-        "title": "feat: 修改README.md ",
-        "author_avatar_url": "https://xxx",
-        "author_nick_name": "xx",
-        "committer_avatar_url": "https://xxx",
-        "committer_nick_name": "xx"
-    },
-    "creator": {
-        "username": "xxx",
-        "nick_name": "xx",
-        "avatar_url": "https://xxx"
-    }
+  "tag_name": "tag2",
+  "description": "release2",
+  "name": "release2",
+  "created_at": "2023-09-20T17:31:55.128+08:00",
+  "commit": {
+    "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+    "message": " ",
+    "parent_ids": [
+      "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+    ],
+    "authored_date": "2023-09-19T10:07:44.000Z",
+    "author_name": "xxx",
+    "committed_date": "2023-09-19T10:07:44.000Z",
+    "committer_name": "xxx",
+    "short_id": "a655c6cf",
+    "title": "feat: 修改README.md ",
+    "author_avatar_url": "https://xxx",
+    "author_nick_name": "xx",
+    "committer_avatar_url": "https://xxx",
+    "committer_nick_name": "xx"
+  },
+  "creator": {
+    "username": "xxx",
+    "nick_name": "xx",
+    "avatar_url": "https://xxx"
+  }
 }
 ```
 
@@ -882,18 +913,20 @@ aaaacc
 | tag_name   | string | path | true | tag名称 |
 
 ### 响应
+
 返回码: 200
 
-| 参数名         | 类型              | 描述        |
-|-------------|-----------------|-----------|
-| tag_name    | string          | tag名称     |
-| description | string          | release描述 |
-| name        | string          | release名称 |
-| created_at  | string          | 创建时间      |
-| commit      | Commit object   | commit信息  |
-| creator     | Creator object  | 创建者信息     |
+| 参数名         | 类型             | 描述        |
+|-------------|----------------|-----------|
+| tag_name    | string         | tag名称     |
+| description | string         | release描述 |
+| name        | string         | release名称 |
+| created_at  | string         | 创建时间      |
+| commit      | Commit object  | commit信息  |
+| creator     | Creator object | 创建者信息     |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -911,6 +944,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -919,32 +953,32 @@ aaaacc
 
 ```json
 {
-    "tag_name": "tag2",
-    "description": "release2",
-    "name": "release2",
-    "created_at": "2023-09-20T17:31:55.128+08:00",
-    "commit": {
-        "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-        "message": " ",
-        "parent_ids": [
-        "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-        ],
-        "authored_date": "2023-09-19T10:07:44.000Z",
-        "author_name": "xxx",
-        "committed_date": "2023-09-19T10:07:44.000Z",
-        "committer_name": "xxx",
-        "short_id": "a655c6cf",
-        "title": "feat: 修改README.md ",
-        "author_avatar_url": "https://xxx",
-        "author_nick_name": "xx",
-        "committer_avatar_url": "https://xxx",
-        "committer_nick_name": "xx"
-    },
-    "creator": {
-        "username": "xxx",
-        "nick_name": "xx",
-        "avatar_url": "https://xxx"
-    }
+  "tag_name": "tag2",
+  "description": "release2",
+  "name": "release2",
+  "created_at": "2023-09-20T17:31:55.128+08:00",
+  "commit": {
+    "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+    "message": " ",
+    "parent_ids": [
+      "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+    ],
+    "authored_date": "2023-09-19T10:07:44.000Z",
+    "author_name": "xxx",
+    "committed_date": "2023-09-19T10:07:44.000Z",
+    "committer_name": "xxx",
+    "short_id": "a655c6cf",
+    "title": "feat: 修改README.md ",
+    "author_avatar_url": "https://xxx",
+    "author_nick_name": "xx",
+    "committer_avatar_url": "https://xxx",
+    "committer_nick_name": "xx"
+  },
+  "creator": {
+    "username": "xxx",
+    "nick_name": "xx",
+    "avatar_url": "https://xxx"
+  }
 }
 ```
 
@@ -964,18 +998,20 @@ aaaacc
 | per_page   | integer | query | false | 20  | 分页参数-每页条数 |
 
 ### 响应
+
 返回码: 200
 
-| 参数名         | 类型              | 描述        |
-|-------------|-----------------|-----------|
-| tag_name    | string          | tag名称     |
-| description | string          | release描述 |
-| name        | string          | release名称 |
-| created_at  | string          | 创建时间      |
-| commit      | Commit object   | commit信息  |
-| creator     | Creator object  | 创建者信息     |
+| 参数名         | 类型             | 描述        |
+|-------------|----------------|-----------|
+| tag_name    | string         | tag名称     |
+| description | string         | release描述 |
+| name        | string         | release名称 |
+| created_at  | string         | 创建时间      |
+| commit      | Commit object  | commit信息  |
+| creator     | Creator object | 创建者信息     |
 
 #### Commit
+
 | 参数名                  | 类型              | 描述        |
 |----------------------|-----------------|-----------|
 | id                   | string          | commit id |
@@ -993,6 +1029,7 @@ aaaacc
 | committer_nick_name  | string          | 提交者昵称     |
 
 #### Creator
+
 | 参数名        | 类型     | 描述   |
 |------------|--------|------|
 | username   | string | 用户名  |
@@ -1001,34 +1038,34 @@ aaaacc
 
 ```json
 [
-    {
-        "tag_name": "tag2",
-        "description": "release2",
-        "name": "release2",
-        "created_at": "2023-09-20T17:31:55.128+08:00",
-        "commit": {
-            "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-            "message": " ",
-            "parent_ids": [
-            "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-            ],
-            "authored_date": "2023-09-19T10:07:44.000Z",
-            "author_name": "xxx",
-            "committed_date": "2023-09-19T10:07:44.000Z",
-            "committer_name": "xxx",
-            "short_id": "a655c6cf",
-            "title": "feat: 修改README.md ",
-            "author_avatar_url": "https://xxx",
-            "author_nick_name": "xx",
-            "committer_avatar_url": "https://xxx",
-            "committer_nick_name": "xx"
-        },
-        "creator": {
-            "username": "xxx",
-            "nick_name": "xx",
-            "avatar_url": "https://xxx"
-        }
+  {
+    "tag_name": "tag2",
+    "description": "release2",
+    "name": "release2",
+    "created_at": "2023-09-20T17:31:55.128+08:00",
+    "commit": {
+      "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+      "message": " ",
+      "parent_ids": [
+        "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+      ],
+      "authored_date": "2023-09-19T10:07:44.000Z",
+      "author_name": "xxx",
+      "committed_date": "2023-09-19T10:07:44.000Z",
+      "committer_name": "xxx",
+      "short_id": "a655c6cf",
+      "title": "feat: 修改README.md ",
+      "author_avatar_url": "https://xxx",
+      "author_nick_name": "xx",
+      "committer_avatar_url": "https://xxx",
+      "committer_nick_name": "xx"
+    },
+    "creator": {
+      "username": "xxx",
+      "nick_name": "xx",
+      "avatar_url": "https://xxx"
     }
+  }
 ]
 ```
 
@@ -1040,11 +1077,12 @@ aaaacc
 
 ### 参数
 
-| 参数名        | 类型      | IN    | 必选    | 默认值 | 描述        |
-|------------|---------|:------|:------|-----|-----------|
-| project_id | string  | path  | true  |     | 项目id      |
+| 参数名        | 类型     | IN   | 必选   | 默认值 | 描述   |
+|------------|--------|:-----|:-----|-----|------|
+| project_id | string | path | true |     | 项目id |
 
 ### 响应
+
 返回码: 200
 
 | 参数名       | 类型                    | 描述   |
@@ -1053,6 +1091,7 @@ aaaacc
 | status    | string                | -    |
 
 #### LanguagesDto
+
 | 参数名   | 类型     | 描述   |
 |-------|--------|------|
 | color | string | 颜色   |
@@ -1070,5 +1109,120 @@ aaaacc
   ],
   "status": null
 }
+```
+
+## 17. 更新文件
+
+### 请求
+
+`PUT /api/v4/projects/{project_id}/repository/files`
+
+### 参数
+
+| 参数名            | 类型     | IN   | 必选    | 描述           |
+|----------------|--------|:-----|:------|--------------|
+| project_id     | string | path | true  | 项目id         |
+| name           | string | body | false | 文件名称         |
+| file_path      | string | body | true  | 文件路径         |
+| branch         | string | body | true  | 分支名称         |
+| commit_message | string | body | true  | 提交信息         |
+| start_branch   | string | body | false | 基于分支         |
+| author_email   | string | body | false | author邮箱     |
+| author_name    | string | body | false | author名称     |
+| content        | string | body | true  | 文件内容         |
+| encoding       | string | body | false | 文件编码         |
+| last_commit_id | string | body | false | 文件最后修改commit |
+
+### 响应
+
+返回码: 200
+
+| 参数名       | 类型     | 描述   |
+|-----------|--------|------|
+| file_path | string | 文件路径 |
+| branch    | string | 分支名称 |
+
+```json
+{
+  "file_path": "README.md",
+  "branch": "master"
+}
+```
+
+## 18. 获取目录Tree
+
+### 请求
+
+`GET /api/v4/projects/{project_id}/repository/tree`
+
+### 参数
+
+| 参数名        | 类型      | IN    | 必选    | 默认值   | 描述            |
+|------------|---------|:------|:------|-------|---------------|
+| project_id | string  | path  | true  |       | 项目id          |
+| ref        | string  | path  | false | 默认分支  | commit、分支、tag |
+| path       | string  | path  | false |       | 文件路径          |
+| recursive  | boolean | path  | false | false | 是否递归获取        |
+| page       | integer | query | false | 1     | 分页参数-当前页      |
+| per_page   | integer | query | false | 20    | 分页参数-每页条数     |
+
+### 响应
+
+返回码: 200
+
+| 参数名              | 类型     | 描述     |
+|------------------|--------|--------|
+| id               | string | blobId |
+| name             | string | 文件名称   |
+| type             | string | 文件类型   |
+| path             | string | 文件路径   |
+| mode             | string | 文件权限   |
+| submodule_link   | string | 子模块链接  |
+| submodule_branch | string | 子模块分支  |
+| md5              | string | MD5    |
+
+```json
+[
+  {
+    "id": "500c78f00047fb43177839468f83476f8fb0f497",
+    "name": ".gitmodules",
+    "type": "blob",
+    "path": ".gitmodules",
+    "mode": "100644",
+    "submodule_link": null,
+    "submodule_branch": null,
+    "md5": "8903239df476d7401cf9e76af0252622"
+  },
+  {
+    "id": "396d52643794602484520360bd5682da7c02dcd3",
+    "name": "README.md",
+    "type": "blob",
+    "path": "README.md",
+    "mode": "100644",
+    "submodule_link": null,
+    "submodule_branch": null,
+    "md5": "04c6e90faac2675aa89e2176d2eec7d8"
+  },
+  {
+    "id": "efd261bf79519c997d1c2ac4154798d551f022dd",
+    "name": "demo",
+    "type": "blob",
+    "path": "demo",
+    "mode": "100644",
+    "submodule_link": null,
+    "submodule_branch": null,
+    "md5": "fe01ce2a7fbac8fafaed7c982a04e229"
+  },
+  {
+    "id": "83cd5cf8ae91ee1f40eb13f9e1352b8fba42bb08",
+    "name": "240223demo1",
+    "type": "commit",
+    "path": "240223demo1",
+    "mode": "160000",
+    "submodule_link": "/xxxxx/240223demo1/tree/83cd5cf8ae91ee1f40eb13f9e1352b8fba42bb08",
+    "submodule_branch": "dev",
+    "md5": "e1d936a2bd619753065a3c15255f4a2a"
+  }
+]
 ```
 

@@ -13,7 +13,7 @@ Git LFS 是指 Git 的大文件存储（Large File Storage），是一个用于�
 - **高性能**：LFS 可以加速存储库的克隆和下载过程，因为它不需要每次都传输大文件
 - **文件锁定**：LFS 支持文件锁定，以避免多个用户同时编辑大文件引发冲突
 
-![Git LFS](../../../images/git-lfs.gif)
+![Git LFS](/docs/images/git-lfs.gif)
 
 ### Git LFS 下载和安装
 

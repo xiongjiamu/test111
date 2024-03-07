@@ -5,3 +5,8 @@
 resources/
 public/
 jsconfig.json
+static/
+
+# mac
+*.DS_Store
+*.zip
