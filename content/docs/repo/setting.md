@@ -1,7 +1,7 @@
 ---
 linkTitle: 项目设置
 title: 项目设置
-weight: 8
+weight: 9
 ---
 
 项目设置允许用户自定义项目的配置、权限、pull requests、部署以及其他重要属性。

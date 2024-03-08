@@ -21,7 +21,7 @@ Git LFS 是指 Git 的大文件存储（Large File Storage），是一个用于�
 >
 > Git LFS 官网： <https://git-lfs.github.com/>
 >
-> GitCode mirror 过来Git LFS的地址：<https://gitcode.com/mirrors/git-lfs/git-lfs>
+> GitCode 镜像地址：<https://gitcode.com/git-lfs/git-lfs>
 
 #### Linux 系统
 

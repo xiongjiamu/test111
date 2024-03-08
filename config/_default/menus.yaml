@@ -2,7 +2,7 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: 首页
+  - name: GitCode 首页
     url: "https://gitcode.com/"
     weight: 10
   - name: 帮助文档
