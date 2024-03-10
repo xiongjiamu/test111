@@ -5,8 +5,6 @@ reading_time: false
 pager: false
 ---
 
-## 社区支持
-
 如您在使用过程中遇到问题，请通过以下方式联系我们：
 
 ## 产品bug
