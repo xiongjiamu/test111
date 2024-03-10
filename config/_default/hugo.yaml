@@ -63,7 +63,7 @@ ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
 enableInlineShortcodes: true
 permalinks:
   post: '/blog/:slug/'
-  authors: '/author/:slug/'
+  # authors: '/author/:slug/'
   tags: '/tag/:slug/'
   categories: '/category/:slug/'
 disableAliases: true
