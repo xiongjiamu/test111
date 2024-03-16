@@ -1,7 +1,7 @@
 ---
 linkTitle: 解决冲突
 title: 解决冲突
-weight: 5
+weight: 6
 ---
 
 pull requests冲突是指在合并分支时，系统无法自动确定如何合并代码更改的情况。这通常发生在以下情况下：

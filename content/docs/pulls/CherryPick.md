@@ -1,7 +1,7 @@
 ---
 linkTitle: Cherry Pick
 title: Cherry Pick
-weight: 9
+weight: 10
 ---
 
 Cherry-Pick 用于选择性地将一个或多个提交从一个分支应用到另一个分支，而不必合并整个分支的更改。这使你可以非常精确地选择性地引入代码更改，而不必合并整个分支。

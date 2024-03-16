@@ -1,7 +1,7 @@
 ---
 linkTitle: 用户 API
 title: 用户接口API文档
-weight: 1
+weight: 2
 sidebar:
   open: false
 ---

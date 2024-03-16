@@ -1,7 +1,7 @@
 ---
 linkTitle: Pull Requests API
 title: PR接口API文档
-weight: 6
+weight: 7
 sidebar:
   open: false
 ---

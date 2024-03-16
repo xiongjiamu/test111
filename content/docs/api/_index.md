@@ -7,6 +7,7 @@ sidebar:
 ---
 
 {{< cards >}}
+  {{< card url="guide" title="使用入门 API" icon="cursor-arrow-ripple" >}}
   {{< card url="users" title="用户 API" icon="user-circle" >}}
   {{< card url="orgs" title="组织 API" icon="user-group" >}}
   {{< card url="repos" title="项目 API" icon="briefcase" >}}

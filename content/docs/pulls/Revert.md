@@ -1,7 +1,7 @@
 ---
 linkTitle: Revert
 title: Revert
-weight: 10
+weight: 11
 ---
 
 Revert 可以用于撤销之前合并的更改，它允许你快速且安全地回滚错误的合并或不需要的更改。
