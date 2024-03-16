@@ -1,7 +1,7 @@
 ---
 linkTitle: 草稿
 title: 草稿
-weight: 3
+weight: 4
 ---
 
 pull requests草稿是一个处于未提交状态的pull requests，它允许你在创建pull requests时将其标记为草稿，以便你可以在创建后进行进一步的工作、编辑和讨论，而不会立即触发自动合并。这对于在pull requests尚未完全准备好时与团队合作或在进行初步工作时非常有用。

@@ -1,7 +1,7 @@
 ---
 linkTitle: 组织 API
 title: 组织接口API文档
-weight: 2
+weight: 3
 sidebar:
   open: false
 ---

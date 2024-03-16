@@ -1,7 +1,7 @@
 ---
 linkTitle: CodeReview API
 title: 代码评审及评论相关接口API文档
-weight: 7
+weight: 8
 sidebar:
   open: false
 ---

@@ -1,12 +1,12 @@
 ---
 linkTitle: 用户 API
 title: 用户接口API文档
-weight: 1
+weight: 2
 sidebar:
   open: false
 ---
 
-## 1. 获取SSHKEY列表
+## 1. 获取 SSH KEY 列表
 
 ### 请求
 
@@ -40,7 +40,7 @@ sidebar:
     }
 ]
 ```
-## 2. 获取SSHKEY列表
+## 2. 添加 SSH KEY
 
 ### 请求
 
@@ -67,11 +67,11 @@ sidebar:
     "last_used_at": null
 }
 ```
-## 3. 删除指定SSHKEY
+## 3. 删除指定 SSH KEY
 
 ### 请求
 
-`POST /api/v4/user/keys/{id}`
+`DELETE /api/v4/user/keys/{id}`
 
 ### 参数
 
