@@ -4,11 +4,9 @@ title: Code Owners
 weight: 12
 ---
 
-## Code Owners简介
-
 在GitCode网站上使用Code Owners功能可以帮助项目团队确保代码的关键部分由正确和合适的人员进行审查。Code Owners功能允许您为仓库中的特定文件或文件夹指定“所有者”。这些所有者会在相关文件或文件夹被修改并创建Pull Request时自动被请求审查代码。本文将引导您如何在GitCode中设置和使用Code Owners功能，以提升代码审查的效率和质量。
 
-## 第一步：创建CODEOWNERS文件
+## 创建CODEOWNERS文件
 
 要启用Code Owners功能，首先需要在您的项目仓库中创建一个名为`CODEOWNERS`​的文件。您可以将此文件放置在以下任一位置：
 
@@ -24,15 +22,24 @@ weight: 12
 * ​`.gitcode/CODEOWNERS`​
 * ​`docs/CODEOWNERS`​
 
-### 创建CODEOWNERS文件
+### 如何创建CODEOWNERS文件
 
+{{% steps %}}
+
+###
 1. 登录到您的GitCode账户并导航到相应的仓库。
+###
 2. 进入仓库后，点击“新建文件”按钮。
+###
 3. 将新文件命名为`CODEOWNERS`​，并选择保存位置。
+###
 4. 在文件编辑器中定义Code Owners规则（详见下方规则定义部分）。
+###
 5. 提交新文件。
 
-## 第二步：定义Code Owners规则
+{{% /steps %}}
+
+## Code Owners规则示例
 
 在`CODEOWNERS`​文件中，您可以指定个人用户、组织或电子邮件地址作为特定文件或路径的Code Owners。每个规则一行，支持使用`#`​作为注释。下面是几个示例规则：
 
@@ -82,7 +89,7 @@ CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pa
 
 如果有一个Pull Request修改了`/src/scripts/important.js`​文件，那么仅最后一行的规则才会被匹配，本次修改也将指派给@projectLead进行审查。
 
-## 第三步：代码审查流程
+## 代码审查流程
 
 当项目中的代码发生变化，并且这些变化涉及到Code Owners负责的文件时，相应的Code Owners会自动被请求审查相关的Pull Request。
 
