@@ -129,7 +129,7 @@ curl --verbose "https://api.gitcode.com/api/v4/projects/gitcode-org%2Fold-path-p
 
 ```bash
 ...
-< Location: http://gitlab.example.com/api/v4/projects/81
+< Location: http://gitcode.example.com/api/v4/projects/81
 ...
 此资源已被永久移动到 https://api.gitcode.com/api/v4/projects/81
 ```
@@ -386,7 +386,7 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
 
 ## `null` 与 `false`
 
-在 API 响应中，某些布尔字段可以有 `null` 值。一个 `null` 布尔值没有默认值，既不是 `true` 也不是 `false`。GitLab 将布尔字段中的 `null` 值与 `false` 相同对待。
+在 API 响应中，某些布尔字段可以有 `null` 值。一个 `null` 布尔值没有默认值，既不是 `true` 也不是 `false`。GitCode 将布尔字段中的 `null` 值与 `false` 相同对待。
 
 在布尔参数中，你应该只设置 `true` 或 `false` 值（不是 `null`）。
 
