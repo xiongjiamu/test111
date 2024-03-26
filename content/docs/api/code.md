@@ -1,7 +1,7 @@
 ---
 linkTitle: 仓库文件 API
 title: 仓库文件接口API文档
-weight: 5
+weight: 6
 sidebar:
   open: false
 ---

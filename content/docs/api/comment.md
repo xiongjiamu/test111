@@ -1,5 +1,5 @@
 ---
-linkTitle: CodeReview API
+linkTitle: 评论 API
 title: 代码评审及评论相关接口API文档
 weight: 8
 sidebar:
