@@ -684,59 +684,7 @@ sidebar:
 }
 ```
 
-## 5、获取pull request关联的工作项
-
-### 请求
-
-`GET /api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/e2e_issues`
-
-
-
-### 参数:
-
-|      参数名       | 传参方式 | 类型    | 描述             |
-| :---------------: | :------: | ------- | ---------------- |
-|    project_id     |  Query   | String  | 项目ID或项目路径 |
-| merge_request_iid |  Query   | Integer | PR的IID          |
-
-### 请求示例：
-
-> /api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/e2e_issues
-
-
-
-### 响应:
-
-```json
-{
-    "e2e_issues": [
-        {
-            "id": 345313,
-            "issue_type": 7,
-            "linked_issue_type": null,
-            "issue_num": "issue1",
-            "commit_id": null,
-            "merge_request_id": 496401,
-            "check_fail_reason": "",
-            "check_result": true,
-            "issue_link": "https://test.gitcode.net/testproject/issues/1",
-            "created_at": "2023-08-03T16:15:22.547+08:00",
-            "mks_id": null,
-            "pbi_id": null,
-            "pbi_name": null,
-            "source": null,
-            "issue_project_id": 1111886,
-            "title": "111test",
-            "issue_project": null,
-            "auto_c_when_mr_merged": false,
-            "check_fail_reason_code": null,
-            "check_fail_solution": ""
-        }
-    ]
-}
-```
-
-## 6、获取合并请求设置
+## 5、获取合并请求设置
 
 ### 请求
 
@@ -786,7 +734,7 @@ sidebar:
 
 
 
-## 7、更改合并请求设置
+## 6、更改合并请求设置
 
 ### 请求
 
@@ -871,7 +819,7 @@ sidebar:
 
 
 
-## 8、获取PR文件变更
+## 7、获取PR文件变更
 
 ### 请求
 
@@ -961,7 +909,7 @@ sidebar:
 }
 ```
 
-## 9、创建PR
+## 8、创建PR
 
 ### URI
 
@@ -1276,7 +1224,7 @@ sidebar:
 }
 ```
 
-## 10、更新PR
+## 9、更新PR
 
 ### URI
 
@@ -1610,7 +1558,7 @@ sidebar:
 }
 ```
 
-## 11、合并PR
+## 10、合并PR
 
 ### URI
 
