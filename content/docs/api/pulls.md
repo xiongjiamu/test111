@@ -44,7 +44,7 @@ sidebar:
         "id": 8316,
         "iid": 7608,
         "project_id": 1467,
-        "title": "APITest_MR_Branch_87bDW7Fego",
+        "title": "APITest_PR_Branch_87bDW7Fego",
         "description": null,
         "state": "closed",
         "created_at": "2023-09-20T17:15:00.568+08:00",
@@ -1900,5 +1900,201 @@ sidebar:
     "source_git_url": "ssh://git@gitcode-backend.cn-north-7.myhuaweicloud.com:2222/f4ManagerTest-update/gyTest.git",
     "auto_merge": null
 }
+```
+
+## 11、更新PR标签接口
+
+```xml
+'/api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/labels':
+put:
+    description: update merge request labels
+    produces:
+    - application/json
+    consumes:
+    - application/json
+    parameters:
+    - in: path
+        name: project_id
+        description: The ID of a project
+        type: string
+        required: true
+    - in: path
+        name: merge_request_iid
+        description: The merge request iid
+        type: integer
+        format: int32
+        required: true
+    - in: query
+        name: labels
+        description: Comma-separated list of label names
+        type: string
+        required: true
+    responses:
+    '200':
+        description: Update merge request labels
+        schema:
+        type: object
+    tags:
+    - mergeRequest
+    operationId: updateMergeRequestLabels
+
+```
+### 传入参数示例
+```xml
+{
+    "labels": "BUG1,BUG2,BUG3"  // String，必填，使用逗号分隔的label titles
+}
+
+```
+
+### 响应参数示例
+```xml
+{
+    "id": 87655,
+    "iid": 44,
+    "project_id": 182759,
+    "title": "test234",
+    "description": "",
+    "state": "opened",
+    "created_at": "2024-03-23T14:07:30.619+08:00",
+    "updated_at": "2024-03-23T14:10:34.626+08:00",
+    "merged_by": null,
+    "merged_at": null,
+    "closed_by": null,
+    "closed_at": null,
+    "title_html": null,
+    "description_html": null,
+    "target_branch": "main",
+    "source_branch": "dev",
+    "squash_commit_message": null,
+    "user_notes_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "author": {},
+    "assignee": null,
+    "source_project_id": 182759,
+    "target_project_id": 182759,
+    "labels": [
+        {
+            "color": "#428BCA",
+            "name": "BUG1",
+            "id": 1412560,
+            "title": "BUG1",
+            "type": null,
+            "textColor": "#FFFFFF"
+        },
+        {
+            "color": "#428BCA",
+            "name": "BUG2",
+            "id": 1412561,
+            "title": "BUG2",
+            "type": null,
+            "textColor": "#FFFFFF"
+        },
+        {
+            "color": "#428BCA",
+            "name": "BUG3",
+            "id": 1412562,
+            "title": "BUG3",
+            "type": null,
+            "textColor": "#FFFFFF"
+        }
+    ]
+}
+
+```
+
+## 12、删除PR标签接口
+
+```xml
+'/api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/labels':
+delete:
+    description: update merge request labels
+    produces:
+    - application/json
+    consumes:
+    - application/json
+    parameters:
+    - in: path
+        name: project_id
+        description: The ID of a project
+        type: string
+        required: true
+    - in: path
+        name: merge_request_iid
+        description: The merge request iid
+        type: integer
+        format: int32
+        required: true
+    - in: query
+        name: labels
+        description: Comma-separated list of label names
+        type: string
+        required: true
+    responses:
+    '200':
+        description: Delete merge request labels
+        schema:
+        type: object
+    tags:
+    - mergeRequest
+    operationId: deleteMergeRequestLabels
+
+```
+### 传入参数示例
+```xml
+{
+    "labels": "BUG1,BUG2,BUG3"  // String，必填，使用逗号分隔的label titles
+}
+
+```
+
+### 响应参数示例
+```xml
+{
+    "id": 87655,
+    "iid": 44,
+    "project_id": 182759,
+    "title": "test234",
+    "description": "",
+    "state": "opened",
+    "created_at": "2024-03-23T14:07:30.619+08:00",
+    "updated_at": "2024-03-23T14:10:34.626+08:00",
+    "merged_by": null,
+    "merged_at": null,
+    "closed_by": null,
+    "closed_at": null,
+    "title_html": null,
+    "description_html": null,
+    "target_branch": "main",
+    "source_branch": "dev",
+    "squash_commit_message": null,
+    "user_notes_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "author": {},
+    "assignee": null,
+    "source_project_id": 182759,
+    "target_project_id": 182759,
+    "labels": [
+        {
+            "color": "#428BCA",
+            "name": "BUG2",
+            "id": 1412561,
+            "title": "BUG2",
+            "type": null,
+            "textColor": "#FFFFFF"
+        },
+        {
+            "color": "#428BCA",
+            "name": "BUG3",
+            "id": 1412562,
+            "title": "BUG3",
+            "type": null,
+            "textColor": "#FFFFFF"
+        }
+    ]
+}
+
 ```
 

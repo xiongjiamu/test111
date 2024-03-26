@@ -110,7 +110,7 @@ aaaacc
 | description             | string                       | 分支描述       |
 | create_source           | string                       | 创建来源       |
 | create_source_exists    | boolean                      | 创建来源是否存在   |
-| opened_mr_count         | integer                      | 开启中mr个数    |
+| opened_mr_count         | integer                      | 开启中pr个数    |
 | diverging_commit_counts | DivergingCommitCounts object | 相对默认分支推送情况 |
 | developers_can_push     | boolean                      | 开发者是否能推送   |
 | developers_can_merge    | boolean                      | 开发者是否能合并   |
@@ -244,7 +244,7 @@ aaaacc
 | description             | string                       | 分支描述       | basic、all        |
 | create_source           | string                       | 创建来源       | basic、all        |
 | create_source_exists    | boolean                      | 创建来源是否存在   | basic、all        |
-| opened_mr_count         | integer                      | 开启中mr个数    | basic、all        |
+| opened_mr_count         | integer                      | 开启中pr个数    | basic、all        |
 | diverging_commit_counts | DivergingCommitCounts object | 相对默认分支推送情况 | basic、all        |
 | developers_can_push     | boolean                      | 开发者是否能推送   | all              |
 | developers_can_merge    | boolean                      | 开发者是否能合并   | all              |
