@@ -7,7 +7,7 @@ sidebar:
 ---
 
 
-## 1、获取个人pull requests列表
+## 1、获取个人PR列表
 
 ### 请求
 
@@ -168,7 +168,7 @@ sidebar:
 
 
 
-## 2、获取项目pull requests列表
+## 2、获取项目PR列表
 
 ### 请求
 
@@ -332,7 +332,7 @@ sidebar:
 ]
 ```
 
-## 3、获取组织pull requests列表
+## 3、获取组织PR列表
 
 ### 请求
 
@@ -505,7 +505,7 @@ sidebar:
 }
 ```
 
-## 4、获取pull requests详情
+## 4、获取PR详情
 
 ### 请求
 
@@ -871,7 +871,7 @@ sidebar:
 
 
 
-## 8、获取pull requests文件变更
+## 8、获取PR文件变更
 
 ### 请求
 
@@ -961,7 +961,7 @@ sidebar:
 }
 ```
 
-## 9、创建pull requests
+## 9、创建PR
 
 ### URI
 
@@ -1276,7 +1276,7 @@ sidebar:
 }
 ```
 
-## 10、更新pull requests
+## 10、更新PR
 
 ### URI
 
@@ -1610,7 +1610,7 @@ sidebar:
 }
 ```
 
-## 11、合并pull requests
+## 11、合并PR
 
 ### URI
 
