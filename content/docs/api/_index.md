@@ -11,7 +11,11 @@ sidebar:
   {{< card url="users" title="用户 API" icon="user-circle" >}}
   {{< card url="orgs" title="组织 API" icon="user-group" >}}
   {{< card url="repos" title="项目 API" icon="briefcase" >}}
+<<<<<<< HEAD
   {{< card url="member" title="项目 API" icon="user-group" >}}
+=======
+  {{< card url="member" title="成员 API" icon="user-group" >}}
+>>>>>>> 75dd9a864121b856ac403e63f8ad5373542ca7a5
   {{< card url="code" title="仓库文件 API" icon="code-bracket-square" >}}
   {{< card url="issue" title="Issue API" icon="question-mark-circle" >}}
   {{< card url="pulls" title="PullRequest API" icon="arrow-path-rounded-square" >}}
