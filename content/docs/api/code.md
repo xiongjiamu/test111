@@ -702,32 +702,77 @@ aaaacc
 
 ```json
 {
-  "tag_name": "tag2",
-  "description": "release2",
-  "name": "release2",
-  "created_at": "2023-09-20T17:31:55.128+08:00",
-  "commit": {
-    "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
-    "message": " ",
-    "parent_ids": [
-      "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
-    ],
-    "authored_date": "2023-09-19T10:07:44.000Z",
-    "author_name": "xxx",
-    "committed_date": "2023-09-19T10:07:44.000Z",
-    "committer_name": "xxx",
-    "short_id": "a655c6cf",
-    "title": "feat: 修改README.md ",
-    "author_avatar_url": "https://xxx",
-    "author_nick_name": "xx",
-    "committer_avatar_url": "https://xxx",
-    "committer_nick_name": "xx"
-  },
-  "creator": {
-    "username": "xxx",
-    "nick_name": "xx",
-    "avatar_url": "https://xxx"
-  }
+    "tag_name": "tag1",
+    "description": "desc1",
+    "name": "123",
+    "description_html": null,
+    "created_at": "2023-10-27T03:06:04.232+08:00",
+    "can_delete": null,
+    "can_edit": null,
+    "can_download": null,
+    "author": {
+        "id": 44,
+        "name": "xxx",
+        "username": "xxx",
+        "iam_id": "xxx",
+        "nick_name": "xx",
+        "state": "active",
+        "avatar_url": "xxx",
+        "avatar_path": null,
+        "email": "xxx",
+        "name_cn": "xxx",
+        "web_url": "https://gitcode.com/xxx",
+        "tenant_name": null,
+        "is_member": null
+    },
+    "commit": {
+        "id": "87f0e2dc576a4770840862d87bd7e3351a89b8a2",
+        "message": "",
+        "parent_ids": [
+            "68c5d1bdf5db8ff11e4e3c174b0f9a8f0ce72aa5"
+        ],
+        "authored_date": "2023-09-09T04:00:43.000Z",
+        "author_name": "WilliamZhu",
+        "author_email": null,
+        "committed_date": "2023-09-09T04:00:43.000Z",
+        "committer_name": "WilliamZhu",
+        "committer_email": null,
+        "open_gpg_verified": null,
+        "verification_status": 0,
+        "gpg_primary_key_id": "",
+        "short_id": "87f0e2dc",
+        "created_at": "2023-09-09T04:00:43.000Z",
+        "title": "get hadoop configuration from spark session",
+        "author_avatar_url": null,
+        "author_nick_name": null,
+        "author_user_name": null,
+        "committer_avatar_url": null,
+        "committer_nick_name": null,
+        "committer_user_name": null,
+        "relate_url": null
+    },
+    "assets": {
+        "count": 4,
+        "sources": [
+            {
+                "format": "zip",
+                "url": "xxx"
+            },
+            {
+                "format": "tar.gz",
+                "url": "xxx"
+            },
+            {
+                "format": "tar.bz2",
+                "url": "xxx"
+            },
+            {
+                "format": "tar",
+                "url": "xxx"
+            }
+        ],
+        "assets": []
+    }
 }
 ```
 
@@ -992,10 +1037,10 @@ aaaacc
 
 | 参数名        | 类型      | IN    | 必选    | 默认值 | 描述        |
 |------------|---------|:------|:------|-----|-----------|
-| project_id | string  | path  | true  |     | 项目id      |
-| tag_name   | string  | path  | true  |     | tag名称     |
-| page       | integer | query | false | 1   | 分页参数-当前页  |
-| per_page   | integer | query | false | 20  | 分页参数-每页条数 |
+| project_id | string  | path  | Yes  |     | 项目id      |
+| tag_name   | string  | query  | Yes  |     | tag名称     |
+| page       | integer | query | NO | 1   | 分页参数-当前页  |
+| per_page   | integer | query | NO | 20  | 分页参数-每页条数 |
 
 ### 响应
 
@@ -1069,7 +1114,7 @@ aaaacc
 ]
 ```
 
-## 16. 语言排行
+<!-- ## 16. 语言排行
 
 ### 请求
 
@@ -1079,7 +1124,7 @@ aaaacc
 
 | 参数名        | 类型     | IN   | 必选   | 默认值 | 描述   |
 |------------|--------|:-----|:-----|-----|------|
-| project_id | string | path | true |     | 项目id |
+| project_id | string | path | Yes |     | 项目id |
 
 ### 响应
 
@@ -1109,9 +1154,9 @@ aaaacc
   ],
   "status": null
 }
-```
+``` -->
 
-## 17. 更新文件
+## 16. 更新文件
 
 ### 请求
 
@@ -1121,17 +1166,17 @@ aaaacc
 
 | 参数名            | 类型     | IN   | 必选    | 描述           |
 |----------------|--------|:-----|:------|--------------|
-| project_id     | string | path | true  | 项目id         |
-| name           | string | body | false | 文件名称         |
-| file_path      | string | body | true  | 文件路径         |
-| branch         | string | body | true  | 分支名称         |
-| commit_message | string | body | true  | 提交信息         |
-| start_branch   | string | body | false | 基于分支         |
-| author_email   | string | body | false | author邮箱     |
-| author_name    | string | body | false | author名称     |
-| content        | string | body | true  | 文件内容         |
-| encoding       | string | body | false | 文件编码         |
-| last_commit_id | string | body | false | 文件最后修改commit |
+| project_id     | string | path | Yes  | 项目id         |
+| name           | string | body | NO | 文件名称         |
+| file_path      | string | body | Yes  | 文件路径         |
+| branch         | string | body | Yes  | 分支名称         |
+| commit_message | string | body | Yes  | 提交信息         |
+| start_branch   | string | body | NO | 基于分支         |
+| author_email   | string | body | NO | author邮箱     |
+| author_name    | string | body | NO | author名称     |
+| content        | string | body | Yes  | 文件内容         |
+| encoding       | string | body | NO | 文件编码         |
+| last_commit_id | string | body | NO | 文件最后修改commit |
 
 ### 响应
 
@@ -1149,7 +1194,7 @@ aaaacc
 }
 ```
 
-## 18. 获取目录Tree
+## 17. 获取目录Tree
 
 ### 请求
 
@@ -1159,12 +1204,12 @@ aaaacc
 
 | 参数名        | 类型      | IN    | 必选    | 默认值   | 描述            |
 |------------|---------|:------|:------|-------|---------------|
-| project_id | string  | path  | true  |       | 项目id          |
-| ref        | string  | path  | false | 默认分支  | commit、分支、tag |
-| path       | string  | path  | false |       | 文件路径          |
-| recursive  | boolean | path  | false | false | 是否递归获取        |
-| page       | integer | query | false | 1     | 分页参数-当前页      |
-| per_page   | integer | query | false | 20    | 分页参数-每页条数     |
+| project_id | string  | path  | Yes  |       | 项目id          |
+| ref        | string  | path  | NO | 默认分支  | commit、分支、tag |
+| path       | string  | path  | NO |       | 文件路径          |
+| recursive  | boolean | path  | NO | false | 是否递归获取        |
+| page       | integer | query | NO | 1     | 分页参数-当前页      |
+| per_page   | integer | query | NO | 20    | 分页参数-每页条数     |
 
 ### 响应
 
