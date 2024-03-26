@@ -6,7 +6,8 @@ sidebar:
   open: false
 ---
 
-## 1、获取PR 代码评审及动态列表
+
+## 1、获取PR检视意见及动态列表
 
 ### 请求
 
@@ -19,7 +20,7 @@ sidebar:
 |      参数名       | 是否必填 | 传参方式 | 类型    | 描述                                  |
 | :---------------: | :------: | :------: | ------- | ------------------------------------- |
 |    project_id     |    是    |   Path   | String  | 项目id或项目路径                      |
-| merge_request_iid |    是    |   Path   | Integer | MR id                                 |
+| merge_request_iid |    是    |   Path   | Integer | PR id                                 |
 |      end_id       |    否    |  Query   | Integer | 上一页检视意见最大id（第一页默认为0） |
 |   end_system_id   |    否    |  Query   | Integer | 上一页动态最大id（第一页默认为0）     |
 |       page        |    否    |  Query   | Integer | 分页页数                              |
@@ -292,7 +293,7 @@ sidebar:
 
 
 
-## 2、创建MR评审意见
+## 2、创建PR评审意见或评论
 
 ### 请求
 
@@ -300,23 +301,23 @@ sidebar:
 
 ### 参数
 
-| 参数名            | 位置 | 必选 | 类型        | 描述                                 |
-| ----------------- | ---- | ---- | ----------- | ------------------------------------ |
-| project_id        | path | Yes  | string      | 项目id或项目路径                     |
-| merge_request_iid | path | Yes  | integer     | MRiid                                |
-| body              | body | NO   | string      | 评论内容                             |
-| line_types        | body | NO   | string      | 评论代码行类型                       |
-| need_to_resolve   | body | NO   | boolean     | 是否需要解决，若为true则会影响MR合入 |
-| position          | body | NO   | PositionDto | 位置信息标记检视意见在代码中的位置   |
-| severity          | body | YES  | string      | 严重等级，默认suggestion即可         |
+| 参数名            | 位置 | 必选 | 类型        | 描述                                                        |
+| ----------------- | ---- | ---- | ----------- | ----------------------------------------------------------- |
+| project_id        | path | Yes  | string      | 项目id或项目路径                                            |
+| merge_request_iid | path | Yes  | integer     | PRiid                                                       |
+| body              | body | YES  | string      | 评论内容                                                    |
+| line_types        | body | NO   | string      | 评论代码行类型                                              |
+| need_to_resolve   | body | NO   | boolean     | 是否需要解决，true：评审意见需要解决，false：评论不需要解决 |
+| position          | body | NO   | PositionDto | 位置信息标记检视意见在代码中的位置                          |
+| severity          | body | NO   | string      | 严重等级，默认suggestion即可                                |
 
 PositionDto
 
 | 参数名                   | 类型    | 描述                                          |
 | ------------------------ | ------- | --------------------------------------------- |
 | base_sha                 | string  | 文件基础sha值                                 |
-| start_sha                | string  | 文件起始sha值，基于当前MR                     |
-| head_sha                 | string  | 文件最新sha值，基于当前MR                     |
+| start_sha                | string  | 文件起始sha值，基于当前PR                     |
+| head_sha                 | string  | 文件最新sha值，基于当前PR                     |
 | position_type            | string  | 位置类型                                      |
 | new_path                 | string  | 文件新路径                                    |
 | old_path                 | string  | 文件旧路径（仅在文件移动时新旧路径不同）      |
@@ -506,7 +507,7 @@ PositionDto
 }
 ```
 
-## 3、回复PR 代码评审或评论
+## 3、回复PR检视意见或评论
 
 ### 请求：
 
@@ -517,9 +518,9 @@ PositionDto
 | 参数名            | 位置 | 必选 | 类型    | 描述                         |
 | ----------------- | ---- | ---- | ------- | ---------------------------- |
 | project_id        | path | Yes  | string  | 项目id或项目路径             |
-| merge_request_iid | path | Yes  | integer | MRiid                        |
+| merge_request_iid | path | Yes  | integer | PRiid                        |
 | discussion_id     | path | Yes  | string  | 评论id，创建评论时会返回此id |
-| body              | body | NO   | string  | 回复内容                     |
+| body              | body | Yes  | string  | 回复内容                     |
 
 ### 请求示例：
 
@@ -621,7 +622,7 @@ PositionDto
 
 
 
-## 4、修改PR 代码评审或评论
+## 4、修改PR检视意见或评论
 
 ### 请求：
 
@@ -632,11 +633,11 @@ PositionDto
 | 参数名            | 位置 | 必选 | 类型    | 描述                                 |
 | ----------------- | ---- | ---- | ------- | ------------------------------------ |
 | project_id        | path | Yes  | string  | 项目id或项目路径                     |
-| merge_request_iid | path | Yes  | integer | MRiid                                |
+| merge_request_iid | path | Yes  | integer | PRiid                                |
 | discussion_id     | path | Yes  | string  | 评论id，主评论及回复此id一致         |
 | note_id           | path | Yes  | integer | 评论记录id，每个评论或回复，此id唯一 |
-| body              | body | NO   | string  | 评论或描述内容                       |
-| serverity         | body | YES  | string  | 严重等级，默认取suggestion即可       |
+| body              | body | Yes  | string  | 评论或描述内容                       |
+| serverity         | body | NO   | string  | 严重等级，默认取suggestion即可       |
 
 ### 请求示例：
 
@@ -748,13 +749,13 @@ PositionDto
 | 参数名            | 位置 | 必选 | 类型    | 描述                                 |
 | ----------------- | ---- | ---- | ------- | ------------------------------------ |
 | project_id        | path | Yes  | string  | 项目id或项目路径                     |
-| merge_request_iid | path | Yes  | integer | MRiid                                |
+| merge_request_iid | path | Yes  | integer | PRiid                                |
 | discussion_id     | path | Yes  | string  | 评论id，主评论及回复此id一致         |
 | note_id           | path | Yes  | integer | 评论记录id，每个评论或回复，此id唯一 |
 
 ### 请求示例：
 
-``/api/v4/projects/admini%2Fminority/merge_requests/1/discussions/765e58c6d85db93175c413c9e8b61d3908bebf17`
+``/api/v4/projects/admini%2Fminority/merge_requests/1/discussions/765e58c6d85db93175c413c9e8b61d3908bebf17/notes/171`
 
 ### 响应：
 
@@ -773,7 +774,7 @@ PositionDto
 | 参数名            | 位置 | 必选 | 类型    | 描述                         |
 | ----------------- | ---- | ---- | ------- | ---------------------------- |
 | project_id        | path | Yes  | string  | 项目id或项目路径             |
-| merge_request_iid | path | Yes  | integer | MRiid                        |
+| merge_request_iid | path | Yes  | integer | PRiid                        |
 | discussion_id     | path | Yes  | string  | 评论id，主评论及回复此id一致 |
 | resolved          | body | Yes  | boolean | 解决传true，取消解决传false  |
 
@@ -1625,7 +1626,7 @@ PositionDto
 
 ### 请求：
 
-`GET /api/v4/projects/{project_id}/issues/{issue_iid}/notes/{note_id}`
+`DELETE /api/v4/projects/{project_id}/issues/{issue_iid}/notes/{note_id}`
 
 ### 参数：
 

@@ -11,11 +11,11 @@ sidebar:
 `GET /api/v4/projects/{project_id}/hooks`
 
 ### 参数
-| 参数名     | 类型    | 描述       |
-| ---------- | ------- | ---------- |
-| project_id | string  | 仓库 id    |
-| page       | integer | 当前的页码 |
-| per_page   | integer | 每页的数量 |
+| 参数名     |  位置    |   必选    | 类型    | 描述       |
+| ---------- | ---------- |---------- |------- | ---------- |
+| project_id |  path    |   Yes   | string  | 仓库 id    |
+| page       |  query    |   NO   | integer | 分页页码 |
+| per_page   |  query    |   NO   | integer | 分页数量 |
 
 
 ### 响应

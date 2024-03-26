@@ -7,7 +7,7 @@ sidebar:
 ---
 
 
-## 1、获取个人MR列表
+## 1、获取个人pull requests列表
 
 ### 请求
 
@@ -17,15 +17,15 @@ sidebar:
 
 ### 参数:
 
-|  参数名  | 传参方式 | 类型    | 描述                                                         |
-| :------: | :------: | ------- | ------------------------------------------------------------ |
-|  state   |  Query   | String  | MR状态（opened、closed、locked、merged、all）                |
-|   view   |  Query   | String  | 请求返回结果视图（simple、basic）                            |
-|  scope   |  Query   | String  | MR分类范围（created_by_me、assigned_to_me、need_my_review、all） |
-| order_by |  Query   | String  | 排序字段（created_at、updated_at）                           |
-|   sort   |  Query   | String  | 升降序（asc、desc）                                          |
-| per_page |  Query   | Integer | 分页大小                                                     |
-|   page   |  Query   | Integer | 分页页码                                                     |
+|  参数名  | 传参方式 | 必填 | 类型    | 描述                                                         |
+| :------: | :------: | ---- | ------- | ------------------------------------------------------------ |
+|  state   |  Query   | 否   | String  | pr状态（opened、closed、locked、merged、all）                |
+|   view   |  Query   | 否   | String  | 请求返回结果视图（simple、basic）                            |
+|  scope   |  Query   | 否   | String  | PR分类范围（created_by_me、assigned_to_me、need_my_review、all） |
+| order_by |  Query   | 否   | String  | 排序字段（created_at、updated_at）                           |
+|   sort   |  Query   | 否   | String  | 升降序（asc、desc）                                          |
+| per_page |  Query   | 否   | Integer | 分页大小                                                     |
+|   page   |  Query   | 否   | Integer | 分页页码                                                     |
 
 ### 请求示例：
 
@@ -168,7 +168,7 @@ sidebar:
 
 
 
-## 2、获取项目MR列表
+## 2、获取项目pull requests列表
 
 ### 请求
 
@@ -181,12 +181,12 @@ sidebar:
 |        参数名        | 传参方式 | 类型    | 描述                                          |
 | :------------------: | :------: | ------- | --------------------------------------------- |
 |      project_id      |   path   | String  | 项目ID或项目路径                              |
-|        state         |  Query   | String  | MR状态（opened、closed、locked、merged、all） |
+|        state         |  Query   | String  | PR状态（opened、closed、locked、merged、all） |
 |         view         |  Query   | String  | 请求返回结果视图（simple、basic）             |
-|        labels        |  Query   | String  | 根据label筛选MR                               |
-|      author_id       |  Query   | Integer | 根据创建者的用户ID筛选MR                      |
-| approval_reviewer_id |  Query   | Integer | 根据评审人的用户ID筛选MR                      |
-|     assignees_id     |  Query   | Integer | 根据负责人的用户ID筛选MR                      |
+|        labels        |  Query   | String  | 根据label筛选PR                               |
+|      author_id       |  Query   | Integer | 根据创建者的用户ID筛选PR                      |
+| approval_reviewer_id |  Query   | Integer | 根据评审人的用户ID筛选PR                      |
+|     assignees_id     |  Query   | Integer | 根据负责人的用户ID筛选PR                      |
 |       order_by       |  Query   | String  | 排序字段（created_at、updated_at）            |
 |         sort         |  Query   | String  | 升降序（asc、desc）                           |
 |       per_page       |  Query   | Integer | 分页大小                                      |
@@ -332,7 +332,7 @@ sidebar:
 ]
 ```
 
-## 3、获取组织MR列表
+## 3、获取组织pull requests列表
 
 ### 请求
 
@@ -345,7 +345,7 @@ sidebar:
 |  参数名  | 传参方式 | 类型    | 描述                                          |
 | :------: | :------: | ------- | --------------------------------------------- |
 | group_id |   Path   | String  | 组织ID或组织路径                              |
-|  state   |  Query   | String  | MR状态（opened、closed、locked、merged、all） |
+|  state   |  Query   | String  | PR状态（opened、closed、locked、merged、all） |
 |   view   |  Query   | String  | 请求返回结果视图（simple、basic）             |
 | order_by |  Query   | String  | 排序字段（created_at、updated_at）            |
 |   sort   |  Query   | String  | 升降序（asc、desc）                           |
@@ -505,7 +505,7 @@ sidebar:
 }
 ```
 
-## 4、获取MR详情
+## 4、获取pull requests详情
 
 ### 请求
 
@@ -517,8 +517,8 @@ sidebar:
 
 |      参数名       | 传参方式 | 类型    | 描述                          |
 | :---------------: | :------: | ------- | ----------------------------- |
-|    project_id     |  Query   | String  | 项目ID或项目路径              |
-| merge_request_iid |  Query   | Integer | MR的IID                       |
+|    project_id     |   Path   | String  | 项目ID或项目路径              |
+| merge_request_iid |   Path   | Integer | PR的IID                       |
 |       view        |  Query   | String  | 返回结果视图（simple、basic） |
 |    only_count     |  Query   | Boolean | 是否只返回数量                |
 
@@ -579,49 +579,50 @@ sidebar:
 
 ```json
 {
-    "id": 1,
-    "iid": 1,
+    "id": 61358,
+    "iid": 6,
     "state": "opened",
-    "title": "test123",
+    "title": "测试吴创建的pr",
     "milestone": null,
-    "description": "新建文件",
-    "created_at": "2023-07-28T11:46:47.088+08:00",
-    "updated_at": "2023-07-28T11:46:48.637+08:00",
-    "target_branch": "master",
-    "source_branch": "dev",
-    "source_project_id": 6,
-    "target_project_id": 6,
+    "description": "测试五",
+    "created_at": "2024-03-24T14:03:40.806+08:00",
+    "updated_at": "2024-03-26T19:14:26.105+08:00",
+    "target_branch": "main",
+    "source_branch": "test_wu",
+    "source_project_id": 243377,
+    "target_project_id": 243377,
     "squash": false,
     "review_mode": "approval",
     "merge_when_pipeline_succeeds": false,
     "squash_commit_message": null,
     "merge_error": null,
     "json_merge_error": null,
-    "sha": "e90c29b15db477016a0cadc0e28e142e99d101fd",
-    "project_id": 6,
+    "sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86",
+    "project_id": 243377,
     "head_pipeline_id": null,
     "author": {
-        "id": 4,
-        "name": "yanlp1",
-        "username": "7a7657aa0aa04f438981632f623c5e52",
-        "iam_id": null,
-        "nick_name": "",
+        "id": 233,
+        "name": "wunian2011",
+        "username": "wunian2011",
+        "iam_id": "86f5e631aca14debbf750ab93b06395e",
+        "nick_name": "测试吴",
         "state": "active",
         "avatar_url": null,
         "avatar_path": null,
         "email": "",
-        "name_cn": null,
-        "web_url": "https://test.gitcode.net/7a7657aa0aa04f438981632f623c5e52",
-        "tenant_name": null
+        "name_cn": "wunian2011",
+        "web_url": "https://test.gitcode.net/wunian2011",
+        "tenant_name": null,
+        "is_member": null
     },
     "merged_by": null,
     "merged_at": null,
     "closed_by": null,
     "closed_at": null,
     "diff_refs": {
-        "base_sha": "4cc306a3a714779571a87454fec716891a60ff66",
-        "head_sha": "e90c29b15db477016a0cadc0e28e142e99d101fd",
-        "start_sha": "4cc306a3a714779571a87454fec716891a60ff66"
+        "base_sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86",
+        "head_sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86",
+        "start_sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86"
     },
     "merge_request_type": "MergeRequest",
     "force_remove_source_branch": false,
@@ -629,38 +630,38 @@ sidebar:
     "merge_request_assignee_list": null,
     "merge_request_reviewer_list": null,
     "source_project": {
-        "id": 6,
-        "description": "likun test desc",
-        "name": "likun_test06",
-        "name_with_namespace": "7a7657aa0aa04f438981632f623c5e52 / likun_test06",
-        "path": "test06",
-        "path_with_namespace": "7a7657aa0aa04f438981632f623c5e52/test06",
+        "id": 243377,
+        "description": "csdntest13的第一个项目(公开)",
+        "name": "One",
+        "name_with_namespace": "One / One",
+        "path": "One",
+        "path_with_namespace": "One/One",
         "develop_mode": null,
-        "created_at": "2023-07-25T11:54:30.118+08:00",
-        "updated_at": "2023-07-25T11:54:30.118+08:00",
+        "created_at": "2024-03-19T16:24:01.197+08:00",
+        "updated_at": "2024-03-19T16:42:34.834+08:00",
         "archived": false,
         "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/7a7657aa0aa04f438981632f623c5e52/test06.git",
-        "http_url_to_repo": "https://test.gitcode.net/7a7657aa0aa04f438981632f623c5e52/test06.git",
+        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/One/One.git",
+        "http_url_to_repo": "https://test.gitcode.net/One/One.git",
         "web_url": null,
         "readme_url": null,
         "product_id": null,
         "product_name": null
     },
     "target_project": {
-        "id": 6,
-        "description": "likun test desc",
-        "name": "likun_test06",
-        "name_with_namespace": "7a7657aa0aa04f438981632f623c5e52 / likun_test06",
-        "path": "test06",
-        "path_with_namespace": "7a7657aa0aa04f438981632f623c5e52/test06",
+        "id": 243377,
+        "description": "csdntest13的第一个项目(公开)",
+        "name": "One",
+        "name_with_namespace": "One / One",
+        "path": "One",
+        "path_with_namespace": "One/One",
         "develop_mode": null,
-        "created_at": "2023-07-25T11:54:30.118+08:00",
-        "updated_at": "2023-07-25T11:54:30.118+08:00",
+        "created_at": "2024-03-19T16:24:01.197+08:00",
+        "updated_at": "2024-03-19T16:42:34.834+08:00",
         "archived": false,
         "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/7a7657aa0aa04f438981632f623c5e52/test06.git",
-        "http_url_to_repo": "https://test.gitcode.net/7a7657aa0aa04f438981632f623c5e52/test06.git",
+        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/One/One.git",
+        "http_url_to_repo": "https://test.gitcode.net/One/One.git",
         "web_url": null,
         "readme_url": null,
         "product_id": null,
@@ -677,11 +678,13 @@ sidebar:
     "added_lines": null,
     "removed_lines": null,
     "diverged_commits_count": null,
-    "force_rebuild_in_progress": false
+    "force_rebuild_in_progress": false,
+    "rebase_in_progress": null,
+    "close_issue_when_merge": false
 }
 ```
 
-## 5、获取MR关联的工作项
+## 5、获取pull request关联的工作项
 
 ### 请求
 
@@ -694,7 +697,7 @@ sidebar:
 |      参数名       | 传参方式 | 类型    | 描述             |
 | :---------------: | :------: | ------- | ---------------- |
 |    project_id     |  Query   | String  | 项目ID或项目路径 |
-| merge_request_iid |  Query   | Integer | MR的IID          |
+| merge_request_iid |  Query   | Integer | PR的IID          |
 
 ### 请求示例：
 
@@ -803,14 +806,14 @@ sidebar:
 |              disable_merge_by_self               |   Body   | boolean | 禁止合入自己创建的合并请求               |
 |                 can_force_merge                  |   Body   | boolean | 允许管理员强制合入                       |
 |              add_notes_after_merged              |   Body   | boolean | 允许合并请求合并后继续做代码检视和评论   |
-|          mark_auto_merged_mr_as_closed           |   Body   | boolean | 是否将自动合并的MR状态标记为关闭状态     |
+|          mark_auto_merged_mr_as_closed           |   Body   | boolean | 是否将自动合并的PR状态标记为关闭状态     |
 |                    can_reopen                    |   Body   | boolean | 不能重新打开一个已经关闭的合并请求       |
 |         delete_source_branch_when_merged         |   Body   | boolean | 合并请求合入后，默认删除原分支           |
-|               disable_squash_merge               |   Body   | boolean | 禁止Squash合并（合入MR时禁止Squash合并） |
+|               disable_squash_merge               |   Body   | boolean | 禁止Squash合并（合入PR时禁止Squash合并） |
 |                auto_squash_merge                 |   Body   | boolean | 新建合并请求，默认开启Squash合并         |
 |                   merge_method                   |   Body   | String  | 合并模式(三选一)                         |
 |        squash_merge_with_no_merge_commit         |   Body   | boolean | Squash合并不产生Merge节点                |
-|               merged_commit_author               |   Body   | String  | 使用MR(合入/创建)者生成Merge Commit      |
+|               merged_commit_author               |   Body   | String  | 使用PR(合入/创建)者生成Commit      |
 
 ### 请求示例：
 
@@ -868,7 +871,7 @@ sidebar:
 
 
 
-## 8、获取MR文件变更
+## 8、获取pull requests文件变更
 
 ### 请求
 
@@ -881,7 +884,7 @@ sidebar:
 |          参数名          | 传参方式 | 类型    | 必填 | 描述                                                         |
 | :----------------------: | :------: | ------- | ---- | ------------------------------------------------------------ |
 |        project_id        |   Path   | String  | 是   | 项目id或项目路径                                             |
-|    merge_request_iid     |   Path   | Integer | 是   | MR iid                                                       |
+|    merge_request_iid     |   Path   | Integer | 是   | PR iid                                                       |
 |           view           |  Query   | String  | 是   | 可选项: simple                                               |
 |        file_path         |  Query   | String  | 否   | 单独获取某个文件的文件变更;如果是重命名文件,使用逗号拼接,如:file_path=old_path,new_path |
 | ignore_whitespace_change |  Query   | boolean | 否   | 是否忽略空格变化                                             |
@@ -958,7 +961,7 @@ sidebar:
 }
 ```
 
-## 9、创建mr
+## 9、创建pull requests
 
 ### URI
 
@@ -966,7 +969,7 @@ sidebar:
 
 ### 传入参数
 
-| 参数名                | 传参方式 | 类型 | 必填    | 描述           |
+| 参数名                | 传参方式 | 必填 | 类型    | 描述           |
 | --------------------- | -------- | ---- | ------- | -------------- |
 | project_id            | path     | Yes  | string  | 项目ID         |
 | squash_commit_message | body     | NO   | string  | squash提交信息 |
@@ -1273,7 +1276,7 @@ sidebar:
 }
 ```
 
-## 10、更新mr
+## 10、更新pull requests
 
 ### URI
 
@@ -1281,7 +1284,7 @@ sidebar:
 
 ### 传入参数
 
-| 参数名                | 传参方式 | 类型 | 必填    | 描述           |
+| 参数名                | 传参方式 | 必填 | 类型    | 描述           |
 | --------------------- | -------- | ---- | ------- | -------------- |
 | project_id            | path     | Yes  | string  | 项目ID         |
 | merge_request_iid     | path     | Yes  | integer | iid            |
@@ -1607,7 +1610,7 @@ sidebar:
 }
 ```
 
-## 11、合并mr
+## 11、合并pull requests
 
 ### URI
 
@@ -1615,11 +1618,11 @@ sidebar:
 
 ### 传入参数
 
-| 参数名                      | 传参方式 | 类型 | 必填    | 描述           |
+| 参数名                      | 传参方式 | 必填 | 类型    | 描述           |
 | --------------------------- | -------- | ---- | ------- | -------------- |
 | project_id                  | path     | Yes  | string  | 项目ID         |
 | merge_request_iid           | path     | Yes  | integer | iid            |
-| merge_request_id            | body     | NO   | integer | mrId           |
+| merge_request_id            | body     | NO   | integer | prId           |
 | squash_commit_message       | body     | NO   | string  | squash提交信息 |
 | force_merge                 | body     | NO   | boolean | 是否强制合入   |
 | squash                      | body     | NO   | boolean | 是否squash合入 |
