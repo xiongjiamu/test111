@@ -167,7 +167,7 @@ sidebar:
 ```
 
 
-## 7.回传MR流水线构建状态
+## 7.回传PR流水线构建状态
 ### 请求 
 `POST /api/v4/projects/{project_id}/statuses/{sha}`
 
@@ -223,7 +223,7 @@ sidebar:
 ```
 
 
-## 8.回传MR流水线质量报告
+## 8.回传PR流水线质量报告
 ### 请求 
 `POST /api/v4/projects/{project_id}/commits/{sha}/quality`
 ### 参数
