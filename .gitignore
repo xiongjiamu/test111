@@ -10,3 +10,7 @@ static/
 # mac
 *.DS_Store
 *.zip
+
+# images
+content/docs/images
+images/

@@ -25,3 +25,7 @@ body h1 {
 #search {
     background-color: var(--pagefind-ui-background)
 }
+
+.max-w-screen-xl {
+    max-width: 1536px;
+}

@@ -14,6 +14,6 @@ sidebar:
   {{< card url="code" title="仓库文件 API" icon="code-bracket-square" >}}
   {{< card url="issue" title="Issue API" icon="question-mark-circle" >}}
   {{< card url="pulls" title="PullRequest API" icon="arrow-path-rounded-square" >}}
-  {{< card url="code-review" title="CodeReview API" icon="chat-bubble-left-right" >}}
+  {{< card url="comment" title="评论 API" icon="chat-bubble-left-right" >}}
   {{< card url="webhook" title="WebHook API" icon="globe-alt" >}}
 {{< /cards >}}
