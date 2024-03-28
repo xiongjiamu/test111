@@ -9,7 +9,7 @@ sidebar:
 
 GitCode 组织是 GitCode 平台上的一个关键功能，它允许开发者、团队和组织集中管理和协作开发项目。GitCode 组织提供了一系列功能和用途，以支持更高效的软件开发和项目管理。
 
-![组织首页](/docs/images/组织首页.png)
+![组织首页](https://cdn-static.gitcode.com/doc/org-overview-1.png)
 
 ## 组织的主要功能
 

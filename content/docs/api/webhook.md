@@ -1,7 +1,7 @@
 ---
 linkTitle: Webhook API
 title: WebHook 接口API文档
-weight: 9
+weight: 10
 sidebar:
   open: false
 ---
@@ -11,11 +11,11 @@ sidebar:
 `GET /api/v4/projects/{project_id}/hooks`
 
 ### 参数
-| 参数名     | 类型    | 描述       |
-| ---------- | ------- | ---------- |
-| project_id | string  | 仓库 id    |
-| page       | integer | 当前的页码 |
-| per_page   | integer | 每页的数量 |
+| 参数名     |  位置    |   必选    | 类型    | 描述       |
+| ---------- | ---------- |---------- |------- | ---------- |
+| project_id |  path    |   Yes   | string  | 仓库 id    |
+| page       |  query    |   NO   | integer | 分页页码 |
+| per_page   |  query    |   NO   | integer | 分页数量 |
 
 
 ### 响应
@@ -167,7 +167,7 @@ sidebar:
 ```
 
 
-## 7.回传MR流水线构建状态
+## 7.回传PR流水线构建状态
 ### 请求 
 `POST /api/v4/projects/{project_id}/statuses/{sha}`
 
@@ -223,7 +223,7 @@ sidebar:
 ```
 
 
-## 8.回传MR流水线质量报告
+## 8.回传PR流水线质量报告
 ### 请求 
 `POST /api/v4/projects/{project_id}/commits/{sha}/quality`
 ### 参数

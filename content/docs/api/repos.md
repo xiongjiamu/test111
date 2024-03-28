@@ -11,8 +11,8 @@ sidebar:
 #### 参数  
 | 参数名 | 位置 | 类型 | 描述 | 必选 |
 | :----: | :----: | :---------: | :------: | :------: |
-| name | body | string | The name of the project | no |
-| path | body | string | The path of the repository | no |
+| name | body | string | The name of the project | Yes |
+| path | body | string | The path of the repository | Yes |
 | description | body | string | The description of the project | no |
 | visibility | body | string, Enum(private,public) | The visibility level of the project. | no |
 | initialize_with_readme | body | boolean | Initialize a project with a README.md | no |
@@ -407,8 +407,8 @@ sidebar:
 #### 参数  
 | 参数名 | 位置 | 类型 | 描述 | 必选 |
 | :----: | :----: | :---------: | :------: | :------: |
-| project_id | path | string | The ID of a project | yes |
-| name | body | string |  | no |
+| project_id | path | string | 项目id | Yes |
+| name | body | string | tag名称 | Yes |
 | create_access_level | body | integer |  | no |
 
 #### 响应  

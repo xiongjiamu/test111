@@ -35,13 +35,13 @@ weight: 2
 
 * 需提前准备：组织logo、组织简介、组织官方等基本内容
 
-![基础设置](/docs/images/基础设置.png)
+![基础设置](https://cdn-static.gitcode.com/doc/org-settings.png)
 
 #### 2. 成员管理
 
 可以邀请成员，或者进行成员管理
 
-![成员管理](/docs/images/成员管理.png)
+![成员管理](https://cdn-static.gitcode.com/doc/org-members.png)
 
 #### 3. 导入项目
 GitCode 提供了通过 URL 导入项目的功能，使你能够轻松将外部存储库导入到 GitCode 中并进行进一步的管理、协作和版本控制。无论你的项目源代码托管在其他平台还是你自己的服务器上，GitCode 的导入功能都能帮助你将其无缝地迁移到 GitCode 上。
@@ -53,19 +53,15 @@ GitCode 提供了通过 URL 导入项目的功能，使你能够轻松将外部�
 
 #### 4. 讨论
 
-可以选择是否启用组织讨论（项目也有自己的讨论功能），组织可视情况选择是否开启。
+组织讨论（项目也有自己的讨论功能）支持用户在组织创建和管理讨论问题，通过广泛的讨论和协作交流，使团队成员能够更好地合作、解决问题和分享见解
 
-* 开启后，**用户可在导航看到【讨论】入口，管理者可在导航【讨论】处发出各类讨论**
-* 启用后支持用户在组织创建和管理讨论问题，通过广泛的讨论和协作交流，使团队成员能够更好地合作、解决问题和分享见解
-
-![开启讨论](/docs/images/开启讨论.png)
-![讨论类型](/docs/images/讨论类型.png)
+![讨论类型](https://cdn-static.gitcode.com/doc/discussion-type.png)
 
 #### 5. 用量及存储
 
 快速查看仓库用量情况
 
-![用量及存储](/docs/images/用量及存储.png)
+![用量及存储](https://cdn-static.gitcode.com/doc/org-usage.png)
 
 #### 6. 社区管理
 
