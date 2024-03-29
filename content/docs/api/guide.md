@@ -22,11 +22,7 @@ curl "https://api.gitcode.com/api/v4/projects"
 
 大多数 GitCode API 请求需要认证，或者在未提供认证时只返回公共数据。每个接口的文档都会指明是否需要认证。
 
-你可以通过以下几种方式之一使用 GitCode API 进行认证：
-
-- OAuth 2.0 令牌
-- [个人访问令牌](https://docs.gitcode.com/docs/users/pat/)
-- 会话 cookie
+你可以通过[个人访问令牌](https://docs.gitcode.com/docs/users/pat/)使用 GitCode API 进行认证。
 
 如果认证信息无效或缺失，GitCode 会返回带有 `401` 状态码的错误信息：
 
@@ -35,24 +31,6 @@ curl "https://api.gitcode.com/api/v4/projects"
   "message": "401 Unauthorized"
 }
 ```
-
-### OAuth 2.0 令牌
-
-你可以通过在 `access_token` 参数或 `Authorization` 头中传递 OAuth 2.0 令牌来使用 API 进行认证。
-
-使用参数中的 OAuth 2.0 令牌的示例：
-
-```bash
-curl "https://api.gitcode.com/api/v4/projects?access_token=OAUTH-TOKEN"
-```
-
-请求头中的 OAuth 2.0 令牌的示例：
-
-```bash
-curl --header "Authorization: Bearer OAUTH-TOKEN" "https://api.gitcode.com/api/v4/projects"
-```
-
-所有 OAuth 访问令牌在创建后两小时内有效。你可以使用 `refresh_token` 参数来刷新令牌。
 
 ### 个人访问令牌
 
@@ -63,16 +41,6 @@ curl --header "Authorization: Bearer OAUTH-TOKEN" "https://api.gitcode.com/api/v
 ```bash
 curl --header "PRIVATE-TOKEN: <your_access_token>" "https://api.gitcode.com/api/v4/projects"
 ```
-
-你还可以使用与 OAuth 兼容的头来使用个人访问令牌：
-
-```bash
-curl --header "Authorization: Bearer <your_access_token>" "https://api.gitcode.com/api/v4/projects"
-```
-
-### 会话 cookie
-
-用户登录 GitCode 后系统会设置一个 `GitCode_ACCESS_TOKEN` cookie。如果此 cookie 存在，API 将使用它进行认证。不支持使用 API 生成新的会话 cookie。
 
 ## 状态码
 
@@ -481,12 +449,6 @@ GitCode 限制了你在特定时间内可以发出的 REST API 请求的数量�
 你可以使用个人访问令牌进行 API 请求。此外，你可以授权 GitCode 应用或 OAuth 应用代表你发出 API 请求。
 
 所有这些请求都计入你每小时 5,000 次请求的个人速率限制。
-
-<!-->
-### GitCode 应用安装的主要速率限制
-
-使用安装访问令牌认证的 GitCode 应用使用安装的最低速率限制，即每小时 5,000 次请求。
-<!-->
 
 ### OAuth 应用的主要速率限制
 
