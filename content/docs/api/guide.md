@@ -56,13 +56,7 @@ curl --header "Authorization: Bearer OAUTH-TOKEN" "https://api.gitcode.com/api/v
 
 ### 个人访问令牌
 
-你可以通过在 `private-token` 参数或 `PRIVATE-TOKEN` 头中传递个人访问令牌来使用 API 进行认证。
-
-使用参数中的个人访问令牌的示例：
-
-```bash
-curl "https://api.gitcode.com/api/v4/projects?private_token=<your_access_token>"
-```
+你可以通过 `PRIVATE-TOKEN` 头中传递个人访问令牌来使用 API 进行认证。
 
 请求头中的个人访问令牌的示例：
 
