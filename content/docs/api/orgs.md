@@ -17,8 +17,8 @@ sidebar:
 | 参数名       | 类型   | in|是否必选|default|描述                 |
 | ------------ | ------ | ----|---|-------------------- | ------------ |
 | group_id     | string |path|true|| 组织ID或者组织路径   |
-| with_projects | bool | query |false|true|为true时，返回体携带项目MR,ISSUES数量相关信息 |
-| view | enum | query |false||- all<br />- simple<br />- sum_open<br />为“all”或者null是，返回默认结构体<br />为"simple"返回最简结构体<br />为"sum_open" （with_projects为true时生效)，MR,ISSUES只返回开启中的数量|
+| with_projects | bool | query |false|true|为true时，返回体携带项目PR,ISSUES数量相关信息 |
+| view | enum | query |false||- all<br />- simple<br />- sum_open<br />为“all”或者null是，返回默认结构体<br />为"simple"返回最简结构体<br />为"sum_open" （with_projects为true时生效)，PR,ISSUES只返回开启中的数量|
 
 ### 响应
 

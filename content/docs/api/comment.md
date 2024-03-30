@@ -6,8 +6,7 @@ sidebar:
   open: false
 ---
 
-
-## 1、获取PR检视意见及动态列表
+## 1、获取PR评审意见及动态列表
 
 ### 请求
 
@@ -21,7 +20,7 @@ sidebar:
 | :---------------: | :------: | :------: | ------- | ------------------------------------- |
 |    project_id     |    是    |   Path   | String  | 项目id或项目路径                      |
 | merge_request_iid |    是    |   Path   | Integer | PR id                                 |
-|      end_id       |    否    |  Query   | Integer | 上一页检视意见最大id（第一页默认为0） |
+|      end_id       |    否    |  Query   | Integer | 上一页评审意见最大id（第一页默认为0） |
 |   end_system_id   |    否    |  Query   | Integer | 上一页动态最大id（第一页默认为0）     |
 |       page        |    否    |  Query   | Integer | 分页页数                              |
 |     per_page      |    否    |  Query   | Integer | 分页页大小                            |
@@ -38,7 +37,7 @@ sidebar:
 
 > 此接口为顺序请求接口，只能从第一页开始滚动翻页，请求返回的接口数据中包含两种格式的返回体，
 >
-> 1、检视意见
+> 1、评审意见
 >
 > 2、系统动态
 >
@@ -308,16 +307,16 @@ sidebar:
 | body              | body | YES  | string      | 评论内容                                                    |
 | line_types        | body | NO   | string      | 评论代码行类型                                              |
 | need_to_resolve   | body | NO   | boolean     | 是否需要解决，true：评审意见需要解决，false：评论不需要解决 |
-| position          | body | NO   | PositionDto | 位置信息标记检视意见在代码中的位置                          |
-| severity          | body | NO   | string      | 严重等级，默认suggestion即可                                |
+| position          | body | NO   | PositionDto | 位置信息标记评审意见在代码中的位置                          |
+| severity          | body | NO   | string      | 严重等级，只接受suggestion                              |
 
 PositionDto
 
 | 参数名                   | 类型    | 描述                                          |
 | ------------------------ | ------- | --------------------------------------------- |
 | base_sha                 | string  | 文件基础sha值                                 |
-| start_sha                | string  | 文件起始sha值，基于当前PR                     |
-| head_sha                 | string  | 文件最新sha值，基于当前PR                     |
+| start_sha                | string  | 文件起始sha值，基于当前MR                     |
+| head_sha                 | string  | 文件最新sha值，基于当前MR                     |
 | position_type            | string  | 位置类型                                      |
 | new_path                 | string  | 文件新路径                                    |
 | old_path                 | string  | 文件旧路径（仅在文件移动时新旧路径不同）      |
@@ -327,7 +326,7 @@ PositionDto
 
 ### 请求示例：
 
-创建一个待解决检视意见:
+创建一个待解决评审意见:
 
 ```json
 {
@@ -336,7 +335,7 @@ PositionDto
 }
 ```
 
-创建一个文件页检视意见：
+创建一个文件页评审意见：
 
 ```json
 {
@@ -507,7 +506,7 @@ PositionDto
 }
 ```
 
-## 3、回复PR检视意见或评论
+## 3、回复PR评审意见或评论
 
 ### 请求：
 
@@ -622,7 +621,7 @@ PositionDto
 
 
 
-## 4、修改PR检视意见或评论
+## 4、修改PR评审意见或评论
 
 ### 请求：
 
@@ -738,7 +737,7 @@ PositionDto
 }
 ```
 
-## 5、删除检视意见或评论
+## 5、删除评审意见或评论
 
 ### 请求：
 
@@ -763,7 +762,7 @@ PositionDto
 
 
 
-## 6、解决或取消解决检视意见
+## 6、解决或取消解决评审意见
 
 ### 请求：
 

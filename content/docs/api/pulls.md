@@ -6,7 +6,6 @@ sidebar:
   open: false
 ---
 
-
 ## 1、获取个人PR列表
 
 ### 请求
@@ -19,9 +18,9 @@ sidebar:
 
 |  参数名  | 传参方式 | 必填 | 类型    | 描述                                                         |
 | :------: | :------: | ---- | ------- | ------------------------------------------------------------ |
-|  state   |  Query   | 否   | String  | pr状态（opened、closed、locked、merged、all）                |
+|  state   |  Query   | 否   | String  | PR 状态（opened、closed、locked、merged、all）                |
 |   view   |  Query   | 否   | String  | 请求返回结果视图（simple、basic）                            |
-|  scope   |  Query   | 否   | String  | PR分类范围（created_by_me、assigned_to_me、need_my_review、all） |
+|  scope   |  Query   | 否   | String  | PR 分类范围（created_by_me、assigned_to_me、need_my_review、all） |
 | order_by |  Query   | 否   | String  | 排序字段（created_at、updated_at）                           |
 |   sort   |  Query   | 否   | String  | 升降序（asc、desc）                                          |
 | per_page |  Query   | 否   | Integer | 分页大小                                                     |
@@ -183,8 +182,8 @@ sidebar:
 |      project_id      |   path   | String  | 项目ID或项目路径                              |
 |        state         |  Query   | String  | PR状态（opened、closed、locked、merged、all） |
 |         view         |  Query   | String  | 请求返回结果视图（simple、basic）             |
-|        labels        |  Query   | String  | 根据label筛选PR                               |
-|      author_id       |  Query   | Integer | 根据创建者的用户ID筛选PR                      |
+|        labels        |  Query   | String  | 根据label筛选MR                               |
+|      author_id       |  Query   | Integer | 根据创建者的用户ID筛选PR                     |
 | approval_reviewer_id |  Query   | Integer | 根据评审人的用户ID筛选PR                      |
 |     assignees_id     |  Query   | Integer | 根据负责人的用户ID筛选PR                      |
 |       order_by       |  Query   | String  | 排序字段（created_at、updated_at）            |
@@ -684,7 +683,59 @@ sidebar:
 }
 ```
 
-## 5、获取合并请求设置
+## 5、获取PR关联的工作项
+
+### 请求
+
+`GET /api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/e2e_issues`
+
+
+
+### 参数:
+
+|      参数名       | 传参方式 | 类型    | 描述             |
+| :---------------: | :------: | ------- | ---------------- |
+|    project_id     |  Query   | String  | 项目ID或项目路径 |
+| merge_request_iid |  Query   | Integer | PR的IID          |
+
+### 请求示例：
+
+> /api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/e2e_issues
+
+
+
+### 响应:
+
+```json
+{
+    "e2e_issues": [
+        {
+            "id": 345313,
+            "issue_type": 7,
+            "linked_issue_type": null,
+            "issue_num": "issue1",
+            "commit_id": null,
+            "merge_request_id": 496401,
+            "check_fail_reason": "",
+            "check_result": true,
+            "issue_link": "https://test.gitcode.net/testproject/issues/1",
+            "created_at": "2023-08-03T16:15:22.547+08:00",
+            "mks_id": null,
+            "pbi_id": null,
+            "pbi_name": null,
+            "source": null,
+            "issue_project_id": 1111886,
+            "title": "111test",
+            "issue_project": null,
+            "auto_c_when_mr_merged": false,
+            "check_fail_reason_code": null,
+            "check_fail_solution": ""
+        }
+    ]
+}
+```
+
+## 6、获取PullRequest设置
 
 ### 请求
 
@@ -734,7 +785,7 @@ sidebar:
 
 
 
-## 6、更改合并请求设置
+## 7、更改PullRequest设置
 
 ### 请求
 
@@ -751,17 +802,17 @@ sidebar:
 |           approval_required_reviewers            |   Body   | Integer | 最小评审人数(选择的数字：1~5)            |
 | only_allow_merge_if_all_discussions_are_resolved |   Body   | boolean | 评审问题全部解决才能合入                 |
 |      only_allow_merge_if_pipeline_succeeds       |   Body   | boolean | 流水线运行通过                           |
-|              disable_merge_by_self               |   Body   | boolean | 禁止合入自己创建的合并请求               |
+|              disable_merge_by_self               |   Body   | boolean | 禁止合入自己创建的PR               |
 |                 can_force_merge                  |   Body   | boolean | 允许管理员强制合入                       |
-|              add_notes_after_merged              |   Body   | boolean | 允许合并请求合并后继续做代码检视和评论   |
+|              add_notes_after_merged              |   Body   | boolean | 允许PR合并后继续做代码检视和评论   |
 |          mark_auto_merged_mr_as_closed           |   Body   | boolean | 是否将自动合并的PR状态标记为关闭状态     |
-|                    can_reopen                    |   Body   | boolean | 不能重新打开一个已经关闭的合并请求       |
-|         delete_source_branch_when_merged         |   Body   | boolean | 合并请求合入后，默认删除原分支           |
+|                    can_reopen                    |   Body   | boolean | 不能重新打开一个已经关闭的PR       |
+|         delete_source_branch_when_merged         |   Body   | boolean | PR合入后，默认删除原分支           |
 |               disable_squash_merge               |   Body   | boolean | 禁止Squash合并（合入PR时禁止Squash合并） |
-|                auto_squash_merge                 |   Body   | boolean | 新建合并请求，默认开启Squash合并         |
+|                auto_squash_merge                 |   Body   | boolean | 新建PR，默认开启Squash合并         |
 |                   merge_method                   |   Body   | String  | 合并模式(三选一)                         |
 |        squash_merge_with_no_merge_commit         |   Body   | boolean | Squash合并不产生Merge节点                |
-|               merged_commit_author               |   Body   | String  | 使用PR(合入/创建)者生成Commit      |
+|               merged_commit_author               |   Body   | String  | 使用PR(合入/创建)者生成Merge Commit      |
 
 ### 请求示例：
 
@@ -819,7 +870,7 @@ sidebar:
 
 
 
-## 7、获取PR文件变更
+## 8、获取PR文件变更
 
 ### 请求
 
@@ -848,11 +899,7 @@ sidebar:
 
 
 
-注：
-
-> 接口返回文件变更数量最大为1000
-
-
+> 注：接口返回文件变更数量最大为**1000**
 
 
 ### 响应:
@@ -909,7 +956,7 @@ sidebar:
 }
 ```
 
-## 8、创建PR
+## 9、创建PR
 
 ### URI
 
@@ -1224,7 +1271,7 @@ sidebar:
 }
 ```
 
-## 9、更新PR
+## 10、更新PR
 
 ### URI
 
@@ -1558,7 +1605,7 @@ sidebar:
 }
 ```
 
-## 10、合并PR
+## 11、合并PR
 
 ### URI
 
@@ -1570,7 +1617,7 @@ sidebar:
 | --------------------------- | -------- | ---- | ------- | -------------- |
 | project_id                  | path     | Yes  | string  | 项目ID         |
 | merge_request_iid           | path     | Yes  | integer | iid            |
-| merge_request_id            | body     | NO   | integer | prId           |
+| merge_request_id            | body     | NO   | integer | PR Id           |
 | squash_commit_message       | body     | NO   | string  | squash提交信息 |
 | force_merge                 | body     | NO   | boolean | 是否强制合入   |
 | squash                      | body     | NO   | boolean | 是否squash合入 |
@@ -1902,7 +1949,7 @@ sidebar:
 }
 ```
 
-## 11、更新PR标签接口
+## 12.更新PR标签接口
 
 ```xml
 '/api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/labels':
@@ -2004,7 +2051,7 @@ put:
 
 ```
 
-## 12、删除PR标签接口
+## 13.删除PR标签接口
 
 ```xml
 '/api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/labels':
@@ -2097,4 +2144,3 @@ delete:
 }
 
 ```
-

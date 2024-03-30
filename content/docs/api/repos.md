@@ -11,8 +11,8 @@ sidebar:
 #### 参数  
 | 参数名 | 位置 | 类型 | 描述 | 必选 |
 | :----: | :----: | :---------: | :------: | :------: |
-| name | body | string | The name of the project | Yes |
-| path | body | string | The path of the repository | Yes |
+| name | body | string | The name of the project | no |
+| path | body | string | The path of the repository | no |
 | description | body | string | The description of the project | no |
 | visibility | body | string, Enum(private,public) | The visibility level of the project. | no |
 | initialize_with_readme | body | boolean | Initialize a project with a README.md | no |
@@ -407,8 +407,8 @@ sidebar:
 #### 参数  
 | 参数名 | 位置 | 类型 | 描述 | 必选 |
 | :----: | :----: | :---------: | :------: | :------: |
-| project_id | path | string | 项目id | Yes |
-| name | body | string | tag名称 | Yes |
+| project_id | path | string | The ID of a project | yes |
+| name | body | string |  | yes |
 | create_access_level | body | integer |  | no |
 
 #### 响应  
@@ -551,4 +551,618 @@ sidebar:
     }
   }
 ]
+```
+
+### 12. 归档仓库
+
+``POST /api/v4/projects/{project_id}/archive``
+
+##### 参数
+
+|         参数名         |  位置  |           类型            |                                      描述                                       | 必选  |
+|:-------------------:|:----:|:-----------------------:|:-----------------------------------------------------------------------------:|:---:|
+|     project_id      | path |           整数            |                                     仓库ID                                      | yes |
+
+#### 响应
+```json
+{
+  "id": 98485,
+  "description": null,
+  "name": "repocc12",
+  "name_with_namespace": "group1111 / repocc12",
+  "path": "repocc12",
+  "path_with_namespace": "group11111/repocc12",
+  "develop_mode": "normal",
+  "created_at": "2023-09-15T16:45:09.502+08:00",
+  "updated_at": "2023-09-15T16:45:09.502+08:00",
+  "archived": false,
+  "ssh_url_to_repo": "ssh://git@gitcode.com/group11111/repocc12.git",
+  "http_url_to_repo": "https://gitcode.com/group11111/repocc12.git",
+  "web_url": "https://gitcode.com/group11111/repocc12",
+  "readme_url": "https://gitcode.com/group11111/repocc12/blob/main/README.md",
+  "product_id": null,
+  "product_name": null,
+  "default_branch": "main",
+  "tag_list": [],
+  "license_url": null,
+  "license": {
+    "key": null,
+    "name": null,
+    "nickname": null,
+    "html_url": null,
+    "source_url": null
+  },
+  "avatar_url": null,
+  "star_count": 0,
+  "forks_count": 0,
+  "open_issues_count": 0,
+  "open_merge_requests_count": 0,
+  "open_change_requests_count": null,
+  "watch_count": 0,
+  "last_activity_at": "2023-09-15T18:44:19.163+08:00",
+  "namespace": {
+    "id": 74962,
+    "name": "group1111",
+    "path": "group11111",
+    "develop_mode": "normal",
+    "region": null,
+    "cell": "default",
+    "kind": "group",
+    "full_path": "group11111",
+    "full_name": "group1111 ",
+    "parent_id": null,
+    "visibility_level": 20,
+    "enable_file_control": null,
+    "owner_id": null
+  },
+  "empty_repo": false,
+  "starred": false,
+  "visibility": "public",
+  "owner": null,
+  "creator": {
+    "id": 80,
+    "name": "CodeHub_beta_dev",
+    "username": "CodeHub_beta_dev",
+    "iam_id": "c369c68f1ff84679b5a8ed904d8bff1c",
+    "nick_name": "",
+    "state": "active",
+    "avatar_url": "1111",
+    "avatar_path": null,
+    "email": "CodeHub_beta_dev@huawei.com",
+    "name_cn": "CodeHub_beta_dev",
+    "web_url": "https://gitcode.com/CodeHub_beta_dev",
+    "tenant_name": null
+  },
+  "creator_id": 80,
+  "forked_from_project": null,
+  "item_type": "Project",
+  "main_repository_language": null,
+  "statistics": null,
+  "branch_count": 1,
+  "tag_count": 0,
+  "member_count": 1,
+  "repo_replica_urls": null,
+  "open_external_wiki": true,
+  "release_count": 0,
+  "_links": {
+    "self": "https://gitcode.com/api/v4/projects/98485.json",
+    "issues": "https://gitcode.com/api/v4/projects/98485/issues.json",
+    "merge_requests": "https://gitcode.com/api/v4/projects/98485/merge_requests",
+    "repo_branches": "https://gitcode.com/api/v4/projects/98485/repository/branches.json",
+    "labels": "https://gitcode.com/api/v4/projects/98485/labels.json",
+    "events": "https://gitcode.com/api/v4/projects/98485/events.json",
+    "members": "https://gitcode.com/api/v4/projects/98485/members.json"
+  },
+  "resolve_outdated_diff_discussions": false,
+  "container_registry_enabled": true,
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": false,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "import_status": "none",
+  "fork_status": "none",
+  "import_url": null,
+  "import_error": null,
+  "runners_token": null,
+  "public_jobs": true,
+  "ci_config_path": null,
+  "shared_with_groups": null,
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "request_access_enabled": false,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "manifest_view_enable": false,
+  "main_zone": "cn-north-7-op",
+  "partition": null,
+  "fork_network_projects": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": null
+  }
+}
+```
+
+### 13. 解除仓库归档
+
+``POST /api/v4/projects/{project_id}/unarchive``
+
+##### 参数
+
+|         参数名         |  位置  |           类型            |                                      描述                                       | 必选  |
+|:-------------------:|:----:|:-----------------------:|:-----------------------------------------------------------------------------:|:---:|
+|     project_id      | path |           整数            |                                     仓库ID                                      | yes |
+
+#### 响应
+```json
+{
+  "id": 98485,
+  "description": null,
+  "name": "repocc12",
+  "name_with_namespace": "group1111 / repocc12",
+  "path": "repocc12",
+  "path_with_namespace": "group11111/repocc12",
+  "develop_mode": "normal",
+  "created_at": "2023-09-15T16:45:09.502+08:00",
+  "updated_at": "2023-09-15T16:45:09.502+08:00",
+  "archived": false,
+  "ssh_url_to_repo": "ssh://git@gitcode.com/group11111/repocc12.git",
+  "http_url_to_repo": "https://gitcode.com/group11111/repocc12.git",
+  "web_url": "https://gitcode.com/group11111/repocc12",
+  "readme_url": "https://gitcode.com/group11111/repocc12/blob/main/README.md",
+  "product_id": null,
+  "product_name": null,
+  "default_branch": "main",
+  "tag_list": [],
+  "license_url": null,
+  "license": {
+    "key": null,
+    "name": null,
+    "nickname": null,
+    "html_url": null,
+    "source_url": null
+  },
+  "avatar_url": null,
+  "star_count": 0,
+  "forks_count": 0,
+  "open_issues_count": 0,
+  "open_merge_requests_count": 0,
+  "open_change_requests_count": null,
+  "watch_count": 0,
+  "last_activity_at": "2023-09-15T18:44:19.163+08:00",
+  "namespace": {
+    "id": 74962,
+    "name": "group1111",
+    "path": "group11111",
+    "develop_mode": "normal",
+    "region": null,
+    "cell": "default",
+    "kind": "group",
+    "full_path": "group11111",
+    "full_name": "group1111 ",
+    "parent_id": null,
+    "visibility_level": 20,
+    "enable_file_control": null,
+    "owner_id": null
+  },
+  "empty_repo": false,
+  "starred": false,
+  "visibility": "public",
+  "owner": null,
+  "creator": {
+    "id": 80,
+    "name": "CodeHub_beta_dev",
+    "username": "CodeHub_beta_dev",
+    "iam_id": "c369c68f1ff84679b5a8ed904d8bff1c",
+    "nick_name": "",
+    "state": "active",
+    "avatar_url": "1111",
+    "avatar_path": null,
+    "email": "CodeHub_beta_dev@huawei.com",
+    "name_cn": "CodeHub_beta_dev",
+    "web_url": "https://gitcode.com/CodeHub_beta_dev",
+    "tenant_name": null
+  },
+  "creator_id": 80,
+  "forked_from_project": null,
+  "item_type": "Project",
+  "main_repository_language": null,
+  "statistics": null,
+  "branch_count": 1,
+  "tag_count": 0,
+  "member_count": 1,
+  "repo_replica_urls": null,
+  "open_external_wiki": true,
+  "release_count": 0,
+  "_links": {
+    "self": "https://gitcode.com/api/v4/projects/98485.json",
+    "issues": "https://gitcode.com/api/v4/projects/98485/issues.json",
+    "merge_requests": "https://gitcode.com/api/v4/projects/98485/merge_requests",
+    "repo_branches": "https://gitcode.com/api/v4/projects/98485/repository/branches.json",
+    "labels": "https://gitcode.com/api/v4/projects/98485/labels.json",
+    "events": "https://gitcode.com/api/v4/projects/98485/events.json",
+    "members": "https://gitcode.com/api/v4/projects/98485/members.json"
+  },
+  "resolve_outdated_diff_discussions": false,
+  "container_registry_enabled": true,
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": false,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "import_status": "none",
+  "fork_status": "none",
+  "import_url": null,
+  "import_error": null,
+  "runners_token": null,
+  "public_jobs": true,
+  "ci_config_path": null,
+  "shared_with_groups": null,
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "request_access_enabled": false,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "manifest_view_enable": false,
+  "main_zone": "cn-north-7-op",
+  "partition": null,
+  "fork_network_projects": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": null
+  }
+}
+```
+
+### 14. 仓库转移
+
+``PUT /api/v4/projects/{project_id}/transfer``
+
+##### 参数
+
+|    参数名     |  位置  |   类型   |   描述    | 必选  |
+|:----------:|:----:|:------:|:-------:|:---:|
+| project_id | path |   整数   |  仓库ID   | yes |
+| namespace  | body | String | 组织名称或Id | yes |
+
+#### 响应
+```json
+{
+  "id": 98485,
+  "description": null,
+  "name": "repocc12",
+  "name_with_namespace": "group1111 / repocc12",
+  "path": "repocc12",
+  "path_with_namespace": "group11111/repocc12",
+  "develop_mode": "normal",
+  "created_at": "2023-09-15T16:45:09.502+08:00",
+  "updated_at": "2023-09-15T16:45:09.502+08:00",
+  "archived": false,
+  "ssh_url_to_repo": "ssh://git@gitcode.com/group11111/repocc12.git",
+  "http_url_to_repo": "https://gitcode.com/group11111/repocc12.git",
+  "web_url": "https://gitcode.com/group11111/repocc12",
+  "readme_url": "https://gitcode.com/group11111/repocc12/blob/main/README.md",
+  "product_id": null,
+  "product_name": null,
+  "default_branch": "main",
+  "tag_list": [],
+  "license_url": null,
+  "license": {
+    "key": null,
+    "name": null,
+    "nickname": null,
+    "html_url": null,
+    "source_url": null
+  },
+  "avatar_url": null,
+  "star_count": 0,
+  "forks_count": 0,
+  "open_issues_count": 0,
+  "open_merge_requests_count": 0,
+  "open_change_requests_count": null,
+  "watch_count": 0,
+  "last_activity_at": "2023-09-15T18:44:19.163+08:00",
+  "namespace": {
+    "id": 74962,
+    "name": "group1111",
+    "path": "group11111",
+    "develop_mode": "normal",
+    "region": null,
+    "cell": "default",
+    "kind": "group",
+    "full_path": "group11111",
+    "full_name": "group1111 ",
+    "parent_id": null,
+    "visibility_level": 20,
+    "enable_file_control": null,
+    "owner_id": null
+  },
+  "empty_repo": false,
+  "starred": false,
+  "visibility": "public",
+  "owner": null,
+  "creator": {
+    "id": 80,
+    "name": "CodeHub_beta_dev",
+    "username": "CodeHub_beta_dev",
+    "iam_id": "c369c68f1ff84679b5a8ed904d8bff1c",
+    "nick_name": "",
+    "state": "active",
+    "avatar_url": "1111",
+    "avatar_path": null,
+    "email": "CodeHub_beta_dev@huawei.com",
+    "name_cn": "CodeHub_beta_dev",
+    "web_url": "https://gitcode.com/CodeHub_beta_dev",
+    "tenant_name": null
+  },
+  "creator_id": 80,
+  "forked_from_project": null,
+  "item_type": "Project",
+  "main_repository_language": null,
+  "statistics": null,
+  "branch_count": 1,
+  "tag_count": 0,
+  "member_count": 1,
+  "repo_replica_urls": null,
+  "open_external_wiki": true,
+  "release_count": 0,
+  "_links": {
+    "self": "https://gitcode.com/api/v4/projects/98485.json",
+    "issues": "https://gitcode.com/api/v4/projects/98485/issues.json",
+    "merge_requests": "https://gitcode.com/api/v4/projects/98485/merge_requests",
+    "repo_branches": "https://gitcode.com/api/v4/projects/98485/repository/branches.json",
+    "labels": "https://gitcode.com/api/v4/projects/98485/labels.json",
+    "events": "https://gitcode.com/api/v4/projects/98485/events.json",
+    "members": "https://gitcode.com/api/v4/projects/98485/members.json"
+  },
+  "resolve_outdated_diff_discussions": false,
+  "container_registry_enabled": true,
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": false,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "import_status": "none",
+  "fork_status": "none",
+  "import_url": null,
+  "import_error": null,
+  "runners_token": null,
+  "public_jobs": true,
+  "ci_config_path": null,
+  "shared_with_groups": null,
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "request_access_enabled": false,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "manifest_view_enable": false,
+  "main_zone": "cn-north-7-op",
+  "partition": null,
+  "fork_network_projects": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": null
+  }
+}
+```
+
+### 15. 删除仓库
+
+``DELETE /api/v4/projects/{project_id}``
+
+##### 参数
+
+|         参数名         |  位置  |           类型            |                                      描述                                       | 必选  |
+|:-------------------:|:----:|:-----------------------:|:-----------------------------------------------------------------------------:|:---:|
+|     project_id      | path |           整数            |                                     仓库ID                                      | yes |
+
+#### 响应
+```json
+{
+  "id": 98485,
+  "description": null,
+  "name": "repocc12",
+  "name_with_namespace": "group1111 / repocc12",
+  "path": "repocc12",
+  "path_with_namespace": "group11111/repocc12",
+  "develop_mode": "normal",
+  "created_at": "2023-09-15T16:45:09.502+08:00",
+  "updated_at": "2023-09-15T16:45:09.502+08:00",
+  "archived": false,
+  "ssh_url_to_repo": "ssh://git@gitcode.com/group11111/repocc12.git",
+  "http_url_to_repo": "https://gitcode.com/group11111/repocc12.git",
+  "web_url": "https://gitcode.com/group11111/repocc12",
+  "readme_url": "https://gitcode.com/group11111/repocc12/blob/main/README.md",
+  "product_id": null,
+  "product_name": null,
+  "default_branch": "main",
+  "tag_list": [],
+  "license_url": null,
+  "license": {
+    "key": null,
+    "name": null,
+    "nickname": null,
+    "html_url": null,
+    "source_url": null
+  },
+  "avatar_url": null,
+  "star_count": 0,
+  "forks_count": 0,
+  "open_issues_count": 0,
+  "open_merge_requests_count": 0,
+  "open_change_requests_count": null,
+  "watch_count": 0,
+  "last_activity_at": "2023-09-15T18:44:19.163+08:00",
+  "namespace": {
+    "id": 74962,
+    "name": "group1111",
+    "path": "group11111",
+    "develop_mode": "normal",
+    "region": null,
+    "cell": "default",
+    "kind": "group",
+    "full_path": "group11111",
+    "full_name": "group1111 ",
+    "parent_id": null,
+    "visibility_level": 20,
+    "enable_file_control": null,
+    "owner_id": null
+  },
+  "empty_repo": false,
+  "starred": false,
+  "visibility": "public",
+  "owner": null,
+  "creator": {
+    "id": 80,
+    "name": "CodeHub_beta_dev",
+    "username": "CodeHub_beta_dev",
+    "iam_id": "c369c68f1ff84679b5a8ed904d8bff1c",
+    "nick_name": "",
+    "state": "active",
+    "avatar_url": "1111",
+    "avatar_path": null,
+    "email": "CodeHub_beta_dev@huawei.com",
+    "name_cn": "CodeHub_beta_dev",
+    "web_url": "https://gitcode.com/CodeHub_beta_dev",
+    "tenant_name": null
+  },
+  "creator_id": 80,
+  "forked_from_project": null,
+  "item_type": "Project",
+  "main_repository_language": null,
+  "statistics": null,
+  "branch_count": 1,
+  "tag_count": 0,
+  "member_count": 1,
+  "repo_replica_urls": null,
+  "open_external_wiki": true,
+  "release_count": 0,
+  "_links": {
+    "self": "https://gitcode.com/api/v4/projects/98485.json",
+    "issues": "https://gitcode.com/api/v4/projects/98485/issues.json",
+    "merge_requests": "https://gitcode.com/api/v4/projects/98485/merge_requests",
+    "repo_branches": "https://gitcode.com/api/v4/projects/98485/repository/branches.json",
+    "labels": "https://gitcode.com/api/v4/projects/98485/labels.json",
+    "events": "https://gitcode.com/api/v4/projects/98485/events.json",
+    "members": "https://gitcode.com/api/v4/projects/98485/members.json"
+  },
+  "resolve_outdated_diff_discussions": false,
+  "container_registry_enabled": true,
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": false,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "import_status": "none",
+  "fork_status": "none",
+  "import_url": null,
+  "import_error": null,
+  "runners_token": null,
+  "public_jobs": true,
+  "ci_config_path": null,
+  "shared_with_groups": null,
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "request_access_enabled": false,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "manifest_view_enable": false,
+  "main_zone": "cn-north-7-op",
+  "partition": null,
+  "fork_network_projects": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": null
+  }
+}
+```
+### 16. fork项目  
+`POST /api/v4/projects/{project_id}/fork`  
+#### 参数  
+| 参数名 | 位置 | 类型 | 描述 | 必选 |
+| :----: | :----: | :---------: | :------: | :------: |
+| project_id | path | string | The ID of source project | yes |
+| namespace | body | integer | The ID of group | false |
+| name | body | string | The name of project | yes |
+| path | body | string | The path of project | yes |
+| need_sync_settings | body | string array | Settings that need to be synchronized | no |
+| description | body | string | The description of project | no |
+| fetch_refs | body | string | The fork type of project | no |
+
+#### 响应  
+```json
+{
+    "id": 229733,
+    "description": null,
+    "name": "test001",
+    "name_with_namespace": "f4ManagerTest-update / test001",
+    "path": "test001",
+    "path_with_namespace": "f4ManagerTest-update/test001",
+    "develop_mode": "normal",
+    "created_at": "2024-03-26T21:57:51.891+08:00",
+    "updated_at": "2024-03-26T21:57:51.891+08:00",
+    "archived": false,
+    "is_kia": false,
+    "ssh_url_to_repo": "ssh://git@gitcode-backend.cn-north-7.myhuaweicloud.com:2222/f4ManagerTest-update/test001.git",
+    "http_url_to_repo": "https://gitcode-backend.cn-north-7.myhuaweicloud.com/f4ManagerTest-update/test001.git",
+    "web_url": "https://gitcode-backend.cn-north-7.myhuaweicloud.com/f4ManagerTest-update/test001",
+    "readme_url": null,
+    "product_id": null,
+    "product_name": null,
+    "default_branch": "",
+    "tag_list": [],
+    "license_url": null,
+    "license": {
+        "key": null,
+        "name": null,
+        "nickname": null,
+        "html_url": null,
+        "source_url": null
+    },
+    "avatar_url": null,
+    "star_count": 0,
+    "forks_count": 0,
+    "open_issues_count": null,
+    "open_merge_requests_count": null,
+    "open_change_requests_count": null,
+    "watch_count": 0,
+    "last_activity_at": "2024-03-26T21:57:52.198+08:00",
+    "namespace": {
+        "id": 2,
+        "name": "f4ManagerTest-update",
+        "path": "f4ManagerTest-update",
+        "develop_mode": "normal",
+        "region": null,
+        "cell": null,
+        "kind": "user",
+        "full_path": "f4ManagerTest-update",
+        "full_name": "f4ManagerTest-update",
+        "parent_id": null,
+        "visibility_level": 20,
+        "enable_file_control": false,
+        "owner_id": 12
+    },
+    "empty_repo": null,
+    "starred": null,
+    "visibility": "private",
+    "security": "internal",
+    "has_updated_kia": null,
+    "network_type": "green",
+    "owner": null,
+    "creator": null,
+    "creator_id": null,
+    "forked_from_project": null,
+    "item_type": null,
+    "main_repository_language": null,
+    "mirror_project_data": null
+}
 ```
