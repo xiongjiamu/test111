@@ -665,14 +665,27 @@ aaaacc
 
 返回码: 201
 
-| 参数名         | 类型             | 描述        |
-|-------------|----------------|-----------|
-| tag_name    | string         | tag名称     |
-| description | string         | release描述 |
-| name        | string         | release名称 |
-| created_at  | string         | 创建时间      |
-| commit      | Commit object  | commit信息  |
-| creator     | Creator object | 创建者信息     |
+| 参数名         | 类型                  | 描述        |
+|-------------|---------------------|-----------|
+| tag_name    | string              | tag名称     |
+| description | string              | release描述 |
+| name        | string              | release名称 |
+| created_at  | string              | 创建时间      |
+| author      | UserBasicDto object | 创建人       |
+| commit      | Commit object       | commit信息  |
+| assets      | AssetsDto object    | 附件        |
+
+#### UserBasicDto
+
+| 参数名           | 类型     | 描述   |
+|---------------|--------|------|
+| id            | string | id   |
+| name          | string | 名称   |
+| username      | string | 用户名  |
+| nick_name     | string | 昵称   |
+| authored_date | string | 创建日期 |
+| avatar_url    | string | 头像   |
+| email         | string | 邮箱   |
 
 #### Commit
 
@@ -692,141 +705,31 @@ aaaacc
 | committer_avatar_url | string          | 提交者头像     |
 | committer_nick_name  | string          | 提交者昵称     |
 
-#### Creator
+#### AssetsDto
 
-| 参数名        | 类型     | 描述   |
-|------------|--------|------|
-| username   | string | 用户名  |
-| nick_name  | string | 用户昵称 |
-| avatar_url | string | 用户头像 |
+| 参数名     | 类型                         | 描述   |
+|---------|----------------------------|------|
+| count   | integer                    | 个数   |
+| sources | array of  ReleaseSourceDto | 默认附件 |
+| assets  | array of  AssetDto         | 上传附件 |
 
-```json
-{
-    "tag_name": "tag1",
-    "description": "desc1",
-    "name": "123",
-    "description_html": null,
-    "created_at": "2023-10-27T03:06:04.232+08:00",
-    "can_delete": null,
-    "can_edit": null,
-    "can_download": null,
-    "author": {
-        "id": 44,
-        "name": "xxx",
-        "username": "xxx",
-        "iam_id": "xxx",
-        "nick_name": "xx",
-        "state": "active",
-        "avatar_url": "xxx",
-        "avatar_path": null,
-        "email": "xxx",
-        "name_cn": "xxx",
-        "web_url": "https://gitcode.com/xxx",
-        "tenant_name": null,
-        "is_member": null
-    },
-    "commit": {
-        "id": "87f0e2dc576a4770840862d87bd7e3351a89b8a2",
-        "message": "",
-        "parent_ids": [
-            "68c5d1bdf5db8ff11e4e3c174b0f9a8f0ce72aa5"
-        ],
-        "authored_date": "2023-09-09T04:00:43.000Z",
-        "author_name": "WilliamZhu",
-        "author_email": null,
-        "committed_date": "2023-09-09T04:00:43.000Z",
-        "committer_name": "WilliamZhu",
-        "committer_email": null,
-        "open_gpg_verified": null,
-        "verification_status": 0,
-        "gpg_primary_key_id": "",
-        "short_id": "87f0e2dc",
-        "created_at": "2023-09-09T04:00:43.000Z",
-        "title": "get hadoop configuration from spark session",
-        "author_avatar_url": null,
-        "author_nick_name": null,
-        "author_user_name": null,
-        "committer_avatar_url": null,
-        "committer_nick_name": null,
-        "committer_user_name": null,
-        "relate_url": null
-    },
-    "assets": {
-        "count": 4,
-        "sources": [
-            {
-                "format": "zip",
-                "url": "xxx"
-            },
-            {
-                "format": "tar.gz",
-                "url": "xxx"
-            },
-            {
-                "format": "tar.bz2",
-                "url": "xxx"
-            },
-            {
-                "format": "tar",
-                "url": "xxx"
-            }
-        ],
-        "assets": []
-    }
-}
-```
+#### ReleaseSourceDto
 
-## 12. 删除release
+| 参数名    | 类型     | 描述   |
+|--------|--------|------|
+| format | string | 格式   |
+| url    | string | 下载地址 |
 
-### 请求
+#### AssetDto
 
-`DELETE /api/v4/projects/{project_id}/releases/{tag_name}`
-
-### 参数
-
-| 参数名        | 类型     | IN   | 必选   | 描述    |
-|------------|--------|:-----|:-----|-------|
-| project_id | string | path | true | 项目id  |
-| tag_name   | string | path | true | tag名称 |
-
-### 响应
-
-返回码: 200
-
-| 参数名         | 类型             | 描述        |
-|-------------|----------------|-----------|
-| tag_name    | string         | tag名称     |
-| description | string         | release描述 |
-| name        | string         | release名称 |
-| created_at  | string         | 创建时间      |
-| commit      | Commit object  | commit信息  |
-| creator     | Creator object | 创建者信息     |
-
-#### Commit
-
-| 参数名                  | 类型              | 描述        |
-|----------------------|-----------------|-----------|
-| id                   | string          | commit id |
-| short_id             | string          | commit短id |
-| title                | string          | 提交标题      |
-| message              | string          | 提交信息      |
-| parent_ids           | array of string | 祖先id      |
-| authored_date        | string          | 创建日期      |
-| author_name          | string          | 创建者       |
-| author_avatar_url    | string          | 创建者头像     |
-| author_nick_name     | string          | 创建者昵称     |
-| committed_date       | string          | 提交日期      |
-| committer_name       | string          | 提交者       |
-| committer_avatar_url | string          | 提交者头像     |
-| committer_nick_name  | string          | 提交者昵称     |
-
-#### Creator
-
-| 参数名        | 类型     | 描述   |
-|------------|--------|------|
-| username   | string | 用户名  |
-| nick_name  | string | 用户昵称 |
-| avatar_url | string | 用户头像 |
+| 参数名        | 类型         | 描述         |
+|------------|------------|------------|
+| id         | integer    | id         |
+| project_id | integer    | 项目id       |
+| release_id | integer    | release_id |
+| attachment | string     | 附件名称       |
+| size       | BigDecimal | 附件大小       |
+| created_at | string     | 创建时间       |
 
 ```json
 {
@@ -851,10 +754,176 @@ aaaacc
     "committer_avatar_url": "https://xxx",
     "committer_nick_name": "xx"
   },
-  "creator": {
-    "username": "xxx",
-    "nick_name": "xx",
-    "avatar_url": "https://xxx"
+  "assets": {
+    "count": 5,
+    "sources": [
+      {
+        "format": "zip",
+        "url": "https:/xxxxxx.zip"
+      },
+      {
+        "format": "tar.gz",
+        "url": "https://xxxx.tar.gz"
+      },
+      {
+        "format": "tar.bz2",
+        "url": "https://xxx.tar.bz2"
+      },
+      {
+        "format": "tar",
+        "url": "https://xxx.tar"
+      }
+    ],
+    "assets": [
+      {
+        "id": xx,
+        "project_id": xx,
+        "release_id": xx,
+        "attachment": "截图aaaaa.PNG",
+        "size": 0,
+        "created_at": "2024-03-27T00:58:03.661+08:00"
+      }
+    ]
+  }
+}
+```
+
+## 12. 删除release
+
+### 请求
+
+`DELETE /api/v4/projects/{project_id}/releases/{tag_name}`
+
+### 参数
+
+| 参数名        | 类型     | IN   | 必选   | 描述    |
+|------------|--------|:-----|:-----|-------|
+| project_id | string | path | true | 项目id  |
+| tag_name   | string | path | true | tag名称 |
+
+### 响应
+
+返回码: 200
+
+| 参数名         | 类型                  | 描述        |
+|-------------|---------------------|-----------|
+| tag_name    | string              | tag名称     |
+| description | string              | release描述 |
+| name        | string              | release名称 |
+| created_at  | string              | 创建时间      |
+| author      | UserBasicDto object | 创建人       |
+| commit      | Commit object       | commit信息  |
+| assets      | AssetsDto object    | 附件        |
+
+#### UserBasicDto
+
+| 参数名           | 类型     | 描述   |
+|---------------|--------|------|
+| id            | string | id   |
+| name          | string | 名称   |
+| username      | string | 用户名  |
+| nick_name     | string | 昵称   |
+| authored_date | string | 创建日期 |
+| avatar_url    | string | 头像   |
+| email         | string | 邮箱   |
+
+#### Commit
+
+| 参数名                  | 类型              | 描述        |
+|----------------------|-----------------|-----------|
+| id                   | string          | commit id |
+| short_id             | string          | commit短id |
+| title                | string          | 提交标题      |
+| message              | string          | 提交信息      |
+| parent_ids           | array of string | 祖先id      |
+| authored_date        | string          | 创建日期      |
+| author_name          | string          | 创建者       |
+| author_avatar_url    | string          | 创建者头像     |
+| author_nick_name     | string          | 创建者昵称     |
+| committed_date       | string          | 提交日期      |
+| committer_name       | string          | 提交者       |
+| committer_avatar_url | string          | 提交者头像     |
+| committer_nick_name  | string          | 提交者昵称     |
+
+#### AssetsDto
+
+| 参数名     | 类型                         | 描述   |
+|---------|----------------------------|------|
+| count   | integer                    | 个数   |
+| sources | array of  ReleaseSourceDto | 默认附件 |
+| assets  | array of  AssetDto         | 上传附件 |
+
+#### ReleaseSourceDto
+
+| 参数名    | 类型     | 描述   |
+|--------|--------|------|
+| format | string | 格式   |
+| url    | string | 下载地址 |
+
+#### AssetDto
+
+| 参数名        | 类型         | 描述         |
+|------------|------------|------------|
+| id         | integer    | id         |
+| project_id | integer    | 项目id       |
+| release_id | integer    | release_id |
+| attachment | string     | 附件名称       |
+| size       | BigDecimal | 附件大小       |
+| created_at | string     | 创建时间       |
+
+```json
+{
+  "tag_name": "tag2",
+  "description": "release2",
+  "name": "release2",
+  "created_at": "2023-09-20T17:31:55.128+08:00",
+  "commit": {
+    "id": "a655c6cf680db548e33d05e0bb499b1de944515a",
+    "message": " ",
+    "parent_ids": [
+      "7e71b59e15797afe6ee8f101f2cf85e1b4a8aa54"
+    ],
+    "authored_date": "2023-09-19T10:07:44.000Z",
+    "author_name": "xxx",
+    "committed_date": "2023-09-19T10:07:44.000Z",
+    "committer_name": "xxx",
+    "short_id": "a655c6cf",
+    "title": "feat: 修改README.md ",
+    "author_avatar_url": "https://xxx",
+    "author_nick_name": "xx",
+    "committer_avatar_url": "https://xxx",
+    "committer_nick_name": "xx"
+  },
+  "assets": {
+    "count": 5,
+    "sources": [
+      {
+        "format": "zip",
+        "url": "https:/xxxxxx.zip"
+      },
+      {
+        "format": "tar.gz",
+        "url": "https://xxxx.tar.gz"
+      },
+      {
+        "format": "tar.bz2",
+        "url": "https://xxx.tar.bz2"
+      },
+      {
+        "format": "tar",
+        "url": "https://xxx.tar"
+      }
+    ],
+    "assets": [
+      {
+        "id": xx,
+        "project_id": xx,
+        "release_id": xx,
+        "attachment": "截图aaaaa.PNG",
+        "size": 0,
+        "created_at": "2024-03-27T00:58:03.661+08:00"
+      }
+    ]
   }
 }
 ```
@@ -878,14 +947,27 @@ aaaacc
 
 返回码: 200
 
-| 参数名         | 类型             | 描述        |
-|-------------|----------------|-----------|
-| tag_name    | string         | tag名称     |
-| description | string         | release描述 |
-| name        | string         | release名称 |
-| created_at  | string         | 创建时间      |
-| commit      | Commit object  | commit信息  |
-| creator     | Creator object | 创建者信息     |
+| 参数名         | 类型                  | 描述        |
+|-------------|---------------------|-----------|
+| tag_name    | string              | tag名称     |
+| description | string              | release描述 |
+| name        | string              | release名称 |
+| created_at  | string              | 创建时间      |
+| author      | UserBasicDto object | 创建人       |
+| commit      | Commit object       | commit信息  |
+| assets      | AssetsDto object    | 附件        |
+
+#### UserBasicDto
+
+| 参数名           | 类型     | 描述   |
+|---------------|--------|------|
+| id            | string | id   |
+| name          | string | 名称   |
+| username      | string | 用户名  |
+| nick_name     | string | 昵称   |
+| authored_date | string | 创建日期 |
+| avatar_url    | string | 头像   |
+| email         | string | 邮箱   |
 
 #### Commit
 
@@ -905,13 +987,31 @@ aaaacc
 | committer_avatar_url | string          | 提交者头像     |
 | committer_nick_name  | string          | 提交者昵称     |
 
-#### Creator
+#### AssetsDto
 
-| 参数名        | 类型     | 描述   |
-|------------|--------|------|
-| username   | string | 用户名  |
-| nick_name  | string | 用户昵称 |
-| avatar_url | string | 用户头像 |
+| 参数名     | 类型                         | 描述   |
+|---------|----------------------------|------|
+| count   | integer                    | 个数   |
+| sources | array of  ReleaseSourceDto | 默认附件 |
+| assets  | array of  AssetDto         | 上传附件 |
+
+#### ReleaseSourceDto
+
+| 参数名    | 类型     | 描述   |
+|--------|--------|------|
+| format | string | 格式   |
+| url    | string | 下载地址 |
+
+#### AssetDto
+
+| 参数名        | 类型         | 描述         |
+|------------|------------|------------|
+| id         | integer    | id         |
+| project_id | integer    | 项目id       |
+| release_id | integer    | release_id |
+| attachment | string     | 附件名称       |
+| size       | BigDecimal | 附件大小       |
+| created_at | string     | 创建时间       |
 
 ```json
 {
@@ -936,10 +1036,36 @@ aaaacc
     "committer_avatar_url": "https://xxx",
     "committer_nick_name": "xx"
   },
-  "creator": {
-    "username": "xxx",
-    "nick_name": "xx",
-    "avatar_url": "https://xxx"
+  "assets": {
+    "count": 5,
+    "sources": [
+      {
+        "format": "zip",
+        "url": "https:/xxxxxx.zip"
+      },
+      {
+        "format": "tar.gz",
+        "url": "https://xxxx.tar.gz"
+      },
+      {
+        "format": "tar.bz2",
+        "url": "https://xxx.tar.bz2"
+      },
+      {
+        "format": "tar",
+        "url": "https://xxx.tar"
+      }
+    ],
+    "assets": [
+      {
+        "id": xx,
+        "project_id": xx,
+        "release_id": xx,
+        "attachment": "截图aaaaa.PNG",
+        "size": 0,
+        "created_at": "2024-03-27T00:58:03.661+08:00"
+      }
+    ]
   }
 }
 ```
@@ -961,14 +1087,27 @@ aaaacc
 
 返回码: 200
 
-| 参数名         | 类型             | 描述        |
-|-------------|----------------|-----------|
-| tag_name    | string         | tag名称     |
-| description | string         | release描述 |
-| name        | string         | release名称 |
-| created_at  | string         | 创建时间      |
-| commit      | Commit object  | commit信息  |
-| creator     | Creator object | 创建者信息     |
+| 参数名         | 类型                  | 描述        |
+|-------------|---------------------|-----------|
+| tag_name    | string              | tag名称     |
+| description | string              | release描述 |
+| name        | string              | release名称 |
+| created_at  | string              | 创建时间      |
+| author      | UserBasicDto object | 创建人       |
+| commit      | Commit object       | commit信息  |
+| assets      | AssetsDto object    | 附件        |
+
+#### UserBasicDto
+
+| 参数名           | 类型     | 描述   |
+|---------------|--------|------|
+| id            | string | id   |
+| name          | string | 名称   |
+| username      | string | 用户名  |
+| nick_name     | string | 昵称   |
+| authored_date | string | 创建日期 |
+| avatar_url    | string | 头像   |
+| email         | string | 邮箱   |
 
 #### Commit
 
@@ -988,13 +1127,31 @@ aaaacc
 | committer_avatar_url | string          | 提交者头像     |
 | committer_nick_name  | string          | 提交者昵称     |
 
-#### Creator
+#### AssetsDto
 
-| 参数名        | 类型     | 描述   |
-|------------|--------|------|
-| username   | string | 用户名  |
-| nick_name  | string | 用户昵称 |
-| avatar_url | string | 用户头像 |
+| 参数名     | 类型                         | 描述   |
+|---------|----------------------------|------|
+| count   | integer                    | 个数   |
+| sources | array of  ReleaseSourceDto | 默认附件 |
+| assets  | array of  AssetDto         | 上传附件 |
+
+#### ReleaseSourceDto
+
+| 参数名    | 类型     | 描述   |
+|--------|--------|------|
+| format | string | 格式   |
+| url    | string | 下载地址 |
+
+#### AssetDto
+
+| 参数名        | 类型         | 描述         |
+|------------|------------|------------|
+| id         | integer    | id         |
+| project_id | integer    | 项目id       |
+| release_id | integer    | release_id |
+| attachment | string     | 附件名称       |
+| size       | BigDecimal | 附件大小       |
+| created_at | string     | 创建时间       |
 
 ```json
 {
@@ -1019,10 +1176,36 @@ aaaacc
     "committer_avatar_url": "https://xxx",
     "committer_nick_name": "xx"
   },
-  "creator": {
-    "username": "xxx",
-    "nick_name": "xx",
-    "avatar_url": "https://xxx"
+  "assets": {
+    "count": 5,
+    "sources": [
+      {
+        "format": "zip",
+        "url": "https:/xxxxxx.zip"
+      },
+      {
+        "format": "tar.gz",
+        "url": "https://xxxx.tar.gz"
+      },
+      {
+        "format": "tar.bz2",
+        "url": "https://xxx.tar.bz2"
+      },
+      {
+        "format": "tar",
+        "url": "https://xxx.tar"
+      }
+    ],
+    "assets": [
+      {
+        "id": xx,
+        "project_id": xx,
+        "release_id": xx,
+        "attachment": "截图aaaaa.PNG",
+        "size": 0,
+        "created_at": "2024-03-27T00:58:03.661+08:00"
+      }
+    ]
   }
 }
 ```
@@ -1037,23 +1220,36 @@ aaaacc
 
 | 参数名        | 类型      | IN    | 必选    | 默认值 | 描述        |
 |------------|---------|:------|:------|-----|-----------|
-| project_id | string  | path  | Yes  |     | 项目id      |
-| tag_name   | string  | query  | Yes  |     | tag名称     |
-| page       | integer | query | NO | 1   | 分页参数-当前页  |
-| per_page   | integer | query | NO | 20  | 分页参数-每页条数 |
+| project_id | string  | path  | true  |     | 项目id      |
+| tag_name   | string  | path  | true  |     | tag名称     |
+| page       | integer | query | false | 1   | 分页参数-当前页  |
+| per_page   | integer | query | false | 20  | 分页参数-每页条数 |
 
 ### 响应
 
 返回码: 200
 
-| 参数名         | 类型             | 描述        |
-|-------------|----------------|-----------|
-| tag_name    | string         | tag名称     |
-| description | string         | release描述 |
-| name        | string         | release名称 |
-| created_at  | string         | 创建时间      |
-| commit      | Commit object  | commit信息  |
-| creator     | Creator object | 创建者信息     |
+| 参数名         | 类型                  | 描述        |
+|-------------|---------------------|-----------|
+| tag_name    | string              | tag名称     |
+| description | string              | release描述 |
+| name        | string              | release名称 |
+| created_at  | string              | 创建时间      |
+| author      | UserBasicDto object | 创建人       |
+| commit      | Commit object       | commit信息  |
+| assets      | AssetsDto object    | 附件        |
+
+#### UserBasicDto
+
+| 参数名           | 类型     | 描述   |
+|---------------|--------|------|
+| id            | string | id   |
+| name          | string | 名称   |
+| username      | string | 用户名  |
+| nick_name     | string | 昵称   |
+| authored_date | string | 创建日期 |
+| avatar_url    | string | 头像   |
+| email         | string | 邮箱   |
 
 #### Commit
 
@@ -1073,13 +1269,31 @@ aaaacc
 | committer_avatar_url | string          | 提交者头像     |
 | committer_nick_name  | string          | 提交者昵称     |
 
-#### Creator
+#### AssetsDto
 
-| 参数名        | 类型     | 描述   |
-|------------|--------|------|
-| username   | string | 用户名  |
-| nick_name  | string | 用户昵称 |
-| avatar_url | string | 用户头像 |
+| 参数名     | 类型                         | 描述   |
+|---------|----------------------------|------|
+| count   | integer                    | 个数   |
+| sources | array of  ReleaseSourceDto | 默认附件 |
+| assets  | array of  AssetDto         | 上传附件 |
+
+#### ReleaseSourceDto
+
+| 参数名    | 类型     | 描述   |
+|--------|--------|------|
+| format | string | 格式   |
+| url    | string | 下载地址 |
+
+#### AssetDto
+
+| 参数名        | 类型         | 描述         |
+|------------|------------|------------|
+| id         | integer    | id         |
+| project_id | integer    | 项目id       |
+| release_id | integer    | release_id |
+| attachment | string     | 附件名称       |
+| size       | BigDecimal | 附件大小       |
+| created_at | string     | 创建时间       |
 
 ```json
 [
@@ -1105,16 +1319,42 @@ aaaacc
       "committer_avatar_url": "https://xxx",
       "committer_nick_name": "xx"
     },
-    "creator": {
-      "username": "xxx",
-      "nick_name": "xx",
-      "avatar_url": "https://xxx"
+    "assets": {
+      "count": 5,
+      "sources": [
+        {
+          "format": "zip",
+          "url": "https:/xxxxxx.zip"
+        },
+        {
+          "format": "tar.gz",
+          "url": "https://xxxx.tar.gz"
+        },
+        {
+          "format": "tar.bz2",
+          "url": "https://xxx.tar.bz2"
+        },
+        {
+          "format": "tar",
+          "url": "https://xxx.tar"
+        }
+      ],
+      "assets": [
+        {
+          "id": xx,
+          "project_id": xx,
+          "release_id": xx,
+          "attachment": "截图aaaaa.PNG",
+          "size": 0,
+          "created_at": "2024-03-27T00:58:03.661+08:00"
+        }
+      ]
     }
   }
 ]
 ```
 
-<!-- ## 16. 语言排行
+## 16. 语言排行
 
 ### 请求
 
@@ -1124,7 +1364,7 @@ aaaacc
 
 | 参数名        | 类型     | IN   | 必选   | 默认值 | 描述   |
 |------------|--------|:-----|:-----|-----|------|
-| project_id | string | path | Yes |     | 项目id |
+| project_id | string | path | true |     | 项目id |
 
 ### 响应
 
@@ -1154,9 +1394,9 @@ aaaacc
   ],
   "status": null
 }
-``` -->
+```
 
-## 16. 更新文件
+## 17. 更新文件
 
 ### 请求
 
@@ -1166,17 +1406,17 @@ aaaacc
 
 | 参数名            | 类型     | IN   | 必选    | 描述           |
 |----------------|--------|:-----|:------|--------------|
-| project_id     | string | path | Yes  | 项目id         |
-| name           | string | body | NO | 文件名称         |
-| file_path      | string | body | Yes  | 文件路径         |
-| branch         | string | body | Yes  | 分支名称         |
-| commit_message | string | body | Yes  | 提交信息         |
-| start_branch   | string | body | NO | 基于分支         |
-| author_email   | string | body | NO | author邮箱     |
-| author_name    | string | body | NO | author名称     |
-| content        | string | body | Yes  | 文件内容         |
-| encoding       | string | body | NO | 文件编码         |
-| last_commit_id | string | body | NO | 文件最后修改commit |
+| project_id     | string | path | true  | 项目id         |
+| name           | string | body | false | 文件名称         |
+| file_path      | string | body | true  | 文件路径         |
+| branch         | string | body | true  | 分支名称         |
+| commit_message | string | body | true  | 提交信息         |
+| start_branch   | string | body | false | 基于分支         |
+| author_email   | string | body | false | author邮箱     |
+| author_name    | string | body | false | author名称     |
+| content        | string | body | true  | 文件内容         |
+| encoding       | string | body | false | 文件编码         |
+| last_commit_id | string | body | false | 文件最后修改commit |
 
 ### 响应
 
@@ -1194,7 +1434,7 @@ aaaacc
 }
 ```
 
-## 17. 获取目录Tree
+## 18. 获取目录Tree
 
 ### 请求
 
@@ -1204,12 +1444,12 @@ aaaacc
 
 | 参数名        | 类型      | IN    | 必选    | 默认值   | 描述            |
 |------------|---------|:------|:------|-------|---------------|
-| project_id | string  | path  | Yes  |       | 项目id          |
-| ref        | string  | path  | NO | 默认分支  | commit、分支、tag |
-| path       | string  | path  | NO |       | 文件路径          |
-| recursive  | boolean | path  | NO | false | 是否递归获取        |
-| page       | integer | query | NO | 1     | 分页参数-当前页      |
-| per_page   | integer | query | NO | 20    | 分页参数-每页条数     |
+| project_id | string  | path  | true  |       | 项目id          |
+| ref        | string  | path  | false | 默认分支  | commit、分支、tag |
+| path       | string  | path  | false |       | 文件路径          |
+| recursive  | boolean | path  | false | false | 是否递归获取        |
+| page       | integer | query | false | 1     | 分页参数-当前页      |
+| per_page   | integer | query | false | 20    | 分页参数-每页条数     |
 
 ### 响应
 
@@ -1270,4 +1510,3 @@ aaaacc
   }
 ]
 ```
-
