@@ -1,7 +1,7 @@
 ---
 linkTitle: PAT
 title: 个人访问密钥
-weight: 4
+weight: 5
 ---
 
 
