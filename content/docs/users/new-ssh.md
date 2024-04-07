@@ -6,45 +6,75 @@ sidebar:
   open: false
 ---
 
-SSH 密钥的生成方式如下：
+GitCode目前支持如下两类SSH 密钥：
 
-*   ED25519 密钥，请查看[ED25519 SSH 密钥](#ed25519-ssh-keys)
-*   RSA 密钥，请查看[RSA SSH 密钥](#rsa-ssh-keys) 
+*   [ED25519 SSH 密钥](#ed25519-ssh-密钥)
+*   [RSA SSH 密钥](#rsa-ssh-密钥) 
 
-### ED25519 SSH keys
+### ED25519 SSH 密钥
 
-[Practical Cryptography With Go](https://leanpub.com/gocrypto/read#leanpub-auto-chapter-5-digital-signatures) 一书中表明 [ED25519](https://ed25519.cr.yp.to/) 密钥比 RSA 密钥更为安全。
-
-2014年 OpenSSH 6.5 引入 ED25519 SSH 密钥后，当前任何操作系统都可用使用这种密钥。
+[Practical Cryptography With Go](https://leanpub.com/gocrypto/read#leanpub-auto-chapter-5-digital-signatures) 一书中表明 [ED25519](https://ed25519.cr.yp.to/) 密钥比 RSA 密钥更为安全。2014年 OpenSSH 6.5 引入 ED25519 SSH 密钥后，当前任何操作系统都可用使用这种密钥。
 
 你可以使用以下命令创建和配置 ED25519 密钥：
 
-```
-ssh-keygen -t ed25519 -C "<comment>" 
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com" 
 ```
 
-`-C`（例如带引号注释的电子邮件地址）是标记 SSH 密钥的可选方法。
+`-C`（例如带引号注释的电子邮件地址）是标记 SSH 密钥的可选方法，请将上述邮箱替换为您的电子邮件地址。
 
 你将看到类似于以下内容的响应：
 
-```
+```bash
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (/home/user/.ssh/id_ed25519): 
 ```
 
-要获得指导，请继续执行[常见步骤](#common-steps-for-generating-an-ssh-key-pair) .
+当系统提示你保存密钥时，默认情况下，私钥被保存在~/.ssh/id_ed25519文件中，而公钥被保存在~/.ssh/id_ed25519.pub文件中。如果你不想在默认位置保存你的密钥，或者想为你的密钥文件命名，可以指定一个新的文件名：
 
-### RSA SSH 密钥
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"  -f ~/.ssh/my_custom_key
+```
 
-如果你使用 RSA 密钥生成 SSH 密钥，则我们建议你至少使用 [ 2048 位](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57Pt3r1.pdf)的密钥大小. 默认情况下， `ssh-keygen`命令创建一个 1024 位 RSA 密钥.
+当然如果你想设置一个[密码](https://www.ssh.com/ssh/passphrase/) 来保护你的私钥，可以在提示时输入密码。
+
+```bash
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again: 
+```
+
+如果成功，你将看到有关`ssh-keygen`命令将标识和私钥保存在何处的确认信息。
+```bash
+Your identification has been saved in /Users/.ssh/id_ed25519
+Your public key has been saved in /Users/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:x8gFyNRIg5UsIhqYOnsDYhyxXJNhwBU2WcLs11b421g your_email@example.com
+The key's randomart image is:
++--[ED25519 256]--+
+|o+*@*O==o        |
+|*o*=* *o.o       |
+|+=o. .. o .      |
+|*o . . + = E     |
+|o+  . . S B      |
+|. o      + .     |
+| . .             |
+|                 |
+|                 |
++----[SHA256]-----+
+```
+
+
+### RSA SSH 密钥 
+
+如果你使用 RSA 密钥生成 SSH 密钥，则我们建议你使用4096位（ 至少[2048 位](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57Pt3r1.pdf)）的密钥大小. 默认情况下 `ssh-keygen`命令会创建一个 1024 位 RSA 密钥.
 
 你可以使用以下命令创建和配置 RSA 密钥，如果需要，可以生成建议的最小密钥大小`2048`：
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "email@example.com" 
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" 
 ```
 
-`-C`标志（例如带引号注释的电子邮件地址）是标记 SSH 密钥的可选方法。
+`-C`标志（例如带引号注释的电子邮件地址）是标记 SSH 密钥的可选方法，请将上述邮箱替换为您的电子邮件地址。
 
 你将看到类似于以下内容的响应：
 
@@ -53,24 +83,13 @@ Generating public/private rsa key pair.
 Enter file in which to save the key (/home/user/.ssh/id_rsa): 
 ```
 
-要获得指导，请继续执行[常见步骤](#common-steps-for-generating-an-ssh-key-pair) 。
-
-**注意：** 如果你使用 7.8 或更低版本的 OpenSSH，请参考与[编码](#rsa-keys-and-openssh-from-versions-65-to-78)相关的问题。
-
-### SSH 密钥生成步骤
-
-无论是创建[ED25519](#ed25519-ssh-keys)还是创建[RSA](#rsa-ssh-keys)密钥，你都从`ssh-keygen`命令开始。此时，你将在命令行中看到以下消息（以 ED25519 密钥为例）：
+当系统提示你保存密钥时，默认情况下，私钥被保存在~/.ssh/id_rsa文件中，而公钥被保存在~/.ssh/id_rsa.pub文件中。如果你不想在默认位置保存你的密钥，或者想为你的密钥文件命名，可以指定一个新的文件名：
 
 ```bash
-Generating public/private ed25519 key pair.
-Enter file in which to save the key (/home/user/.ssh/id_rsa): 
+ssh-keygen -t ed25519 -C "your_email@example.com"  -f ~/.ssh/my_custom_key
 ```
 
-如果你还没有 SSH 密钥对并且也没有生成[部署密钥](#deploy-keys) ，你可以按照系统提示的建议选择 SSH 密钥存储的文件和目录，SSH 客户端将使用默认配置来生成你的 SSH 密钥。
-
-当然，你也可以将新生成的 SSH 密钥保存在其他位置。你可以选择要分配的目录和文件名，你还可以为专用的[特定主机](#working-with-non-default-ssh-key-pair-paths) 生成SSH 密钥。
-
-在选择 SSH 密钥的保存路径后，你可以为 SSH 密钥设置[密码](https://www.ssh.com/ssh/passphrase/) ：
+当然如果你想设置一个[密码](https://www.ssh.com/ssh/passphrase/) 来保护你的私钥，可以在提示时输入密码。
 
 ```bash
 Enter passphrase (empty for no passphrase):
@@ -79,11 +98,26 @@ Enter same passphrase again:
 
 如果成功，你将看到有关`ssh-keygen`命令将标识和私钥保存在何处的确认信息。
 
-如有需要，你也可以使用以下命令更新密码：
-
 ```bash
-ssh-keygen -p -f /path/to/ssh_key 
+Your identification has been saved in /Users/.ssh/id_rsa
+Your public key has been saved in /Users/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:Ub+LOdZzqYTdq5t+mDAErdkTtzUbnB8VPXJs/cTBDPA your_email@example.com
+The key's randomart image is:
++---[RSA 4096]----+
+|         ....o==B|
+|        ..o.o.*O=|
+|        .= o.E+*+|
+|        o.+ ... o|
+|        S. ..    |
+|          o* o . |
+|          *o*o+  |
+|         . oo=.. |
+|           .*+.  |
++----[SHA256]-----+
 ```
+
+**注意：** 如果你使用 7.8 或更低版本的 OpenSSH，请参考[OpenSSH 6.5 ~ 7.8 的 RSA 密钥](#openssh-65--78-的-rsa-密钥)的介绍。
 
 ### OpenSSH 6.5 ~ 7.8 的 RSA 密钥
 
@@ -105,11 +139,11 @@ ssh-keygen -o -t rsa -b 4096 -C "email@example.com"
 
 **注意：** ED25519 已将密钥加密为更安全的 OpenSSH 格式。
 
-## 在你的 GitCode 账号中添加 SSH 密钥
+### 添加 SSH 密钥到你的 GitCode 
 
-现在，你可以将创建好的 SSH 密钥复制到你的 GitCode 帐户。你可以参考以下步骤：
+现在，你可以将创建好的 SSH 密钥复制到你的 GitCode 帐户。以ED25519 SSH 密钥为例，你可以参考以下步骤：
 
-1. **复制公钥**：从以文本格式保存 SSH 密钥的位置复制你的**公共** SSH 密钥，以下命令可以将 ED25519 的信息保存到指定操作系统的剪贴板中：
+1. **复制公钥**：从以文本格式保存 SSH 密钥的位置复制你的SSH 密钥的**公钥**，以下命令可以将 ED25519 的信息保存到指定操作系统的剪贴板中：
 
     **macOS:**
 
