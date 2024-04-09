@@ -4,7 +4,7 @@ title: markdown 语法
 weight: 8
 ---
 
-Markdown 是一种轻量级的标记语言，用于格式化文档，深受开发者的喜爱，在开源项目中广泛用于编写 README 文件、问题评论、pull requests描述等。本文档将向你介绍 Markdown 的一些常用语法和技巧。
+Markdown 是一种轻量级的标记语言，用于格式化文档，深受开发者的喜爱，在开源项目中广泛用于编写 README 文件、问题评论、Pull Requests描述等。本文档将向你介绍 Markdown 的一些常用语法和技巧。
 
 ### 1. 标题
 

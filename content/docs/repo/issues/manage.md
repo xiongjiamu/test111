@@ -1,6 +1,6 @@
 ---
-linkTitle: 操作 issue
-title: 操作 issue
+linkTitle: 操作 Issue
+title: 操作 Issue
 weight: 1
 ---
 
@@ -31,9 +31,10 @@ Label 是用于对 Issue 进行分类、筛选和组织的关键工具。通过�
 
 分配 Issue 给特定的团队成员或个人，以明确责任和分工。被分配的人将负责解决问题或任务，并可以跟踪 Issue 的状态。
 
-### 关联 Issue（Linked Issues）
 
-你可以在 Issue 之间创建关联，以显示它们之间的关系。这对于解决问题之间的依赖关系或相关性非常有用。
+### 关联 PR（Linked PR）
+
+你可以将 Issue 与 PR 创建关联，以显示它们之间的关系。这对于解决问题之间的依赖关系或相关性非常有用。
 
 ### 锁定和解锁（Locking and Unlocking）
 
@@ -41,7 +42,7 @@ Label 是用于对 Issue 进行分类、筛选和组织的关键工具。通过�
 
 ### 置顶和取消置顶（Pin and Unpin）
 
-对于重要的 issue，你可以选择置顶它们，使其始终位于项目 Issue 列表的顶部。取消置顶后，允许 Issue 根据最新活动重新排序。
+对于重要的 Issue，你可以选择置顶它们，使其始终位于项目 Issue 列表的顶部。取消置顶后，允许 Issue 根据最新活动重新排序。
 
 ### 关闭和重新打开（Closing and Reopening）
 

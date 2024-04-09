@@ -9,7 +9,7 @@ weight: 9
 - 没有代码冲突：目标分支和要合并的分支之间没有代码冲突
 - 简单且线性的合并：分支的提交历史非常简单且线性，没有合并提交
 
-通过pull requests的快进合并功能可以快进将代码更改合并到目标分支，可以高效地管理代码合并。
+通过Pull Requests的快进合并功能可以快进将代码更改合并到目标分支，可以高效地管理代码合并。
 
 ## 如何执行快进合并
 
@@ -18,16 +18,16 @@ weight: 9
 {{% steps %}}
 
 ### 
-确保开启了快进合并：进入 GitCode 项目，点击“项目设置”选项卡，并在“pull requests-合并模式”中启用了“Fast-forward 合井”
+确保开启了快进合并：进入 GitCode 项目，点击“项目设置”选项卡，并在“Pull Requests-合并模式”中启用了“Fast-forward 合井”
 
 ### 
-打开要合并的pull requests：进入 GitCode 项目，点击“pull requests”选项卡，选择要快进合并的pull requests
+打开要合并的Pull Requests：进入 GitCode 项目，点击“Pull Requests”选项卡，选择要快进合并的Pull Requests
 
 ### 
-确认合并条件：确保pull requests满足快进合并的条件，即目标分支和pull requests分支之间没有冲突，且提交历史是线性的
+确认合并条件：确保Pull Requests满足快进合并的条件，即目标分支和Pull Requests分支之间没有冲突，且提交历史是线性的
 
 ### 
-单击「合入」按钮：在pull requests“讨论”选项卡中单击「合入」按钮
+单击「合入」按钮：在Pull Requests“讨论”选项卡中单击「合入」按钮
 
 ### 
 合并完成：一旦合并完成，代码更改将直接应用到目标分支上，没有新的合并提交
@@ -36,8 +36,8 @@ weight: 9
 
 ## 最佳实践
 
-以下是使用 GitCode pull requests快进合并功能的最佳实践：
+以下是使用 GitCode Pull Requests快进合并功能的最佳实践：
 
 - **确保无冲突**：在执行快进合并之前，确保目标分支和要合并的分支之间没有代码冲突
 - **维护线性提交历史**：尽量保持分支的提交历史线性，避免不必要的合并提交
-- **使用快进合并来加速流程**：对于简单的pull requests，特别是在持续集成/持续交付 (CI/CD) 流程中，使用快进合并来加速代码合并
+- **使用快进合并来加速流程**：对于简单的Pull Requests，特别是在持续集成/持续交付 (CI/CD) 流程中，使用快进合并来加速代码合并

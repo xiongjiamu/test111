@@ -56,7 +56,7 @@ weight: 1
 
 ## 合并分支
 
-分支合并功能允许你将不同分支的代码更改合并到主分支或其他分支，实现协作开发和代码管理，关于创建pull requests的更多信息请查看[创建pull requests](../../../pulls/create-pr)
+分支合并功能允许你将不同分支的代码更改合并到主分支或其他分支，实现协作开发和代码管理，关于创建Pull Requests的更多信息请查看[创建Pull Requests](../../../pulls/create-pr)
 
 ## 最佳实践
 

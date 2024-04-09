@@ -6,7 +6,7 @@ weight: 11
 
 Revert 可以用于撤销之前合并的更改，它允许你快速且安全地回滚错误的合并或不需要的更改。
 
-在 GitCode pull requests中，Revert 操作允许你创建一个新的pull requests，以回滚之前合并的更改，将项目恢复到之前的状态。
+在 GitCode Pull Requests中，Revert 操作允许你创建一个新的Pull Requests，以回滚之前合并的更改，将项目恢复到之前的状态。
 
 ### 如何使用 Revert
 
@@ -15,16 +15,16 @@ Revert 可以用于撤销之前合并的更改，它允许你快速且安全地�
 {{% steps %}}
 
 ###
-**打开目标分支**：进入 GitCode 存储库，然后选择包含需要回滚的pull requests的目标分支，导航到你要 Revert 的提交，单击提交标题打开提交详情页
+**打开目标分支**：进入 GitCode 存储库，然后选择包含需要回滚的Pull Requests的目标分支，导航到你要 Revert 的提交，单击提交标题打开提交详情页
 
 ###
 **Revert**：在提交详细信息页面的右上角，单击「Revert」按钮
 
 ###
-**创建 Revert pull requests**：GitCode 将自动创建一个新的pull requests，其中包含 Revert 操作。你可以选择提供详细描述，然后点击「创建」按钮
+**创建 Revert Pull Requests**：GitCode 将自动创建一个新的Pull Requests，其中包含 Revert 操作。你可以选择提供详细描述，然后点击「创建」按钮
 
 ###
-**审核和合并**：pull requests会进入审查流程，一旦获得批准，你可以将其合并到目标分支，实现回滚操作
+**审核和合并**：Pull Requests会进入审查流程，一旦获得批准，你可以将其合并到目标分支，实现回滚操作
 
 {{% /steps %}}
 
@@ -39,6 +39,6 @@ Revert 可以用于撤销之前合并的更改，它允许你快速且安全地�
 
 以下是使用 Revert 功能的最佳实践：
 
-- **详细描述**：在创建 Revert pull requests时，请提供清晰和详细的描述，以便团队理解你回滚操作的原因
-- **审慎审查**：在合并 Revert pull requests之前，仔细审查更改，确保不会引入新问题
+- **详细描述**：在创建 Revert Pull Requests时，请提供清晰和详细的描述，以便团队理解你回滚操作的原因
+- **审慎审查**：在合并 Revert Pull Requests之前，仔细审查更改，确保不会引入新问题
 - **与团队协作**：如果回滚操作涉及多个团队成员的更改，与团队协作，确保所有人都明白和同意回滚的决定

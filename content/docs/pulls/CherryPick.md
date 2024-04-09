@@ -19,10 +19,10 @@ Cherry-Pick 用于选择性地将一个或多个提交从一个分支应用到�
 **Cherry-Pick**：在提交详细信息页面的右上角，单击「Cherry-Pick」按钮
 
 ###
-**创建 Cherry-Pick pull requests**：在弹出的确认框中，确认要执行 Cherry-Pick 操作
+**创建 Cherry-Pick Pull Requests**：在弹出的确认框中，确认要执行 Cherry-Pick 操作
 
 ###
-**审核和合并**：pull requests会进入审查流程，一旦获得批准，选择的提交将被应用到目标分支中
+**审核和合并**：Pull Requests会进入审查流程，一旦获得批准，选择的提交将被应用到目标分支中
 
 {{% /steps %}}
 
@@ -33,7 +33,7 @@ Cherry-Pick 用于选择性地将一个或多个提交从一个分支应用到�
 
 ### 最佳实践
 
-以下是使用pull requests中 Cherry-Pick 功能的最佳实践：
+以下是使用Pull Requests中 Cherry-Pick 功能的最佳实践：
 
 - **仔细选择提交**：在执行 Cherry-Pick 之前，请仔细选择要引入的提交，确保只引入必要的更改。
 - **处理冲突**：如果 Cherry-Pick 操作引入冲突，及时处理这些冲突以确保代码的稳定性。

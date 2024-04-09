@@ -18,10 +18,10 @@ weight: 5
 {{% steps %}}
 
 ### 
-打开pull requests：进入 GitCode 项目，点击“pull requests”选项卡，选择要审查的pull requests
+打开Pull Requests：进入 GitCode 项目，点击“Pull Requests”选项卡，选择要审查的Pull Requests
 
 ### 
-查看更改差异：在pull requests页面的“文件改动”选项卡下，查看代码更改的差异
+查看更改差异：在Pull Requests页面的“文件改动”选项卡下，查看代码更改的差异
 
 ### 
 提出评论：在代码更改上，你可以单击行号或选中文本，然后单击 "+ 提交评论" 按钮来提出评论
@@ -54,14 +54,14 @@ weight: 5
 - 提供具体的建议，例如如何改进代码、解决问题或优化性能
 - 在评论中使用 Markdown 语法来使建议更具可读性
 
-### 批准或拒绝pull requests
+### 批准或拒绝Pull Requests
 
-- 审核代码并根据评审的结果批准或拒绝pull requests
+- 审核代码并根据评审的结果批准或拒绝Pull Requests
 - 提供清晰的审批或拒绝理由，以便作者了解决策的原因
 
 ## 评审人和作者角色
 
-- **作者**：pull requests的创建者，负责编写和提交代码更改，作者需要积极响应评审的反馈
+- **作者**：Pull Requests的创建者，负责编写和提交代码更改，作者需要积极响应评审的反馈
 - **评审人**：负责审查和评估代码更改的团队成员，评审人提供反馈、建议和决策，以确保代码质量
 
 ## 最佳实践
