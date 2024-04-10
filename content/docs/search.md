@@ -4,7 +4,7 @@ title: 搜索
 weight: 6
 ---
 
-GitCode 的搜索可以帮助你查找并访问 GitCode 上的各种项目、代码、issue、pull requests、讨论以及用户和组织信息。
+GitCode 的搜索可以帮助你查找并访问 GitCode 上的各种项目、代码、Issue、Pull Requests、讨论以及用户和组织信息。
 
 ## 搜索项目
 
@@ -30,7 +30,7 @@ GitCode 的搜索可以帮助你查找并访问 GitCode 上的各种项目、代
 
 {{% /steps %}}
 
-## 搜索问题、pull requests和讨论
+## 搜索问题、Pull Requests和讨论
 
 {{% steps %}}
 
@@ -38,7 +38,7 @@ GitCode 的搜索可以帮助你查找并访问 GitCode 上的各种项目、代
 在搜索栏中输入关键词，然后按下回车键
 
 ###
-在搜索结果页面中，选择”Issues“或”pull requests“或”讨论“选项卡，以查看与问题或pull requests相关的结果
+在搜索结果页面中，选择”Issues“或”Pull Requests“或”讨论“选项卡，以查看与问题或Pull Requests相关的结果
 
 {{% /steps %}}
 
@@ -54,4 +54,4 @@ GitCode 的搜索可以帮助你查找并访问 GitCode 上的各种项目、代
 
 {{% /steps %}}
 
-通过 GitCode 的搜索功能，使你能够更轻松地查找和访问感兴趣的项目、代码、问题、pull requests以及用户信息，更好的支持你在 GitCode 上的开发和协作项目。
+通过 GitCode 的搜索功能，使你能够更轻松地查找和访问感兴趣的项目、代码、问题、Pull Requests以及用户信息，更好的支持你在 GitCode 上的开发和协作项目。

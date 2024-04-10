@@ -15,13 +15,13 @@ Squash 合并非常简单：
 {{% steps %}}
 
 ###
-**确保开启了 Squash 合并**：进入 GitCode 项目，点击“项目设置”选项卡，并在“pull requests-合并模式”中启用了“通过 merge commit 合井”
+**确保开启了 Squash 合并**：进入 GitCode 项目，点击“项目设置”选项卡，并在“Pull Requests-合并模式”中启用了“通过 merge commit 合井”
 
 ###
-**打开pull requests**：进入 GitCode 项目，然后选择要执行 Squash 合并的pull requests
+**打开Pull Requests**：进入 GitCode 项目，然后选择要执行 Squash 合并的Pull Requests
 
 ###
-**启用 Squash 合并选项**：在pull requests“讨论”选项卡的下方，你将看到 Squash 合并的复选框
+**启用 Squash 合并选项**：在Pull Requests“讨论”选项卡的下方，你将看到 Squash 合并的复选框
 
 ###
 **编辑提交描述**：为合并提交提供一个清晰的描述，以便其他开发者了解合并的目的和更改

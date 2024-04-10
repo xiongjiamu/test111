@@ -4,7 +4,7 @@ title: Code Owners
 weight: 12
 ---
 
-在GitCode网站上使用Code Owners功能可以帮助项目团队确保代码的关键部分由正确和合适的人员进行审查。Code Owners功能允许您为仓库中的特定文件或文件夹指定“所有者”。这些所有者会在相关文件或文件夹被修改并创建Pull Request时自动被请求审查代码。本文将引导您如何在GitCode中设置和使用Code Owners功能，以提升代码审查的效率和质量。
+在GitCode网站上使用Code Owners功能可以帮助项目团队确保代码的关键部分由正确和合适的人员进行审查。Code Owners功能允许您为仓库中的特定文件或文件夹指定“所有者”。这些所有者会在相关文件或文件夹被修改并创建Pull Requests时自动被请求审查代码。本文将引导您如何在GitCode中设置和使用Code Owners功能，以提升代码审查的效率和质量。
 
 ## 创建CODEOWNERS文件
 
@@ -96,7 +96,7 @@ CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pa
 
 ## CODEOWNERS文件说明
 
-* 强烈建议通过Pull Request来管理`CODEOWNERS`​文件的更改，以便进行代码审查。
+* 强烈建议通过Pull Requests来管理`CODEOWNERS`​文件的更改，以便进行代码审查。
 * 当项目中的代码发生变化，并且这些变化涉及到Code Owners负责的文件时，GitCode会根据`CODEOWNERS`​文件中的规则自动请求Code Owners审查Pull Request。
 * 如果有多个Code Owners，他们都会被添加到审查请求列表中。、
 * CODEOWNERS 文件大小必须小于 3MB。 当文件大小超过此限制时，GitCode将不会加载此 CODEOWNERS 文件。
