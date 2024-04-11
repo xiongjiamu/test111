@@ -26,15 +26,15 @@ weight: 12
 {{% steps %}}
 
 ###
-1. 登录到您的GitCode账户并导航到相应的仓库。
+登录到您的GitCode账户并导航到相应的仓库。
 ###
-2. 进入仓库后，点击“新建文件”按钮。
+进入仓库后，点击“新建文件”按钮。
 ###
-3. 将新文件命名为`CODEOWNERS`​，并选择保存位置。
+将新文件命名为`CODEOWNERS`​，并选择保存位置。
 ###
-4. 在文件编辑器中定义Code Owners规则（详见下方规则定义部分）。
+在文件编辑器中定义Code Owners规则（详见下方规则定义部分）。
 ###
-5. 提交新文件。
+提交新文件。
 
 {{% /steps %}}
 
@@ -63,7 +63,7 @@ README.md @username
 警告：gitignore 文件有一些语法规则在 CODEOWNERS 文件中不起作用：
 
 * 使用 `\`​ 对以 `#`​ 开头的模式进行转义，将其视为模式而不是注释
-* 使用 `[ ]`​ 定义字符范围
+* 使用 `[ ]`​ 定义字符范围,若你需要将某个部分设为可选，以便该部分中的代码审核的批准是可选的，那么在 `[ ]`​ 之前放置一个插入字符^即可。
 
 下面是几个示例规则：
 
@@ -98,7 +98,7 @@ CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pa
 
 * 强烈建议通过Pull Requests来管理`CODEOWNERS`​文件的更改，以便进行代码审查。
 * 当项目中的代码发生变化，并且这些变化涉及到Code Owners负责的文件时，GitCode会根据`CODEOWNERS`​文件中的规则自动请求Code Owners审查Pull Request。
-* 如果有多个Code Owners，他们都会被添加到审查请求列表中。、
+* 如果有多个Code Owners，他们都会被添加到审查请求列表中。
 * CODEOWNERS 文件大小必须小于 3MB。 当文件大小超过此限制时，GitCode将不会加载此 CODEOWNERS 文件。
 * CODEOWNERS 文件仅在PR所涉及的文件数量少于 1000 个时生效。
 
