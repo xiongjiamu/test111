@@ -1,7 +1,7 @@
 ---
 linkTitle: 组织社区
 title: 组织社区
-weight: 3
+weight: 6
 ---
 
 已经入驻完成的组织，可在组织设置中申请创建社区。
