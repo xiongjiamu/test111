@@ -482,7 +482,7 @@ sidebar:
         "avatar_path": null,
         "email": "csdntest13@noreply.gitcode.com",
         "name_cn": "csdntest13",
-        "web_url": "https://test.gitcode.net/csdntest13",
+        "web_url": "https://gitcode.com/csdntest13",
         "tenant_name": null,
         "is_member": null
     },
@@ -526,7 +526,7 @@ sidebar:
     "force_remove_source_branch": false,
     "allow_collaboration": null,
     "allow_maintainer_to_push": null,
-    "web_url": "https://test.gitcode.net/One/One/merge_requests/53",
+    "web_url": "https://gitcode.com/One/One/merge_requests/53",
     "time_stats": {
         "time_estimate": null,
         "total_time_spent": 0,
@@ -604,10 +604,10 @@ sidebar:
         "updated_at": "2024-03-19T16:42:34.834+08:00",
         "archived": false,
         "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/One/One.git",
-        "http_url_to_repo": "https://test.gitcode.net/One/One.git",
-        "web_url": "https://test.gitcode.net/One/One",
-        "readme_url": "https://test.gitcode.net/One/One/blob/main/README.md",
+        "ssh_url_to_repo": "ssh://git@gitcode.com:2222/One/One.git",
+        "http_url_to_repo": "https://gitcode.com/One/One.git",
+        "web_url": "https://gitcode.com/One/One",
+        "readme_url": "https://gitcode.com/One/One/blob/main/README.md",
         "product_id": "28f96caf52004e81ab0bc38d60d11940",
         "product_name": null,
         "member_mgnt_mode": 3,
@@ -662,7 +662,7 @@ sidebar:
             "avatar_path": null,
             "email": "csdntest13@noreply.gitcode.com",
             "name_cn": "csdntest13",
-            "web_url": "https://test.gitcode.net/csdntest13",
+            "web_url": "https://gitcode.com/csdntest13",
             "tenant_name": null,
             "is_member": null
         },
@@ -694,10 +694,10 @@ sidebar:
         "updated_at": "2024-03-19T16:42:34.834+08:00",
         "archived": false,
         "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/One/One.git",
-        "http_url_to_repo": "https://test.gitcode.net/One/One.git",
-        "web_url": "https://test.gitcode.net/One/One",
-        "readme_url": "https://test.gitcode.net/One/One/blob/main/README.md",
+        "ssh_url_to_repo": "ssh://git@gitcode.com:2222/One/One.git",
+        "http_url_to_repo": "https://gitcode.com/One/One.git",
+        "web_url": "https://gitcode.com/One/One",
+        "readme_url": "https://gitcode.com/One/One/blob/main/README.md",
         "product_id": "28f96caf52004e81ab0bc38d60d11940",
         "product_name": null,
         "member_mgnt_mode": 3,
@@ -752,7 +752,7 @@ sidebar:
             "avatar_path": null,
             "email": "csdntest13@noreply.gitcode.com",
             "name_cn": "csdntest13",
-            "web_url": "https://test.gitcode.net/csdntest13",
+            "web_url": "https://gitcode.com/csdntest13",
             "tenant_name": null,
             "is_member": null
         },
@@ -808,7 +808,7 @@ sidebar:
             "merge_request_id": 68253,
             "check_fail_reason": "",
             "check_result": true,
-            "issue_link": "https://test.gitcode.net/One/One/issues/100",
+            "issue_link": "https://gitcode.com/One/One/issues/100",
             "created_at": "2024-04-14T20:53:23.772+08:00",
             "mks_id": null,
             "pbi_id": null,
@@ -831,7 +831,7 @@ sidebar:
     "required_reviewers": [],
     "omega_mode": false,
     "root_mr_locked_detail": null,
-    "source_git_url": "ssh://git@test.gitcode.net:2222/One/One.git",
+    "source_git_url": "ssh://git@gitcode.com:2222/One/One.git",
     "auto_merge": null
 }
 ```
@@ -902,7 +902,7 @@ sidebar:
         "avatar_path": null,
         "email": "csdntest13@noreply.gitcode.com",
         "name_cn": "csdntest13",
-        "web_url": "https://test.gitcode.net/csdntest13",
+        "web_url": "https://gitcode.com/csdntest13",
         "tenant_name": null,
         "is_member": null
     },
@@ -921,7 +921,7 @@ sidebar:
     "force_remove_source_branch": false,
     "allow_collaboration": null,
     "allow_maintainer_to_push": null,
-    "web_url": "https://test.gitcode.net/One/One/merge_requests/27",
+    "web_url": "https://gitcode.com/One/One/merge_requests/27",
     "time_stats": {
         "time_estimate": null,
         "total_time_spent": 0,
@@ -1022,10 +1022,10 @@ sidebar:
         "updated_at": "2024-03-19T16:42:34.834+08:00",
         "archived": false,
         "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/One/One.git",
-        "http_url_to_repo": "https://test.gitcode.net/One/One.git",
-        "web_url": "https://test.gitcode.net/One/One",
-        "readme_url": "https://test.gitcode.net/One/One/blob/main/README.md",
+        "ssh_url_to_repo": "ssh://git@gitcode.com:2222/One/One.git",
+        "http_url_to_repo": "https://gitcode.com/One/One.git",
+        "web_url": "https://gitcode.com/One/One",
+        "readme_url": "https://gitcode.com/One/One/blob/main/README.md",
         "product_id": "28f96caf52004e81ab0bc38d60d11940",
         "product_name": null,
         "member_mgnt_mode": 3,
@@ -1080,7 +1080,7 @@ sidebar:
             "avatar_path": null,
             "email": "csdntest13@noreply.gitcode.com",
             "name_cn": "csdntest13",
-            "web_url": "https://test.gitcode.net/csdntest13",
+            "web_url": "https://gitcode.com/csdntest13",
             "tenant_name": null,
             "is_member": null
         },
@@ -1112,10 +1112,10 @@ sidebar:
         "updated_at": "2024-03-19T16:42:34.834+08:00",
         "archived": false,
         "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/One/One.git",
-        "http_url_to_repo": "https://test.gitcode.net/One/One.git",
-        "web_url": "https://test.gitcode.net/One/One",
-        "readme_url": "https://test.gitcode.net/One/One/blob/main/README.md",
+        "ssh_url_to_repo": "ssh://git@gitcode.com:2222/One/One.git",
+        "http_url_to_repo": "https://gitcode.com/One/One.git",
+        "web_url": "https://gitcode.com/One/One",
+        "readme_url": "https://gitcode.com/One/One/blob/main/README.md",
         "product_id": "28f96caf52004e81ab0bc38d60d11940",
         "product_name": null,
         "member_mgnt_mode": 3,
@@ -1170,7 +1170,7 @@ sidebar:
             "avatar_path": null,
             "email": "csdntest13@noreply.gitcode.com",
             "name_cn": "csdntest13",
-            "web_url": "https://test.gitcode.net/csdntest13",
+            "web_url": "https://gitcode.com/csdntest13",
             "tenant_name": null,
             "is_member": null
         },
@@ -1226,7 +1226,7 @@ sidebar:
             "merge_request_id": 62874,
             "check_fail_reason": "",
             "check_result": true,
-            "issue_link": "https://test.gitcode.net/One/One/issues/2",
+            "issue_link": "https://gitcode.com/One/One/issues/2",
             "created_at": "2024-04-14T21:06:52.492+08:00",
             "mks_id": null,
             "pbi_id": null,
@@ -1246,7 +1246,7 @@ sidebar:
             "merge_request_id": 62874,
             "check_fail_reason": "",
             "check_result": true,
-            "issue_link": "https://test.gitcode.net/One/One/issues/1",
+            "issue_link": "https://gitcode.com/One/One/issues/1",
             "created_at": "2024-04-14T21:06:52.482+08:00",
             "mks_id": null,
             "pbi_id": null,
@@ -1266,7 +1266,7 @@ sidebar:
             "merge_request_id": 62874,
             "check_fail_reason": "",
             "check_result": true,
-            "issue_link": "https://test.gitcode.net/WhatCanIDo/W_One/issues/1",
+            "issue_link": "https://gitcode.com/WhatCanIDo/W_One/issues/1",
             "created_at": "2024-04-14T21:06:52.478+08:00",
             "mks_id": null,
             "pbi_id": null,
@@ -1286,9 +1286,9 @@ sidebar:
                 "updated_at": "2024-03-28T17:14:28.241+08:00",
                 "archived": false,
                 "is_kia": false,
-                "ssh_url_to_repo": "ssh://git@test.gitcode.net:2222/WhatCanIDo/W_One.git",
-                "http_url_to_repo": "https://test.gitcode.net/WhatCanIDo/W_One.git",
-                "web_url": "https://test.gitcode.net/WhatCanIDo/W_One",
+                "ssh_url_to_repo": "ssh://git@gitcode.com:2222/WhatCanIDo/W_One.git",
+                "http_url_to_repo": "https://gitcode.com/WhatCanIDo/W_One.git",
+                "web_url": "https://gitcode.com/WhatCanIDo/W_One",
                 "readme_url": null,
                 "product_id": "bb82c64b4f1c4e759b2e81d7f4621030",
                 "product_name": null,
@@ -1308,7 +1308,7 @@ sidebar:
     "required_reviewers": [],
     "omega_mode": false,
     "root_mr_locked_detail": null,
-    "source_git_url": "ssh://git@test.gitcode.net:2222/One/One.git",
+    "source_git_url": "ssh://git@gitcode.com:2222/One/One.git",
     "auto_merge": null
 }
 ```
@@ -1357,7 +1357,7 @@ sidebar:
 ```
 
 
-## 5.2 获取单个Pull Request
+## 19. 获取单个Pull Request
 ### 请求
 `GET  https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}`
 
@@ -1374,7 +1374,7 @@ sidebar:
 ```json
 {
   "id": 111,
-  "html_url": "http://test.gitcode.net/sytest/paopao/pull/1",
+  "html_url": "http://gitcode.com/sytest/paopao/pull/1",
   "number": 1,
   "state": "open",
   "assignees_number": 1,
@@ -1383,8 +1383,8 @@ sidebar:
       "id": 2,
       "login": "test",
       "name": "test_web",
-      "avatar_url": "http://test.gitcode.net/sytest/paopao/pull/1.png",
-      "html_url": "http://test.gitcode.net/sytest/paopao/pull/1"
+      "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
+      "html_url": "http://gitcode.com/sytest/paopao/pull/1"
     }
   ],
   "labels": [
@@ -1412,8 +1412,8 @@ sidebar:
         "id": 2,
         "login": "test",
         "name": "test_web",
-        "avatar_url": "http://test.gitcode.net/sytest/paopao/pull/1.png",
-        "html_url": "http://test.gitcode.net/sytest/paopao/pull/1"
+        "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
+        "html_url": "http://gitcode.com/sytest/paopao/pull/1"
       }
     }
   },
@@ -1424,8 +1424,8 @@ sidebar:
         "id": 2,
         "login": "test",
         "name": "test_web",
-        "avatar_url": "http://test.gitcode.net/sytest/paopao/pull/1.png",
-        "html_url": "http://test.gitcode.net/sytest/paopao/pull/1"
+        "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
+        "html_url": "http://gitcode.com/sytest/paopao/pull/1"
       }
     }
   }

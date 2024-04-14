@@ -37,12 +37,12 @@ sidebar:
                 "author": {
                     "name": "GitCode2023",
                     "date": "2024-04-08T21:13:33+08:00",
-                    "email": "13328943+gitcode_admin@user.noreply.gitee.com"
+                    "email": "13328943+gitcode_admin@user.noreply.gitcode.com"
                 },
                 "committer": {
                     "name": "Gitee",
                     "date": "2024-04-08T21:13:33+08:00",
-                    "email": "noreply@gitee.com"
+                    "email": "noreply@gitcode.com"
                 },
                 "message": "wwqwqwq"
             }
@@ -53,7 +53,7 @@ sidebar:
 
 ```
 
-## 5. 获取一个组织的仓库
+## 2. 获取一个组织的仓库
 
 ### 请求
 
@@ -107,7 +107,7 @@ sidebar:
 
 ```
 
-## 6.4 列出仓库所有的tags
+## 3 列出仓库所有的tags
 
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/tags`
@@ -133,14 +133,14 @@ sidebar:
         },
         "tagger": {
             "name": "占分",
-            "email": "7543745+centking@user.noreply.gitee.com",
+            "email": "7543745+centking@user.noreply.gitcode.com",
             "date": "2024-04-14T06:18:54+00:00"
         }
     }
 ]
 ```
 
-## 6.6 获取仓库具体路径下的内容
+## 4 获取仓库具体路径下的内容
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents(/{path})`
 
@@ -173,7 +173,7 @@ sidebar:
 }
 ```
 
-## 6.7 获取用户的某个仓库
+## 5. 获取用户的某个仓库
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
@@ -189,7 +189,7 @@ sidebar:
     "id": 34165823,
     "full_name": "daming_1/zhu_di",
     "human_name": "daming/zhu_di",
-    "url": "https://gitee.com/api/v5/repos/daming_1/zhu_di",
+    "url": "https://gitcode.com/api/v5/repos/daming_1/zhu_di",
     "namespace": {
         "id": 13386953,
         "name": "daming",
@@ -225,7 +225,7 @@ sidebar:
 }
 ```
 
-## 6.9 更新文件
+## 6. 更新文件
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
@@ -246,18 +246,18 @@ sidebar:
         "path": "Note2.md",
         "size": 19,
         "sha": "e5699fe1b360d6c799ee58b24fb5a670b1e14851",
-        "url": "https://gitee.com/api/v5/repos/daming_1/zhu_di/contents/Note2.md",
-        "html_url": "https://gitee.com/daming_1/zhu_di/blob/master/Note2.md",
-        "download_url": "https://gitee.com/daming_1/zhu_di/raw/master/Note2.md",
+        "url": "https://gitcode.com/api/v5/repos/daming_1/zhu_di/contents/Note2.md",
+        "html_url": "https://gitcode.com/daming_1/zhu_di/blob/master/Note2.md",
+        "download_url": "https://gitcode.com/daming_1/zhu_di/raw/master/Note2.md",
         "_links": {
-            "self": "https://gitee.com/api/v5/repos/daming_1/zhu_di/contents/Note2.md",
-            "html": "https://gitee.com/daming_1/zhu_di/blob/master/Note2.md"
+            "self": "https://gitcode.com/api/v5/repos/daming_1/zhu_di/contents/Note2.md",
+            "html": "https://gitcode.com/daming_1/zhu_di/blob/master/Note2.md"
         }
     }
 }
 ```
 
-## 6.9 创建组织仓库
+## 7. 创建组织仓库
 #### 请求：
 `GET https://api.gitcode.com/api/v5/orgs/{org}/repos`
 
@@ -273,7 +273,7 @@ sidebar:
     "id": 34171993,
     "full_name": "daming_1/test_create_project_2",
     "human_name": "daming/test_create_project_2",
-    "url": "https://gitee.com/api/v5/repos/daming_1/test_create_project_2",
+    "url": "https://gitcode.com/api/v5/repos/daming_1/test_create_project_2",
    
     "path": "test_create_project_2",
     "name": "test_create_project_2",
@@ -308,7 +308,7 @@ sidebar:
 }
 ```
 
-#### 6.11 更新仓库设置
+#### 8. 更新仓库设置
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
@@ -328,12 +328,12 @@ sidebar:
     "id": 34171993,
     "full_name": "daming_1/test_create_project_2",
     "human_name": "daming/test_create_project_2",
-    "url": "https://gitee.com/api/v5/repos/daming_1/test_create_project_2",
+    "url": "https://gitcode.com/api/v5/repos/daming_1/test_create_project_2",
     "path": "test_create_project_2",
 }
 ```
 
-#### 6.20. 仓库的某个提交
+#### 9. 仓库的某个提交
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
 
@@ -347,20 +347,20 @@ sidebar:
 #### 返回:
 ```json
 {
-    "url": "https://gitee.com/api/v5/repos/daming_1/zhu_di/commits/7ffc0a0deb709143f6be12a55e218fab9233ca37",
+    "url": "https://gitcode.com/api/v5/repos/daming_1/zhu_di/commits/7ffc0a0deb709143f6be12a55e218fab9233ca37",
     "sha": "7ffc0a0deb709143f6be12a55e218fab9233ca37",
-    "html_url": "https://gitee.com/daming_1/zhu_di/commit/7ffc0a0deb709143f6be12a55e218fab9233ca37",
-    "comments_url": "https://gitee.com/api/v5/repos/daming_1/zhu_di/commits/7ffc0a0deb709143f6be12a55e218fab9233ca37/comments",
+    "html_url": "https://gitcode.com/daming_1/zhu_di/commit/7ffc0a0deb709143f6be12a55e218fab9233ca37",
+    "comments_url": "https://gitcode.com/api/v5/repos/daming_1/zhu_di/commits/7ffc0a0deb709143f6be12a55e218fab9233ca37/comments",
     "commit": {
         "author": {
             "name": "占分",
             "date": "2024-04-14T07:25:11+00:00",
-            "email": "7543745+centking@user.noreply.gitee.com"
+            "email": "7543745+centking@user.noreply.gitcode.com"
         },
         "committer": {
             "name": "Gitee",
             "date": "2024-04-14T07:25:11+00:00",
-            "email": "noreply@gitee.com"
+            "email": "noreply@gitcode.com"
         },
         "message": "提交信息测试",
     },
@@ -372,7 +372,7 @@ sidebar:
 }
 ```
 
-#### 6.19. 获取文件Blob
+#### 10. 获取文件Blob
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
 
@@ -388,14 +388,14 @@ sidebar:
 {
     "sha":"e5699fe1b360d6c799ee58b24fb5a670b1e14851",
     "size":19,
-    "url":"https://gitee.com/api/v5/repos/daming_1/zhu_di/git/blobs/e5699fe1b360d6c799ee58b24fb5a670b1e14851","content":"JXU2RDRCJXU4QkQ1d2ViaG9vaw==",
+    "url":"https://gitcode.com/api/v5/repos/daming_1/zhu_di/git/blobs/e5699fe1b360d6c799ee58b24fb5a670b1e14851","content":"JXU2RDRCJXU4QkQ1d2ViaG9vaw==",
     "encoding":"base64"
 }
 ```
 
 
 
-## 6.17 创建一个仓库的Tag
+## 11. 创建一个仓库的Tag
 
 ### 请求
 
@@ -426,7 +426,7 @@ sidebar:
   "tagger": null
 }
 ```
-## 5.19 创建commit评论
+## 12. 创建commit评论
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
  
@@ -451,7 +451,7 @@ sidebar:
 }
 ```
 
-#### 6.20. 新建文件
+#### 13. 新建文件
 #### 请求：
 POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
@@ -472,12 +472,12 @@ POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
         "sha": "668cb104692b30d537b07f3721df9956d073d343",
         "author": {
             "name": "GitCode2023",
-            "email": "13328943+gitcode_admin@user.noreply.gitee.com",
+            "email": "13328943+gitcode_admin@user.noreply.gitcode.com",
             "date": "2024-04-11T09:15:20+00:00"
         },
         "committer": {
             "name": "Gitee",
-            "email": "noreply@gitee.com",
+            "email": "noreply@gitcode.com",
             "date": "2024-04-11T09:15:20+00:00"
         },
         "message": "22222"
@@ -493,7 +493,7 @@ POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 
 
-#### 6.21. 仓库归档
+#### 14. 仓库归档
 
 #### 请求：
 
@@ -516,7 +516,7 @@ PUT `https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 }
 ```
 
-#### 6.21. 转移仓
+#### 15. 转移仓
 
 #### 请求：
 
@@ -537,4 +537,94 @@ POST `https://api.gitcode.com/api/v5/org/{org}/repo/{owner}/transfer`
     "code": 1,
     "msg": "success"
 }
+```
+
+## 16. 获取仓库目录Tree
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/git/trees/{sha}`
+
+### 参数
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  sha*   | 可以是分支名(如master)、Commit或者目录Tree的SHA | path | string    |
+|recursive | 赋值为1递归获取目录 | query |integer|
+
+
+### 响应
+
+```json
+{
+    "tree": [
+        {
+            "sha": "5259c4b24f015ffdc3663e81837a730c2a108e1f",
+            "name": "b",
+            "type": "tree",
+            "path": "a/b",
+            "mode": "040000",
+            "md5": "a7e86136543b019d72468ceebf71fb8e"
+        }
+    ]
+}
+```
+
+
+## 17. 添加仓库成员或更新仓库成员权限
+
+### 请求
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/collaborators/{username}`
+
+### 参数
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | formData | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  username*   | 用户名(username/login)  | path | string    |
+| permission* | 成员权限: 拉代码(pull)，推代码(push)，管理员(admin)。默认: push | formData |string |
+
+
+### 响应
+
+```json
+{
+    "id": 7543745,
+    "login": "centking",
+    "name": "占分",
+    "avatar_url": null,
+    "html_url": "https://gitcode.com/centking",
+    "remark": "",
+    "type": "User",
+    "permissions": {
+        "pull": true,
+        "push": true,
+        "admin": false
+    }
+}
+```
+
+## 17. 移除仓库成员
+
+### 请求
+
+`DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/collaborators/{username}`
+
+### 参数
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  username*   | 用户名(username/login)  | path | string    |
+
+
+### 响应
+
+```
+HTTP status 204 No Content
 ```
