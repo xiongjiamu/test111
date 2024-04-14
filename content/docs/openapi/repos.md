@@ -392,3 +392,149 @@ sidebar:
     "encoding":"base64"
 }
 ```
+
+
+
+## 6.17 创建一个仓库的Tag
+
+### 请求
+
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/tags`
+
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  refs*   | 起点名称，默认main | formData | string    |
+|  tag_name*   | 新创建的标签名称 | formData | string    |
+|  tag_message   | Tag 描述,默认为空 | formData | string    |
+|  access_token* | 用户授权码 | formData | string    | 
+
+
+
+### 响应
+```json
+{
+  "name": "tag2",
+  "message": "",
+  "commit": {
+    "sha": "5d165dae3b073d3e92ca91c3edcb21994361462c",
+    "date": "2024-04-08T13:13:33+00:00"
+  },
+  "tagger": null
+}
+```
+## 5.19 创建commit评论
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
+ 
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | formData | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  sha*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  body*   | 评论内容 | formData | string    |
+|  path   | 文件的相对路径 | formData | string    |
+|  position  | Diff的相对行数 | formData | integer    |
+
+### 响应
+```json
+{
+    "id":111,
+    "body":"content"
+}
+```
+
+#### 6.20. 新建文件
+#### 请求：
+POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | body | string   |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+| path* | 文件路径 | path | string |
+| content* | 文件内容, 要用 base64 编码 | body | string |
+| message* | 提交的 commit 信息 | body | string |
+| branch | 提交的分支 | body | string |
+
+#### 返回:
+```json
+{
+    "commit": {
+        "sha": "668cb104692b30d537b07f3721df9956d073d343",
+        "author": {
+            "name": "GitCode2023",
+            "email": "13328943+gitcode_admin@user.noreply.gitee.com",
+            "date": "2024-04-11T09:15:20+00:00"
+        },
+        "committer": {
+            "name": "Gitee",
+            "email": "noreply@gitee.com",
+            "date": "2024-04-11T09:15:20+00:00"
+        },
+        "message": "22222"
+        "parents": [
+            {
+                    "sha":
+      "0117aa5c6bc8e33d18ad8911afa3cbb54a1faabe"
+            }
+        ]
+    }
+}
+```
+
+
+
+#### 6.21. 仓库归档
+
+#### 请求：
+
+PUT `https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
+
+| 参数名        | 描述                       | 类型 | 数据类型 |
+| ------------- | -------------------------- | ---- | -------- |
+| access_token* | 用户授权码                 | body | string   |
+| org*          | 仓库所属组织               | path | string   |
+| repo*         | 仓库路径(path)             | path | string   |
+| status*       | 仓库状态，0：开始，2：关闭 | body | integer  |
+| password*     | 用户密码                   | body | string   |
+
+#### 返回:
+
+```json
+{
+    "code": 1,
+    "msg": "success"
+}
+```
+
+#### 6.21. 转移仓
+
+#### 请求：
+
+POST `https://api.gitcode.com/api/v5/org/{org}/repo/{owner}/transfer`
+
+| 参数名        | 描述               | 类型 | 数据类型 |
+| ------------- | ------------------ | ---- | -------- |
+| access_token* | 用户授权码         | body | string   |
+| org*          | 仓库所属组织       | path | string   |
+| owner*        | 仓库owner          | path | string   |
+| transfer_to*  | 要转移到的目标组织 | body | integer  |
+| password*     | 用户密码           | body | string   |
+
+#### 返回:
+
+```json
+{
+    "code": 1,
+    "msg": "success"
+}
+```
