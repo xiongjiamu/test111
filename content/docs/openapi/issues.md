@@ -250,7 +250,7 @@ sidebar:
             "id": 6536510,
             "login": "tomkl123",
             "name": "tomkl123",
-            "avatar_url": "https://gitcode.com/assets/no_portrait.png",
+            "avatar_url": null,
             "html_url": "https://gitcode.com/tomkl123",
             "type": "User"
         },
@@ -274,7 +274,7 @@ sidebar:
                 "id": 7928036,
                 "login": "openharmony_admin",
                 "name": "openharmony",
-                "avatar_url": "https://gitcode.com/avatar/1677102952566165682/7928036_openharmony_admin_1622551091.png",
+                "avatar_url": null,
                 "html_url": "https://gitcode.com/openharmony_admin",
                 "remark": "",
                 "type": "User"
@@ -283,8 +283,7 @@ sidebar:
                 "id": 626123,
                 "login": "landwind",
                 "name": "mamingshuai",
-                "avatar_url": "https://gitcode.com/assets/no_portrait.png",
-                "url": "https://gitcode.com/api/v5/users/landwind",
+                "avatar_url": null,
                 "html_url": "https://gitcode.com/landwind",
                 "remark": "",
                 "type": "User"
@@ -302,8 +301,7 @@ sidebar:
                     "id": 9329956,
                     "login": "Peter_1988",
                     "name": "Peter_1988",
-                    "avatar_url": "https://gitcode.com/assets/no_portrait.png",
-                    "url": "https://gitcode.com/api/v5/users/Peter_1988",
+                    "avatar_url": null,
                     "html_url": "https://gitcode.com/Peter_1988",
                     "remark": "",
                     "type": "User"
@@ -314,8 +312,7 @@ sidebar:
                     "id": 7387629,
                     "login": "openharmony_ci",
                     "name": "openharmony_ci",
-                    "avatar_url": "https://gitcode.com/avatar/1677075395966509043/7387629_openharmony_ci_1656582662.png",
-                    "url": "https://gitcode.com/api/v5/users/openharmony_ci",
+                    "avatar_url": null,
                     "html_url": "https://gitcode.com/openharmony_ci",
                     "remark": "",
                     "type": "User"
@@ -359,8 +356,7 @@ sidebar:
             "id": 5648060,
             "login": "fbj1121",
             "name": "fbj1121",
-            "avatar_url": "https://gitcode.com/assets/no_portrait.png",
-            "url": "https://gitcode.com/api/v5/users/fbj1121",
+            "avatar_url": null,
             "html_url": "https://gitcode.com/fbj1121"
         },
         "source": null,
@@ -368,7 +364,7 @@ sidebar:
             "issue": {
                 "id": 15798287,
                 "title": "test2222",
-                "number": "I9EM1B"
+                "number": 1
             },
             "pull_request": null
         },
@@ -409,19 +405,8 @@ sidebar:
             "id": 5648060,
             "login": "fbj1121",
             "name": "fbj1121",
-            "avatar_url": "https://gitcode.com/assets/no_portrait.png",
-            "url": "https://gitcode.com/api/v5/users/fbj1121",
+            "avatar_url": null,
             "html_url": "https://gitcode.com/fbj1121",
-            "remark": "",
-            "followers_url": "https://gitcode.com/api/v5/users/fbj1121/followers",
-            "following_url": "https://gitcode.com/api/v5/users/fbj1121/following_url{/other_user}",
-            "gists_url": "https://gitcode.com/api/v5/users/fbj1121/gists{/gist_id}",
-            "starred_url": "https://gitcode.com/api/v5/users/fbj1121/starred{/owner}{/repo}",
-            "subscriptions_url": "https://gitcode.com/api/v5/users/fbj1121/subscriptions",
-            "organizations_url": "https://gitcode.com/api/v5/users/fbj1121/orgs",
-            "repos_url": "https://gitcode.com/api/v5/users/fbj1121/repos",
-            "events_url": "https://gitcode.com/api/v5/users/fbj1121/events{/privacy}",
-            "received_events_url": "https://gitcode.com/api/v5/users/fbj1121/received_events",
             "type": "User"
         },
         "source": null,
@@ -429,7 +414,7 @@ sidebar:
             "issue": {
                 "id": 15798287,
                 "title": "test2222",
-                "number": "I9EM1B"
+                "number": 1
             },
             "pull_request": null
         },
@@ -461,7 +446,6 @@ sidebar:
 [
     {
         "id": 1,
-        "url": "https://gitcode.com/api/v5/repos/fbj1121/fbj-test/pulls/1",
         "html_url": "https://gitcode.com/foo/bar/merge_requests/1",
         "number": 1,
         "state": "opened",
@@ -476,8 +460,7 @@ sidebar:
             "id": 5648060,
             "login": "fbj1121",
             "name": "fbj1121",
-            "avatar_url": "https://gitcode.com/assets/no_portrait.png",
-            "url": "https://gitcode.com/api/v5/users/fbj1121",
+            "avatar_url": null,
             "html_url": "https://gitcode.com/fbj1121",
             "type": "User"
         },
