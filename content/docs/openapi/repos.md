@@ -372,6 +372,85 @@ sidebar:
 }
 ```
 
+#### 6.19. 获取文件Blob
+#### 请求：
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string   | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | formData | string    |
+| sha* |  提交的SHA值或者分支名 | path | string |
+
+#### 返回:
+```json
+{
+    "sha":"e5699fe1b360d6c799ee58b24fb5a670b1e14851",
+    "size":19,
+    "url":"https://gitee.com/api/v5/repos/daming_1/zhu_di/git/blobs/e5699fe1b360d6c799ee58b24fb5a670b1e14851","content":"JXU2RDRCJXU4QkQ1d2ViaG9vaw==",
+    "encoding":"base64"
+}
+```
+
+
+
+## 6.17 创建一个仓库的Tag
+
+### 请求
+
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/tags`
+
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  refs*   | 起点名称，默认main | formData | string    |
+|  tag_name*   | 新创建的标签名称 | formData | string    |
+|  tag_message   | Tag 描述,默认为空 | formData | string    |
+|  access_token* | 用户授权码 | formData | string    | 
+
+
+
+### 响应
+```json
+{
+  "name": "tag2",
+  "message": "",
+  "commit": {
+    "sha": "5d165dae3b073d3e92ca91c3edcb21994361462c",
+    "date": "2024-04-08T13:13:33+00:00"
+  },
+  "tagger": null
+}
+```
+## 5.19 创建commit评论
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
+ 
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | formData | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  sha*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  body*   | 评论内容 | formData | string    |
+|  path   | 文件的相对路径 | formData | string    |
+|  position  | Diff的相对行数 | formData | integer    |
+
+### 响应
+```json
+{
+    "id":111,
+    "body":"content"
+}
+```
+
 #### 6.20. 新建文件
 #### 请求：
 POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
@@ -459,4 +538,3 @@ POST `https://api.gitcode.com/api/v5/org/{org}/repo/{owner}/transfer`
     "msg": "success"
 }
 ```
-
