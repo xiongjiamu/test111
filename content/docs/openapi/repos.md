@@ -372,23 +372,91 @@ sidebar:
 }
 ```
 
-#### 6.19. 获取文件Blob
+#### 6.20. 新建文件
 #### 请求：
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
+POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string   | 
+|  access_token* | 用户授权码 | body | string   |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
-| sha* |  提交的SHA值或者分支名 | path | string |
+|  repo*   | 仓库路径(path) | path | string    |
+| path* | 文件路径 | path | string |
+| content* | 文件内容, 要用 base64 编码 | body | string |
+| message* | 提交的 commit 信息 | body | string |
+| branch | 提交的分支 | body | string |
 
 #### 返回:
 ```json
 {
-    "sha":"e5699fe1b360d6c799ee58b24fb5a670b1e14851",
-    "size":19,
-    "url":"https://gitee.com/api/v5/repos/daming_1/zhu_di/git/blobs/e5699fe1b360d6c799ee58b24fb5a670b1e14851","content":"JXU2RDRCJXU4QkQ1d2ViaG9vaw==",
-    "encoding":"base64"
+    "commit": {
+        "sha": "668cb104692b30d537b07f3721df9956d073d343",
+        "author": {
+            "name": "GitCode2023",
+            "email": "13328943+gitcode_admin@user.noreply.gitee.com",
+            "date": "2024-04-11T09:15:20+00:00"
+        },
+        "committer": {
+            "name": "Gitee",
+            "email": "noreply@gitee.com",
+            "date": "2024-04-11T09:15:20+00:00"
+        },
+        "message": "22222"
+        "parents": [
+            {
+                    "sha":
+      "0117aa5c6bc8e33d18ad8911afa3cbb54a1faabe"
+            }
+        ]
+    }
 }
 ```
+
+
+
+#### 6.21. 仓库归档
+
+#### 请求：
+
+PUT `https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
+
+| 参数名        | 描述                       | 类型 | 数据类型 |
+| ------------- | -------------------------- | ---- | -------- |
+| access_token* | 用户授权码                 | body | string   |
+| org*          | 仓库所属组织               | path | string   |
+| repo*         | 仓库路径(path)             | path | string   |
+| status*       | 仓库状态，0：开始，2：关闭 | body | integer  |
+| password*     | 用户密码                   | body | string   |
+
+#### 返回:
+
+```json
+{
+    "code": 1,
+    "msg": "success"
+}
+```
+
+#### 6.21. 转移仓
+
+#### 请求：
+
+POST `https://api.gitcode.com/api/v5/org/{org}/repo/{owner}/transfer`
+
+| 参数名        | 描述               | 类型 | 数据类型 |
+| ------------- | ------------------ | ---- | -------- |
+| access_token* | 用户授权码         | body | string   |
+| org*          | 仓库所属组织       | path | string   |
+| owner*        | 仓库owner          | path | string   |
+| transfer_to*  | 要转移到的目标组织 | body | integer  |
+| password*     | 用户密码           | body | string   |
+
+#### 返回:
+
+```json
+{
+    "code": 1,
+    "msg": "success"
+}
+```
+
