@@ -1219,6 +1219,27 @@ sidebar:
 ### 响应
 
 ```json
-
+[
+  {
+    "committerName": "杨妮",
+    "CommitterEmail": "neen.yang@huawei.com",
+    "sUbSystem": "openharmony/docs",
+    "isHWEmployee": true,
+    "prId": 11135558,
+    "pr": 40135,
+    "prState": "merged",
+    "prLink": "https://gitcode.com/openharmony/docs/pulls/40135",
+    "changedAdditions": 2,
+    "changedDeletions": 2,
+    "issueNo": "",
+    "reviewTime": "2024-03-28T11:19:33+08:00",
+    "prBugCount": 0,
+    "sumPrBugCount": 2,
+    "prBugList": {
+    },
+    "prReviewTime": 0.5,
+    "noteCount": 1
+  }
+]
 ```
 
