@@ -139,7 +139,7 @@ sidebar:
                 },
                 "description": "暂无描述",
                 "internal": false,
-                "html_url": "https://gitcode.com/openharmony/ability_ability_base.git",
+                "html_url": "https://gitcode.com/openharmony/ability_ability_base.git"
             }
         }
     }
@@ -148,8 +148,121 @@ sidebar:
 ```
 
 
+## 2. pr提交的文件变更信息
 
-## 4. Pull Request Commit文件列表
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/files.json`
+
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+
+### 响应
+
+```json
+{
+    "code": 0,
+    "added_lines": 2,
+    "removed_lines": 0,
+    "count": "3",
+    "diff_refs": {
+        "base_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
+        "start_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
+        "head_sha": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d"
+    },
+    "diffs": [
+        {
+            "old_blob_id": null,
+            "new_blob_id": "45e071c0bc5e62f63730b54a8375f45b8356379b",
+            "edit_path": "/songyi1995/paopao/edit/master/Photos%20Library.photoslibrary.zip",
+            "delete_path": "/songyi1995/paopao/delete/blob/master/Photos%20Library.photoslibrary.zip",
+            "statistic": {
+                "type": "new_file",
+                "path": "Photos Library.photoslibrary.zip",
+                "old_path": "Photos Library.photoslibrary.zip",
+                "new_path": "Photos Library.photoslibrary.zip",
+                "viewed": false
+            },
+            "head": {
+                "type": "none_deleted_file",
+                "name": "Photos Library.photoslibrary.zip",
+                "url": "/songyi1995/paopao/blob/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
+                "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
+                "commit_short_id": "bb8fd1b"
+            },
+            "content": {
+                "code": -1,
+                "msg": "不支持预览此文件"
+            },
+            "added_lines": 0,
+            "removed_lines": 0,
+            "blob_excerpt_path": "/songyi1995/paopao/blob_excerpt/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d?path=Photos+Library.photoslibrary.zip"
+        }
+    ]
+}
+```
+
+## 3. 获取pr关联的issue
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issue`
+
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  page   | 当前的页码 | query | integer    |
+|  per_page   | 每页的数量，最大为 100 | query | integer    |
+
+### 响应
+
+```json
+[
+  {
+    "number": "1",
+    "title": "[bug] test"
+  }
+]
+```
+
+## 4. 提交pull request 评论
+### 请求
+
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/comments`
+
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | formData | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  body*   | 评论内容 | formData | string    |
+
+
+### 响应
+```json
+{
+    "id": 26275976,
+    "body":"22222"
+}
+```
+
+
+
+## 5. Pull Request Commit文件列表
 
 ### 请求
 
@@ -258,7 +371,7 @@ sidebar:
             "html_url": "https://gitcode.com/zzero",
             "state": "active",
             "email": "",
-            "is_member": "",
+            "is_member": ""
         },
         "created_at": "2024-04-14T15:46:37+08:00",
         "updated_at": "2024-04-14T15:46:37+08:00",
@@ -284,7 +397,7 @@ sidebar:
             "html_url": "https://gitcode.com/zzero",
             "state": "active",
             "email": "",
-            "is_member": "",
+            "is_member": ""
         },
         "created_at": "2024-04-14T16:33:51+08:00",
         "updated_at": "2024-04-14T16:33:51+08:00",
@@ -1243,3 +1356,78 @@ sidebar:
 ]
 ```
 
+
+## 5.2 获取单个Pull Request
+### 请求
+`GET  https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}`
+
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+
+### 响应
+```json
+{
+  "id": 111,
+  "html_url": "http://test.gitcode.net/sytest/paopao/pull/1",
+  "number": 1,
+  "state": "open",
+  "assignees_number": 1,
+  "assignees": [
+    {
+      "id": 2,
+      "login": "test",
+      "name": "test_web",
+      "avatar_url": "http://test.gitcode.net/sytest/paopao/pull/1.png",
+      "html_url": "http://test.gitcode.net/sytest/paopao/pull/1"
+    }
+  ],
+  "labels": [
+    {
+      "id": 222,
+      "name": "label1",
+      "repository_id": 1,
+      "created_at": "",
+      "updated_at": ""
+    }
+  ],
+  "created_at": "",
+  "updated_at": "",
+  "closed__at": "",
+  "draft": false,
+  "merged_at": "",
+  "can_merge_check": false,
+  "user": {
+    "id": 2,
+    "login": "test"
+  },
+  "head": {
+    "repo": {
+      "assigner": {
+        "id": 2,
+        "login": "test",
+        "name": "test_web",
+        "avatar_url": "http://test.gitcode.net/sytest/paopao/pull/1.png",
+        "html_url": "http://test.gitcode.net/sytest/paopao/pull/1"
+      }
+    }
+  },
+  "base": {
+    "ref": "main",
+    "repo": {
+      "assigner": {
+        "id": 2,
+        "login": "test",
+        "name": "test_web",
+        "avatar_url": "http://test.gitcode.net/sytest/paopao/pull/1.png",
+        "html_url": "http://test.gitcode.net/sytest/paopao/pull/1"
+      }
+    }
+  }
+}
+```

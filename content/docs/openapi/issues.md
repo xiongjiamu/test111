@@ -486,3 +486,37 @@ sidebar:
     }
 ]
 ```
+
+## 8. 获取仓库目录Tree
+
+### 请求
+
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/git/trees/{sha}`
+
+### 参数
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  sha*   | 可以是分支名(如master)、Commit或者目录Tree的SHA | path | string    |
+|recursive | 赋值为1递归获取目录 | query |integer|
+
+
+### 响应
+
+```json
+{
+    "tree": [
+        {
+            "sha": "5259c4b24f015ffdc3663e81837a730c2a108e1f",
+            "name": "b",
+            "type": "tree",
+            "path": "a/b",
+            "mode": "040000",
+            "md5": "a7e86136543b019d72468ceebf71fb8e"
+        }
+    ]
+}
+```
