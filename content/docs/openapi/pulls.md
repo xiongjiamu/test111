@@ -178,10 +178,7 @@ sidebar:
     },
     "diffs": [
         {
-            "old_blob_id": null,
             "new_blob_id": "45e071c0bc5e62f63730b54a8375f45b8356379b",
-            "edit_path": "/songyi1995/paopao/edit/master/Photos%20Library.photoslibrary.zip",
-            "delete_path": "/songyi1995/paopao/delete/blob/master/Photos%20Library.photoslibrary.zip",
             "statistic": {
                 "type": "new_file",
                 "path": "Photos Library.photoslibrary.zip",
@@ -191,18 +188,11 @@ sidebar:
             },
             "head": {
                 "type": "none_deleted_file",
-                "name": "Photos Library.photoslibrary.zip",
-                "url": "/songyi1995/paopao/blob/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
                 "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
                 "commit_short_id": "bb8fd1b"
             },
-            "content": {
-                "code": -1,
-                "msg": "不支持预览此文件"
-            },
             "added_lines": 0,
-            "removed_lines": 0,
-            "blob_excerpt_path": "/songyi1995/paopao/blob_excerpt/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d?path=Photos+Library.photoslibrary.zip"
+            "removed_lines": 0
         }
     ]
 }
