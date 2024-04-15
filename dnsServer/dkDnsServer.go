@@ -4,7 +4,9 @@ import (
 	"bufio"
 	"dkdns/dkFramework/configs"
 	"dkdns/dkFramework/logger"
-	special_list "dkdns/httpServer/services"
+	"strconv"
+
+	//special_list "dkdns/httpServer/services"
 	"fmt"
 	"github.com/miekg/dns"
 	"io/ioutil"
@@ -120,10 +122,10 @@ func performRecursiveDNSQuery(r *dns.Msg, recursiveAddr string) (*dns.Msg, time.
 	return c.Exchange(r, recursiveAddr+":53")
 }
 
-func getLocalDNSServers() ([]string, error) {
-	resolvConfPath := "/etc/resolv.conf" // Replace with the actual path on your system
+func getLocalDNSServers(appConfigs *configs.Config) ([]string, error) {
+	//resolvConfPath := "/etc/resolv.conf" // Replace with the actual path on your system
 
-	file, err := os.Open(resolvConfPath)
+	file, err := os.Open(appConfigs.DNS.ServerConf)
 	if err != nil {
 		return nil, fmt.Errorf("Error opening resolv.conf file: %v", err)
 	}
@@ -186,8 +188,9 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 			先查询 Special_list ,
 			*/
 
-			special_ip, _ := special_list.NewService().Read(name)
+			//special_ip, _ := special_list.NewService().Read(name)
 
+			special_ip := ""
 			if special_ip != "" {
 				resp := new(dns.Msg)
 				resp.SetReply(r)
@@ -232,7 +235,7 @@ func handleDNSRequest(w dns.ResponseWriter, r *dns.Msg, appConfigs *configs.Conf
 			本地查询
 			*/
 
-			localDnsServers, err := getLocalDNSServers()
+			localDnsServers, err := getLocalDNSServers(appConfigs)
 			localResp := new(dns.Msg)
 			for _, localDnsServer := range localDnsServers {
 				localResp, _, err = performRecursiveDNSQuery(r, localDnsServer)
@@ -302,10 +305,12 @@ func RunDNSServer(appConfigs *configs.Config) {
 		handleDNSRequest(w, r, appConfigs)
 	})
 
-	cache = make(map[string]CachedResponse) // Initialize the cache
-	server := &dns.Server{Addr: ":53", Net: "udp", Handler: udpHandler}
+	portString := strconv.Itoa(appConfigs.DNS.Port)
 
-	logger.Println("Starting DNS server at port 53...")
+	cache = make(map[string]CachedResponse) // Initialize the cache
+	server := &dns.Server{Addr: ":" + portString, Net: "udp", Handler: udpHandler}
+
+	logger.Println("Starting DNS server at port " + portString)
 	if err := server.ListenAndServe(); err != nil {
 		logger.Println("Error starting DNS server:", err)
 		os.Exit(1)

@@ -5,6 +5,7 @@ logging:
 
 dns:
   port: 53
+  server_conf: "/etc/resolv.conf"
   recursive_dns: "172.16.10.10"
   whitelist: "output.txt"
   cache_timeout: "24h"

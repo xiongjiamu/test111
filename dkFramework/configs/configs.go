@@ -14,6 +14,7 @@ type Config struct {
 	} `yaml:"logging"`
 	DNS struct {
 		Port            int           `yaml:"port"`
+		ServerConf      string        `yaml:"server_conf"`
 		RecursiveDNS    string        `yaml:"recursive_dns"`
 		Whitelist       string        `yaml:"whitelist"`
 		CacheTimeoutStr string        `yaml:"cache_timeout"`
