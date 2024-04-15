@@ -188,6 +188,7 @@ sidebar:
             },
             "head": {
                 "type": "none_deleted_file",
+                "url": "/songyi1995/paopao/blob/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
                 "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
                 "commit_short_id": "bb8fd1b"
             },
