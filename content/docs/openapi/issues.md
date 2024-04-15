@@ -425,18 +425,18 @@ sidebar:
 ```
 
 
-## 7. 获取 iusse 关联的 pull requests
+## 7. 获取 issue 关联的 pull requests
 
 ### 请求 暂无
 
-`GET `
+`GET  https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/pull_requestss `
 
 ### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
 | access_token  |   用户授权码  | query  | string |
 | owner* |  仓库所属空间地址(企业、组织或个人的地址path)  | path   | string |
-| repo  |   仓库路径(path) | query  | string |
+| repo*  |   仓库路径(path) | query  | string |
 | number* | Issue 编号(区分大小写，无需添加 # 号)   | path   | string |
 
 
@@ -445,27 +445,16 @@ sidebar:
 ```json
 [
     {
-        "id": 1,
-        "html_url": "https://gitcode.com/foo/bar/merge_requests/1",
+        "id": 68525,
+        "html_url": "https://test.gitcode.net/dengmengmian/test01/merge_requests/1",
         "number": 1,
         "state": "opened",
-        "assignees_number": 1,
-        "testers_number": 1,
-        "milestone": null,
-        "created_at": "2024-04-07T18:44:43+08:00",
-        "updated_at": "2024-04-07T18:44:45+08:00",
-        "merged_at": "2024-04-07T18:44:43+08:00",
-        "closed_at":"2024-04-07T18:44:45+08:00",
-        "user": {
-            "id": 5648060,
-            "login": "fbj1121",
-            "name": "fbj1121",
-            "avatar_url": null,
-            "html_url": "https://gitcode.com/fbj1121",
-            "type": "User"
-        },
-        "title": "test v1.0 to v1.1",
-        "body": "test",
+        "title": "new: 新增文件 1.text",
+        "body": "new: 新增文件 1.text ",
+        "created_at": "2024-04-15T16:29:11.035+08:00",
+        "updated_at": "2024-04-15T16:29:17.769+08:00",
+        "merged_at": null,
+        "closed_at": null
     }
 ]
 ```
