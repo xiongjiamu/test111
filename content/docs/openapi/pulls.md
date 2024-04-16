@@ -1423,7 +1423,7 @@ sidebar:
 }
 ```
 
-### 20. 创建commit评论
+## 20. 创建commit评论
 
 ### 请求
 
@@ -1450,9 +1450,9 @@ sidebar:
 }
 ```
 
-### 21. 获取某Pull Request的所有Commit信息
+## 21. 获取某Pull Request的所有Commit信息
 ### 请求
-`GET /api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/commits`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
 
 ### 参数
 | 参数名           | 描述                               | 类型             | 数据类型   |
@@ -1493,6 +1493,27 @@ sidebar:
       "avatar_url": "https://gitcode/pic.png",
       "html_url": "https://gitcode.com/test"
     }
+  }
+]
+```
+## 22. 获取Pull Request关联的issue
+
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
+
+### 参数
+| 参数名           | 描述                               | 类型             | 数据类型   |
+|---------------|----------------------------------|----------------|--------|
+|  access_token* | 用户授权码 | query | string    |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+
+### 响应
+```json
+[
+  {
+    "number": "id"
   }
 ]
 ```
