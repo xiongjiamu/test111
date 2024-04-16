@@ -188,7 +188,7 @@ sidebar:
             },
             "head": {
                 "type": "none_deleted_file",
-                "url": "/songyi1995/paopao/blob/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
+                "url": "  /songyi1995/paopao/blob/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
                 "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
                 "commit_short_id": "bb8fd1b"
             },
@@ -246,7 +246,7 @@ sidebar:
 ### 响应
 ```json
 {
-    "id": 26275976,
+    "id": "97219c08d421e55cfa841deca16a30f5d7269e10",
     "body":"22222"
 }
 ```
