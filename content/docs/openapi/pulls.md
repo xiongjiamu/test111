@@ -1422,3 +1422,77 @@ sidebar:
   }
 }
 ```
+
+### 20. 创建commit评论
+
+### 请求
+
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
+
+### 参数
+
+| 参数名           | 描述                               | 类型             | 数据类型   |
+|---------------|----------------------------------|----------------|--------|
+| access_token* | 用户授权码                            | formData          | string | 
+| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path           | string |
+| repo*         | 仓库路径(path)                       | path           | string |
+| sha*          | 评论的sha值                          | path           | string |
+| body*         | 评论的内容                            | formData       | string |
+| path          | 文件的相对路径                          | formData       | string |
+| position      | Diff的相对行数                        | formData       | string |
+
+### 响应
+```json
+{
+  "id": "12312sadsa",
+  "created_at": "2024-03-28T11:19:33+08:00",
+  "updated_at": "2024-03-28T11:19:33+08:00"
+}
+```
+
+### 21. 获取某Pull Request的所有Commit信息
+### 请求
+`GET /api/v4/projects/{project_id}/merge_requests/{merge_request_iid}/commits`
+
+### 参数
+| 参数名           | 描述                               | 类型             | 数据类型   |
+|---------------|----------------------------------|----------------|--------|
+|  access_token* | 用户授权码 | query | string    |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+
+###响应
+```json
+[
+  {
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6",
+    "html_url": "https://gitcode.com/sytest/paopao/blob/91861a9668041fc1c0ff51d1db66b6297179f5e6",
+    "commit": {
+      "author": {
+        "name": "test",
+        "email": "test@test.com",
+        "date": "2024-03-28T11:19:33+08:00"
+      },
+      "committer": {
+        "name": "test",
+        "email": "test@test.com"
+      }
+    },
+    "author": {
+      "id": "id123",
+      "login": "test",
+      "name": "test",
+      "avatar_url": "https://gitcode/pic.png",
+      "html_url": "https://gitcode.com/test"
+    },
+    "committer": {
+      "id": "id123",
+      "login": "test",
+      "name": "test",
+      "avatar_url": "https://gitcode/pic.png",
+      "html_url": "https://gitcode.com/test"
+    }
+  }
+]
+```
