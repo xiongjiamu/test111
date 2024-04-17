@@ -32,7 +32,7 @@ sidebar:
 
 ### 3.获取授权token
 
-`POST https://gitee.com/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&client_secret={client_secret}`
+`POST https://web-api.gitcode.com/uc/api/v1/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&client_secret={client_secret}`
 
 | 参数名            | 描述        | 类型    | 数据类型               |
 |----------------|-----------|-------|--------------------|
