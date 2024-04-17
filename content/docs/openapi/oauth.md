@@ -32,15 +32,14 @@ sidebar:
 
 ### 3.获取授权token
 
-`POST https://gitee.com/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&client_secret={client_secret}&redirect_uri={redirect_uri}`
+`POST https://gitee.com/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&client_secret={client_secret}`
 
 | 参数名            | 描述        | 类型    | 数据类型               |
 |----------------|-----------|-------|--------------------|
 | grant_type     | 授权码模式     | query | authorization_code | 
 | code*          | 授权码       | query | string             | 
 | client_id*     | 注册的客户端 ID | query | string             | 
-| client_secret* | 注册的客户端密钥  | query | string             |
-| redirect_uri*  | 授权后的url   | query | string             |
+| client_secret* | 注册的客户端密钥  | form-data | string             |
 
 #### 响应：
 ```json
