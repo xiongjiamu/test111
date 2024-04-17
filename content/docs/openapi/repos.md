@@ -429,7 +429,7 @@ sidebar:
 ## 12. 创建commit评论
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
- 
+
 ### 参数
 
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -520,14 +520,14 @@ PUT `https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
 #### 请求：
 
-POST `https://api.gitcode.com/api/v5/org/{org}/repo/{owner}/transfer`
+POST `https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 
 | 参数名        | 描述               | 类型 | 数据类型 |
 | ------------- | ------------------ | ---- | -------- |
 | access_token* | 用户授权码         | body | string   |
 | org*          | 仓库所属组织       | path | string   |
-| owner*        | 仓库owner          | path | string   |
-| transfer_to*  | 要转移到的目标组织 | body | integer  |
+| repo*         | 仓库路径           | path | string   |
+| transfer_to*  | 要转移到的目标组织 | body | string   |
 | password*     | 用户密码           | body | string   |
 
 #### 返回:
@@ -628,3 +628,33 @@ POST `https://api.gitcode.com/api/v5/org/{org}/repo/{owner}/transfer`
 ```
 HTTP status 204 No Content
 ```
+
+## 18. 修改代码审查设置
+
+### 请求
+
+`PUT /api/v5/repos/{owner}/{repo}/reviewer`
+
+### 参数
+
+| 参数名            | 描述                                                         | 类型  | 数据类型 |
+| ----------------- | ------------------------------------------------------------ | ----- | -------- |
+| access_token*     | 用户授权码                                                   | query | string   |
+| owner*            | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
+| repo*             | 仓库路径(path)                                               | path  | string   |
+| assignees*        | 审查人员username，可多个，半角逗号分隔，如：(username1,username2) | body  | string   |
+| testers*          | 测试人员username，可多个，半角逗号分隔，如：(username1,username2) | body  | string   |
+| assignees_number* | 最少审查人数                                                 | body  | integer  |
+| testers_number*   | 最少测试人数                                                 | body  | integer  |
+
+
+### 响应
+
+```json
+{
+    "id": 7543745,
+    "created_at": "2024-01-24T14:33:44+08:00",
+    "updated_at": "2024-04-07T21:23:08+08:00"
+}
+```
+
