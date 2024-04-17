@@ -14,7 +14,7 @@ sidebar:
 
 #### 请求
 
-`GET https://gitee.com/oauth/authorize?client_id={client_id}&client_secret={client_secret}&redirect_uri={redirect_uri}&response_type=code&scope={scope}&state={state}`
+`GET https://gitcode.com/oauth/authorize?client_id={client_id}&client_secret={client_secret}&redirect_uri={redirect_uri}&response_type=code&scope={scope}&state={state}`
 
 | 参数名           | 描述                       | 类型    | 数据类型   |
 |---------------|--------------------------|-------|--------|
