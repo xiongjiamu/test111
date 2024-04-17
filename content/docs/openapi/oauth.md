@@ -14,14 +14,13 @@ sidebar:
 
 #### 请求
 
-`GET https://gitcode.com/oauth/authorize?client_id={client_id}&client_secret={client_secret}&redirect_uri={redirect_uri}&response_type=code&scope={scope}&state={state}`
+`GET https://gitcode.com/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code&scope={scope}&state={state}`
 
 | 参数名           | 描述                       | 类型    | 数据类型   |
 |---------------|--------------------------|-------|--------|
 | client_id*    | 注册的客户端 ID                | query | string | 
-| client_secret* | 注册的客户端密钥  | query | string             |
 | redirect_uri* | 授权后的url                  | query | string |
-| scope*        | 权限范围                     | query | string |
+| scope        | 权限范围                     | query | string |
 | state         | 随机字符串,<br/>用于防止跨站点请求伪造攻击 | query | string |
 
 ### 2.重定向
