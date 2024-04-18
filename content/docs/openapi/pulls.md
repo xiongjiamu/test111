@@ -1394,13 +1394,13 @@ sidebar:
   "merged_at": "",
   "can_merge_check": false,
   "user": {
-    "id": 2,
+    "id": "userId",
     "login": "test"
   },
   "head": {
     "repo": {
       "assigner": {
-        "id": 2,
+        "id": "userId",
         "login": "test",
         "name": "test_web",
         "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
@@ -1412,7 +1412,7 @@ sidebar:
     "ref": "main",
     "repo": {
       "assigner": {
-        "id": 2,
+        "id": "userId",
         "login": "test",
         "name": "test_web",
         "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
