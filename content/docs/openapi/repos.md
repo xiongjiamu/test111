@@ -214,7 +214,7 @@ sidebar:
         "arts_id": "11",
         "nickname": "",
         "email": "CodeHub_beta_dev@huawei.com",
-        "photo": "https://gitcode-user-img.obs.cn-north-4.myhuaweicloud.com:443/de%2Fdd%2F0de6d190dd41c0167427a5982dab156498b05573e7163ae5698d7f4fc0562ce0.png
+        "photo": "https://gitcode-user-img.obs.cn-north-4.myhuaweicloud.com:443/de%2Fdd%2F0de6d190dd41c0167427a5982dab156498b05573e7163ae5698d7f4fc0562ce0.png"
     },    
 }
 ```
