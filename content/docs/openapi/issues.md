@@ -530,3 +530,128 @@ sidebar:
 
 ### 响应
 `204`
+
+## 11 创建Issue评论
+### 请求
+`POST /api/v5/repos/{owner}/{repo}/issues/{number}/comments`
+
+### 参数
+| 参数名  | 描述                       | 类型  | 数据类型  |
+|---------------|--------------------------|----------------|--------|
+|  access_token* | 用户授权码                    | query | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
+|  repo*   | 仓库路径(path)               | path | string |
+|  number*   | issue编号                  | path | string |
+
+
+### 响应
+```json
+{
+    "id": 271624,
+    "body": "评论内容。",
+    "user": {
+        "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/fa/fe/f32a9fecc53e890afbd48fd098b0f6c5f20f062581400c76c85e5baab3f0d5b2.png",
+        "events_url": null,
+        "followers_url": null,
+        "following_url": null,
+        "gists_url": null,
+        "html_url": "https://test.gitcode.net/dengmengmian",
+        "id": "661ce4eab470b1430d456154",
+        "login": "dengmengmian",
+        "member_role": null,
+        "name": "麻凡_",
+        "organizations_url": null,
+        "received_events_url": null,
+        "remark": null,
+        "repos_url": null,
+        "starred_url": null,
+        "subscriptions_url": null,
+        "type": null,
+        "url": null
+    },
+    "target": {
+        "issue": {
+            "id": 152134,
+            "title": "",
+            "nubmer": 1
+        }
+    },
+    "created_at": null,
+    "updated_at": null
+}
+```
+## 11 获取某个iusse下的操作日志
+### 请求
+`POST https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/operate_logs`
+
+### 参数
+| 参数名  | 描述                       | 类型  | 数据类型  |
+|---------------|--------------------------|----------------|--------|
+|  access_token* | 用户授权码                    | query | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
+|  repo*   | 仓库路径(path)               | path | string |
+|  number*   | issue编号                  | path | string |
+
+### 响应
+```json
+[
+    {
+        "id": 272199,
+        "user": {
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/fa/fe/f32a9fecc53e890afbd48fd098b0f6c5f20f062581400c76c85e5baab3f0d5b2.png",
+            "events_url": null,
+            "followers_url": null,
+            "following_url": null,
+            "gists_url": null,
+            "html_url": "https://test.gitcode.net/dengmengmian",
+            "id": "661ce4eab470b1430d456154",
+            "login": "dengmengmian",
+            "member_role": null,
+            "name": "麻凡_",
+            "organizations_url": null,
+            "received_events_url": null,
+            "remark": null,
+            "repos_url": null,
+            "starred_url": null,
+            "subscriptions_url": null,
+            "type": null,
+            "url": null
+        },
+        "content": "Create issue mr links: **new: 新增文件 1.text** #1",
+        "body": null,
+        "created_at": "2024-04-20T15:20:24.009+08:00",
+        "action_type": "add_issue_mr_link",
+        "update_at": "2024-04-20T15:20:24.009+08:00",
+        "issue_id": "152642"
+    },
+    {
+        "id": 270415,
+        "user": {
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/fa/fe/f32a9fecc53e890afbd48fd098b0f6c5f20f062581400c76c85e5baab3f0d5b2.png",
+            "events_url": null,
+            "followers_url": null,
+            "following_url": null,
+            "gists_url": null,
+            "html_url": "https://test.gitcode.net/dengmengmian",
+            "id": "661ce4eab470b1430d456154",
+            "login": "dengmengmian",
+            "member_role": null,
+            "name": "麻凡_",
+            "organizations_url": null,
+            "received_events_url": null,
+            "remark": null,
+            "repos_url": null,
+            "starred_url": null,
+            "subscriptions_url": null,
+            "type": null,
+            "url": null
+        },
+        "content": "add label enim, proident, qui",
+        "body": null,
+        "created_at": "2024-04-18T14:35:15.518+08:00",
+        "action_type": "label",
+        "update_at": "2024-04-18T14:35:15.518+08:00",
+        "issue_id": "152642"
+    }
+]
+```
