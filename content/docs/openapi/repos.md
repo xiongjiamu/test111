@@ -658,3 +658,27 @@ HTTP status 204 No Content
 }
 ```
 
+## 19. 新建保护分支规则
+
+### 请求
+
+`PUT /api/v5/repos/{owner}/{repo}/branches/setting/new`
+
+### 参数
+
+| 参数名        | 描述                                                         | 类型  | 数据类型 |
+| ------------- | ------------------------------------------------------------ | ----- | -------- |
+| access_token* | 用户授权码                                                   | query | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
+| repo*         | 仓库路径(path)                                               | path  | string   |
+| wildcard*     | 分支/通配符                                                  | body  | string   |
+| pusher*       | 可推送代码成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人推送 | body  | string   |
+| merger*       | 可合并 Pull Request 成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人合并 | body  | string   |
+
+
+### 响应
+
+```json
+HTTP status 200 No Content
+```
+
