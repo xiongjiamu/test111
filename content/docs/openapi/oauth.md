@@ -43,12 +43,11 @@ sidebar:
 #### 响应：
 ```json
 {
-  "access_token": "xxxx",
-  "token_type": "",
-  "expires_in": "",
-  "refresh_token": "xxx",
-  "scope": "userinfo",
-  "created_at": ""
+    "access_token": "eyPZPVNfsibj9tap_ibj3t3p",
+    "expires_in": 1296000,
+    "refresh_token": "b77ced3aee884348852160deab3697a1",
+    "scope": "all_user all_key all_groups all_projects all_pr all_issue all_note all_hook all_repository",
+    "created_at": "2024-04-20T09:07:59.889Z"
 }
 ```
 
@@ -57,3 +56,6 @@ sidebar:
 Authorization: Bearer {access_token}
 GET https://api.gitcode.com/api/v5/user
 ```
+
+### 5.刷新access_token
+`POST https://web-api.gitcode.com/uc/api/v1/oauth/token?grant_type=refresh_token&refresh_token={refresh_token}`
