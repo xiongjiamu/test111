@@ -255,10 +255,21 @@ sidebar:
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string   | 
+|  access_token* | 用户授权码 | query | string   |
 |  name*   | 仓库名称 | formData | string   |
 |  org* | 组织的路径(path/login) | path |   string |
+| name | 仓库名称 | formData | string |
 | description	| 仓库描述 | formData |string |
+| homepage	| 主页 | formData |string |
+| has_issues	| 允许提Issue与否。默认: 允许(true) | formData |boolean |
+| has_wiki	| 提供Wiki与否。默认: 提供(true) | formData |boolean |
+| can_comment	| 允许用户对仓库进行评论。默认： 允许(true) | formData |boolean |
+| public	| 仓库开源类型。0(私有), 1(外部开源), 2(内部开源)，注：与private互斥，以public为主 | formData |integer |
+| private	| 仓库公开或私有。默认: 公开(false)，注：与public互斥，以public为主。 | formData |boolean |
+| auto_init	| 值为true时则会用README初始化仓库。默认: 不初始化(false) | formData |boolean |
+| gitignore_template	| Git Ignore模版 | formData |string |
+| license_template	| License模版 | formData |string |
+| path	| 仓库路径 | formData |string |
 
 ```json
 {
@@ -293,10 +304,10 @@ sidebar:
     "visibility": "public",
     "owner": null,
     "creator": null,
-    "creator_id": null,
     "forked_from_project": null,
     "item_type": null,
-    "main_repository_language": null
+    "main_repository_language": null,
+    "homepage": "http://www.baidi.com"
 }
 ```
 
