@@ -1398,27 +1398,10 @@ sidebar:
     "login": "test"
   },
   "head": {
-    "repo": {
-      "assigner": {
-        "id": "userId",
-        "login": "test",
-        "name": "test_web",
-        "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
-        "html_url": "http://gitcode.com/sytest/paopao/pull/1"
-      }
-    }
+    "ref": "test"
   },
   "base": {
-    "ref": "main",
-    "repo": {
-      "assigner": {
-        "id": "userId",
-        "login": "test",
-        "name": "test_web",
-        "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
-        "html_url": "http://gitcode.com/sytest/paopao/pull/1"
-      }
-    }
+    "ref": "main"
   }
 }
 ```
