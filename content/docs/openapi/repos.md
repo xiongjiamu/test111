@@ -317,13 +317,15 @@ sidebar:
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string   | 
+|  access_token* | 用户授权码 | query | string   |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | formData | string    |
 | name* | 仓库名称 | formData | string |
 | description | 仓库描述 | formData | string |
 | homepage	|   主页(eg: https://gitcode.com) | formData |string |
 | path	 |  更新仓库路径 |  formData    |   string |
+| private	| 仓库公开或私有。（true/false) | formData | boolean |
+| default_branch	| 默认分支 | formData | string |
 
 #### 返回:
 ```json
@@ -332,7 +334,37 @@ sidebar:
     "full_name": "daming_1/test_create_project_2",
     "human_name": "daming/test_create_project_2",
     "url": "https://gitcode.com/api/v5/repos/daming_1/test_create_project_2",
+   
     "path": "test_create_project_2",
+    "name": "test_create_project_2",
+    
+    "description": "描述",
+    "private": false,
+    "public": true,
+    "namespace": {
+        "id": 74962,
+        "name": "group1111",
+        "path": "group11111",
+        "develop_mode": "normal",
+        "region": null,
+        "cell": "default",
+        "kind": "group",
+        "full_path": "group11111",
+        "full_name": "group1111",
+        "parent_id": null,
+        "visibility_level": 20,
+        "enable_file_control": false,
+        "owner_id": null
+    },
+    "empty_repo": null,
+    "starred": null,
+    "visibility": "public",
+    "owner": null,
+    "creator": null,
+    "forked_from_project": null,
+    "item_type": null,
+    "main_repository_language": null,
+    "homepage": "http://www.baidi.com"
 }
 ```
 
