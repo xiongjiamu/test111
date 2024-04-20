@@ -238,8 +238,6 @@ sidebar:
     "content": {
         "name": "Note2.md",
         "path": "Note2.md",
-        "size": 19,
-        "sha": "e5699fe1b360d6c799ee58b24fb5a670b1e14851",
         "url": "https://gitcode.com/api/v5/repos/daming_1/zhu_di/contents/Note2.md",
         "html_url": "https://gitcode.com/daming_1/zhu_di/blob/master/Note2.md",
         "download_url": "https://gitcode.com/daming_1/zhu_di/raw/master/Note2.md",
