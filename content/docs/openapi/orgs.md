@@ -71,3 +71,28 @@ sidebar:
     }
 }
 ```
+## 3 获取一个组织信息
+### 请求
+`GET https://api.gitcode.com/api/v5/orgs/{org}`
+
+### 参数
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    |
+|  org* | 组织的路径(path/login) | path | string    |
+
+### 响应
+```json
+{
+   "id": 6486504,
+   "login": "openharmony",
+   "name": "OpenHarmony",
+   "avatar_url": "",
+   "repos_url": "https://api.gitcode.com/openharmony/repos",
+   "events_url": "https://api.gitcode.com/openharmony/events",
+   "members_url": "https://api.gitcode.com/openharmony/members{/member}",
+   "description": "OpenHarmony是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的开源项目，目标是面向全场景、全连接、全智能时代，搭建一个智能终端设备操作系统的框架和平台，促进万物互联产业的繁荣发展。\r\n",
+   "enterprise": "openharmony",
+   "follow_count": 40819
+}
+```

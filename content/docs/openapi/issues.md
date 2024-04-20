@@ -458,3 +458,75 @@ sidebar:
     }
 ]
 ```
+
+## 8 获取企业某个Issue所有标签
+
+### 请求
+`GET https://api.gitcode.com/api/v5/enterprises/{enterprise}/issues/{number}/labels`
+
+### 参数
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+| access_token  |   用户授权码  | query  | string |
+| enterprise* |   企业名(path)  | path   | string |
+| number*  |   Issue 编号(区分大小写，无需添加 # 号) | path  | string |
+| page  | 当前的页码 | query | integer |
+| per_page  | 每页的数量，最大为 100 | query | integer |
+
+### 响应
+```json
+[
+  {
+    "color": "#008672",
+    "name": "help wanted",
+    "id": 381445,
+    "title": "help wanted",
+    "type": null,
+    "textColor": "#FFFFFF"
+  }
+]
+```
+## 9 创建Issue标签
+### 请求
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/labels`
+
+### 参数
+| 参数名  | 描述                       | 类型  | 数据类型  |
+|---------------|--------------------------|----------------|--------|
+|  access_token* | 用户授权码                    | query | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
+|  repo*   | 仓库路径(path)               | path | string |
+|  number*   | issue编号                  | path | string |
+|  labels*   | 添加的标签 如: ["feat", "bug"] | body | array  |
+
+### 响应
+```json
+[
+  {
+    "color": "#008672",
+    "name": "help wanted",
+    "id": 381445,
+    "title": "help wanted",
+    "type": null,
+    "textColor": "#FFFFFF"
+  }
+]
+```
+
+## 10 删除Issue标签
+
+### 请求
+`DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/labels/{name}`
+
+
+### 参数
+| 参数名           | 描述                       | 类型             | 数据类型   |
+|---------------|--------------------------|----------------|--------|
+|  access_token* | 用户授权码                    | query | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
+|  repo*   | 仓库路径(path)               | path | string |
+|  number*   | 第几个PR，即本仓库PR的序数          | path | string |
+|  name*   |  标签名称(批量删除用英文逗号分隔，如: bug,feature)    | path | string |
+
+### 响应
+`204`

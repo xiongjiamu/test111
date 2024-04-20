@@ -403,13 +403,13 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  refs*   | 起点名称，默认main | formData | string    |
-|  tag_name*   | 新创建的标签名称 | formData | string    |
-|  tag_message   | Tag 描述,默认为空 | formData | string    |
+| 参数名  | 描述  | 类型       | 数据类型  |
+| ------ | ------ |----------|------|
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
+|  repo*   | 仓库路径(path) | path     | string    |
+|  refs*   | 起点名称，默认main | body     | string    |
+|  tag_name*   | 新创建的标签名称 | body | string    |
+|  tag_message   | Tag 描述,默认为空 | body | string    |
 |  access_token* | 用户授权码 | formData | string    | 
 
 
@@ -428,20 +428,20 @@ sidebar:
 ```
 ## 12. 创建commit评论
 ### 请求
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
 
 ### 参数
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
+| 参数名  | 描述  | 类型       | 数据类型  |
+| ------ | ------ |----------|------|
 |  access_token* | 用户授权码 | formData | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
-|  sha*   | 第几个PR，即本仓库PR的序数 | path | string    |
-|  body*   | 评论内容 | formData | string    |
-|  path   | 文件的相对路径 | formData | string    |
-|  position  | Diff的相对行数 | formData | integer    |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
+|  repo*   | 仓库路径(path) | path     | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path     | string    |
+|  sha*   | 第几个PR，即本仓库PR的序数 | path     | string    |
+|  body*   | 评论内容 | body     | string    |
+|  path   | 文件的相对路径 | body     | string    |
+|  position  | Diff的相对行数 | body     | integer    |
 
 ### 响应
 ```json
@@ -608,7 +608,7 @@ POST `https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 }
 ```
 
-## 17. 移除仓库成员
+## 18. 移除仓库成员
 
 ### 请求
 
@@ -629,7 +629,7 @@ POST `https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 HTTP status 204 No Content
 ```
 
-## 18. 修改代码审查设置
+## 19. 修改代码审查设置
 
 ### 请求
 
@@ -658,7 +658,7 @@ HTTP status 204 No Content
 }
 ```
 
-## 19. 新建保护分支规则
+## 20. 新建保护分支规则
 
 ### 请求
 
@@ -678,7 +678,7 @@ HTTP status 204 No Content
 
 ### 响应
 
-```json
+```text
 HTTP status 200 No Content
 ```
 

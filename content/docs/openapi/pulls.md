@@ -234,13 +234,13 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
+| 参数名  | 描述  | 类型       | 数据类型  |
+| ------ | ------ |----------|------|
 |  access_token* | 用户授权码 | formData | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
-|  body*   | 评论内容 | formData | string    |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
+|  repo*   | 仓库路径(path) | path     | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path     | string    |
+|  body*   | 评论内容 | body        | string    |
 
 
 ### 响应
@@ -1431,15 +1431,15 @@ sidebar:
 
 ### 参数
 
-| 参数名           | 描述                               | 类型             | 数据类型   |
-|---------------|----------------------------------|----------------|--------|
-| access_token* | 用户授权码                            | formData          | string | 
-| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path           | string |
-| repo*         | 仓库路径(path)                       | path           | string |
-| sha*          | 评论的sha值                          | path           | string |
-| body*         | 评论的内容                            | formData       | string |
-| path          | 文件的相对路径                          | formData       | string |
-| position      | Diff的相对行数                        | formData       | string |
+| 参数名           | 描述                               | 类型       | 数据类型   |
+|---------------|----------------------------------|----------|--------|
+| access_token* | 用户授权码                            | formData | string | 
+| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path     | string |
+| repo*         | 仓库路径(path)                       | path     | string |
+| sha*          | 评论的sha值                          | path     | string |
+| body*         | 评论的内容                            | body     | string |
+| path          | 文件的相对路径                          | body     | string |
+| position      | Diff的相对行数                        | body     | string |
 
 ### 响应
 ```json
@@ -1516,4 +1516,86 @@ sidebar:
     "number": "id"
   }
 ]
+```
+## 23. 创建 Pull Request 标签
+### 请求
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
+
+### 参数
+| 参数名           | 描述                       | 类型             | 数据类型   |
+|---------------|--------------------------|----------------|--------|
+|  access_token* | 用户授权码                    | query | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
+|  repo*   | 仓库路径(path)               | path | string |
+|  number*   | 第几个PR，即本仓库PR的序数          | path | string |
+|  labels*   | 添加的标签 如: ["feat", "bug"] | body | array  |
+
+### 响应
+```json
+[
+  {
+    "color": "#008672",
+    "name": "help wanted",
+    "id": 381445,
+    "title": "help wanted",
+    "type": null,
+    "textColor": "#FFFFFF"
+  }
+]
+```
+### Response Code
+```text
+HTTP status 201 No Content
+```
+
+## 24. 删除 Pull Request 标签
+
+### 请求
+`DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels/{name}`
+
+### 参数
+| 参数名           | 描述                       | 类型             | 数据类型   |
+|---------------|--------------------------|----------------|--------|
+|  access_token* | 用户授权码                    | query | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
+|  repo*   | 仓库路径(path)               | path | string |
+|  number*   | 第几个PR，即本仓库PR的序数          | path | string |
+|  name*   |  标签名称(批量删除用英文逗号分隔，如: bug,feature)    | path | string |
+
+### 响应
+```text
+HTTP status 204 No Content
+```
+
+
+## 25. 处理 Pull Request 测试
+### 请求
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/test`
+### 参数
+| 参数名      | 描述                       | 类型    | 数据类型   |
+|----------|--------------------------|-------|--------|
+| access_token* | 用户授权码                    | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)   | path  | string |
+| repo*    | 仓库路径(path)               | path  | string |
+| force      | 是否强制测试通过（默认否），只对管理员生效          | body  | 	boolean |
+
+### 响应
+```text
+HTTP status 204 No Content
+```
+
+## 26. 处理 Pull Request 审查
+### 请求
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/review`
+### 参数
+| 参数名      | 描述                     | 类型    | 数据类型   |
+|----------|------------------------|-------|--------|
+| access_token* | 用户授权码                  | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path) | path  | string |
+| repo*    | 仓库路径(path)             | path  | string |
+| force      | 是否强制审查通过（默认否），只对管理员生效  | body  | 	boolean |
+
+### 响应
+```text
+HTTP status 204 No Content
 ```
