@@ -95,7 +95,7 @@ sidebar:
 
 ### 请求
 
-`POST https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}`
+`PATCH https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}`
 
 ### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -592,7 +592,7 @@ sidebar:
 
 ### 请求 暂无
 
-`GET  https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/pull_requestss `
+`GET  https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/pull_requests `
 
 ### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |

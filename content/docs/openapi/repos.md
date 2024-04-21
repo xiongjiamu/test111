@@ -221,7 +221,7 @@ sidebar:
 
 ## 6. 更新文件
 #### 请求：
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
@@ -251,7 +251,7 @@ sidebar:
 
 ## 7. 创建组织仓库
 #### 请求：
-`GET https://api.gitcode.com/api/v5/orgs/{org}/repos`
+`POST https://api.gitcode.com/api/v5/orgs/{org}/repos`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
@@ -313,7 +313,7 @@ sidebar:
 
 #### 8. 更新仓库设置
 #### 请求：
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
+`PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
@@ -488,7 +488,7 @@ sidebar:
 
 #### 13. 新建文件
 #### 请求：
-POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
@@ -532,7 +532,7 @@ POST `https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 #### 请求：
 
-PUT `https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
+`PUT https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
 | 参数名        | 描述                       | 类型 | 数据类型 |
 | ------------- | -------------------------- | ---- | -------- |
@@ -555,7 +555,7 @@ PUT `https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
 #### 请求：
 
-POST `https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
+`POST https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 
 | 参数名        | 描述               | 类型 | 数据类型 |
 | ------------- | ------------------ | ---- | -------- |
@@ -668,7 +668,7 @@ HTTP status 204 No Content
 
 ### 请求
 
-`PUT /api/v5/repos/{owner}/{repo}/reviewer`
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/reviewer`
 
 ### 参数
 
@@ -697,7 +697,7 @@ HTTP status 204 No Content
 
 ### 请求
 
-`PUT /api/v5/repos/{owner}/{repo}/branches/setting/new`
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/branches/setting/new`
 
 ### 参数
 
