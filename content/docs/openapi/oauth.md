@@ -1,12 +1,12 @@
 ---
 linkTitle: Oauth2.0
-title: OAuth文档
+title: OAuth 文档
 weight: 3
 sidebar:
   open: false
 ---
 
-# OAuth 获取认证步骤
+OAuth 获取认证步骤
 
 ## A.授权码模式
 

@@ -18,7 +18,7 @@ sections:
         icon: rocket-launch
       secondary_action:
         text: API 文档
-        url: /docs/api/
+        url: /docs/openapi/
       # announcement:
       #   text: "Announcing the release of version 2."
       #   link:

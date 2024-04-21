@@ -12,7 +12,7 @@ main:
   #   url: blog/
   #   weight: 30
   - name: API 文档
-    url: docs/api/
+    url: docs/openapi/
     weight: 40
   - name: 社区支持
     url: community/

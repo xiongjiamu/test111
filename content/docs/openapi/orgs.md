@@ -1,5 +1,5 @@
 ---
-linkTitle: 组织 Organizations
+linkTitle: Organizations
 title: 组织接口文档
 weight: 4
 sidebar:

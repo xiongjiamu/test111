@@ -1,6 +1,6 @@
 ---
-linkTitle: 任务 Issues
-title: Issues接口文档
+linkTitle: Issues
+title: Issues 接口文档
 weight: 5
 sidebar:
   open: false
