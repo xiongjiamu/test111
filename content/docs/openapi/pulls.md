@@ -828,8 +828,6 @@ sidebar:
 ```
 
 
-
-
 ## 8. 更新Pull Request信息
 
 ### 请求
@@ -1012,28 +1010,8 @@ sidebar:
   }
 ]
 ```
-## 12. 获取Pull Request关联的issue
 
-### 请求
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
-
-### 参数
-| 参数名           | 描述                               | 类型             | 数据类型   |
-|---------------|----------------------------------|----------------|--------|
-|  access_token* | 用户授权码 | query | string    |
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
-
-### 响应
-```json
-[
-  {
-    "number": "id"
-  }
-]
-```
-## 13. 创建 Pull Request 标签
+## 12. 创建 Pull Request 标签
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
 
@@ -1064,7 +1042,7 @@ sidebar:
 HTTP status 201 No Content
 ```
 
-## 14. 删除 Pull Request 标签
+## 13. 删除 Pull Request 标签
 
 ### 请求
 `DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels/{name}`
@@ -1084,7 +1062,7 @@ HTTP status 204 No Content
 ```
 
 
-## 15. 处理 Pull Request 测试
+## 14. 处理 Pull Request 测试
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/test`
 ### 参数
@@ -1100,7 +1078,7 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 16. 处理 Pull Request 审查
+## 15. 处理 Pull Request 审查
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/review`
 ### 参数
