@@ -18,7 +18,7 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
+|  repo*   | 仓库路径(path) | path | string    |
 |  sort | 排序字段 name/updated | query | string    |
 |  base   | 可选。Pull Request 提交目标分支的名称 | query | string    |
 |  direction | 排序方向 asc/desc | quey | string    |
@@ -117,7 +117,7 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
+|  repo*   | 仓库路径(path) | path | string    |
 |  page   | 当前的页码 | query | integer    |
 |  per_page   | 每页的数量，最大为 100 | query | integer    |
 
@@ -142,7 +142,7 @@ sidebar:
 
 ## 4 获取仓库具体路径下的内容
 #### 请求：
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents(/{path})`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 #### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -181,7 +181,7 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
+|  repo*   | 仓库路径(path) | path | string    |
 
 #### 响应
 ```json
@@ -223,15 +223,15 @@ sidebar:
 #### 请求：
 `PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
+| 参数名  | 描述  | 类型    | 数据类型  |
+| ------ | ------ |-------|------|
 |  access_token* | 用户授权码 | query | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
-|   path*   |   文件的路径  |   path    |  string |
-|   content* |  文件内容, 要用 base64 编码 | formData | string |
-|   sha* |  文件的 Blob SHA | formData | string |
-| message* | 提交信息 | formData | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path) | path  | string    |
+|   path*   |   文件的路径  | path  |  string |
+|   content* |  文件内容, 要用 base64 编码 | body  | string |
+|   sha* |  文件的 Blob SHA | body  | string |
+| message* | 提交信息 | body  | string |
 
 ```json
 {
@@ -253,23 +253,22 @@ sidebar:
 #### 请求：
 `POST https://api.gitcode.com/api/v5/orgs/{org}/repos`
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string   |
-|  name*   | 仓库名称 | formData | string   |
-|  org* | 组织的路径(path/login) | path |   string |
-| name | 仓库名称 | formData | string |
-| description	| 仓库描述 | formData |string |
-| homepage	| 主页 | formData |string |
-| has_issues	| 允许提Issue与否。默认: 允许(true) | formData |boolean |
-| has_wiki	| 提供Wiki与否。默认: 提供(true) | formData |boolean |
-| can_comment	| 允许用户对仓库进行评论。默认： 允许(true) | formData |boolean |
-| public	| 仓库开源类型。0(私有), 1(外部开源), 2(内部开源)，注：与private互斥，以public为主 | formData |integer |
-| private	| 仓库公开或私有。默认: 公开(false)，注：与public互斥，以public为主。 | formData |boolean |
-| auto_init	| 值为true时则会用README初始化仓库。默认: 不初始化(false) | formData |boolean |
-| gitignore_template	| Git Ignore模版 | formData |string |
-| license_template	| License模版 | formData |string |
-| path	| 仓库路径 | formData |string |
+| 参数名  | 描述  | 类型       | 数据类型  |
+| ------ | ------ |----------|------|
+|  access_token* | 用户授权码 | query    | string   |
+|  org* | 组织的路径(path/login) | path     |   string |
+|  name*   | 仓库名称 | body     | string   |
+| description	| 仓库描述 | body |string |
+| homepage	| 主页 | body |string |
+| has_issues	| 允许提Issue与否。默认: 允许(true) | body |boolean |
+| has_wiki	| 提供Wiki与否。默认: 提供(true) | body |boolean |
+| can_comment	| 允许用户对仓库进行评论。默认： 允许(true) | body |boolean |
+| public	| 仓库开源类型。0(私有), 1(外部开源), 2(内部开源)，注：与private互斥，以public为主 | body |integer |
+| private	| 仓库公开或私有。默认: 公开(false)，注：与public互斥，以public为主。 | body |boolean |
+| auto_init	| 值为true时则会用README初始化仓库。默认: 不初始化(false) | body |boolean |
+| gitignore_template	| Git Ignore模版 | body |string |
+| license_template	| License模版 | body |string |
+| path	| 仓库路径 | body |string |
 
 ```json
 {
@@ -315,17 +314,17 @@ sidebar:
 #### 请求：
 `PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string   |
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
-| name* | 仓库名称 | formData | string |
-| description | 仓库描述 | formData | string |
-| homepage	|   主页(eg: https://gitcode.com) | formData |string |
-| path	 |  更新仓库路径 |  formData    |   string |
-| private	| 仓库公开或私有。（true/false) | formData | boolean |
-| default_branch	| 默认分支 | formData | string |
+| 参数名  | 描述  | 类型       | 数据类型  |
+| ------ | ------ |----------|------|
+|  access_token* | 用户授权码 | query    | string   |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
+|  repo*   | 仓库路径(path) | path     | string    |
+| name* | 仓库名称 | body | string |
+| description | 仓库描述 | body | string |
+| homepage	|   主页(eg: https://gitcode.com) | body |string |
+| path	 |  更新仓库路径 | body |   string |
+| private	| 仓库公开或私有。（true/false) | body | boolean |
+| default_branch	| 默认分支 | body | string |
 
 #### 返回:
 ```json
@@ -372,12 +371,12 @@ sidebar:
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
+| 参数名  | 描述  | 类型    | 数据类型  |
+| ------ | ------ |-------|------|
 |  access_token* | 用户授权码 | query | string   | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
-| sha* |  提交的SHA值或者分支名 | path | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path) | path  | string    |
+| sha* |  提交的SHA值或者分支名 | path  | string |
 
 #### 返回:
 ```json
@@ -411,12 +410,12 @@ sidebar:
 #### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
+| 参数名  | 描述  | 类型    | 数据类型  |
+| ------ | ------ |-------|------|
 |  access_token* | 用户授权码 | query | string   | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
-| sha* |  提交的SHA值或者分支名 | path | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path) | path  | string    |
+| sha* |  提交的SHA值或者分支名 | path  | string |
 
 #### 返回:
 ```json
