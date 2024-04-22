@@ -439,14 +439,14 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述  | 类型       | 数据类型  |
-| ------ | ------ |----------|------|
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
-|  repo*   | 仓库路径(path) | path     | string    |
-|  refs*   | 起点名称，默认main | body     | string    |
-|  tag_name*   | 新创建的标签名称 | body | string    |
-|  tag_message   | Tag 描述,默认为空 | body | string    |
-|  access_token* | 用户授权码 | formData | string    | 
+| 参数名  | 描述  | 类型    | 数据类型  |
+| ------ | ------ |-------|------|
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path) | path  | string    |
+|  refs*   | 起点名称，默认main | body  | string    |
+|  tag_name*   | 新创建的标签名称 | body  | string    |
+|  tag_message   | Tag 描述,默认为空 | body  | string    |
+|  access_token* | 用户授权码 | query | string    | 
 
 
 ### 响应
