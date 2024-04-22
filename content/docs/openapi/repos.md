@@ -109,10 +109,10 @@ sidebar:
 
 ## 3 列出仓库所有的tags
 
-#### 请求：
+### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/tags`
 
-#### 参数
+### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    | 
@@ -141,10 +141,10 @@ sidebar:
 ```
 
 ## 4 获取仓库具体路径下的内容
-#### 请求：
+### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
-#### 参数
+### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    | 
@@ -174,7 +174,7 @@ sidebar:
 ```
 
 ## 5. 获取用户的某个仓库
-#### 请求：
+### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -183,7 +183,7 @@ sidebar:
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 
-#### 响应
+### 响应
 ```json
 {
     "id": 34165823,
@@ -220,7 +220,7 @@ sidebar:
 ```
 
 ## 6. 更新文件
-#### 请求：
+### 请求：
 `PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 | 参数名  | 描述  | 类型    | 数据类型  |
@@ -233,6 +233,7 @@ sidebar:
 |   sha* |  文件的 Blob SHA | body  | string |
 | message* | 提交信息 | body  | string |
 
+### 响应：
 ```json
 {
     "content": {
@@ -250,7 +251,7 @@ sidebar:
 ```
 
 ## 7. 创建组织仓库
-#### 请求：
+### 请求：
 `POST https://api.gitcode.com/api/v5/orgs/{org}/repos`
 
 | 参数名  | 描述  | 类型       | 数据类型  |
@@ -270,6 +271,7 @@ sidebar:
 | license_template	| License模版 | body |string |
 | path	| 仓库路径 | body |string |
 
+### 响应：
 ```json
 {
     "id": 34171993,
@@ -310,8 +312,8 @@ sidebar:
 }
 ```
 
-#### 8. 更新仓库设置
-#### 请求：
+## 8. 更新仓库设置
+### 请求：
 `PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
 | 参数名  | 描述  | 类型       | 数据类型  |
@@ -326,7 +328,7 @@ sidebar:
 | private	| 仓库公开或私有。（true/false) | body | boolean |
 | default_branch	| 默认分支 | body | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "id": 34171993,
@@ -367,8 +369,8 @@ sidebar:
 }
 ```
 
-#### 9. 仓库的某个提交
-#### 请求：
+## 9. 仓库的某个提交
+### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
 
 | 参数名  | 描述  | 类型    | 数据类型  |
@@ -378,7 +380,7 @@ sidebar:
 |  repo*   | 仓库路径(path) | path  | string    |
 | sha* |  提交的SHA值或者分支名 | path  | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "url": "https://gitcode.com/api/v5/repos/daming_1/zhu_di/commits/7ffc0a0deb709143f6be12a55e218fab9233ca37",
@@ -406,8 +408,8 @@ sidebar:
 }
 ```
 
-#### 10. 获取文件Blob
-#### 请求：
+## 10. 获取文件Blob
+### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/git/blobs/{sha}`
 
 | 参数名  | 描述  | 类型    | 数据类型  |
@@ -417,7 +419,7 @@ sidebar:
 |  repo*   | 仓库路径(path) | path  | string    |
 | sha* |  文件的 Blob SHA，可通过 [获取仓库具体路径下的内容] API 获取 | path  | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "sha":"e5699fe1b360d6c799ee58b24fb5a670b1e14851",
@@ -437,15 +439,14 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述  | 类型       | 数据类型  |
-| ------ | ------ |----------|------|
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
-|  repo*   | 仓库路径(path) | path     | string    |
-|  refs*   | 起点名称，默认main | body     | string    |
-|  tag_name*   | 新创建的标签名称 | body | string    |
-|  tag_message   | Tag 描述,默认为空 | body | string    |
-|  access_token* | 用户授权码 | formData | string    | 
-
+| 参数名  | 描述  | 类型    | 数据类型  |
+| ------ | ------ |-------|------|
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path) | path  | string    |
+|  refs*   | 起点名称，默认main | body  | string    |
+|  tag_name*   | 新创建的标签名称 | body  | string    |
+|  tag_message   | Tag 描述,默认为空 | body  | string    |
+|  access_token* | 用户授权码 | query | string    | 
 
 
 ### 响应
@@ -460,33 +461,33 @@ sidebar:
   "tagger": null
 }
 ```
-## 12. 创建commit评论
+
+## 12. 新建保护分支规则
+
 ### 请求
-`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/branches/setting/new`
 
 ### 参数
 
-| 参数名  | 描述  | 类型       | 数据类型  |
-| ------ | ------ |----------|------|
-|  access_token* | 用户授权码 | formData | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
-|  repo*   | 仓库路径(path) | path     | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path     | string    |
-|  sha*   | 第几个PR，即本仓库PR的序数 | path     | string    |
-|  body*   | 评论内容 | body     | string    |
-|  path   | 文件的相对路径 | body     | string    |
-|  position  | Diff的相对行数 | body     | integer    |
+| 参数名        | 描述                                                         | 类型  | 数据类型 |
+| ------------- | ------------------------------------------------------------ | ----- | -------- |
+| access_token* | 用户授权码                                                   | query | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
+| repo*         | 仓库路径(path)                                               | path  | string   |
+| wildcard*     | 分支/通配符                                                  | body  | string   |
+| pusher*       | 可推送代码成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人推送 | body  | string   |
+| merger*       | 可合并 Pull Request 成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人合并 | body  | string   |
+
 
 ### 响应
-```json
-{
-    "id":111,
-    "body":"content"
-}
+
+```text
+HTTP status 200 No Content
 ```
 
-#### 13. 新建文件
-#### 请求：
+## 13. 新建文件
+### 请求：
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -499,7 +500,7 @@ sidebar:
 | message* | 提交的 commit 信息 | body | string |
 | branch | 提交的分支 | body | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "commit": {
@@ -527,9 +528,9 @@ sidebar:
 
 
 
-#### 14. 仓库归档
+## 14. 仓库归档
 
-#### 请求：
+### 请求：
 
 `PUT https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
@@ -541,7 +542,7 @@ sidebar:
 | status*       | 仓库状态，0：开始，2：关闭 | body | integer  |
 | password*     | 用户密码                   | body | string   |
 
-#### 返回:
+### 返回:
 
 ```json
 {
@@ -550,9 +551,9 @@ sidebar:
 }
 ```
 
-#### 15. 转移仓
+## 15. 转移仓
 
-#### 请求：
+### 请求：
 
 `POST https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 
@@ -564,7 +565,7 @@ sidebar:
 | transfer_to*  | 要转移到的目标组织 | body | string   |
 | password*     | 用户密码           | body | string   |
 
-#### 返回:
+### 返回:
 
 ```json
 {
@@ -692,27 +693,29 @@ HTTP status 204 No Content
 }
 ```
 
-## 20. 新建保护分支规则
+## 20. 创建commit评论
 
 ### 请求
-
-`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/branches/setting/new`
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
 
 ### 参数
 
-| 参数名        | 描述                                                         | 类型  | 数据类型 |
-| ------------- | ------------------------------------------------------------ | ----- | -------- |
-| access_token* | 用户授权码                                                   | query | string   |
-| owner*        | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
-| repo*         | 仓库路径(path)                                               | path  | string   |
-| wildcard*     | 分支/通配符                                                  | body  | string   |
-| pusher*       | 可推送代码成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人推送 | body  | string   |
-| merger*       | 可合并 Pull Request 成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人合并 | body  | string   |
-
+| 参数名  | 描述                     | 类型    | 数据类型  |
+| ------ |------------------------|-------|------|
+|  access_token* | 用户授权码                  | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path)             | path  | string    |
+|  sha*   | commit的id              | path  | string    |
+|  body*   | 评论内容                   | body  | string    |
+|  path   | 文件的相对路径                | body  | string    |
+|  position  | Diff的相对行数              | body  | integer    |
 
 ### 响应
-
-```text
-HTTP status 200 No Content
+```json
+{
+    "id":"12312sadsa",
+    "body":"content",
+    "created_at": "2024-03-28T11:19:33+08:00",
+    "updated_at": "2024-03-28T11:19:33+08:00"
+}
 ```
-

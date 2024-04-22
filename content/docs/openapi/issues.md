@@ -18,7 +18,7 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
+|  repo*   | 仓库路径 | formData | string    |
 |  title* | Issue标题 | formData | string    |
 |  body   | Issue描述 | formData | string    |
 |  assignee | Issue负责人的个人空间地址 | formData | string    |
@@ -102,7 +102,7 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
+|  repo*   | 仓库路径 | formData | string    |
 |  number*   | Issue 编号(区分大小写，无需添加 # 号) | path | string    |
 |  title | Issue标题 | formData | string    |
 |  body   | Issue描述 | formData | string    |
@@ -482,8 +482,8 @@ sidebar:
 | repo*| 仓库路径(path)  | path  | string |
 | number*| Issue 编号(区分大小写，无需添加 # 号)  | path  | string |
 | since |Only comments updated at or after this time are returned. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ  | query | string |
-| page | 当前的页码 | query | integer |
-| per_page | 每页的数量，最大为 100 | query | integer |
+| page* | 当前的页码 | query | integer |
+| per_page* | 每页的数量，最大为 100 | query | integer |
 | order |排序顺序: asc(default),desc | query | string |
 
 

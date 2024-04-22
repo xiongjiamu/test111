@@ -19,7 +19,7 @@ sidebar:
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | formData | string    |
-|  state | 可选。Pull Request 状态 | query | string    |
+|  state | 可选。Pull Request 状态: all、open、closed、locked、merged | query | string    |
 |  base   | 可选。Pull Request 提交目标分支的名称 | query | string    |
 |  since | 可选。起始的更新时间，要求时间格式为 ISO 8601 | quey | string    |
 |  direction  | 可选。升序/降序 | query | string    |
@@ -28,7 +28,7 @@ sidebar:
 |  per_page   | 每页的数量，最大为 100 | query | integer    |
 |  author   | 可选。PR 创建者用户名 | query | string    |
 |  assignee   |  可选。评审者用户名 | query | string    |
-|  tester   |  可选。测试者用户名 | query | string    |
+|  tester   |  可选。测试者用户名 | query | string    |··
 
 ### 响应
 
@@ -36,15 +36,15 @@ sidebar:
 [
     {
         "id": 11217119,
-        "html_url": "https://gitcode.com/OpenHarmony/ability_ability_base/pulls/341",
+        "html_url": "https://gitcode.com/OpenHarmony/ability_ability_b····ase/pulls/341",
         "number": 341,
         "close_related_issue": 1,
         "prune_branch": false,
         "state": "open",
         "assignees_number": 1,
-        "testers_number": 1,
+        "testers_number": 1,·····
         "assignees": [
-            {
+            {·
                 "id": 7476845,
                 "login": "ccllee",
                 "name": "ccll",
@@ -203,7 +203,7 @@ sidebar:
 
 ### 请求
 
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issue`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
 
 ### 参数
 
@@ -345,57 +345,46 @@ sidebar:
 ```json
 [
     {
-        "url": "https://api.gitcode.com/api/v5/repos/zzero/demo/pulls/comments/26594610",
-        "id": 26594610,
-        "path": null,
-        "position": null,
-        "original_position": null,
-        "new_line": null,
-        "commit_id": null,
-        "original_commit_id": null,
+        "url": null,
+        "id": "5e725f98579fd83c3353be047c33f07c33cd2baa",
+        "body": "这是一个PR下的评论",
+        "created_at": "2024-04-18T01:58:37.859+00:00",
+        "updated_at": "2024-04-18T01:58:37.859+00:00",
         "user": {
-            "id": 76523,
-            "login": "zzero",
-            "name": "insight",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png",
-            "url": "https://gitcode.com/api/v5/users/zzero",
-            "html_url": "https://gitcode.com/zzero",
-            "state": "active",
-            "email": "",
-            "is_member": ""
-        },
-        "created_at": "2024-04-14T15:46:37+08:00",
-        "updated_at": "2024-04-14T15:46:37+08:00",
-        "body": "第一次评论，有点紧张",
-        "html_url": "https://gitcode.com/zzero/demo/pulls/1#note_26594610",
-        "comment_type": "pr_comment"
+            "id": 494,
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "html_url": "https://test.gitcode.net/csdntest13"
+        }
     },
     {
-        "url": "https://gitcode.com/api/v5/repos/zzero/demo/pulls/comments/26595312",
-        "id": 26595312,
-        "path": "README.md",
-        "position": null,
-        "original_position": null,
-        "new_line": 18,
-        "commit_id": null,
-        "original_commit_id": null,
+        "url": null,
+        "id": "c89f7c1c6aa0c9de457364c55cdc5abc92e02291",
+        "body": "这是代码评论",
+        "created_at": "2024-04-19T08:40:34.230+00:00",
+        "updated_at": "2024-04-19T08:40:34.230+00:00",
         "user": {
-            "id": 76523,
-            "login": "zzero",
-            "name": "insight",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png",
-            "url": "https://gitcode.com/api/v5/users/zzero",
-            "html_url": "https://gitcode.com/zzero",
-            "state": "active",
-            "email": "",
-            "is_member": ""
-        },
-        "created_at": "2024-04-14T16:33:51+08:00",
-        "updated_at": "2024-04-14T16:33:51+08:00",
-        "body": "代码行评论",
-        "html_url": "https://gitcode.com/zzero/demo/pulls/1#note_26595312",
-        "pull_request_url": "https://gitcode.com/api/v5/repos/zzero/demo/pulls/1",
-        "comment_type": "diff_comment"
+            "id": 494,
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "html_url": "https://test.gitcode.net/csdntest13"
+        }
+    },
+    {
+        "url": null,
+        "id": "59414433dc3b5a3316ba5984324e900350c2ae07",
+        "body": "这是第二个评论",
+        "created_at": "2024-04-19T08:41:06.833+00:00",
+        "updated_at": "2024-04-19T08:41:06.833+00:00",
+        "user": {
+            "id": 494,
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "html_url": "https://test.gitcode.net/csdntest13"
+        }
     }
 ]
 ```
@@ -828,9 +817,7 @@ sidebar:
 ```
 
 
-
-
-## 17. 更新Pull Request信息
+## 8. 更新Pull Request信息
 
 ### 请求
 
@@ -866,7 +853,7 @@ sidebar:
 
 
 
-## 18. 获取项目下所有pr
+## 9. 获取项目下所有pr
 
 ### 请求
 
@@ -908,7 +895,7 @@ sidebar:
 ```
 
 
-## 19. 获取单个Pull Request
+## 10. 获取单个Pull Request
 ### 请求
 `GET  https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}`
 
@@ -966,34 +953,7 @@ sidebar:
 }
 ```
 
-## 20. 创建commit评论
-
-### 请求
-
-`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
-
-### 参数
-
-| 参数名           | 描述                               | 类型    | 数据类型   |
-|---------------|----------------------------------|-------|--------|
-| access_token* | 用户授权码                            | query | string | 
-| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path  | string |
-| repo*         | 仓库路径(path)                       | path  | string |
-| sha*          | 评论的sha值                          | path  | string |
-| body*         | 评论的内容                            | body  | string |
-| path          | 文件的相对路径                          | body  | string |
-| position      | Diff的相对行数                        | body  | string |
-
-### 响应
-```json
-{
-  "id": "12312sadsa",
-  "created_at": "2024-03-28T11:19:33+08:00",
-  "updated_at": "2024-03-28T11:19:33+08:00"
-}
-```
-
-## 21. 获取某Pull Request的所有Commit信息
+## 11. 获取某Pull Request的所有Commit信息
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
 
@@ -1039,28 +999,8 @@ sidebar:
   }
 ]
 ```
-## 22. 获取Pull Request关联的issue
 
-### 请求
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
-
-### 参数
-| 参数名           | 描述                               | 类型             | 数据类型   |
-|---------------|----------------------------------|----------------|--------|
-|  access_token* | 用户授权码 | query | string    |
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
-
-### 响应
-```json
-[
-  {
-    "number": "id"
-  }
-]
-```
-## 23. 创建 Pull Request 标签
+## 12. 创建 Pull Request 标签
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
 
@@ -1091,7 +1031,7 @@ sidebar:
 HTTP status 201 No Content
 ```
 
-## 24. 删除 Pull Request 标签
+## 13. 删除 Pull Request 标签
 
 ### 请求
 `DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels/{name}`
@@ -1111,7 +1051,7 @@ HTTP status 204 No Content
 ```
 
 
-## 25. 处理 Pull Request 测试
+## 14. 处理 Pull Request 测试
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/test`
 ### 参数
@@ -1127,7 +1067,7 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 26. 处理 Pull Request 审查
+## 15. 处理 Pull Request 审查
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/review`
 ### 参数
@@ -1142,3 +1082,4 @@ HTTP status 204 No Content
 ```text
 HTTP status 204 No Content
 ```
+
