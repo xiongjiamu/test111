@@ -345,57 +345,46 @@ sidebar:
 ```json
 [
     {
-        "url": "https://api.gitcode.com/api/v5/repos/zzero/demo/pulls/comments/26594610",
-        "id": 26594610,
-        "path": null,
-        "position": null,
-        "original_position": null,
-        "new_line": null,
-        "commit_id": null,
-        "original_commit_id": null,
+        "url": null,
+        "id": "5e725f98579fd83c3353be047c33f07c33cd2baa",
+        "body": "这是一个PR下的评论",
+        "created_at": "2024-04-18T01:58:37.859+00:00",
+        "updated_at": "2024-04-18T01:58:37.859+00:00",
         "user": {
-            "id": 76523,
-            "login": "zzero",
-            "name": "insight",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png",
-            "url": "https://gitcode.com/api/v5/users/zzero",
-            "html_url": "https://gitcode.com/zzero",
-            "state": "active",
-            "email": "",
-            "is_member": ""
-        },
-        "created_at": "2024-04-14T15:46:37+08:00",
-        "updated_at": "2024-04-14T15:46:37+08:00",
-        "body": "第一次评论，有点紧张",
-        "html_url": "https://gitcode.com/zzero/demo/pulls/1#note_26594610",
-        "comment_type": "pr_comment"
+            "id": 494,
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "html_url": "https://test.gitcode.net/csdntest13"
+        }
     },
     {
-        "url": "https://gitcode.com/api/v5/repos/zzero/demo/pulls/comments/26595312",
-        "id": 26595312,
-        "path": "README.md",
-        "position": null,
-        "original_position": null,
-        "new_line": 18,
-        "commit_id": null,
-        "original_commit_id": null,
+        "url": null,
+        "id": "c89f7c1c6aa0c9de457364c55cdc5abc92e02291",
+        "body": "这是代码评论",
+        "created_at": "2024-04-19T08:40:34.230+00:00",
+        "updated_at": "2024-04-19T08:40:34.230+00:00",
         "user": {
-            "id": 76523,
-            "login": "zzero",
-            "name": "insight",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png",
-            "url": "https://gitcode.com/api/v5/users/zzero",
-            "html_url": "https://gitcode.com/zzero",
-            "state": "active",
-            "email": "",
-            "is_member": ""
-        },
-        "created_at": "2024-04-14T16:33:51+08:00",
-        "updated_at": "2024-04-14T16:33:51+08:00",
-        "body": "代码行评论",
-        "html_url": "https://gitcode.com/zzero/demo/pulls/1#note_26595312",
-        "pull_request_url": "https://gitcode.com/api/v5/repos/zzero/demo/pulls/1",
-        "comment_type": "diff_comment"
+            "id": 494,
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "html_url": "https://test.gitcode.net/csdntest13"
+        }
+    },
+    {
+        "url": null,
+        "id": "59414433dc3b5a3316ba5984324e900350c2ae07",
+        "body": "这是第二个评论",
+        "created_at": "2024-04-19T08:41:06.833+00:00",
+        "updated_at": "2024-04-19T08:41:06.833+00:00",
+        "user": {
+            "id": 494,
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "html_url": "https://test.gitcode.net/csdntest13"
+        }
     }
 ]
 ```
