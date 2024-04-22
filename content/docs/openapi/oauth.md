@@ -6,11 +6,9 @@ sidebar:
   open: false
 ---
 
-OAuth 获取认证步骤
+## 1.认证接口
 
-### 1.认证接口
-
-#### 请求
+### 请求
 
 `GET https://gitcode.com/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code&scope={scope}&state={state}`
 
@@ -21,13 +19,13 @@ OAuth 获取认证步骤
 | scope        | 权限范围                     | query | string |
 | state         | 随机字符串,<br/>用于防止跨站点请求伪造攻击 | query | string |
 
-### 2.重定向
+## 2.重定向
 
 如果用户接受你的授权，GitCode 会重定向回您的网站，携带code参数以及你在上一步中在参数中提供的状态state。如果状态不匹配，则说明是第三方创建了请求，需要中止该过程。
 
 `GET {redirect_uri}?code={code}&state={state}`
 
-### 3.获取授权token
+## 3.获取授权token
 
 `POST https://web-api.gitcode.com/uc/api/v1/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&client_secret={client_secret}`
 
@@ -38,7 +36,7 @@ OAuth 获取认证步骤
 | client_id*     | 注册的客户端 ID | query | string             | 
 | client_secret* | 注册的客户端密钥  | form-data | string             |
 
-#### 响应：
+### 响应：
 ```json
 {
     "access_token": "eyPZPVNfsibj9tap_ibj3t3p",
@@ -49,11 +47,11 @@ OAuth 获取认证步骤
 }
 ```
 
-### 4. 使用访问令牌访问用户信息API
+## 4. 使用访问令牌访问用户信息API
 ```text
 Authorization: Bearer {access_token}
 GET https://api.gitcode.com/api/v5/user
 ```
 
-### 5.刷新access_token
+## 5.刷新access_token
 `POST https://web-api.gitcode.com/uc/api/v1/oauth/token?grant_type=refresh_token&refresh_token={refresh_token}`

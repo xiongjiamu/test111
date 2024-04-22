@@ -472,7 +472,7 @@ sidebar:
 
 ### 请求
 
-`GET https://api.gitcode.com/api/v5/projects/{project_id}/issues/{issue_iid}/notes`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/comments`
 
 ### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
