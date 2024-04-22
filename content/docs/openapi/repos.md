@@ -492,7 +492,7 @@ HTTP status 200 No Content
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | body | string   |
+|  access_token* | 用户授权码 | query | string   |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 | path* | 文件路径 | path | string |
@@ -534,13 +534,13 @@ HTTP status 200 No Content
 
 `PUT https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
-| 参数名        | 描述                       | 类型 | 数据类型 |
-| ------------- | -------------------------- | ---- | -------- |
-| access_token* | 用户授权码                 | body | string   |
-| org*          | 仓库所属组织               | path | string   |
-| repo*         | 仓库路径(path)             | path | string   |
-| status*       | 仓库状态，0：开始，2：关闭 | body | integer  |
-| password*     | 用户密码                   | body | string   |
+| 参数名        | 描述                       | 类型  | 数据类型 |
+| ------------- | -------------------------- | ----- | -------- |
+| access_token* | 用户授权码                 | query | string   |
+| org*          | 仓库所属组织               | path  | string   |
+| repo*         | 仓库路径(path)             | path  | string   |
+| status*       | 仓库状态，0：开始，2：关闭 | body  | integer  |
+| password*     | 用户密码                   | body  | string   |
 
 ### 返回:
 
@@ -557,13 +557,13 @@ HTTP status 200 No Content
 
 `POST https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 
-| 参数名        | 描述               | 类型 | 数据类型 |
-| ------------- | ------------------ | ---- | -------- |
-| access_token* | 用户授权码         | body | string   |
-| org*          | 仓库所属组织       | path | string   |
-| repo*         | 仓库路径           | path | string   |
-| transfer_to*  | 要转移到的目标组织 | body | string   |
-| password*     | 用户密码           | body | string   |
+| 参数名        | 描述               | 类型  | 数据类型 |
+| ------------- | ------------------ | ----- | -------- |
+| access_token* | 用户授权码         | query | string   |
+| org*          | 仓库所属组织       | path  | string   |
+| repo*         | 仓库路径           | path  | string   |
+| transfer_to*  | 要转移到的目标组织 | body  | string   |
+| password*     | 用户密码           | body  | string   |
 
 ### 返回:
 
