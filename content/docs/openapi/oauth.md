@@ -6,8 +6,6 @@ sidebar:
   open: false
 ---
 
-# OAuth 获取认证步骤
-
 ## A.授权码模式
 
 ### 1.认证接口
