@@ -203,7 +203,7 @@ sidebar:
 
 ### 请求
 
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issue`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
 
 ### 参数
 
@@ -234,13 +234,13 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述  | 类型       | 数据类型  |
-| ------ | ------ |----------|------|
-|  access_token* | 用户授权码 | formData | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
-|  repo*   | 仓库路径(path) | path     | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path     | string    |
-|  body*   | 评论内容 | body        | string    |
+| 参数名  | 描述  | 类型    | 数据类型  |
+| ------ | ------ |-------|------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path) | path  | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path  | string    |
+|  body*   | 评论内容 | body  | string    |
 
 
 ### 响应
@@ -828,9 +828,7 @@ sidebar:
 ```
 
 
-
-
-## 17. 更新Pull Request信息
+## 8. 更新Pull Request信息
 
 ### 请求
 
@@ -839,474 +837,34 @@ sidebar:
 ### 参数
 
 | 参数名                | 描述                                                         | 类型  | 数据类型 |
-| --------------------- | ------------------------------------------------------------ | ----- | -------- |
-| access_token*         | 用户授权码                                                   | query | string   |
-| owner*                | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
-| repo*                 | 仓库路径(path)                                               | path  | string   |
-| number*               | 第几个PR，即本仓库PR的序数                                   | path  | integer  |
-| title*                | 必填。Pull Request 标题                                      | body  | string   |
-| body                  | 可选。Pull Request 内容                                      | body  | string   |
-| state                 | 可选。Pull Request 状态                                      | body  | string   |
-| milestone_number      | 可选。里程碑序号(id)                                         | body  | integer  |
-| labels                | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | body  | string   |
-| issue                 | 可选。Pull Request的标题和内容可以根据指定的Issue Id自动填充 | body  | string   |
-| assignees             | 可选。审查人员username，可多个，半角逗号分隔，如：(username1,username2), 注意: 当仓库代码审查设置中已设置【指派审查人员】则此选项无效 | body  | string   |
-| testers               | 可选。测试人员username，可多个，半角逗号分隔，如：(username1,username2), 注意: 当仓库代码审查设置中已设置【指派测试人员】则此选项无效 | body  | string   |
-| prune_source_branch   | 可选。合并PR后是否删除源分支，默认false（不删除）            | body  | boolean  |
-| draft                 | 是否设置为草稿                                               | body  | boolean  |
-| squash                | 接受 Pull Request 时使用扁平化（Squash）合并                 | body  | boolean  |
-| squash_commit_message | squash提交信息                                               | body  | string   |
+| ------------------- | ------------------------------------------------------------ | ----- | -------- |
+| access_token*       | 用户授权码                                                   | query | string   |
+| owner*              | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
+| repo*               | 仓库路径(path)                                               | path  | string   |
+| number*             | 第几个PR，即本仓库PR的序数                                   | path  | integer  |
+| title               | 可选。Pull Request 标题                                      | body  | string   |
+| body                | 可选。Pull Request 内容                                      | body  | string   |
+| state               | 可选。Pull Request 状态                                      | body  | string   |
+| milestone_number    | 可选。里程碑序号(id)                                         | body  | integer  |
+| labels              | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | body  | string   |
+| draft               | 是否设置为草稿                                               | body  | boolean  |
 
 
 ### 响应
 
 ```json
 {
-    "id": 62874,
-    "iid": 27,
-    "project_id": 243377,
     "title": "test_b3->dev",
-    "description": "new: 新增文件 test_b3 \n2223333444444",
+    "body": "new: 新增文件 test_b3 \n2223333444444",
     "state": "opened",
     "created_at": "2024-03-28T22:23:29.999+08:00",
-    "updated_at": "2024-04-14T21:06:52.499+08:00",
-    "merged_by": null,
-    "merged_at": null,
-    "closed_by": null,
-    "closed_at": null,
-    "title_html": null,
-    "description_html": null,
-    "target_branch": "main",
-    "source_branch": "test_b3",
-    "squash_commit_message": null,
-    "user_notes_count": 0,
-    "upvotes": 0,
-    "downvotes": 0,
-    "author": {
-        "id": 494,
-        "name": "csdntest13",
-        "username": "csdntest13",
-        "iam_id": "d8b3e018b2364546b946886a669d50fc",
-        "nick_name": "csdntest13_gitcode",
-        "state": "active",
-        "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
-        "avatar_path": null,
-        "email": "csdntest13@noreply.gitcode.com",
-        "name_cn": "csdntest13",
-        "web_url": "https://gitcode.com/csdntest13",
-        "tenant_name": null,
-        "is_member": null
-    },
-    "assignee": null,
-    "source_project_id": 243377,
-    "target_project_id": 243377,
-    "labels": [],
-    "work_in_progress": false,
-    "milestone": null,
-    "merge_when_pipeline_succeeds": false,
-    "merge_status": "unchecked",
-    "sha": "618e3dfaa9e017f0389efd01b6aa25795ba2742f",
-    "merge_commit_sha": null,
-    "discussion_locked": null,
-    "should_remove_source_branch": false,
-    "force_remove_source_branch": false,
-    "allow_collaboration": null,
-    "allow_maintainer_to_push": null,
-    "web_url": "https://gitcode.com/One/One/merge_requests/27",
-    "time_stats": {
-        "time_estimate": null,
-        "total_time_spent": 0,
-        "human_time_estimate": null,
-        "human_total_time_spent": null
-    },
-    "squash": false,
-    "merge_request_type": "MergeRequest",
-    "has_pre_merge_ref": false,
-    "review_mode": "approval",
-    "is_source_branch_exist": true,
-    "approval_merge_request_reviewers": [],
-    "approval_merge_request_approvers": [
-        {
-            "id": 58,
-            "username": "yx_test",
-            "name": "yx_test",
-            "nick_name": null,
-            "name_cn": "yx_test",
-            "email": null,
-            "state": "optional",
-            "is_codeowner": false,
-            "updated_at": "2024-03-28T22:23:40.724+08:00",
-            "avatar_url": null
-        },
-        {
-            "id": 233,
-            "username": "wunian2011",
-            "name": "wunian2011",
-            "nick_name": null,
-            "name_cn": "wunian2011",
-            "email": null,
-            "state": "optional",
-            "is_codeowner": false,
-            "updated_at": "2024-03-28T22:23:40.724+08:00",
-            "avatar_url": null
-        }
-    ],
-    "approval_merge_request_testers": [
-        {
-            "id": 43,
-            "username": "green",
-            "name": "green",
-            "nick_name": null,
-            "name_cn": "green",
-            "email": null,
-            "state": "optional",
-            "is_codeowner": false,
-            "updated_at": "2024-03-28T22:23:40.735+08:00",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/be/fb/7b9e393fbd80ca315dec249f2be6e6a7378f591609b6525798bc6d95abedc992.png?time=1712128581171"
-        },
-        {
-            "id": 58,
-            "username": "yx_test",
-            "name": "yx_test",
-            "nick_name": null,
-            "name_cn": "yx_test",
-            "email": null,
-            "state": "optional",
-            "is_codeowner": false,
-            "updated_at": "2024-03-28T22:23:40.735+08:00",
-            "avatar_url": null
-        },
-        {
-            "id": 233,
-            "username": "wunian2011",
-            "name": "wunian2011",
-            "nick_name": null,
-            "name_cn": "wunian2011",
-            "email": null,
-            "state": "optional",
-            "is_codeowner": false,
-            "updated_at": "2024-03-28T22:23:40.735+08:00",
-            "avatar_url": null
-        },
-        {
-            "id": 437,
-            "username": "wanzun",
-            "name": "wanzun",
-            "nick_name": null,
-            "name_cn": "wanzun",
-            "email": null,
-            "state": "optional",
-            "is_codeowner": false,
-            "updated_at": "2024-03-28T22:23:40.735+08:00",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ae/dc/135a26e881d62c81e3034e9d7cd8aec053934209ffdd644938497f130ccfbe2d.jpeg?time=1711339131224"
-        }
-    ],
-    "source_project": {
-        "id": 243377,
-        "description": "csdntest13的第一个项目(公开)",
-        "name": "One",
-        "name_with_namespace": "One / One",
-        "path": "One",
-        "path_with_namespace": "One/One",
-        "develop_mode": "normal",
-        "created_at": "2024-03-19T16:24:01.197+08:00",
-        "updated_at": "2024-03-19T16:42:34.834+08:00",
-        "archived": false,
-        "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@gitcode.com:2222/One/One.git",
-        "http_url_to_repo": "https://gitcode.com/One/One.git",
-        "web_url": "https://gitcode.com/One/One",
-        "readme_url": "https://gitcode.com/One/One/blob/main/README.md",
-        "product_id": "28f96caf52004e81ab0bc38d60d11940",
-        "product_name": null,
-        "member_mgnt_mode": 3,
-        "default_branch": "main",
-        "tag_list": [],
-        "license_url": null,
-        "license": {
-            "key": "Apache_License_v2.0",
-            "name": null,
-            "nickname": null,
-            "html_url": null,
-            "source_url": null
-        },
-        "avatar_url": null,
-        "star_count": 1,
-        "forks_count": 0,
-        "open_issues_count": 108,
-        "open_merge_requests_count": 32,
-        "open_change_requests_count": null,
-        "watch_count": 1,
-        "last_activity_at": "2024-04-14T20:43:58.602+08:00",
-        "namespace": {
-            "id": 136909,
-            "name": "One",
-            "path": "One",
-            "develop_mode": "normal",
-            "region": null,
-            "cell": "default",
-            "kind": "group",
-            "full_path": "One",
-            "full_name": "One ",
-            "parent_id": null,
-            "visibility_level": 20,
-            "enable_file_control": null,
-            "owner_id": null
-        },
-        "empty_repo": false,
-        "starred": false,
-        "visibility": "public",
-        "security": "internal",
-        "has_updated_kia": false,
-        "network_type": "green",
-        "owner": null,
-        "creator": {
-            "id": 494,
-            "name": "csdntest13",
-            "username": "csdntest13",
-            "iam_id": "d8b3e018b2364546b946886a669d50fc",
-            "nick_name": "csdntest13_gitcode",
-            "state": "active",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
-            "avatar_path": null,
-            "email": "csdntest13@noreply.gitcode.com",
-            "name_cn": "csdntest13",
-            "web_url": "https://gitcode.com/csdntest13",
-            "tenant_name": null,
-            "is_member": null
-        },
-        "creator_id": 494,
-        "forked_from_project": null,
-        "item_type": "Project",
-        "main_repository_language": [
-            "Text",
-            "#cccccc"
-        ],
-        "mirror_project_data": null,
-        "statistics": null,
-        "branch_count": null,
-        "tag_count": null,
-        "member_count": null,
-        "repo_replica_urls": null,
-        "open_external_wiki": true,
-        "release_count": null
-    },
-    "target_project": {
-        "id": 243377,
-        "description": "csdntest13的第一个项目(公开)",
-        "name": "One",
-        "name_with_namespace": "One / One",
-        "path": "One",
-        "path_with_namespace": "One/One",
-        "develop_mode": "normal",
-        "created_at": "2024-03-19T16:24:01.197+08:00",
-        "updated_at": "2024-03-19T16:42:34.834+08:00",
-        "archived": false,
-        "is_kia": false,
-        "ssh_url_to_repo": "ssh://git@gitcode.com:2222/One/One.git",
-        "http_url_to_repo": "https://gitcode.com/One/One.git",
-        "web_url": "https://gitcode.com/One/One",
-        "readme_url": "https://gitcode.com/One/One/blob/main/README.md",
-        "product_id": "28f96caf52004e81ab0bc38d60d11940",
-        "product_name": null,
-        "member_mgnt_mode": 3,
-        "default_branch": "main",
-        "tag_list": [],
-        "license_url": null,
-        "license": {
-            "key": "Apache_License_v2.0",
-            "name": null,
-            "nickname": null,
-            "html_url": null,
-            "source_url": null
-        },
-        "avatar_url": null,
-        "star_count": 1,
-        "forks_count": 0,
-        "open_issues_count": 108,
-        "open_merge_requests_count": 32,
-        "open_change_requests_count": null,
-        "watch_count": 1,
-        "last_activity_at": "2024-04-14T20:43:58.602+08:00",
-        "namespace": {
-            "id": 136909,
-            "name": "One",
-            "path": "One",
-            "develop_mode": "normal",
-            "region": null,
-            "cell": "default",
-            "kind": "group",
-            "full_path": "One",
-            "full_name": "One ",
-            "parent_id": null,
-            "visibility_level": 20,
-            "enable_file_control": null,
-            "owner_id": null
-        },
-        "empty_repo": false,
-        "starred": false,
-        "visibility": "public",
-        "security": "internal",
-        "has_updated_kia": false,
-        "network_type": "green",
-        "owner": null,
-        "creator": {
-            "id": 494,
-            "name": "csdntest13",
-            "username": "csdntest13",
-            "iam_id": "d8b3e018b2364546b946886a669d50fc",
-            "nick_name": "csdntest13_gitcode",
-            "state": "active",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
-            "avatar_path": null,
-            "email": "csdntest13@noreply.gitcode.com",
-            "name_cn": "csdntest13",
-            "web_url": "https://gitcode.com/csdntest13",
-            "tenant_name": null,
-            "is_member": null
-        },
-        "creator_id": 494,
-        "forked_from_project": null,
-        "item_type": "Project",
-        "main_repository_language": [
-            "Text",
-            "#cccccc"
-        ],
-        "mirror_project_data": null,
-        "statistics": null,
-        "branch_count": null,
-        "tag_count": null,
-        "member_count": null,
-        "repo_replica_urls": null,
-        "open_external_wiki": true,
-        "release_count": null
-    },
-    "added_lines": 1,
-    "removed_lines": 0,
-    "subscribed": true,
-    "changes_count": "1",
-    "latest_build_started_at": null,
-    "latest_build_finished_at": null,
-    "first_deployed_to_production_at": null,
-    "pipeline": null,
-    "diff_refs": {
-        "base_sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310",
-        "head_sha": "618e3dfaa9e017f0389efd01b6aa25795ba2742f",
-        "start_sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310"
-    },
-    "merge_error": null,
-    "json_merge_error": null,
-    "rebase_in_progress": null,
-    "diverged_commits_count": null,
-    "merge_request_assignee_list": [],
-    "merge_request_reviewer_list": [],
-    "user": {
-        "can_merge": true
-    },
-    "merge_request_review_count": 0,
-    "merge_request_reviewers_count": 0,
-    "notes": 0,
-    "unresolved_discussions_count": 0,
-    "e2e_issues": [
-        {
-            "id": 13591,
-            "issue_type": 7,
-            "linked_issue_type": null,
-            "issue_num": "issue2",
-            "commit_id": null,
-            "merge_request_id": 62874,
-            "check_fail_reason": "",
-            "check_result": true,
-            "issue_link": "https://gitcode.com/One/One/issues/2",
-            "created_at": "2024-04-14T21:06:52.492+08:00",
-            "mks_id": null,
-            "pbi_id": null,
-            "pbi_name": null,
-            "source": null,
-            "issue_project_id": 243377,
-            "title": "第二个issue你是个明白人，我明白你明白的意思。我也是明白人，明白人就应该明白我明白你明白的意思。只要大家都明白明白人应该明白我明白你明白的意思，这样网络环境就是充满明白人所明白。你是个明白人，我明",
-            "issue_project": null,
-            "auto_c_when_mr_merged": false
-        },
-        {
-            "id": 13590,
-            "issue_type": 7,
-            "linked_issue_type": null,
-            "issue_num": "issue1",
-            "commit_id": null,
-            "merge_request_id": 62874,
-            "check_fail_reason": "",
-            "check_result": true,
-            "issue_link": "https://gitcode.com/One/One/issues/1",
-            "created_at": "2024-04-14T21:06:52.482+08:00",
-            "mks_id": null,
-            "pbi_id": null,
-            "pbi_name": null,
-            "source": null,
-            "issue_project_id": 243377,
-            "title": "这是一个issue",
-            "issue_project": null,
-            "auto_c_when_mr_merged": false
-        },
-        {
-            "id": 13589,
-            "issue_type": 7,
-            "linked_issue_type": null,
-            "issue_num": "issue1",
-            "commit_id": null,
-            "merge_request_id": 62874,
-            "check_fail_reason": "",
-            "check_result": true,
-            "issue_link": "https://gitcode.com/WhatCanIDo/W_One/issues/1",
-            "created_at": "2024-04-14T21:06:52.478+08:00",
-            "mks_id": null,
-            "pbi_id": null,
-            "pbi_name": null,
-            "source": null,
-            "issue_project_id": 256563,
-            "title": "问题很大",
-            "issue_project": {
-                "id": 256563,
-                "description": "",
-                "name": "W_One",
-                "name_with_namespace": "我能怎么办呢 / W_One",
-                "path": "W_One",
-                "path_with_namespace": "WhatCanIDo/W_One",
-                "develop_mode": "normal",
-                "created_at": "2024-03-28T17:14:28.241+08:00",
-                "updated_at": "2024-03-28T17:14:28.241+08:00",
-                "archived": false,
-                "is_kia": false,
-                "ssh_url_to_repo": "ssh://git@gitcode.com:2222/WhatCanIDo/W_One.git",
-                "http_url_to_repo": "https://gitcode.com/WhatCanIDo/W_One.git",
-                "web_url": "https://gitcode.com/WhatCanIDo/W_One",
-                "readme_url": null,
-                "product_id": "bb82c64b4f1c4e759b2e81d7f4621030",
-                "product_name": null,
-                "member_mgnt_mode": 3
-            },
-            "auto_c_when_mr_merged": false
-        }
-    ],
-    "gate_check": true,
-    "head_pipeline_id": null,
-    "pipeline_status": "",
-    "codequality_status": "success",
-    "pipeline_status_with_code_quality": "",
-    "from_forked_project": false,
-    "forked_project_name": null,
-    "can_delete_source_branch": true,
-    "required_reviewers": [],
-    "omega_mode": false,
-    "root_mr_locked_detail": null,
-    "source_git_url": "ssh://git@gitcode.com:2222/One/One.git",
-    "auto_merge": null
+    "updated_at": "2024-04-14T21:06:52.499+08:00"
 }
 ```
 
 
 
-## 18. 获取项目下所有pr
+## 9. 获取项目下所有pr
 
 ### 请求
 
@@ -1348,7 +906,7 @@ sidebar:
 ```
 
 
-## 19. 获取单个Pull Request
+## 10. 获取单个Pull Request
 ### 请求
 `GET  https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}`
 
@@ -1406,34 +964,7 @@ sidebar:
 }
 ```
 
-## 20. 创建commit评论
-
-### 请求
-
-`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
-
-### 参数
-
-| 参数名           | 描述                               | 类型       | 数据类型   |
-|---------------|----------------------------------|----------|--------|
-| access_token* | 用户授权码                            | formData | string | 
-| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path     | string |
-| repo*         | 仓库路径(path)                       | path     | string |
-| sha*          | 评论的sha值                          | path     | string |
-| body*         | 评论的内容                            | body     | string |
-| path          | 文件的相对路径                          | body     | string |
-| position      | Diff的相对行数                        | body     | string |
-
-### 响应
-```json
-{
-  "id": "12312sadsa",
-  "created_at": "2024-03-28T11:19:33+08:00",
-  "updated_at": "2024-03-28T11:19:33+08:00"
-}
-```
-
-## 21. 获取某Pull Request的所有Commit信息
+## 11. 获取某Pull Request的所有Commit信息
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
 
@@ -1479,28 +1010,8 @@ sidebar:
   }
 ]
 ```
-## 22. 获取Pull Request关联的issue
 
-### 请求
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
-
-### 参数
-| 参数名           | 描述                               | 类型             | 数据类型   |
-|---------------|----------------------------------|----------------|--------|
-|  access_token* | 用户授权码 | query | string    |
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
-
-### 响应
-```json
-[
-  {
-    "number": "id"
-  }
-]
-```
-## 23. 创建 Pull Request 标签
+## 12. 创建 Pull Request 标签
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
 
@@ -1531,7 +1042,7 @@ sidebar:
 HTTP status 201 No Content
 ```
 
-## 24. 删除 Pull Request 标签
+## 13. 删除 Pull Request 标签
 
 ### 请求
 `DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels/{name}`
@@ -1551,7 +1062,7 @@ HTTP status 204 No Content
 ```
 
 
-## 25. 处理 Pull Request 测试
+## 14. 处理 Pull Request 测试
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/test`
 ### 参数
@@ -1567,7 +1078,7 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 26. 处理 Pull Request 审查
+## 15. 处理 Pull Request 审查
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/review`
 ### 参数
@@ -1582,3 +1093,4 @@ HTTP status 204 No Content
 ```text
 HTTP status 204 No Content
 ```
+
