@@ -482,8 +482,8 @@ sidebar:
 | repo*| 仓库路径(path)  | path  | string |
 | number*| Issue 编号(区分大小写，无需添加 # 号)  | path  | string |
 | since |Only comments updated at or after this time are returned. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ  | query | string |
-| page* | 当前的页码 | query | integer |
-| per_page* | 每页的数量，最大为 100 | query | integer |
+| page | 当前的页码 | query | integer |
+| per_page | 每页的数量，最大为 100 | query | integer |
 | order |排序顺序: asc(default),desc | query | string |
 
 
