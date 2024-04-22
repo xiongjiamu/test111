@@ -234,13 +234,13 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述  | 类型       | 数据类型  |
-| ------ | ------ |----------|------|
-|  access_token* | 用户授权码 | formData | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
-|  repo*   | 仓库路径(path) | path     | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path     | string    |
-|  body*   | 评论内容 | body        | string    |
+| 参数名  | 描述  | 类型    | 数据类型  |
+| ------ | ------ |-------|------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path) | path  | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path  | string    |
+|  body*   | 评论内容 | body  | string    |
 
 
 ### 响应
@@ -974,15 +974,15 @@ sidebar:
 
 ### 参数
 
-| 参数名           | 描述                               | 类型       | 数据类型   |
-|---------------|----------------------------------|----------|--------|
-| access_token* | 用户授权码                            | formData | string | 
-| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path     | string |
-| repo*         | 仓库路径(path)                       | path     | string |
-| sha*          | 评论的sha值                          | path     | string |
-| body*         | 评论的内容                            | body     | string |
-| path          | 文件的相对路径                          | body     | string |
-| position      | Diff的相对行数                        | body     | string |
+| 参数名           | 描述                               | 类型    | 数据类型   |
+|---------------|----------------------------------|-------|--------|
+| access_token* | 用户授权码                            | query | string | 
+| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path  | string |
+| repo*         | 仓库路径(path)                       | path  | string |
+| sha*          | 评论的sha值                          | path  | string |
+| body*         | 评论的内容                            | body  | string |
+| path          | 文件的相对路径                          | body  | string |
+| position      | Diff的相对行数                        | body  | string |
 
 ### 响应
 ```json
