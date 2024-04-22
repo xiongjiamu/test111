@@ -555,7 +555,7 @@ HTTP status 200 No Content
 
 ### 请求：
 
-`POST https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
+`POST https://api.gitcode.com/api/v5/org/{org}/projects/{repo}/transfer`
 
 | 参数名        | 描述               | 类型  | 数据类型 |
 | ------------- | ------------------ | ----- | -------- |
