@@ -408,7 +408,7 @@ sidebar:
 
 #### 10. 获取文件Blob
 #### 请求：
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/git/blobs/{sha}`
 
 | 参数名  | 描述  | 类型    | 数据类型  |
 | ------ | ------ |-------|------|
