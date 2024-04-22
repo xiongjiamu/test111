@@ -1116,28 +1116,3 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 26. 创建commit评论
-### 请求
-`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
-
-### 参数
-
-| 参数名  | 描述                     | 类型    | 数据类型  |
-| ------ |------------------------|-------|------|
-|  access_token* | 用户授权码                  | query | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
-|  repo*   | 仓库路径(path)             | path  | string    |
-|  sha*   | commit的id              | path  | string    |
-|  body*   | 评论内容                   | body  | string    |
-|  path   | 文件的相对路径                | body  | string    |
-|  position  | Diff的相对行数              | body  | integer    |
-
-### 响应
-```json
-{
-    "id":"12312sadsa",
-    "body":"content",
-    "created_at": "2024-03-28T11:19:33+08:00",
-    "updated_at": "2024-03-28T11:19:33+08:00"
-}
-```
