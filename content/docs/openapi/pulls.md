@@ -966,34 +966,7 @@ sidebar:
 }
 ```
 
-## 20. 创建commit评论
-
-### 请求
-
-`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
-
-### 参数
-
-| 参数名           | 描述                               | 类型    | 数据类型   |
-|---------------|----------------------------------|-------|--------|
-| access_token* | 用户授权码                            | query | string | 
-| owner*        | 仓库所属空间地址(组织或个人的地址path)           | path  | string |
-| repo*         | 仓库路径(path)                       | path  | string |
-| sha*          | 评论的sha值                          | path  | string |
-| body*         | 评论的内容                            | body  | string |
-| path          | 文件的相对路径                          | body  | string |
-| position      | Diff的相对行数                        | body  | string |
-
-### 响应
-```json
-{
-  "id": "12312sadsa",
-  "created_at": "2024-03-28T11:19:33+08:00",
-  "updated_at": "2024-03-28T11:19:33+08:00"
-}
-```
-
-## 21. 获取某Pull Request的所有Commit信息
+## 20. 获取某Pull Request的所有Commit信息
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
 
@@ -1039,7 +1012,7 @@ sidebar:
   }
 ]
 ```
-## 22. 获取Pull Request关联的issue
+## 21. 获取Pull Request关联的issue
 
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
@@ -1060,7 +1033,7 @@ sidebar:
   }
 ]
 ```
-## 23. 创建 Pull Request 标签
+## 22. 创建 Pull Request 标签
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
 
@@ -1091,7 +1064,7 @@ sidebar:
 HTTP status 201 No Content
 ```
 
-## 24. 删除 Pull Request 标签
+## 23. 删除 Pull Request 标签
 
 ### 请求
 `DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels/{name}`
@@ -1111,7 +1084,7 @@ HTTP status 204 No Content
 ```
 
 
-## 25. 处理 Pull Request 测试
+## 24. 处理 Pull Request 测试
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/test`
 ### 参数
@@ -1127,7 +1100,7 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 26. 处理 Pull Request 审查
+## 25. 处理 Pull Request 审查
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/review`
 ### 参数
@@ -1141,4 +1114,30 @@ HTTP status 204 No Content
 ### 响应
 ```text
 HTTP status 204 No Content
+```
+
+## 26. 创建commit评论
+### 请求
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
+
+### 参数
+
+| 参数名  | 描述                     | 类型    | 数据类型  |
+| ------ |------------------------|-------|------|
+|  access_token* | 用户授权码                  | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path)             | path  | string    |
+|  sha*   | commit的id              | path  | string    |
+|  body*   | 评论内容                   | body  | string    |
+|  path   | 文件的相对路径                | body  | string    |
+|  position  | Diff的相对行数              | body  | integer    |
+
+### 响应
+```json
+{
+    "id":"12312sadsa",
+    "body":"content",
+    "created_at": "2024-03-28T11:19:33+08:00",
+    "updated_at": "2024-03-28T11:19:33+08:00"
+}
 ```

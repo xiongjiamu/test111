@@ -460,32 +460,32 @@ sidebar:
   "tagger": null
 }
 ```
-## 12. 创建commit评论
+
+## 12. 新建保护分支规则
+
 ### 请求
-`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/branches/setting/new`
 
 ### 参数
 
-| 参数名  | 描述  | 类型       | 数据类型  |
-| ------ | ------ |----------|------|
-|  access_token* | 用户授权码 | formData | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path     | string    |
-|  repo*   | 仓库路径(path) | path     | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path     | string    |
-|  sha*   | 第几个PR，即本仓库PR的序数 | path     | string    |
-|  body*   | 评论内容 | body     | string    |
-|  path   | 文件的相对路径 | body     | string    |
-|  position  | Diff的相对行数 | body     | integer    |
+| 参数名        | 描述                                                         | 类型  | 数据类型 |
+| ------------- | ------------------------------------------------------------ | ----- | -------- |
+| access_token* | 用户授权码                                                   | query | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
+| repo*         | 仓库路径(path)                                               | path  | string   |
+| wildcard*     | 分支/通配符                                                  | body  | string   |
+| pusher*       | 可推送代码成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人推送 | body  | string   |
+| merger*       | 可合并 Pull Request 成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人合并 | body  | string   |
+
 
 ### 响应
-```json
-{
-    "id":111,
-    "body":"content"
-}
+
+```text
+HTTP status 200 No Content
 ```
 
-#### 13. 新建文件
+## 13. 新建文件
 #### 请求：
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
@@ -527,9 +527,9 @@ sidebar:
 
 
 
-#### 14. 仓库归档
+## 14. 仓库归档
 
-#### 请求：
+### 请求：
 
 `PUT https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
@@ -550,9 +550,9 @@ sidebar:
 }
 ```
 
-#### 15. 转移仓
+## 15. 转移仓
 
-#### 请求：
+### 请求：
 
 `POST https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 
@@ -690,29 +690,5 @@ HTTP status 204 No Content
     "created_at": "2024-01-24T14:33:44+08:00",
     "updated_at": "2024-04-07T21:23:08+08:00"
 }
-```
-
-## 20. 新建保护分支规则
-
-### 请求
-
-`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/branches/setting/new`
-
-### 参数
-
-| 参数名        | 描述                                                         | 类型  | 数据类型 |
-| ------------- | ------------------------------------------------------------ | ----- | -------- |
-| access_token* | 用户授权码                                                   | query | string   |
-| owner*        | 仓库所属空间地址(组织或个人的地址path)                       | path  | string   |
-| repo*         | 仓库路径(path)                                               | path  | string   |
-| wildcard*     | 分支/通配符                                                  | body  | string   |
-| pusher*       | 可推送代码成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人推送 | body  | string   |
-| merger*       | 可合并 Pull Request 成员。developer：仓库管理员和开发者；admin：仓库管理员；none：禁止任何人合并 | body  | string   |
-
-
-### 响应
-
-```text
-HTTP status 200 No Content
 ```
 
