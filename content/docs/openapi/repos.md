@@ -313,8 +313,8 @@ sidebar:
 }
 ```
 
-#### 8. 更新项目设置
-#### 请求：
+## 8. 更新项目设置
+### 请求：
 `PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -329,7 +329,7 @@ sidebar:
 | private	| 仓库公开或私有。（true/false) | formData | boolean |
 | default_branch	| 默认分支 | formData | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "id": 34171993,
@@ -370,8 +370,8 @@ sidebar:
 }
 ```
 
-#### 9. 获取某个提交
-#### 请求：
+## 9. 获取某个提交
+### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -381,7 +381,7 @@ sidebar:
 |  repo*   | 仓库路径(path) | formData | string    |
 | sha* |  提交的SHA值或者分支名 | path | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "url": "https://gitcode.com/api/v5/repos/daming_1/zhu_di/commits/7ffc0a0deb709143f6be12a55e218fab9233ca37",
@@ -409,8 +409,8 @@ sidebar:
 }
 ```
 
-#### 10. 获取文件Blob
-#### 请求：
+## 10. 获取文件Blob
+### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -420,7 +420,7 @@ sidebar:
 |  repo*   | 仓库路径(path) | formData | string    |
 | sha* |  提交的SHA值或者分支名 | path | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "sha":"e5699fe1b360d6c799ee58b24fb5a670b1e14851",
@@ -488,8 +488,8 @@ sidebar:
 }
 ```
 
-#### 13. 新建文件
-#### 请求：
+## 13. 新建文件
+### 请求：
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
 | 参数名  | 描述  | 类型  | 数据类型  |
@@ -502,7 +502,7 @@ sidebar:
 | message* | 提交的 commit 信息 | body | string |
 | branch | 提交的分支 | body | string |
 
-#### 返回:
+### 返回:
 ```json
 {
     "commit": {
@@ -530,9 +530,9 @@ sidebar:
 
 
 
-#### 14. 项目归档
+## 14. 项目归档
 
-#### 请求：
+### 请求：
 
 `PUT https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
@@ -544,7 +544,7 @@ sidebar:
 | status*       | 仓库状态，0：开始，2：关闭 | body | integer  |
 | password*     | 用户密码                   | body | string   |
 
-#### 返回:
+### 返回:
 
 ```json
 {
@@ -553,9 +553,9 @@ sidebar:
 }
 ```
 
-#### 15. 转移项目
+## 15. 转移项目
 
-#### 请求：
+### 请求：
 
 `POST https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
 
@@ -567,7 +567,7 @@ sidebar:
 | transfer_to*  | 要转移到的目标组织 | body | string   |
 | password*     | 用户密码           | body | string   |
 
-#### 返回:
+### 返回:
 
 ```json
 {
