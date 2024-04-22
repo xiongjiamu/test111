@@ -19,7 +19,7 @@ sidebar:
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | formData | string    |
-|  state | 可选。Pull Request 状态 | query | string    |
+|  state | 可选。Pull Request 状态: all、open、closed、locked、merged | query | string    |
 |  base   | 可选。Pull Request 提交目标分支的名称 | query | string    |
 |  since | 可选。起始的更新时间，要求时间格式为 ISO 8601 | quey | string    |
 |  direction  | 可选。升序/降序 | query | string    |
@@ -28,7 +28,7 @@ sidebar:
 |  per_page   | 每页的数量，最大为 100 | query | integer    |
 |  author   | 可选。PR 创建者用户名 | query | string    |
 |  assignee   |  可选。评审者用户名 | query | string    |
-|  tester   |  可选。测试者用户名 | query | string    |
+|  tester   |  可选。测试者用户名 | query | string    |··
 
 ### 响应
 
@@ -36,15 +36,15 @@ sidebar:
 [
     {
         "id": 11217119,
-        "html_url": "https://gitcode.com/OpenHarmony/ability_ability_base/pulls/341",
+        "html_url": "https://gitcode.com/OpenHarmony/ability_ability_b····ase/pulls/341",
         "number": 341,
         "close_related_issue": 1,
         "prune_branch": false,
         "state": "open",
         "assignees_number": 1,
-        "testers_number": 1,
+        "testers_number": 1,·····
         "assignees": [
-            {
+            {·
                 "id": 7476845,
                 "login": "ccllee",
                 "name": "ccll",
