@@ -203,7 +203,7 @@ sidebar:
 
 ### 请求
 
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issue`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/issues`
 
 ### 参数
 
