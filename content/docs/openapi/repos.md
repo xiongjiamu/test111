@@ -415,7 +415,7 @@ sidebar:
 |  access_token* | 用户授权码 | query | string   | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
 |  repo*   | 仓库路径(path) | path  | string    |
-| sha* |  提交的SHA值或者分支名 | path  | string |
+| sha* |  文件的 Blob SHA，可通过 [获取仓库具体路径下的内容] API 获取 | path  | string |
 
 #### 返回:
 ```json
