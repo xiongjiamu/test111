@@ -970,7 +970,7 @@ sidebar:
 
 ### 请求
 
-`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/commits`
+`POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/commits/{sha}/comments`
 
 ### 参数
 
