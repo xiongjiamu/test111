@@ -27,7 +27,7 @@ sidebar:
 
 ### 3.获取授权token
 
-`POST https://web-api.gitcode.com/uc/api/v1/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&client_secret={client_secret}`
+`POST https://gitcode.com/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&client_secret={client_secret}`
 
 | 参数名            | 描述        | 类型    | 数据类型               |
 |----------------|-----------|-------|--------------------|
@@ -54,4 +54,4 @@ GET https://api.gitcode.com/api/v5/user
 ```
 
 ### 5.刷新access_token
-`POST https://web-api.gitcode.com/uc/api/v1/oauth/token?grant_type=refresh_token&refresh_token={refresh_token}`
+`POST https://gitcode.com/oauth/token?grant_type=refresh_token&refresh_token={refresh_token}`
