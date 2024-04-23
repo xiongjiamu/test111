@@ -335,7 +335,7 @@ sidebar:
 | page | 当前的页码 | query | integer |
 | per_page | 每页的数量，最大为 100 | query | integer |
 | direction | 可选。升序/降序 | query | integer |
-| comment_type | 可选。筛选评论类型。代码行评论/pr普通评论 | query | string |
+| comment_type | 可选。筛选评论类型。代码行评论/pr普通评论:diff_comment/pr_comment | query | string |
 | end_id | 【*】上一页检视意见最大id（第一页默认为0） | query | integer |
 
 
