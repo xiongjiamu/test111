@@ -607,18 +607,70 @@ sidebar:
 
 ```json
 [
-    {
-        "id": 68525,
-        "html_url": "https://test.gitcode.net/dengmengmian/test01/merge_requests/1",
-        "number": 1,
-        "state": "opened",
-        "title": "new: 新增文件 1.text",
-        "body": "new: 新增文件 1.text ",
-        "created_at": "2024-04-15T16:29:11.035+08:00",
-        "updated_at": "2024-04-15T16:29:17.769+08:00",
-        "merged_at": null,
-        "closed_at": null
-    }
+  {
+    "id": 67585,
+    "html_url": "https://api.gitcode.net/test/test/merge_requests/1",
+    "diff_url": "https://api.gitcode.net/test/test/merge_requests/1/diffs",
+    "number": 1,
+    "state": "opened",
+    "title": "1",
+    "body": "new: 新增文件 test.txt 1",
+    "created_at": "2024-04-12T17:50:55.253+08:00",
+    "updated_at": "2024-04-20T15:58:30.657+08:00",
+    "merged_at": null,
+    "closed_at": null,
+    "head": {
+      "ref": "develop",
+      "sha": "061c446d55aae78c7a0f096b2d2dd0d6a1afb170",
+      "repo": {
+        "path": "paopao1",
+        "name": "paopao1"
+      },
+      "assigner": {
+        "login": "test",
+        "name": "test"
+      }
+    },
+    "base": {
+      "ref": "main",
+      "sha": "667d4ac032b2faa13d019753ac218b4f78338273",
+      "repo": {
+        "path": "paopao1",
+        "name": "paopao1"
+      },
+      "assigner": null
+    },
+    "assignees": [
+      {
+        "id": "65803cddcf1e2d1aa3d2e99f",
+        "login": "test",
+        "name": null,
+        "avatar_url": null,
+        "html_url": "https://api.gitcode.net/test"
+      }
+    ],
+    "testers": [
+      {
+        "id": "65803cddcf1e2d1aa3d2e99f",
+        "login": "test",
+        "name": "test",
+        "avatar_url": null,
+        "html_url": "https://api.gitcode.net/test"
+      }
+    ],
+    "labels": [
+      {
+        "id": 383707,
+        "color": "#CCCCCC",
+        "name": "wontfix",
+        "repository_id": null,
+        "url": null,
+        "created_at": "2024-04-19",
+        "updated_at": "2024-04-19",
+        "text_color": "#333333"
+      }
+    ]
+  }
 ]
 ```
 
