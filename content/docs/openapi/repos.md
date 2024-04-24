@@ -720,3 +720,58 @@ HTTP status 204 No Content
     "updated_at": "2024-03-28T11:19:33+08:00"
 }
 ```
+
+
+## 21. 获取单个分支
+
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/branches/{branch}`
+
+### 参数
+
+| 参数名  | 描述                     | 类型    | 数据类型  |
+| ------ |------------------------|-------|------|
+|  access_token* | 用户授权码                  | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path)             | path  | string    |
+|  branch*   | 分支名称              | path  | string    |
+
+### 响应
+```json
+{
+    "name": "dev",
+    "commit": {
+        "id": "b6d44deb0ca73d7a50916d0fea02c72edd6c924e",
+        "message": "\ndev新增文件\n\nCreated-by: csdntest13\nAuthor-id: 494\nMR-id: 68629\nCommit-by: csdntest13\nMerged-by: csdntest13\nE2E-issues: \nDescription: 提交信息\n\nSee merge request: One/One!56",
+        "parent_ids": [
+            "13956ffeb5e5e1ce60c2ed91d3e579fc50b1f167",
+            "3e42dcb9c09b39972c65536dad71651322470f28"
+        ],
+        "authored_date": "2024-04-15T14:38:50.000Z",
+        "author_name": "csdntest13",
+        "author_iam_id": null,
+        "author_email": "csdntest13@noreply.gitcode.com",
+        "author_user_name": null,
+        "committed_date": "2024-04-15T14:38:50.000Z",
+        "committer_name": "csdntest13",
+        "committer_email": "csdntest13@noreply.gitcode.com",
+        "committer_user_name": null,
+        "open_gpg_verified": null,
+        "verification_status": null,
+        "gpg_primary_key_id": null,
+        "short_id": "b6d44deb",
+        "created_at": "2024-04-15T14:38:50.000Z",
+        "title": "merge refs/merge-requests/56/head into dev",
+        "author_avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+        "committer_avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+        "relate_url": null
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false
+}
+```
+
