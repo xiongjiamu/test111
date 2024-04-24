@@ -1085,7 +1085,79 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 16. 获取某个 Pull Request 的所有标签
+## 16. 获取某个Pull Request的操作日志
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/operate_logs`
+### 参数
+| 参数名      | 描述                     | 类型    | 数据类型   |
+|----------|------------------------|-------|--------|
+| access_token* | 用户授权码                  | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path) | path  | string |
+| repo*    | 仓库路径(path)             | path  | string |
+| number*      | 第几个PR，即本仓库PR的序数  | body  | 	boolean |
+| sort     | 按递减(desc)排序，默认：递减  | query  | 	boolean |
+
+### 响应
+```json
+[
+    {
+        "content": "Create mr issue link: **第boudoirripinings-24个issue** #79",
+        "id": 274531,
+        "action": "add_mr_issue_link",
+        "merge_request_id": 70067,
+        "created_at": "2024-04-23T11:32:08.522+08:00",
+        "updated_at": "2024-04-23T11:32:08.522+08:00",
+        "discussion_id": "18a5ab21f57cda175b8eabc2ec829a9e04d4d458",
+        "project": "One/One",
+        "assignee": null,
+        "proposer": null,
+        "user": {
+            "id": "65f94ab6f21fa3084fc04823",
+            "name": "csdntest13",
+            "login": "csdntest13",
+            "iam_id": "d8b3e018b2364546b946886a669d50fc",
+            "nick_name": "csdntest13_gitcode",
+            "state": "active",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "avatar_path": null,
+            "email": "csdntest13@noreply.gitcode.com",
+            "name_cn": "csdntest13",
+            "web_url": "https://test.gitcode.net/csdntest13",
+            "tenant_name": null,
+            "is_member": null
+        }
+    },
+    {
+        "content": "Create mr issue link: **第boudoirripinings-25个issue** #80",
+        "id": 274529,
+        "action": "add_mr_issue_link",
+        "merge_request_id": 70067,
+        "created_at": "2024-04-23T11:32:07.588+08:00",
+        "updated_at": "2024-04-23T11:32:07.588+08:00",
+        "discussion_id": "9b4b01dbe059dbdc120afd8bdf9fd865d4ea42b1",
+        "project": "One/One",
+        "assignee": null,
+        "proposer": null,
+        "user": {
+            "id": "65f94ab6f21fa3084fc04823",
+            "name": "csdntest13",
+            "login": "csdntest13",
+            "iam_id": "d8b3e018b2364546b946886a669d50fc",
+            "nick_name": "csdntest13_gitcode",
+            "state": "active",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "avatar_path": null,
+            "email": "csdntest13@noreply.gitcode.com",
+            "name_cn": "csdntest13",
+            "web_url": "https://test.gitcode.net/csdntest13",
+            "tenant_name": null,
+            "is_member": null
+        }
+    }
+]
+```
+
+## 17. 获取某个 Pull Request 的所有标签
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
 
@@ -1125,7 +1197,7 @@ HTTP status 204 No Content
 ]
 ```
 
-## 17. 重置 Pull Request 测试 的状态
+## 18. 重置 Pull Request 测试 的状态
 ### 请求
 `PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/testers`
 ### 参数
@@ -1141,7 +1213,7 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 18. 重置 Pull Request 审查 的状态
+## 19. 重置 Pull Request 审查 的状态
 ### 请求
 `PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/assignees`
 ### 参数
@@ -1157,7 +1229,7 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 19. 合并Pull Request
+## 20. 合并Pull Request
 ### 请求
 `PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/merge`
 ### 参数
