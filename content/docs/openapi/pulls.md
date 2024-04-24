@@ -34,117 +34,318 @@ sidebar:
 
 ```json
 [
-    {
-        "id": 11217119,
-        "html_url": "https://gitcode.com/OpenHarmony/ability_ability_b····ase/pulls/341",
-        "number": 341,
-        "close_related_issue": 1,
-        "prune_branch": false,
-        "state": "open",
-        "assignees_number": 1,
-        "testers_number": 1,·····
-        "assignees": [
-            {·
-                "id": 7476845,
-                "login": "ccllee",
-                "name": "ccll",
-                "avatar_url": null,
-                "html_url": "https://gitcode.com/ccllee",
-                "type": "User",
-                "assignee": true,
-                "code_owner": false,
-                "accept": false
-            }
-        ],
-        "milestone": null,
-        "labels": [
-            {
-                "id": 113667295,
-                "color": "20c22e",
-                "name": "dco检查成功",
-                "repository_id": 6511493,
-                "created_at": "2021-06-18T15:08:35+08:00",
-                "updated_at": "2024-04-08T21:46:16+08:00"
-            }
-        ],
-        "created_at": "2024-04-08T19:54:38+08:00",
-        "updated_at": "2024-04-08T21:48:05+08:00",
-        "closed_at": null,
-        "draft": false,
-        "merged_at": null,
-        "mergeable": true,
-        "can_merge_check": false,
-        "user": {
-            "id": 9221401,
-            "login": "hust-yf",
-            "name": "yangfei",
-            "avatar_url": null,
-            "html_url": "https://gitcode.com/hust-yf",
-            "type": "User"
-        },
-        "title": "新增configuration key支持sa对单个应用设置深浅色",
-        "body": "**IssueNo**:Result**:",
-        "head": {
-			"label": "mas",
-            "user": {
-                "id": 9221401,
-                "login": "hust-yf",
-                "name": "yangfei",
-                "avatar_url": null,
-                "html_url": "https://gitcode.com/hust-yf",
-                "type": "User"
-            },
-            "repo": {
-                "id": 34079500,
-                "full_name": "hjj-code_1/ability_ability_base",
-                "human_name": "yffff/ability_ability_base",
-                "path": "ability_ability_base",
-                "name": "ability_ability_base",
-                "assigner": {
-                    "id": 9221401,
-                    "login": "hust-yf",
-                    "name": "yangfei",
-                    "avatar_url": null,
-                    "html_url": "https://gitcode.com/hust-yf",
-                    "type": "User"
-                },
-                "description": "暂无描述",
-                "internal": false,
-                "html_url": "https://gitcode.com/hjj-code_1/ability_ability_base.git"
-            }
-        },
-        "base": {
-            "label": "master",
-            "user": {
-                "id": 626123,
-                "login": "landwind",
-                "name": "mamingshuai",
-                "avatar_url": null,
-                "html_url": "https://gitcode.com/landwind",
-                "type": "User"
-            },
-            "repo": {
-                "id": 22974255,
-                "full_name": "openharmony/ability_ability_base",
-                "human_name": "OpenHarmony/ability_ability_base",
-                "path": "ability_ability_base",
-                "name": "ability_ability_base",
-                "assigner": {
-                    "id": 626123,
-                    "login": "landwind",
-                    "name": "mamingshuai",
-                    "avatar_url": null,
-                    "html_url": "https://gitcode.com/landwind",
-                    "type": "User"
-                },
-                "description": "暂无描述",
-                "internal": false,
-                "html_url": "https://gitcode.com/openharmony/ability_ability_base.git"
-            }
-        }
-    }
+    {
+        "number": 63,
+        "html_url": "https://test.gitcode.net/One/One/merge_requests/63",
+        "close_related_issue": null,
+        "prune_branch": false,
+        "draft": false,
+        "labels": [
+            {
+                "id": 381445,
+                "color": "#008672",
+                "name": "help wanted",
+                "title": "help wanted",
+                "repository_id": 243377,
+                "type": null,
+                "text_color": null
+            },
+            {
+                "id": 381446,
+                "color": "#CFD240",
+                "name": "invalid",
+                "title": "invalid",
+                "repository_id": 243377,
+                "type": null,
+                "text_color": null
+            },
+            {
+                "id": 381447,
+                "color": "#D876E3",
+                "name": "question",
+                "title": "question",
+                "repository_id": 243377,
+                "type": null,
+                "text_color": null
+            }
+        ],
+        "user": {
+            "id": "65f94ab6f21fa3084fc04823",
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "state": "active",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "avatar_path": null,
+            "email": "",
+            "name_cn": "csdntest13",
+            "html_url": "https://test.gitcode.net/csdntest13",
+            "tenant_name": null,
+            "is_member": null
+        },
+        "assignees": [
+            {
+                "id": "64c71c3d64037b4af1c7a93f",
+                "login": "green",
+                "name": "百里",
+                "state": "optional",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/be/fb/7b9e393fbd80ca315dec249f2be6e6a7378f591609b6525798bc6d95abedc992.png?time=1712128581171",
+                "avatar_path": null,
+                "email": null,
+                "name_cn": "green",
+                "html_url": "https://test.gitcode.net/green",
+                "assignee": true,
+                "code_owner": false,
+                "accept": false
+            }
+        ],
+        "head": {
+            "label": "test_b12",
+            "ref": "test_b12",
+            "sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310",
+            "user": {
+                "id": "65f94ab6f21fa3084fc04823",
+                "login": "csdntest13",
+                "name": "csdntest13_gitcode",
+                "state": "active",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                "avatar_path": null,
+                "email": "",
+                "name_cn": "csdntest13",
+                "html_url": "https://test.gitcode.net/csdntest13",
+                "tenant_name": null,
+                "is_member": null
+            },
+            "repo": {
+                "id": 243377,
+                "full_path": "One/One",
+                "human_name": "One / One",
+                "name": "One",
+                "path": "One",
+                "description": "csdntest13的第一个项目(公开)",
+                "namespace": {
+                    "id": 136909,
+                    "name": "One",
+                    "path": "One",
+                    "develop_mode": "normal",
+                    "region": null,
+                    "cell": "default",
+                    "kind": "group",
+                    "full_path": "One",
+                    "full_name": "One ",
+                    "parent_id": null,
+                    "visibility_level": 20,
+                    "enable_file_control": null,
+                    "owner_id": null
+                },
+                "owner": {
+                    "id": "65f94ab6f21fa3084fc04823",
+                    "login": "csdntest13",
+                    "name": "csdntest13_gitcode",
+                    "state": "active",
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                    "avatar_path": null,
+                    "email": "",
+                    "name_cn": "csdntest13",
+                    "html_url": "https://test.gitcode.net/csdntest13",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "assigner": {
+                    "id": "64c71c3d64037b4af1c7a93f",
+                    "login": "green",
+                    "name": "百里",
+                    "state": null,
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/be/fb/7b9e393fbd80ca315dec249f2be6e6a7378f591609b6525798bc6d95abedc992.png?time=1712128581171",
+                    "avatar_path": null,
+                    "email": null,
+                    "name_cn": null,
+                    "html_url": "https://test.gitcode.net/green",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "private": null,
+                "public": null,
+                "internal": false
+            }
+        },
+        "base": {
+            "label": "dev",
+            "ref": "dev",
+            "sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86",
+            "user": {
+                "id": "65f94ab6f21fa3084fc04823",
+                "login": "csdntest13",
+                "name": "csdntest13_gitcode",
+                "state": "active",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                "avatar_path": null,
+                "email": "",
+                "name_cn": "csdntest13",
+                "html_url": "https://test.gitcode.net/csdntest13",
+                "tenant_name": null,
+                "is_member": null
+            },
+            "repo": {
+                "id": 243377,
+                "full_path": "One/One",
+                "human_name": "One / One",
+                "name": "One",
+                "path": "One",
+                "description": "csdntest13的第一个项目(公开)",
+                "namespace": {
+                    "id": 136909,
+                    "name": "One",
+                    "path": "One",
+                    "develop_mode": "normal",
+                    "region": null,
+                    "cell": "default",
+                    "kind": "group",
+                    "full_path": "One",
+                    "full_name": "One ",
+                    "parent_id": null,
+                    "visibility_level": 20,
+                    "enable_file_control": null,
+                    "owner_id": null
+                },
+                "owner": {
+                    "id": "65f94ab6f21fa3084fc04823",
+                    "login": "csdntest13",
+                    "name": "csdntest13_gitcode",
+                    "state": "active",
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                    "avatar_path": null,
+                    "email": "",
+                    "name_cn": "csdntest13",
+                    "html_url": "https://test.gitcode.net/csdntest13",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "assigner": {
+                    "id": "64c71c3d64037b4af1c7a93f",
+                    "login": "green",
+                    "name": "百里",
+                    "state": null,
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/be/fb/7b9e393fbd80ca315dec249f2be6e6a7378f591609b6525798bc6d95abedc992.png?time=1712128581171",
+                    "avatar_path": null,
+                    "email": null,
+                    "name_cn": null,
+                    "html_url": "https://test.gitcode.net/green",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "private": null,
+                "public": null,
+                "internal": false
+            }
+        },
+        "id": 70067,
+        "iid": 63,
+        "project_id": 243377,
+        "title": "测试创建PR",
+        "body": null,
+        "state": "merged",
+        "created_at": "2024-04-21T17:35:16.655+08:00",
+        "updated_at": "2024-04-24T22:27:49.197+08:00",
+        "merged_at": "2024-04-24T22:27:48.631+08:00",
+        "closed_by": null,
+        "closed_at": null,
+        "title_html": null,
+        "description_html": null,
+        "target_branch": "dev",
+        "source_branch": "test_b12",
+        "squash_commit_message": null,
+        "user_notes_count": 1,
+        "upvotes": 0,
+        "downvotes": 0,
+        "source_project_id": 243377,
+        "target_project_id": 243377,
+        "work_in_progress": false,
+        "milestone": null,
+        "merge_when_pipeline_succeeds": false,
+        "merge_status": "can_be_merged",
+        "sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310",
+        "merge_commit_sha": "6c93b6e6fcf1ce1f0ce918d1a481f0500531ab72",
+        "discussion_locked": null,
+        "should_remove_source_branch": false,
+        "force_remove_source_branch": false,
+        "allow_collaboration": null,
+        "allow_maintainer_to_push": null,
+        "web_url": "https://test.gitcode.net/One/One/merge_requests/63",
+        "time_stats": {
+            "time_estimate": null,
+            "total_time_spent": 0,
+            "human_time_estimate": null,
+            "human_total_time_spent": null
+        },
+        "squash": false,
+        "merge_request_type": "MergeRequest",
+        "has_pre_merge_ref": false,
+        "review_mode": "approval",
+        "is_source_branch_exist": true,
+        "approval_merge_request_approvers": [
+            {
+                "id": 233,
+                "username": "wunian2011",
+                "name": "wunian2011",
+                "nick_name": "测试吴",
+                "name_cn": "wunian2011",
+                "email": null,
+                "state": "approve",
+                "is_codeowner": false,
+                "updated_at": "2024-04-24T21:40:11.095+08:00",
+                "avatar_url": null
+            },
+            {
+                "id": 277,
+                "username": "renww",
+                "name": "renww",
+                "nick_name": "介简介简介简介简介简介简介简介简介",
+                "name_cn": "renww",
+                "email": null,
+                "state": "optional",
+                "is_codeowner": false,
+                "updated_at": "2024-04-21T17:35:18.509+08:00",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ee/dc/7602704ee7dcf13f4383a72d492b1813823afba729ae6e9115877a4a0128d990.jpg?time=1711447395118"
+            }
+        ],
+        "approval_merge_request_testers": [],
+        "added_lines": 1,
+        "removed_lines": 0,
+        "subscribed": true,
+        "changes_count": "1",
+        "latest_build_started_at": null,
+        "latest_build_finished_at": null,
+        "first_deployed_to_production_at": null,
+        "pipeline": null,
+        "diff_refs": {
+            "base_sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86",
+            "head_sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310",
+            "start_sha": "b6d44deb0ca73d7a50916d0fea02c72edd6c924e"
+        },
+        "merge_error": null,
+        "json_merge_error": null,
+        "rebase_in_progress": null,
+        "diverged_commits_count": null,
+        "merge_request_reviewer_list": [],
+        "merge_request_review_count": 0,
+        "merge_request_reviewers_count": 0,
+        "notes": 1,
+        "unresolved_discussions_count": 0,
+        "gate_check": true,
+        "head_pipeline_id": null,
+        "pipeline_status": "",
+        "codequality_status": "success",
+        "pipeline_status_with_code_quality": "",
+        "from_forked_project": false,
+        "forked_project_name": null,
+        "can_delete_source_branch": true,
+        "required_reviewers": [],
+        "omega_mode": false,
+        "root_mr_locked_detail": null,
+        "source_git_url": "ssh://git@test.gitcode.net:2222/One/One.git",
+        "auto_merge": false
+    }
 ]
-
 ```
 
 
