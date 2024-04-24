@@ -781,14 +781,36 @@ sidebar:
             "url": null
         },
         "content": "Create issue mr links: **new: 新增文件 1.text** #1",
-        "body": null,
         "created_at": "2024-04-20T15:20:24.009+08:00",
         "action_type": "add_issue_mr_link",
         "update_at": "2024-04-20T15:20:24.009+08:00",
+        "title": "new: 新增文件 1.text",
+        "body": "new: 新增文件 1.text ",
+        "head": {
+            "ref": "develop",
+            "sha": "dd954d3a779edc86dae5b4b60c7f24dd0f195bf4",
+            "repo": {
+                "path": "test01",
+                "name": "test01"
+            },
+            "assigner": {
+                "login": "dengmengmian",
+                "name": "麻凡_"
+            }
+        },
+        "base": {
+            "ref": "main",
+            "sha": "32cff0d8faaa0c044d0f94957e656051986e8403",
+            "repo": {
+                "path": "test01",
+                "name": "test01"
+            },
+            "assigner": null
+        },
         "issue_id": "152642"
     },
     {
-        "id": 270415,
+        "id": 272198,
         "user": {
             "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/fa/fe/f32a9fecc53e890afbd48fd098b0f6c5f20f062581400c76c85e5baab3f0d5b2.png",
             "events_url": null,
@@ -809,11 +831,14 @@ sidebar:
             "type": null,
             "url": null
         },
-        "content": "add label enim, proident, qui",
+        "content": "changed milestone to testew",
+        "created_at": "2024-04-20T15:20:09.305+08:00",
+        "action_type": "milestone",
+        "update_at": "2024-04-20T15:20:09.305+08:00",
+        "title": null,
         "body": null,
-        "created_at": "2024-04-18T14:35:15.518+08:00",
-        "action_type": "label",
-        "update_at": "2024-04-18T14:35:15.518+08:00",
+        "head": null,
+        "base": null,
         "issue_id": "152642"
     }
 ]
