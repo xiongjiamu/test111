@@ -29,26 +29,27 @@ sidebar:
 
 ```json
 [
-    {
-        "name": "master",
-        "commit": {
-            "sha": "5d165dae3b073d3e92ca91c3edcb21994361462c",
-            "commit": {
-                "author": {
-                    "name": "GitCode2023",
-                    "date": "2024-04-08T21:13:33+08:00",
-                    "email": "13328943+gitcode_admin@user.noreply.gitcode.com"
-                },
-                "committer": {
-                    "name": "Gitee",
-                    "date": "2024-04-08T21:13:33+08:00",
-                    "email": "noreply@gitcode.com"
-                },
-                "message": "wwqwqwq"
-            }
+  {
+    "name": "main",
+    "commit": {
+      "commit": {
+        "author": {
+          "name": "Lzm_0916",
+          "date": "2024-04-16T08:41:20.000Z",
+          "email": "Lzm_0916@noreply.gitcode.com"
         },
-        "protected": true
-    }
+        "committer": {
+          "name": "Lzm_0916",
+          "date": "2024-04-16T08:41:20.000Z",
+          "email": "Lzm_0916@noreply.gitcode.com"
+        },
+        "message": "提交测试类"
+      },
+      "sha": "1d45587145552af003cd32cc6fde9ac9d9e5fd42",
+      "url": "https://test.gitcode.net/api/v5/repos/Lzm_0916/test/commits/1d45587145552af003cd32cc6fde9ac9d9e5fd42"
+    },
+    "protected": true
+  }
 ]
 
 ```
@@ -776,3 +777,54 @@ HTTP status 204 No Content
 }
 ```
 
+## 22. 获取仓库的所有成员
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/collaborators`
+
+### 参数
+| 参数名         | 描述  | 类型  | 数据类型  |
+|-------------| ------ | ------  |------|
+| access_token* | 用户授权码 | formData | string    | 
+| owner*      | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+| repo*       | 仓库路径(path) | path | string    |
+| page        | 当前的页码  | query | integer    |
+| per_page  | 每页的数量，最大为 100| query |integer |
+
+
+### 响应
+
+```json
+[
+  {
+    "id": "708",
+    "name": "Lzm_0916",
+    "username": "Lzm_0916",
+    "nick_name": null,
+    "state": null,
+    "avatar": null,
+    "avatar_url": null,
+    "email": null,
+    "name_cn": null,
+    "web_url": "https://test.gitcode.net/Lzm_0916",
+    "access_level": null,
+    "expires_at": null,
+    "limited": null,
+    "type": "ProjectMember",
+    "last_owner": null,
+    "is_current_source_member": null,
+    "last_source_owner": null,
+    "join_way": null,
+    "source_name": null,
+    "member_roles": null,
+    "iam_id": null,
+    "committer_system_from": null,
+    "permissions": {
+      "pull": null,
+      "push": null,
+      "admin": true
+    }
+  }
+]
+```

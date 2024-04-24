@@ -364,48 +364,19 @@ sidebar:
 
 ```json
 [
-    {
-        "url": null,
-        "id": "5e725f98579fd83c3353be047c33f07c33cd2baa",
-        "body": "这是一个PR下的评论",
-        "created_at": "2024-04-18T01:58:37.859+00:00",
-        "updated_at": "2024-04-18T01:58:37.859+00:00",
-        "user": {
-            "id": 494,
-            "login": "csdntest13",
-            "name": "csdntest13_gitcode",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
-            "html_url": "https://test.gitcode.net/csdntest13"
-        }
-    },
-    {
-        "url": null,
-        "id": "c89f7c1c6aa0c9de457364c55cdc5abc92e02291",
-        "body": "这是代码评论",
-        "created_at": "2024-04-19T08:40:34.230+00:00",
-        "updated_at": "2024-04-19T08:40:34.230+00:00",
-        "user": {
-            "id": 494,
-            "login": "csdntest13",
-            "name": "csdntest13_gitcode",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
-            "html_url": "https://test.gitcode.net/csdntest13"
-        }
-    },
-    {
-        "url": null,
-        "id": "59414433dc3b5a3316ba5984324e900350c2ae07",
-        "body": "这是第二个评论",
-        "created_at": "2024-04-19T08:41:06.833+00:00",
-        "updated_at": "2024-04-19T08:41:06.833+00:00",
-        "user": {
-            "id": 494,
-            "login": "csdntest13",
-            "name": "csdntest13_gitcode",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
-            "html_url": "https://test.gitcode.net/csdntest13"
-        }
+  {
+    "id": "de772738e6dab92174c0e86c052ccf9bed24f747",
+    "body": "111",
+    "created_at": "2024-04-19T07:48:59.755+00:00",
+    "updated_at": "2024-04-19T07:48:59.755+00:00",
+    "user": {
+      "id": 708,
+      "login": "Lzm_0916",
+      "name": "Lzm_0916",
+      "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/cb/da/6cb18d9ae9f1a94b4f640d3b848351c352c7869f33d0cb68e7acad4f224c4e23.png",
+      "html_url": "https://test.gitcode.net/Lzm_0916"
     }
+  }
 ]
 ```
 
