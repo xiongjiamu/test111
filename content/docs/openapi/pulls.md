@@ -221,7 +221,25 @@ sidebar:
 [
   {
     "number": "1",
-    "title": "[bug] test"
+    "title": "[bug] test",
+    "state": "open",
+    "title": "进行稳定性测试",
+    "body": "发生什么问题了？",
+    "user": {
+      "id": "681",
+      "login": "test",
+      "name": "test"
+    },
+    "labels": [
+      {
+        "color": "#008672",
+        "name": "help wanted",
+        "id": 381445,
+        "title": "help wanted",
+        "type": null,
+        "textColor": "#FFFFFF"
+      }
+    ]
   }
 ]
 ```
@@ -921,6 +939,18 @@ sidebar:
       "login": "test",
       "name": "test_web",
       "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
+      "html_url": "http://gitcode.com/sytest/paopao/pull/1",
+      "assigness": true,
+      "code_owner": false,
+      "accept": true
+    }
+  ],
+  "testers": [
+    {
+      "id": 2,
+      "login": "test",
+      "name": "test_web",
+      "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
       "html_url": "http://gitcode.com/sytest/paopao/pull/1"
     }
   ],
@@ -939,15 +969,21 @@ sidebar:
   "draft": false,
   "merged_at": "",
   "can_merge_check": false,
+  "mergeable": true,
+  "body": "Description",
   "user": {
     "id": "userId",
     "login": "test"
   },
   "head": {
-    "ref": "test"
+    "label": "test",
+    "ref": "test",
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
   },
   "base": {
-    "ref": "main"
+    "label": "main",
+    "ref": "main",
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
   }
 }
 ```
