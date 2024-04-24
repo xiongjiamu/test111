@@ -24,6 +24,7 @@ sidebar:
 |  since | 可选。起始的更新时间，要求时间格式为 ISO 8601 | quey | string    |
 |  direction  | 可选。升序/降序 | query | string    |
 |  milestone_number | 可选。里程碑序号(id) | quey | integer    |
+|  labels | 以逗号分隔的标签名称列表 | quey | string    |
 |  page   | 当前的页码 | query | integer    |
 |  per_page   | 每页的数量，最大为 100 | query | integer    |
 |  author   | 可选。PR 创建者用户名 | query | string    |
@@ -237,9 +238,11 @@ sidebar:
 | ------ | ------ |-------|------|
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
-|  repo*   | 仓库路径(path) | path  | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path  | string    |
-|  body*   | 评论内容 | body  | string    |
+|  repo* | 仓库路径(path) | path  | string    |
+|  number* | 第几个PR，即本仓库PR的序数 | path  | string    |
+|  body* | 评论内容 | body  | string    |
+|  path  | 文件的相对路径 | body  | string    |
+|  position  | Diff的相对行数 | body  | integer    |
 
 
 ### 响应
@@ -1082,3 +1085,95 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
+## 16. 获取某个 Pull Request 的所有标签
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
+
+### 参数
+| 参数名           | 描述                               | 类型             | 数据类型   |
+|---------------|----------------------------------|----------------|--------|
+|  access_token* | 用户授权码 | query | string    |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  page   | 当前的页码 | query | integer    |
+|  per_page   | 每页的数量，最大为 100 | query | integer    |
+
+###响应
+```json
+[
+  {
+    "id": 18517,
+    "color": "#ED4014",
+    "name": "bug",
+    "repository_id": 198606,
+    "url": "",
+    "created_at": "2024-02-23",
+    "updated_at": "2024-02-23",
+    "text_color": "#FFFFFF"
+  },
+  {
+    "id": 383740,
+    "color": "#428BCA",
+    "name": "performance",
+    "repository_id": 198606,
+    "url": "",
+    "created_at": "2024-04-20",
+    "updated_at": "2024-04-20",
+    "text_color": "#FFFFFF"
+  }
+]
+```
+
+## 17. 重置 Pull Request 测试 的状态
+### 请求
+`PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/testers`
+### 参数
+| 参数名      | 描述                       | 类型    | 数据类型   |
+|----------|--------------------------|-------|--------|
+| access_token* | 用户授权码                    | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)   | path  | string |
+| repo*    | 仓库路径(path)               | path  | string |
+| reset_all      | 是否重置所有测试人，默认：false，只对管理员生效          | body  | 	boolean |
+
+### 响应
+```text
+HTTP status 204 No Content
+```
+
+## 18. 重置 Pull Request 审查 的状态
+### 请求
+`PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/assignees`
+### 参数
+| 参数名      | 描述                         | 类型    | 数据类型   |
+|----------|----------------------------|-------|--------|
+| access_token* | 用户授权码                      | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)     | path  | string |
+| repo*    | 仓库路径(path)                 | path  | string |
+| reset_all      | 是否重置所有审查人，默认：false，只对管理员生效 | body  | 	boolean |
+
+### 响应
+```text
+HTTP status 204 No Content
+```
+
+## 19. 合并Pull Request
+### 请求
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/merge`
+### 参数
+| 参数名      | 描述                         | 类型    | 数据类型   |
+|----------|----------------------------|-------|--------|
+| access_token* | 用户授权码                      | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)     | path  | string |
+| repo*    | 仓库路径(path)                 | path  | string |
+|  number*  | 第几个PR，即本仓库PR的序数 | path  | string    |
+|  merge_method   | 可选。合并PR的方法，merge（合并所有提交）、squash（扁平化分支合并）和rebase（变基并合并）。默认为merge。 | body  | string    |
+
+### 响应
+```json
+{
+  "sha": "c20ac9624d2811a9313af29769dcf581b60c3044",
+  "merged": true,
+  "message": "Pull Request 已成功合并"
+}
+```

@@ -215,7 +215,8 @@ sidebar:
         "nickname": "",
         "email": "CodeHub_beta_dev@huawei.com",
         "photo": "https://gitcode-user-img.obs.cn-north-4.myhuaweicloud.com:443/de%2Fdd%2F0de6d190dd41c0167427a5982dab156498b05573e7163ae5698d7f4fc0562ce0.png"
-    },    
+    },
+    "homepage": "https://gitcode.com"
 }
 ```
 
@@ -398,7 +399,7 @@ sidebar:
             "date": "2024-04-14T07:25:11+00:00",
             "email": "noreply@gitcode.com"
         },
-        "message": "提交信息测试",
+        "message": "提交信息测试"
     },
     "stats": {  
         "additions": 1,
