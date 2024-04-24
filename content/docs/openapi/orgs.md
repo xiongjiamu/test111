@@ -179,10 +179,9 @@ sidebar:
    "follow_count": 40819
 }
 ```
-
 ## 4 企业 Pull Request 列表
 ### 请求
-`GET https://api.gitcode.com/api/v5/enterprise/{enterprise}/pull_requests
+`GET https://api.gitcode.com/api/v5/enterprise/{enterprise}/pull_requests`
 
 ### 参数
 | 参数名           | 描述  | 类型  | 数据类型  |
