@@ -16,7 +16,7 @@ sidebar:
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
+|  access_token | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 |  sort | 排序字段 name/updated | query | string    |
@@ -116,7 +116,7 @@ sidebar:
 ### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
+|  access_token | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 |  page   | 当前的页码 | query | integer    |
