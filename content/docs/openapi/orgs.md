@@ -39,19 +39,20 @@ sidebar:
 ]
 ```
 
-## 2. 列出授权用户所属的企业
+## 2. 列出授权用户所属的组织
 
 ### 请求
 
-`GET https://api.gitcode.com/api/v5/users/enterprises`
+`GET https://api.gitcode.com/api/v5/users/orgs`
 
 ### 参数
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
-|  page | 当前的页码 | query | string    |
-|  per_page | 每页的数量，默认为20，最大为100 | query | string    |
+| 参数名           | 描述                 | 类型  | 数据类型    |
+|---------------|--------------------| ------  |---------|
+| access_token* | 用户授权码              | query | string  | 
+| page          | 当前的页码              | query | string  |
+| per_page      | 每页的数量，默认为20，最大为100 | query | string  |
+| admin         | 筛选有管理员权限           | query | boolean |
 
 ### 响应
 
@@ -105,55 +106,6 @@ sidebar:
 }
 ```
 
-## 4. 获取一个企业
-
-### 请求
-
-`GET https://api.gitcode.com/api/v5/enterprises/{enterprise}`
-
-### 参数
-
-| 参数名  | 描述                  | 类型  | 数据类型  |
-| ------ |---------------------| ------  |------|
-|  access_token* | 用户授权码               | query | string    | 
-|  enterprise* | 企业的路径(path/login)   | path | string    |
-
-### 响应
-
-```json
-{
-  "path": "wz_test_4",
-  "avatar_url": "",
-  "created_at": "2024-04-12T15:45:58.249+08:00",
-  "description": "",
-  "email": null,
-  "enterprise": "wz_test_4",
-  "events_url": null,
-  "follow_count": 0,
-  "html_url": null,
-  "id": 144239,
-  "location": null,
-  "login": "wz_test_4",
-  "members": 1,
-  "members_url": null,
-  "name": "wz_test_4",
-  "owner": {
-    "id": 0,
-    "login": null,
-    "name": null,
-    "avatar_url": null,
-    "url": null,
-    "html_url": null
-  },
-  "remark": null,
-  "private_repos": 0,
-  "public": true,
-  "public_repos": 0,
-  "repos_url": null,
-  "type": "Group",
-  "url": null
-}
-```
 ## 3 获取一个组织信息
 ### 请求
 `GET https://api.gitcode.com/api/v5/orgs/{org}`
