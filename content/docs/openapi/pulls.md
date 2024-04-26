@@ -18,186 +18,357 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
-|  state | 可选。Pull Request 状态 | query | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  state | 可选。Pull Request 状态: all、open、closed、locked、merged | query | string    |
 |  base   | 可选。Pull Request 提交目标分支的名称 | query | string    |
 |  since | 可选。起始的更新时间，要求时间格式为 ISO 8601 | quey | string    |
 |  direction  | 可选。升序/降序 | query | string    |
-|  milestone_number | 可选。里程碑序号(id) | formData | integer    |
+|  milestone_number | 可选。里程碑序号(id) | quey | integer    |
+|  labels | 以逗号分隔的标签名称列表 | quey | string    |
 |  page   | 当前的页码 | query | integer    |
 |  per_page   | 每页的数量，最大为 100 | query | integer    |
 |  author   | 可选。PR 创建者用户名 | query | string    |
 |  assignee   |  可选。评审者用户名 | query | string    |
-|  tester   |  可选。测试者用户名 | query | string    |
 
 ### 响应
 
 ```json
 [
-    {
-        "id": 11217119,
-        "html_url": "https://gitcode.com/OpenHarmony/ability_ability_base/pulls/341",
-        "number": 341,
-        "close_related_issue": 1,
-        "prune_branch": false,
-        "state": "open",
-        "assignees_number": 1,
-        "testers_number": 1,
-        "assignees": [
-            {
-                "id": 7476845,
-                "login": "ccllee",
-                "name": "ccll",
-                "avatar_url": null,
-                "html_url": "https://gitcode.com/ccllee",
-                "type": "User",
-                "assignee": true,
-                "code_owner": false,
-                "accept": false
-            }
-        ],
-        "milestone": null,
-        "labels": [
-            {
-                "id": 113667295,
-                "color": "20c22e",
-                "name": "dco检查成功",
-                "repository_id": 6511493,
-                "created_at": "2021-06-18T15:08:35+08:00",
-                "updated_at": "2024-04-08T21:46:16+08:00"
-            }
-        ],
-        "created_at": "2024-04-08T19:54:38+08:00",
-        "updated_at": "2024-04-08T21:48:05+08:00",
-        "closed_at": null,
-        "draft": false,
-        "merged_at": null,
-        "mergeable": true,
-        "can_merge_check": false,
-        "user": {
-            "id": 9221401,
-            "login": "hust-yf",
-            "name": "yangfei",
-            "avatar_url": null,
-            "html_url": "https://gitcode.com/hust-yf",
-            "type": "User"
-        },
-        "title": "新增configuration key支持sa对单个应用设置深浅色",
-        "body": "**IssueNo**:Result**:",
-        "head": {
-			"label": "mas",
-            "user": {
-                "id": 9221401,
-                "login": "hust-yf",
-                "name": "yangfei",
-                "avatar_url": null,
-                "html_url": "https://gitcode.com/hust-yf",
-                "type": "User"
-            },
-            "repo": {
-                "id": 34079500,
-                "full_name": "hjj-code_1/ability_ability_base",
-                "human_name": "yffff/ability_ability_base",
-                "path": "ability_ability_base",
-                "name": "ability_ability_base",
-                "assigner": {
-                    "id": 9221401,
-                    "login": "hust-yf",
-                    "name": "yangfei",
-                    "avatar_url": null,
-                    "html_url": "https://gitcode.com/hust-yf",
-                    "type": "User"
-                },
-                "description": "暂无描述",
-                "internal": false,
-                "html_url": "https://gitcode.com/hjj-code_1/ability_ability_base.git"
-            }
-        },
-        "base": {
-            "label": "master",
-            "user": {
-                "id": 626123,
-                "login": "landwind",
-                "name": "mamingshuai",
-                "avatar_url": null,
-                "html_url": "https://gitcode.com/landwind",
-                "type": "User"
-            },
-            "repo": {
-                "id": 22974255,
-                "full_name": "openharmony/ability_ability_base",
-                "human_name": "OpenHarmony/ability_ability_base",
-                "path": "ability_ability_base",
-                "name": "ability_ability_base",
-                "assigner": {
-                    "id": 626123,
-                    "login": "landwind",
-                    "name": "mamingshuai",
-                    "avatar_url": null,
-                    "html_url": "https://gitcode.com/landwind",
-                    "type": "User"
-                },
-                "description": "暂无描述",
-                "internal": false,
-                "html_url": "https://gitcode.com/openharmony/ability_ability_base.git"
-            }
-        }
-    }
+    {
+        "number": 63,
+        "html_url": "https://test.gitcode.net/One/One/merge_requests/63",
+        "close_related_issue": null,
+        "prune_branch": false,
+        "draft": false,
+        "labels": [
+            {
+                "id": 381445,
+                "color": "#008672",
+                "name": "help wanted",
+                "title": "help wanted",
+                "repository_id": 243377,
+                "type": null,
+                "text_color": null
+            },
+            {
+                "id": 381446,
+                "color": "#CFD240",
+                "name": "invalid",
+                "title": "invalid",
+                "repository_id": 243377,
+                "type": null,
+                "text_color": null
+            },
+            {
+                "id": 381447,
+                "color": "#D876E3",
+                "name": "question",
+                "title": "question",
+                "repository_id": 243377,
+                "type": null,
+                "text_color": null
+            }
+        ],
+        "user": {
+            "id": "65f94ab6f21fa3084fc04823",
+            "login": "csdntest13",
+            "name": "csdntest13_gitcode",
+            "state": "active",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "avatar_path": null,
+            "email": "",
+            "name_cn": "csdntest13",
+            "html_url": "https://test.gitcode.net/csdntest13",
+            "tenant_name": null,
+            "is_member": null
+        },
+        "assignees": [
+            {
+                "id": "64c71c3d64037b4af1c7a93f",
+                "login": "green",
+                "name": "百里",
+                "state": "optional",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/be/fb/7b9e393fbd80ca315dec249f2be6e6a7378f591609b6525798bc6d95abedc992.png?time=1712128581171",
+                "avatar_path": null,
+                "email": null,
+                "name_cn": "green",
+                "html_url": "https://test.gitcode.net/green",
+                "assignee": true,
+                "code_owner": false,
+                "accept": false
+            }
+        ],
+        "head": {
+            "label": "test_b12",
+            "ref": "test_b12",
+            "sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310",
+            "user": {
+                "id": "65f94ab6f21fa3084fc04823",
+                "login": "csdntest13",
+                "name": "csdntest13_gitcode",
+                "state": "active",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                "avatar_path": null,
+                "email": "",
+                "name_cn": "csdntest13",
+                "html_url": "https://test.gitcode.net/csdntest13",
+                "tenant_name": null,
+                "is_member": null
+            },
+            "repo": {
+                "id": 243377,
+                "full_path": "One/One",
+                "human_name": "One / One",
+                "name": "One",
+                "path": "One",
+                "description": "csdntest13的第一个项目(公开)",
+                "namespace": {
+                    "id": 136909,
+                    "name": "One",
+                    "path": "One",
+                    "develop_mode": "normal",
+                    "region": null,
+                    "cell": "default",
+                    "kind": "group",
+                    "full_path": "One",
+                    "full_name": "One ",
+                    "parent_id": null,
+                    "visibility_level": 20,
+                    "enable_file_control": null,
+                    "owner_id": null
+                },
+                "owner": {
+                    "id": "65f94ab6f21fa3084fc04823",
+                    "login": "csdntest13",
+                    "name": "csdntest13_gitcode",
+                    "state": "active",
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                    "avatar_path": null,
+                    "email": "",
+                    "name_cn": "csdntest13",
+                    "html_url": "https://test.gitcode.net/csdntest13",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "assigner": {
+                    "id": "64c71c3d64037b4af1c7a93f",
+                    "login": "green",
+                    "name": "百里",
+                    "state": null,
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/be/fb/7b9e393fbd80ca315dec249f2be6e6a7378f591609b6525798bc6d95abedc992.png?time=1712128581171",
+                    "avatar_path": null,
+                    "email": null,
+                    "name_cn": null,
+                    "html_url": "https://test.gitcode.net/green",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "private": null,
+                "public": null,
+                "internal": false
+            }
+        },
+        "base": {
+            "label": "dev",
+            "ref": "dev",
+            "sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86",
+            "user": {
+                "id": "65f94ab6f21fa3084fc04823",
+                "login": "csdntest13",
+                "name": "csdntest13_gitcode",
+                "state": "active",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                "avatar_path": null,
+                "email": "",
+                "name_cn": "csdntest13",
+                "html_url": "https://test.gitcode.net/csdntest13",
+                "tenant_name": null,
+                "is_member": null
+            },
+            "repo": {
+                "id": 243377,
+                "full_path": "One/One",
+                "human_name": "One / One",
+                "name": "One",
+                "path": "One",
+                "description": "csdntest13的第一个项目(公开)",
+                "namespace": {
+                    "id": 136909,
+                    "name": "One",
+                    "path": "One",
+                    "develop_mode": "normal",
+                    "region": null,
+                    "cell": "default",
+                    "kind": "group",
+                    "full_path": "One",
+                    "full_name": "One ",
+                    "parent_id": null,
+                    "visibility_level": 20,
+                    "enable_file_control": null,
+                    "owner_id": null
+                },
+                "owner": {
+                    "id": "65f94ab6f21fa3084fc04823",
+                    "login": "csdntest13",
+                    "name": "csdntest13_gitcode",
+                    "state": "active",
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+                    "avatar_path": null,
+                    "email": "",
+                    "name_cn": "csdntest13",
+                    "html_url": "https://test.gitcode.net/csdntest13",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "assigner": {
+                    "id": "64c71c3d64037b4af1c7a93f",
+                    "login": "green",
+                    "name": "百里",
+                    "state": null,
+                    "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/be/fb/7b9e393fbd80ca315dec249f2be6e6a7378f591609b6525798bc6d95abedc992.png?time=1712128581171",
+                    "avatar_path": null,
+                    "email": null,
+                    "name_cn": null,
+                    "html_url": "https://test.gitcode.net/green",
+                    "tenant_name": null,
+                    "is_member": null
+                },
+                "private": null,
+                "public": null,
+                "internal": false
+            }
+        },
+        "id": 70067,
+        "iid": 63,
+        "project_id": 243377,
+        "title": "测试创建PR",
+        "body": null,
+        "state": "merged",
+        "created_at": "2024-04-21T17:35:16.655+08:00",
+        "updated_at": "2024-04-24T22:27:49.197+08:00",
+        "merged_at": "2024-04-24T22:27:48.631+08:00",
+        "closed_by": null,
+        "closed_at": null,
+        "title_html": null,
+        "description_html": null,
+        "target_branch": "dev",
+        "source_branch": "test_b12",
+        "squash_commit_message": null,
+        "user_notes_count": 1,
+        "upvotes": 0,
+        "downvotes": 0,
+        "source_project_id": 243377,
+        "target_project_id": 243377,
+        "work_in_progress": false,
+        "milestone": null,
+        "merge_when_pipeline_succeeds": false,
+        "merge_status": "can_be_merged",
+        "sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310",
+        "merge_commit_sha": "6c93b6e6fcf1ce1f0ce918d1a481f0500531ab72",
+        "discussion_locked": null,
+        "should_remove_source_branch": false,
+        "force_remove_source_branch": false,
+        "allow_collaboration": null,
+        "allow_maintainer_to_push": null,
+        "web_url": "https://test.gitcode.net/One/One/merge_requests/63",
+        "time_stats": {
+            "time_estimate": null,
+            "total_time_spent": 0,
+            "human_time_estimate": null,
+            "human_total_time_spent": null
+        },
+        "squash": false,
+        "merge_request_type": "MergeRequest",
+        "has_pre_merge_ref": false,
+        "review_mode": "approval",
+        "is_source_branch_exist": true,
+        "approval_merge_request_approvers": [
+            {
+                "id": 233,
+                "username": "wunian2011",
+                "name": "wunian2011",
+                "nick_name": "测试吴",
+                "name_cn": "wunian2011",
+                "email": null,
+                "state": "approve",
+                "is_codeowner": false,
+                "updated_at": "2024-04-24T21:40:11.095+08:00",
+                "avatar_url": null
+            },
+            {
+                "id": 277,
+                "username": "renww",
+                "name": "renww",
+                "nick_name": "介简介简介简介简介简介简介简介简介",
+                "name_cn": "renww",
+                "email": null,
+                "state": "optional",
+                "is_codeowner": false,
+                "updated_at": "2024-04-21T17:35:18.509+08:00",
+                "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ee/dc/7602704ee7dcf13f4383a72d492b1813823afba729ae6e9115877a4a0128d990.jpg?time=1711447395118"
+            }
+        ],
+        "approval_merge_request_testers": [],
+        "added_lines": 1,
+        "removed_lines": 0,
+        "subscribed": true,
+        "changes_count": "1",
+        "latest_build_started_at": null,
+        "latest_build_finished_at": null,
+        "first_deployed_to_production_at": null,
+        "pipeline": null,
+        "diff_refs": {
+            "base_sha": "0c02dd57f8945791460a141f155dd2f4bd5dea86",
+            "head_sha": "fb6495834d1bf7a39dfdb44ad25e6f83c7136310",
+            "start_sha": "b6d44deb0ca73d7a50916d0fea02c72edd6c924e"
+        },
+        "merge_error": null,
+        "json_merge_error": null,
+        "rebase_in_progress": null,
+        "diverged_commits_count": null,
+        "merge_request_reviewer_list": [],
+        "merge_request_review_count": 0,
+        "merge_request_reviewers_count": 0,
+        "notes": 1,
+        "unresolved_discussions_count": 0,
+        "gate_check": true,
+        "head_pipeline_id": null,
+        "pipeline_status": "",
+        "codequality_status": "success",
+        "pipeline_status_with_code_quality": "",
+        "from_forked_project": false,
+        "forked_project_name": null,
+        "can_delete_source_branch": true,
+        "required_reviewers": [],
+        "omega_mode": false,
+        "root_mr_locked_detail": null,
+        "source_git_url": "ssh://git@test.gitcode.net:2222/One/One.git",
+        "auto_merge": false
+    }
 ]
-
 ```
 
-
-## 2. pr提交的文件变更信息
-
+## 2. 合并Pull Request
 ### 请求
-
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/files.json`
-
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/merge`
 ### 参数
-
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+| 参数名      | 描述                         | 类型    | 数据类型   |
+|----------|----------------------------|-------|--------|
+| access_token* | 用户授权码                      | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)     | path  | string |
+| repo*    | 仓库路径(path)                 | path  | string |
+|  number*  | 第几个PR，即本仓库PR的序数 | path  | string    |
+|  merge_method   | 可选。合并PR的方法，merge（合并所有提交）、squash（扁平化分支合并）和rebase（变基并合并）。默认为merge。 | body  | string    |
 
 ### 响应
-
 ```json
 {
-    "code": 0,
-    "added_lines": 2,
-    "removed_lines": 0,
-    "count": "3",
-    "diff_refs": {
-        "base_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
-        "start_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
-        "head_sha": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d"
-    },
-    "diffs": [
-        {
-            "new_blob_id": "45e071c0bc5e62f63730b54a8375f45b8356379b",
-            "statistic": {
-                "type": "new_file",
-                "path": "Photos Library.photoslibrary.zip",
-                "old_path": "Photos Library.photoslibrary.zip",
-                "new_path": "Photos Library.photoslibrary.zip",
-                "viewed": false
-            },
-            "head": {
-                "type": "none_deleted_file",
-                "url": "  /songyi1995/paopao/blob/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
-                "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
-                "commit_short_id": "bb8fd1b"
-            },
-            "added_lines": 0,
-            "removed_lines": 0
-        }
-    ]
+  "sha": "c20ac9624d2811a9313af29769dcf581b60c3044",
+  "merged": true,
+  "message": "Pull Request 已成功合并"
 }
 ```
+
 
 ## 3. 获取pr关联的issue
 
@@ -222,7 +393,25 @@ sidebar:
 [
   {
     "number": "1",
-    "title": "[bug] test"
+    "title": "[bug] test",
+    "state": "open",
+    "title": "进行稳定性测试",
+    "body": "发生什么问题了？",
+    "user": {
+      "id": "681",
+      "login": "test",
+      "name": "test"
+    },
+    "labels": [
+      {
+        "color": "#008672",
+        "name": "help wanted",
+        "id": 381445,
+        "title": "help wanted",
+        "type": null,
+        "textColor": "#FFFFFF"
+      }
+    ]
   }
 ]
 ```
@@ -238,9 +427,11 @@ sidebar:
 | ------ | ------ |-------|------|
 |  access_token* | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
-|  repo*   | 仓库路径(path) | path  | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path  | string    |
-|  body*   | 评论内容 | body  | string    |
+|  repo* | 仓库路径(path) | path  | string    |
+|  number* | 第几个PR，即本仓库PR的序数 | path  | string    |
+|  body* | 评论内容 | body  | string    |
+|  path  | 文件的相对路径 | body  | string    |
+|  position  | Diff的相对行数 | body  | integer    |
 
 
 ### 响应
@@ -335,8 +526,8 @@ sidebar:
 | number* | 第几个PR，即本仓库PR的序数 | path | integer |
 | page | 当前的页码 | query | integer |
 | per_page | 每页的数量，最大为 100 | query | integer |
-| direction | 可选。升序/降序 | query | integer |
-| comment_type | 可选。筛选评论类型。代码行评论/pr普通评论 | query | string |
+| direction | 可选。升序/降序(asc/desc) | query | integer |
+| comment_type | 可选。筛选评论类型。代码行评论/pr普通评论:diff_comment/pr_comment | query | string |
 | end_id | 【*】上一页检视意见最大id（第一页默认为0） | query | integer |
 
 
@@ -344,59 +535,19 @@ sidebar:
 
 ```json
 [
-    {
-        "url": "https://api.gitcode.com/api/v5/repos/zzero/demo/pulls/comments/26594610",
-        "id": 26594610,
-        "path": null,
-        "position": null,
-        "original_position": null,
-        "new_line": null,
-        "commit_id": null,
-        "original_commit_id": null,
-        "user": {
-            "id": 76523,
-            "login": "zzero",
-            "name": "insight",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png",
-            "url": "https://gitcode.com/api/v5/users/zzero",
-            "html_url": "https://gitcode.com/zzero",
-            "state": "active",
-            "email": "",
-            "is_member": ""
-        },
-        "created_at": "2024-04-14T15:46:37+08:00",
-        "updated_at": "2024-04-14T15:46:37+08:00",
-        "body": "第一次评论，有点紧张",
-        "html_url": "https://gitcode.com/zzero/demo/pulls/1#note_26594610",
-        "comment_type": "pr_comment"
-    },
-    {
-        "url": "https://gitcode.com/api/v5/repos/zzero/demo/pulls/comments/26595312",
-        "id": 26595312,
-        "path": "README.md",
-        "position": null,
-        "original_position": null,
-        "new_line": 18,
-        "commit_id": null,
-        "original_commit_id": null,
-        "user": {
-            "id": 76523,
-            "login": "zzero",
-            "name": "insight",
-            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png",
-            "url": "https://gitcode.com/api/v5/users/zzero",
-            "html_url": "https://gitcode.com/zzero",
-            "state": "active",
-            "email": "",
-            "is_member": ""
-        },
-        "created_at": "2024-04-14T16:33:51+08:00",
-        "updated_at": "2024-04-14T16:33:51+08:00",
-        "body": "代码行评论",
-        "html_url": "https://gitcode.com/zzero/demo/pulls/1#note_26595312",
-        "pull_request_url": "https://gitcode.com/api/v5/repos/zzero/demo/pulls/1",
-        "comment_type": "diff_comment"
+  {
+    "id": "de772738e6dab92174c0e86c052ccf9bed24f747",
+    "body": "111",
+    "created_at": "2024-04-19T07:48:59.755+00:00",
+    "updated_at": "2024-04-19T07:48:59.755+00:00",
+    "user": {
+      "id": 708,
+      "login": "Lzm_0916",
+      "name": "Lzm_0916",
+      "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/cb/da/6cb18d9ae9f1a94b4f640d3b848351c352c7869f33d0cb68e7acad4f224c4e23.png",
+      "html_url": "https://test.gitcode.net/Lzm_0916"
     }
+  }
 ]
 ```
 
@@ -933,6 +1084,18 @@ sidebar:
       "login": "test",
       "name": "test_web",
       "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
+      "html_url": "http://gitcode.com/sytest/paopao/pull/1",
+      "assigness": true,
+      "code_owner": false,
+      "accept": true
+    }
+  ],
+  "testers": [
+    {
+      "id": 2,
+      "login": "test",
+      "name": "test_web",
+      "avatar_url": "http://gitcode.com/sytest/paopao/pull/1.png",
       "html_url": "http://gitcode.com/sytest/paopao/pull/1"
     }
   ],
@@ -951,15 +1114,21 @@ sidebar:
   "draft": false,
   "merged_at": "",
   "can_merge_check": false,
+  "mergeable": true,
+  "body": "Description",
   "user": {
     "id": "userId",
     "login": "test"
   },
   "head": {
-    "ref": "test"
+    "label": "test",
+    "ref": "test",
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
   },
   "base": {
-    "ref": "main"
+    "label": "main",
+    "ref": "main",
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
   }
 }
 ```
@@ -1094,3 +1263,208 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
+## 16. 获取某个Pull Request的操作日志
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/operate_logs`
+### 参数
+| 参数名      | 描述                     | 类型    | 数据类型   |
+|----------|------------------------|-------|--------|
+| access_token* | 用户授权码                  | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path) | path  | string |
+| repo*    | 仓库路径(path)             | path  | string |
+| number*      | 第几个PR，即本仓库PR的序数  | body  | 	boolean |
+| sort     | 按递减(desc)排序，默认：递减  | query  | 	boolean |
+
+### 响应
+```json
+[
+    {
+        "content": "Create mr issue link: **第boudoirripinings-24个issue** #79",
+        "id": 274531,
+        "action": "add_mr_issue_link",
+        "merge_request_id": 70067,
+        "created_at": "2024-04-23T11:32:08.522+08:00",
+        "updated_at": "2024-04-23T11:32:08.522+08:00",
+        "discussion_id": "18a5ab21f57cda175b8eabc2ec829a9e04d4d458",
+        "project": "One/One",
+        "assignee": null,
+        "proposer": null,
+        "user": {
+            "id": "65f94ab6f21fa3084fc04823",
+            "name": "csdntest13",
+            "login": "csdntest13",
+            "iam_id": "d8b3e018b2364546b946886a669d50fc",
+            "nick_name": "csdntest13_gitcode",
+            "state": "active",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "avatar_path": null,
+            "email": "csdntest13@noreply.gitcode.com",
+            "name_cn": "csdntest13",
+            "web_url": "https://test.gitcode.net/csdntest13",
+            "tenant_name": null,
+            "is_member": null
+        }
+    },
+    {
+        "content": "Create mr issue link: **第boudoirripinings-25个issue** #80",
+        "id": 274529,
+        "action": "add_mr_issue_link",
+        "merge_request_id": 70067,
+        "created_at": "2024-04-23T11:32:07.588+08:00",
+        "updated_at": "2024-04-23T11:32:07.588+08:00",
+        "discussion_id": "9b4b01dbe059dbdc120afd8bdf9fd865d4ea42b1",
+        "project": "One/One",
+        "assignee": null,
+        "proposer": null,
+        "user": {
+            "id": "65f94ab6f21fa3084fc04823",
+            "name": "csdntest13",
+            "login": "csdntest13",
+            "iam_id": "d8b3e018b2364546b946886a669d50fc",
+            "nick_name": "csdntest13_gitcode",
+            "state": "active",
+            "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+            "avatar_path": null,
+            "email": "csdntest13@noreply.gitcode.com",
+            "name_cn": "csdntest13",
+            "web_url": "https://test.gitcode.net/csdntest13",
+            "tenant_name": null,
+            "is_member": null
+        }
+    }
+]
+```
+
+## 17. 获取某个 Pull Request 的所有标签
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/labels`
+
+### 参数
+| 参数名           | 描述                               | 类型             | 数据类型   |
+|---------------|----------------------------------|----------------|--------|
+|  access_token* | 用户授权码 | query | string    |
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+|  page   | 当前的页码 | query | integer    |
+|  per_page   | 每页的数量，最大为 100 | query | integer    |
+
+###响应
+```json
+[
+  {
+    "id": 18517,
+    "color": "#ED4014",
+    "name": "bug",
+    "repository_id": 198606,
+    "url": "",
+    "created_at": "2024-02-23",
+    "updated_at": "2024-02-23",
+    "text_color": "#FFFFFF"
+  },
+  {
+    "id": 383740,
+    "color": "#428BCA",
+    "name": "performance",
+    "repository_id": 198606,
+    "url": "",
+    "created_at": "2024-04-20",
+    "updated_at": "2024-04-20",
+    "text_color": "#FFFFFF"
+  }
+]
+```
+
+## 18. 重置 Pull Request 测试 的状态
+### 请求
+`PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/testers`
+### 参数
+| 参数名      | 描述                       | 类型    | 数据类型   |
+|----------|--------------------------|-------|--------|
+| access_token* | 用户授权码                    | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)   | path  | string |
+| repo*    | 仓库路径(path)               | path  | string |
+| reset_all      | 是否重置所有测试人，默认：false，只对管理员生效          | body  | 	boolean |
+
+### 响应
+```text
+HTTP status 204 No Content
+```
+
+## 19. 重置 Pull Request 审查 的状态
+### 请求
+`PATCH https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/assignees`
+### 参数
+| 参数名      | 描述                         | 类型    | 数据类型   |
+|----------|----------------------------|-------|--------|
+| access_token* | 用户授权码                      | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)     | path  | string |
+| repo*    | 仓库路径(path)                 | path  | string |
+| reset_all      | 是否重置所有审查人，默认：false，只对管理员生效 | body  | 	boolean |
+
+### 响应
+```text
+HTTP status 204 No Content
+```
+
+
+## 20. pr提交的文件变更信息
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/files.json`
+
+### 参数
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+
+### 响应
+
+```json
+{
+    "code": 0,
+    "added_lines": 2,
+    "removed_lines": 0,
+    "count": "3",
+    "diff_refs": {
+        "base_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
+        "start_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
+        "head_sha": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d"
+    },
+    "diffs": [
+        {
+            "new_blob_id": "45e071c0bc5e62f63730b54a8375f45b8356379b",
+            "statistic": {
+                "type": "new_file",
+                "path": "Photos Library.photoslibrary.zip",
+                "old_path": "Photos Library.photoslibrary.zip",
+                "new_path": "Photos Library.photoslibrary.zip",
+                "viewed": false
+            },
+            "head": {
+                "type": "none_deleted_file",
+                "url": "https://raw.gitcode.com/songyi1995/paopao/raw/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
+                "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
+                "commit_short_id": "bb8fd1b"
+            },
+            "added_lines": 0,
+            "removed_lines": 0
+        }
+    ]
+}
+```
+
+## 21. 获取文件内容
+
+### 请求
+`GET https://raw.gitcode.com/{owner}/{repo}/raw/{head_sha}/{name}`
+
+### 注意
+```text
+请求20 pr提交的文件变更信息的接口,拿到diffs.head.url返回的地址信息 直接浏览器访问即可。
+```
