@@ -106,7 +106,7 @@ sidebar:
 }
 ```
 
-## 3 获取一个组织信息
+## 4. 获取一个组织信息
 ### 请求
 `GET https://api.gitcode.com/api/v5/orgs/{org}`
 
@@ -131,68 +131,5 @@ sidebar:
    "follow_count": 40819
 }
 ```
-## 4 企业 Pull Request 列表
-### 请求
-`GET https://api.gitcode.com/api/v5/enterprise/{enterprise}/pull_requests`
 
-### 参数
-| 参数名           | 描述  | 类型  | 数据类型  |
-|---------------| ------ | ------  |------|
-| access_token* | 用户授权码 | query | string    |
-| enterprise*   | 企业的路径(path/login) | path | string    |
-| repo          |可选。仓库路径(path) | query | string    |
-| state         |可选。Pull Request 状态 | query | string    |
-| sort        |可选。排序字段，默认按创建时间 | query | string    |
-| direction        |可选。升序/降序 | query | string    |
-| page        |当前的页码 | query | string    |
-| per_page        |每页的数量，最大为 100 | query | string    |
-
-### 响应
-```json
-[
-  {
-    "id": 71020,
-    "url": "https://test.gitcode.net/api/v5/repos/test/test/1",
-    "html_url": "https://test.gitcode.net/test/test/1",
-    "number": 1,
-    "state": "merged",
-    "assignees_number": 0,
-    "testers_number": 0,
-    "assignees": [],
-    "testers": [],
-    "mergeable": null,
-    "can_merge_check": true,
-    "head": {
-      "ref": "main",
-      "sha": "d874402d259744a00121c2cff0febc8554339aef",
-      "repo": {
-        "path": "test",
-        "name_space": {
-          "path": "repo-dev"
-        },
-        "assigner": {
-          "id": 708,
-          "login": "Lzm_0916",
-          "name": "Lzm_0916"
-        }
-      }
-    },
-    "base": {
-      "ref": null,
-      "sha": null,
-      "repo": {
-        "path": "test",
-        "name_space": {
-          "path": "repo-dev"
-        },
-        "assigner": {
-          "id": 708,
-          "login": "Lzm_0916",
-          "name": "Lzm_0916"
-        }
-      }
-    }
-  }
-]
-```
 
