@@ -348,57 +348,27 @@ sidebar:
 ]
 ```
 
-
-## 2. pr提交的文件变更信息
-
+## 2. 合并Pull Request
 ### 请求
-
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/files.json`
-
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/merge`
 ### 参数
-
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
-|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
+| 参数名      | 描述                         | 类型    | 数据类型   |
+|----------|----------------------------|-------|--------|
+| access_token* | 用户授权码                      | query | string |
+| owner*   | 仓库所属空间地址(组织或个人的地址path)     | path  | string |
+| repo*    | 仓库路径(path)                 | path  | string |
+|  number*  | 第几个PR，即本仓库PR的序数 | path  | string    |
+|  merge_method   | 可选。合并PR的方法，merge（合并所有提交）、squash（扁平化分支合并）和rebase（变基并合并）。默认为merge。 | body  | string    |
 
 ### 响应
-
 ```json
 {
-    "code": 0,
-    "added_lines": 2,
-    "removed_lines": 0,
-    "count": "3",
-    "diff_refs": {
-        "base_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
-        "start_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
-        "head_sha": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d"
-    },
-    "diffs": [
-        {
-            "new_blob_id": "45e071c0bc5e62f63730b54a8375f45b8356379b",
-            "statistic": {
-                "type": "new_file",
-                "path": "Photos Library.photoslibrary.zip",
-                "old_path": "Photos Library.photoslibrary.zip",
-                "new_path": "Photos Library.photoslibrary.zip",
-                "viewed": false
-            },
-            "head": {
-                "type": "none_deleted_file",
-                "url": "  /songyi1995/paopao/blob/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
-                "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
-                "commit_short_id": "bb8fd1b"
-            },
-            "added_lines": 0,
-            "removed_lines": 0
-        }
-    ]
+  "sha": "c20ac9624d2811a9313af29769dcf581b60c3044",
+  "merged": true,
+  "message": "Pull Request 已成功合并"
 }
 ```
+
 
 ## 3. 获取pr关联的issue
 
@@ -1437,23 +1407,130 @@ HTTP status 204 No Content
 HTTP status 204 No Content
 ```
 
-## 20. 合并Pull Request
+
+## 20. pr提交的文件变更信息
+
 ### 请求
-`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/merge`
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/pulls/{number}/files.json`
+
 ### 参数
-| 参数名      | 描述                         | 类型    | 数据类型   |
-|----------|----------------------------|-------|--------|
-| access_token* | 用户授权码                      | query | string |
-| owner*   | 仓库所属空间地址(组织或个人的地址path)     | path  | string |
-| repo*    | 仓库路径(path)                 | path  | string |
-|  number*  | 第几个PR，即本仓库PR的序数 | path  | string    |
-|  merge_method   | 可选。合并PR的方法，merge（合并所有提交）、squash（扁平化分支合并）和rebase（变基并合并）。默认为merge。 | body  | string    |
+
+| 参数名  | 描述  | 类型  | 数据类型  |
+| ------ | ------ | ------  |------|
+|  access_token* | 用户授权码 | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+|  repo*   | 仓库路径(path) | path | string    |
+|  number*   | 第几个PR，即本仓库PR的序数 | path | string    |
 
 ### 响应
+
 ```json
 {
-  "sha": "c20ac9624d2811a9313af29769dcf581b60c3044",
-  "merged": true,
-  "message": "Pull Request 已成功合并"
+    "code": 0,
+    "added_lines": 2,
+    "removed_lines": 0,
+    "count": "3",
+    "diff_refs": {
+        "base_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
+        "start_sha": "79548c6fd379d6f2e0574341255c95d1e0c7760c",
+        "head_sha": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d"
+    },
+    "diffs": [
+        {
+            "new_blob_id": "45e071c0bc5e62f63730b54a8375f45b8356379b",
+            "statistic": {
+                "type": "new_file",
+                "path": "Photos Library.photoslibrary.zip",
+                "old_path": "Photos Library.photoslibrary.zip",
+                "new_path": "Photos Library.photoslibrary.zip",
+                "viewed": false
+            },
+            "head": {
+                "type": "none_deleted_file",
+                "url": "https://raw.gitcode.com/songyi1995/paopao/raw/bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d/Photos%20Library.photoslibrary.zip",
+                "commit_id": "bb8fd1bd1ee6cfa5a7848839d0dd0195e7e4ce4d",
+                "commit_short_id": "bb8fd1b"
+            },
+            "added_lines": 0,
+            "removed_lines": 0
+        }
+    ]
 }
+```
+
+## 21. 获取文件内容
+
+### 请求
+`GET https://raw.gitcode.com/{owner}/{repo}/raw/{head_sha}/{name}`
+
+### 注意
+```text
+请求20 pr提交的文件变更信息的接口,拿到diffs.head.url返回的地址信息 直接浏览器访问即可。
+```
+
+## 22. 企业 Pull Request 列表
+### 请求
+`GET https://api.gitcode.com/api/v5/enterprise/{enterprise}/pull_requests`
+
+### 参数
+| 参数名           | 描述  | 类型  | 数据类型  |
+|---------------| ------ | ------  |------|
+| access_token* | 用户授权码 | query | string    |
+| enterprise*   | 企业的路径(path/login) | path | string    |
+| repo          |可选。仓库路径(path) | query | string    |
+| state         |可选。Pull Request 状态 | query | string    |
+| sort        |可选。排序字段，默认按创建时间 | query | string    |
+| direction        |可选。升序/降序 | query | string    |
+| page        |当前的页码 | query | string    |
+| per_page        |每页的数量，最大为 100 | query | string    |
+
+### 响应
+
+```json
+[
+  {
+    "id": 71020,
+    "url": "https://test.gitcode.net/api/v5/repos/test/test/1",
+    "html_url": "https://test.gitcode.net/test/test/1",
+    "number": 1,
+    "state": "merged",
+    "assignees_number": 0,
+    "testers_number": 0,
+    "assignees": [],
+    "testers": [],
+    "mergeable": null,
+    "can_merge_check": true,
+    "head": {
+      "ref": "main",
+      "sha": "d874402d259744a00121c2cff0febc8554339aef",
+      "repo": {
+        "path": "test",
+        "name_space": {
+          "path": "repo-dev"
+        },
+        "assigner": {
+          "id": 708,
+          "login": "Lzm_0916",
+          "name": "Lzm_0916"
+        }
+      }
+    },
+    "base": {
+      "ref": null,
+      "sha": null,
+      "repo": {
+        "path": "test",
+        "name_space": {
+          "path": "repo-dev"
+        },
+        "assigner": {
+          "id": 708,
+          "login": "Lzm_0916",
+          "name": "Lzm_0916"
+        }
+      }
+    }
+  }
+]
 ```
