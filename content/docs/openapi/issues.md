@@ -757,7 +757,7 @@ sidebar:
 |  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
 |  repo*   | 仓库路径(path)               | path | string |
 |  number*   | issue编号                  | path | string |
-
+|  body*   | The contents of the comment.                 | formdata | string |
 
 ### 响应
 ```json
