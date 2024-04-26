@@ -434,6 +434,7 @@ sidebar:
 
 
 
+
 ## 11. 创建一个仓库的Tag
 
 ### 请求
@@ -624,7 +625,7 @@ HTTP status 200 No Content
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 |  username*   | 用户名(username/login)  | path | string    |
-| permission* | 成员权限: 拉代码(pull)，推代码(push)，管理员(admin)。默认: push | formData |string |
+| permission* | 成员权限: 拉代码(pull)，推代码(push)，仓库维护者(admin)。默认: push | formData |string |
 
 
 ### 响应
