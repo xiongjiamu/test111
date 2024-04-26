@@ -107,7 +107,7 @@ sidebar:
 |  title | Issue标题 | formData | string    |
 |  body   | Issue描述 | formData | string    |
 |  state   | Issue 状态，open（开启的）、closed（关闭的） | formData | string    |
-|  assignee | Issue负责人的个人空间地址 | formData | string    |
+|  assignee | Issue负责人的 username | formData | string    |
 |  milestone  | 里程碑序号 | formData | integer    |
 |  labels | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | formData | string    |
 |  security_hole   | 是否是私有issue(默认为false) | formData | string    |
