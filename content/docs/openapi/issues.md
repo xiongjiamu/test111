@@ -797,7 +797,7 @@ sidebar:
 ```
 ## 11 获取某个iusse下的操作日志
 ### 请求
-`POST https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/operate_logs`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/operate_logs`
 
 ### 参数
 | 参数名  | 描述                       | 类型  | 数据类型  |
