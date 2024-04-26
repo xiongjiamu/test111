@@ -674,7 +674,7 @@ sidebar:
 ]
 ```
 
-## 8 获取企业某个Issue所有标签
+## 8.获取企业某个Issue所有标签
 
 ### 请求
 `GET https://api.gitcode.com/api/v5/enterprises/{enterprise}/issues/{number}/labels`
@@ -701,7 +701,7 @@ sidebar:
   }
 ]
 ```
-## 9 创建Issue标签
+## 9.创建Issue标签
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/labels`
 
@@ -728,7 +728,7 @@ sidebar:
 ]
 ```
 
-## 10 删除Issue标签
+## 10.删除Issue标签
 
 ### 请求
 `DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/labels/{name}`
@@ -746,7 +746,7 @@ sidebar:
 ### 响应
 `204`
 
-## 11 创建Issue评论
+## 11.创建Issue评论
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/comments`
 
@@ -795,7 +795,7 @@ sidebar:
     "updated_at": null
 }
 ```
-## 11 获取某个iusse下的操作日志
+## 12.获取某个iusse下的操作日志
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/operate_logs`
 
