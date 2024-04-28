@@ -39,7 +39,41 @@ sidebar:
 ]
 ```
 
-## 2. 获取组织成员详情
+## 2. 列出授权用户所属的组织
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/users/orgs`
+
+### 参数
+
+| 参数名           | 描述                 | 类型  | 数据类型    |
+|---------------|--------------------| ------  |---------|
+| access_token* | 用户授权码              | query | string  | 
+| page          | 当前的页码              | query | string  |
+| per_page      | 每页的数量，默认为20，最大为100 | query | string  |
+| admin         | 筛选有管理员权限           | query | boolean |
+
+### 响应
+
+```json
+[
+    {
+        "id": 133039,
+        "login": "openharmony",
+        "path": "openharmony",
+        "name": "OpenHarmony",
+        "avatar_url": null,
+        "repos_url": null,
+        "events_url": null,
+        "members_url": null,
+        "description": "OpenHarmony是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的开源项目，目标是面向全场景、全连接、全智能时代，搭建一个智能终端设备操作系统的框架和平台，促进万物互联产业的繁荣发展。",
+        "follow_count": 3
+    }
+]
+```
+
+## 3. 获取组织成员详情
 
 ### 请求
 
@@ -71,7 +105,8 @@ sidebar:
     }
 }
 ```
-## 3 获取一个组织信息
+
+## 4. 获取一个组织信息
 ### 请求
 `GET https://api.gitcode.com/api/v5/orgs/{org}`
 
@@ -96,3 +131,5 @@ sidebar:
    "follow_count": 40819
 }
 ```
+
+

@@ -18,10 +18,10 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
+|  repo*   | 仓库路径 | formData | string    |
 |  title* | Issue标题 | formData | string    |
 |  body   | Issue描述 | formData | string    |
-|  assignee | Issue负责人的个人空间地址 | formData | string    |
+|  assignee | Issue负责人的username | formData | string    |
 |  milestone  | 里程碑序号 | formData | integer    |
 |  labels | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | formData | string    |
 |  security_hole   | 是否是私有issue(默认为false) | formData | string    |
@@ -102,12 +102,12 @@ sidebar:
 | ------ | ------ | ------  |------|
 |  access_token* | 用户授权码 | query | string    |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | formData | string    |
+|  repo*   | 仓库路径 | formData | string    |
 |  number*   | Issue 编号(区分大小写，无需添加 # 号) | path | string    |
 |  title | Issue标题 | formData | string    |
 |  body   | Issue描述 | formData | string    |
 |  state   | Issue 状态，open（开启的）、closed（关闭的） | formData | string    |
-|  assignee | Issue负责人的个人空间地址 | formData | string    |
+|  assignee | Issue负责人的 username | formData | string    |
 |  milestone  | 里程碑序号 | formData | integer    |
 |  labels | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | formData | string    |
 |  security_hole   | 是否是私有issue(默认为false) | formData | string    |
@@ -482,8 +482,8 @@ sidebar:
 | repo*| 仓库路径(path)  | path  | string |
 | number*| Issue 编号(区分大小写，无需添加 # 号)  | path  | string |
 | since |Only comments updated at or after this time are returned. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ  | query | string |
-| page* | 当前的页码 | query | integer |
-| per_page* | 每页的数量，最大为 100 | query | integer |
+| page | 当前的页码 | query | integer |
+| per_page | 每页的数量，最大为 100 | query | integer |
 | order |排序顺序: asc(default),desc | query | string |
 
 
@@ -607,22 +607,74 @@ sidebar:
 
 ```json
 [
-    {
-        "id": 68525,
-        "html_url": "https://test.gitcode.net/dengmengmian/test01/merge_requests/1",
-        "number": 1,
-        "state": "opened",
-        "title": "new: 新增文件 1.text",
-        "body": "new: 新增文件 1.text ",
-        "created_at": "2024-04-15T16:29:11.035+08:00",
-        "updated_at": "2024-04-15T16:29:17.769+08:00",
-        "merged_at": null,
-        "closed_at": null
-    }
+  {
+    "id": 67585,
+    "html_url": "https://api.gitcode.net/test/test/merge_requests/1",
+    "diff_url": "https://api.gitcode.net/test/test/merge_requests/1/diffs",
+    "number": 1,
+    "state": "opened",
+    "title": "1",
+    "body": "new: 新增文件 test.txt 1",
+    "created_at": "2024-04-12T17:50:55.253+08:00",
+    "updated_at": "2024-04-20T15:58:30.657+08:00",
+    "merged_at": null,
+    "closed_at": null,
+    "head": {
+      "ref": "develop",
+      "sha": "061c446d55aae78c7a0f096b2d2dd0d6a1afb170",
+      "repo": {
+        "path": "paopao1",
+        "name": "paopao1"
+      },
+      "assigner": {
+        "login": "test",
+        "name": "test"
+      }
+    },
+    "base": {
+      "ref": "main",
+      "sha": "667d4ac032b2faa13d019753ac218b4f78338273",
+      "repo": {
+        "path": "paopao1",
+        "name": "paopao1"
+      },
+      "assigner": null
+    },
+    "assignees": [
+      {
+        "id": "65803cddcf1e2d1aa3d2e99f",
+        "login": "test",
+        "name": null,
+        "avatar_url": null,
+        "html_url": "https://api.gitcode.net/test"
+      }
+    ],
+    "testers": [
+      {
+        "id": "65803cddcf1e2d1aa3d2e99f",
+        "login": "test",
+        "name": "test",
+        "avatar_url": null,
+        "html_url": "https://api.gitcode.net/test"
+      }
+    ],
+    "labels": [
+      {
+        "id": 383707,
+        "color": "#CCCCCC",
+        "name": "wontfix",
+        "repository_id": null,
+        "url": null,
+        "created_at": "2024-04-19",
+        "updated_at": "2024-04-19",
+        "text_color": "#333333"
+      }
+    ]
+  }
 ]
 ```
 
-## 8 获取企业某个Issue所有标签
+## 8.获取企业某个Issue所有标签
 
 ### 请求
 `GET https://api.gitcode.com/api/v5/enterprises/{enterprise}/issues/{number}/labels`
@@ -649,7 +701,7 @@ sidebar:
   }
 ]
 ```
-## 9 创建Issue标签
+## 9.创建Issue标签
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/labels`
 
@@ -676,7 +728,7 @@ sidebar:
 ]
 ```
 
-## 10 删除Issue标签
+## 10.删除Issue标签
 
 ### 请求
 `DELETE https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/labels/{name}`
@@ -694,7 +746,7 @@ sidebar:
 ### 响应
 `204`
 
-## 11 创建Issue评论
+## 11.创建Issue评论
 ### 请求
 `POST https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/comments`
 
@@ -705,7 +757,7 @@ sidebar:
 |  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
 |  repo*   | 仓库路径(path)               | path | string |
 |  number*   | issue编号                  | path | string |
-
+|  body*   | The contents of the comment.                 | formdata | string |
 
 ### 响应
 ```json
@@ -743,9 +795,9 @@ sidebar:
     "updated_at": null
 }
 ```
-## 11 获取某个iusse下的操作日志
+## 12.获取某个issue下的操作日志
 ### 请求
-`POST https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/operate_logs`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/operate_logs`
 
 ### 参数
 | 参数名  | 描述                       | 类型  | 数据类型  |
@@ -781,14 +833,36 @@ sidebar:
             "url": null
         },
         "content": "Create issue mr links: **new: 新增文件 1.text** #1",
-        "body": null,
         "created_at": "2024-04-20T15:20:24.009+08:00",
         "action_type": "add_issue_mr_link",
         "update_at": "2024-04-20T15:20:24.009+08:00",
+        "title": "new: 新增文件 1.text",
+        "body": "new: 新增文件 1.text ",
+        "head": {
+            "ref": "develop",
+            "sha": "dd954d3a779edc86dae5b4b60c7f24dd0f195bf4",
+            "repo": {
+                "path": "test01",
+                "name": "test01"
+            },
+            "assigner": {
+                "login": "dengmengmian",
+                "name": "麻凡_"
+            }
+        },
+        "base": {
+            "ref": "main",
+            "sha": "32cff0d8faaa0c044d0f94957e656051986e8403",
+            "repo": {
+                "path": "test01",
+                "name": "test01"
+            },
+            "assigner": null
+        },
         "issue_id": "152642"
     },
     {
-        "id": 270415,
+        "id": 272198,
         "user": {
             "avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/fa/fe/f32a9fecc53e890afbd48fd098b0f6c5f20f062581400c76c85e5baab3f0d5b2.png",
             "events_url": null,
@@ -809,11 +883,14 @@ sidebar:
             "type": null,
             "url": null
         },
-        "content": "add label enim, proident, qui",
+        "content": "changed milestone to testew",
+        "created_at": "2024-04-20T15:20:09.305+08:00",
+        "action_type": "milestone",
+        "update_at": "2024-04-20T15:20:09.305+08:00",
+        "title": null,
         "body": null,
-        "created_at": "2024-04-18T14:35:15.518+08:00",
-        "action_type": "label",
-        "update_at": "2024-04-18T14:35:15.518+08:00",
+        "head": null,
+        "base": null,
         "issue_id": "152642"
     }
 ]

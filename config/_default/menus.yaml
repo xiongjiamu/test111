@@ -8,9 +8,9 @@ main:
   - name: 帮助文档
     url: docs/
     weight: 20
-  # - name: 博客
-  #   url: blog/
-  #   weight: 30
+  - name: 官方博客
+    url: blog/
+    weight: 30
   - name: API 文档
     url: docs/openapi/
     weight: 40
@@ -24,11 +24,15 @@ sidebar:
     params:
       type: separator
     weight: 1
+  - identifier: blog
+    name: "官方博客"
+    pageRef: "/blog"
+    weight: 2
   - identifier: community
     name: "社区支持"
     pageRef: "/community"
-    weight: 2
+    weight: 3
   - identifier: hugoDocs
     name: "反馈中心 ↗"
     url: "https://gitcode.com/Gitcode-offical-team/GitCode-Docs/issues"
-    weight: 3
+    weight: 4

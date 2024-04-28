@@ -16,7 +16,7 @@ sidebar:
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
+|  access_token | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 |  sort | 排序字段 name/updated | query | string    |
@@ -29,26 +29,27 @@ sidebar:
 
 ```json
 [
-    {
-        "name": "master",
-        "commit": {
-            "sha": "5d165dae3b073d3e92ca91c3edcb21994361462c",
-            "commit": {
-                "author": {
-                    "name": "GitCode2023",
-                    "date": "2024-04-08T21:13:33+08:00",
-                    "email": "13328943+gitcode_admin@user.noreply.gitcode.com"
-                },
-                "committer": {
-                    "name": "Gitee",
-                    "date": "2024-04-08T21:13:33+08:00",
-                    "email": "noreply@gitcode.com"
-                },
-                "message": "wwqwqwq"
-            }
+  {
+    "name": "main",
+    "commit": {
+      "commit": {
+        "author": {
+          "name": "Lzm_0916",
+          "date": "2024-04-16T08:41:20.000Z",
+          "email": "Lzm_0916@noreply.gitcode.com"
         },
-        "protected": true
-    }
+        "committer": {
+          "name": "Lzm_0916",
+          "date": "2024-04-16T08:41:20.000Z",
+          "email": "Lzm_0916@noreply.gitcode.com"
+        },
+        "message": "提交测试类"
+      },
+      "sha": "1d45587145552af003cd32cc6fde9ac9d9e5fd42",
+      "url": "https://test.gitcode.net/api/v5/repos/Lzm_0916/test/commits/1d45587145552af003cd32cc6fde9ac9d9e5fd42"
+    },
+    "protected": true
+  }
 ]
 
 ```
@@ -115,7 +116,7 @@ sidebar:
 ### 参数
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
+|  access_token | 用户授权码 | query | string    | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 |  page   | 当前的页码 | query | integer    |
@@ -217,7 +218,8 @@ sidebar:
         "nickname": "",
         "email": "CodeHub_beta_dev@huawei.com",
         "photo": "https://gitcode-user-img.obs.cn-north-4.myhuaweicloud.com:443/de%2Fdd%2F0de6d190dd41c0167427a5982dab156498b05573e7163ae5698d7f4fc0562ce0.png"
-    },    
+    },
+    "homepage": "https://gitcode.com"
 }
 ```
 
@@ -400,7 +402,7 @@ sidebar:
             "date": "2024-04-14T07:25:11+00:00",
             "email": "noreply@gitcode.com"
         },
-        "message": "提交信息测试",
+        "message": "提交信息测试"
     },
     "stats": {  
         "additions": 1,
@@ -419,17 +421,19 @@ sidebar:
 |  access_token* | 用户授权码 | query | string   | 
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
 |  repo*   | 仓库路径(path) | path  | string    |
-| sha* |  提交的SHA值或者分支名 | path  | string |
+| sha* |  文件的 Blob SHA，可通过 [获取仓库具体路径下的内容] API 获取 | path  | string |
 
 ### 返回:
 ```json
 {
     "sha":"e5699fe1b360d6c799ee58b24fb5a670b1e14851",
     "size":19,
-    "url":"https://gitcode.com/api/v5/repos/daming_1/zhu_di/git/blobs/e5699fe1b360d6c799ee58b24fb5a670b1e14851","content":"JXU2RDRCJXU4QkQ1d2ViaG9vaw==",
+    "url":"https://gitcode.com/api/v5/repos/daming_1/zhu_di/git/blobs/e5699fe1b360d6c799ee58b24fb5a670b1e14851",
+    "content":"JXU2RDRCJXU4QkQ1d2ViaG9vaw==",
     "encoding":"base64"
 }
 ```
+
 
 
 
@@ -494,7 +498,7 @@ HTTP status 200 No Content
 
 | 参数名  | 描述  | 类型  | 数据类型  |
 | ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | body | string   |
+|  access_token* | 用户授权码 | query | string   |
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 | path* | 文件路径 | path | string |
@@ -536,13 +540,13 @@ HTTP status 200 No Content
 
 `PUT https://api.gitcode.com/api/v5/org/{org}/repo/{repo}/status`
 
-| 参数名        | 描述                       | 类型 | 数据类型 |
-| ------------- | -------------------------- | ---- | -------- |
-| access_token* | 用户授权码                 | body | string   |
-| org*          | 仓库所属组织               | path | string   |
-| repo*         | 仓库路径(path)             | path | string   |
-| status*       | 仓库状态，0：开始，2：关闭 | body | integer  |
-| password*     | 用户密码                   | body | string   |
+| 参数名        | 描述                       | 类型  | 数据类型 |
+| ------------- | -------------------------- | ----- | -------- |
+| access_token* | 用户授权码                 | query | string   |
+| org*          | 仓库所属组织               | path  | string   |
+| repo*         | 仓库路径(path)             | path  | string   |
+| status*       | 仓库状态，0：开始，2：关闭 | body  | integer  |
+| password*     | 用户密码                   | body  | string   |
 
 ### 返回:
 
@@ -557,15 +561,15 @@ HTTP status 200 No Content
 
 ### 请求：
 
-`POST https://api.gitcode.com/api/v5/orgs/{org}/projects/{repo}/transfer`
+`POST https://api.gitcode.com/api/v5/org/{org}/projects/{repo}/transfer`
 
-| 参数名        | 描述               | 类型 | 数据类型 |
-| ------------- | ------------------ | ---- | -------- |
-| access_token* | 用户授权码         | body | string   |
-| org*          | 仓库所属组织       | path | string   |
-| repo*         | 仓库路径           | path | string   |
-| transfer_to*  | 要转移到的目标组织 | body | string   |
-| password*     | 用户密码           | body | string   |
+| 参数名        | 描述               | 类型  | 数据类型 |
+| ------------- | ------------------ | ----- | -------- |
+| access_token* | 用户授权码         | query | string   |
+| org*          | 仓库所属组织       | path  | string   |
+| repo*         | 仓库路径           | path  | string   |
+| transfer_to*  | 要转移到的目标组织 | body  | string   |
+| password*     | 用户密码           | body  | string   |
 
 ### 返回:
 
@@ -623,7 +627,7 @@ HTTP status 200 No Content
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 |  username*   | 用户名(username/login)  | path | string    |
-| permission* | 成员权限: 拉代码(pull)，推代码(push)，管理员(admin)。默认: push | formData |string |
+| permission* | 成员权限: 拉代码(pull)，推代码(push)，仓库维护者(admin)。默认: push | formData |string |
 
 
 ### 响应
@@ -720,4 +724,110 @@ HTTP status 204 No Content
     "created_at": "2024-03-28T11:19:33+08:00",
     "updated_at": "2024-03-28T11:19:33+08:00"
 }
+```
+
+
+## 21. 获取单个分支
+
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/branches/{branch}`
+
+### 参数
+
+| 参数名  | 描述                     | 类型    | 数据类型  |
+| ------ |------------------------|-------|------|
+|  access_token* | 用户授权码                  | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path) | path  | string    |
+|  repo*   | 仓库路径(path)             | path  | string    |
+|  branch*   | 分支名称              | path  | string    |
+
+### 响应
+```json
+{
+    "name": "dev",
+    "commit": {
+        "id": "b6d44deb0ca73d7a50916d0fea02c72edd6c924e",
+        "message": "\ndev新增文件\n\nCreated-by: csdntest13\nAuthor-id: 494\nMR-id: 68629\nCommit-by: csdntest13\nMerged-by: csdntest13\nE2E-issues: \nDescription: 提交信息\n\nSee merge request: One/One!56",
+        "parent_ids": [
+            "13956ffeb5e5e1ce60c2ed91d3e579fc50b1f167",
+            "3e42dcb9c09b39972c65536dad71651322470f28"
+        ],
+        "authored_date": "2024-04-15T14:38:50.000Z",
+        "author_name": "csdntest13",
+        "author_iam_id": null,
+        "author_email": "csdntest13@noreply.gitcode.com",
+        "author_user_name": null,
+        "committed_date": "2024-04-15T14:38:50.000Z",
+        "committer_name": "csdntest13",
+        "committer_email": "csdntest13@noreply.gitcode.com",
+        "committer_user_name": null,
+        "open_gpg_verified": null,
+        "verification_status": null,
+        "gpg_primary_key_id": null,
+        "short_id": "b6d44deb",
+        "created_at": "2024-04-15T14:38:50.000Z",
+        "title": "merge refs/merge-requests/56/head into dev",
+        "author_avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+        "committer_avatar_url": "https://gitcode-img.obs.cn-south-1.myhuaweicloud.com:443/ec/ba/4e7c4661b6154a7dd088d9fe64b4893383a2e318bf362350ce18d44df6ac7e37.png?time=1711533165876",
+        "relate_url": null
+    },
+    "merged": false,
+    "protected": false,
+    "developers_can_push": false,
+    "developers_can_merge": false,
+    "can_push": true,
+    "default": false
+}
+```
+
+## 22. 获取仓库的所有成员
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/collaborators`
+
+### 参数
+| 参数名         | 描述  | 类型  | 数据类型  |
+|-------------| ------ | ------  |------|
+| access_token* | 用户授权码 | formData | string    | 
+| owner*      | 仓库所属空间地址(组织或个人的地址path) | path | string    |
+| repo*       | 仓库路径(path) | path | string    |
+| page        | 当前的页码  | query | integer    |
+| per_page  | 每页的数量，最大为 100| query |integer |
+
+
+### 响应
+
+```json
+[
+  {
+    "id": "708",
+    "name": "Lzm_0916",
+    "username": "Lzm_0916",
+    "nick_name": null,
+    "state": null,
+    "avatar": null,
+    "avatar_url": null,
+    "email": null,
+    "name_cn": null,
+    "web_url": "https://test.gitcode.net/Lzm_0916",
+    "access_level": null,
+    "expires_at": null,
+    "limited": null,
+    "type": "ProjectMember",
+    "last_owner": null,
+    "is_current_source_member": null,
+    "last_source_owner": null,
+    "join_way": null,
+    "source_name": null,
+    "member_roles": null,
+    "iam_id": null,
+    "committer_system_from": null,
+    "permissions": {
+      "pull": null,
+      "push": null,
+      "admin": true
+    }
+  }
+]
 ```
