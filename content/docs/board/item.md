@@ -1,7 +1,7 @@
 ---
 linkTitle: 添加新的任务
 title: 添加新的任务
-weight: 3
+weight: 4
 sidebar:
   open: false
 ---
