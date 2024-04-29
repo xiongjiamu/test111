@@ -30,3 +30,5 @@ Today we ask you to defend the open source independence of the Hugo Blox Builder
 We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
 
 ### [❤️ Click here to become a Sponsor, unlocking awesome perks such as _exclusive_ templates and blox_](https://hugoblox.com/sponsor/)
+
+测试一下
