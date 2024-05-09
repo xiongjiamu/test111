@@ -25,6 +25,8 @@ sidebar:
 |  milestone  | 里程碑序号 | formData | integer    |
 |  labels | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | formData | string    |
 |  security_hole   | 是否是私有issue(默认为false) | formData | string    |
+|  issue_stage  | 严重程序（Accepted,Coding,Completed,New,Rejected,Revising,Testing,Verified） | formData | string    |
+|  issue_severity | 优先级 （Suggestion,Minor,Major,Fatal）| formData | string    |
 
 ### 响应
 
@@ -85,7 +87,9 @@ sidebar:
             "name": "qui",
             "color": "#428BCA"
         }
-    ]
+    ],
+    "stage": "New",
+    "severity": "Major"
 }
 
 ```
@@ -111,6 +115,8 @@ sidebar:
 |  milestone  | 里程碑序号 | formData | integer    |
 |  labels | 用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance | formData | string    |
 |  security_hole   | 是否是私有issue(默认为false) | formData | string    |
+|  issue_stage  | 严重程序（Accepted,Coding,Completed,New,Rejected,Revising,Testing,Verified） | formData | string    |
+|  issue_severity | 优先级 （Suggestion,Minor,Major,Fatal）| formData | string    |
 
 ### 响应
 
@@ -185,12 +191,14 @@ sidebar:
             "name": "id",
             "color": "#428BCA"
         }
-    ]
+    ],
+    "stage": "New",
+    "severity": "Major"
 }
 ```
 
 
-## 3. 仓库的某个Issue
+## 3. 获取仓库的某个Issue
 
 ### 请求
 
@@ -258,7 +266,9 @@ sidebar:
     "priority": null,
     "issue_type": null,
     "issue_state": "opened",
-    "issue_state_detail": null
+    "issue_state_detail": null,
+    "stage": "New",
+    "severity": "Major"
 }
 ```
 
