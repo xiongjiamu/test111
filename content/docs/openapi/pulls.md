@@ -40,6 +40,7 @@ sidebar:
         "close_related_issue": null,
         "prune_branch": false,
         "draft": false,
+        "url":"https://api.gitcode.net/api/v5/repos/One/One/pulls/63",
         "labels": [
             {
                 "id": 381445,
@@ -396,6 +397,7 @@ sidebar:
     "title": "[bug] test",
     "state": "open",
     "title": "进行稳定性测试",
+    "url":"https://api.gitcode.com/api/v5/repos/sytest/paopao/issues/1",
     "body": "发生什么问题了？",
     "user": {
       "id": "681",
@@ -1076,6 +1078,8 @@ sidebar:
   "id": 111,
   "html_url": "http://gitcode.com/sytest/paopao/pull/1",
   "number": 1,
+  "url":"https://api.gitcode.com/api/v5/repos/sytest/paopao/pulls/1",
+  "issue_url":"https://api.gitcode.com/api/v5/repos/sytest/paopao/pulls/1/issues",
   "state": "open",
   "assignees_number": 1,
   "assignees": [
@@ -1123,12 +1127,20 @@ sidebar:
   "head": {
     "label": "test",
     "ref": "test",
-    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6",
+    "repo":{
+      "path":"paopao",
+      "name":"paopao"
+    }
   },
   "base": {
     "label": "main",
     "ref": "main",
-    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6",
+    "repo":{
+      "path":"paopao",
+      "name":"paopao"
+    }
   }
 }
 ```
@@ -1160,7 +1172,8 @@ sidebar:
       "committer": {
         "name": "test",
         "email": "test@test.com"
-      }
+      },
+      "message":"!5 333 * add 1/2/3/4. * add 1/2/3. "
     },
     "author": {
       "id": "id123",
@@ -1175,6 +1188,10 @@ sidebar:
       "name": "test",
       "avatar_url": "https://gitcode/pic.png",
       "html_url": "https://gitcode.com/test"
+    },
+    "parents":{
+      "sha":"2e208a1e38f6a5a7b0cc3787688067ba082a8bb7",
+      "shas":["2e208a1e38f6a5a7b0cc3787688067ba082a8bb7"]
     }
   }
 ]
