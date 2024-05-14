@@ -23,7 +23,7 @@ sidebar:
 |  base   | 可选。Pull Request 提交目标分支的名称                         | query | string    |
 |  since | 可选。起始的更新时间，要求时间格式为 ISO 8601                       | quey | string    |
 |  direction  | 可选。升序/降序                                          | query | string    |
-|  sort   | 可选。排序字段: created_at、updated_at、merged_at          | query | string    |
+|  sort   | 可选。排序字段: created_at、updated_at          | query | string    |
 |  milestone_number | 可选。里程碑序号(id)                                      | quey | integer    |
 |  labels | 以逗号分隔的标签名称列表                                      | quey | string    |
 |  page   | 当前的页码                                             | query | integer    |
@@ -1528,7 +1528,7 @@ HTTP status 204 No Content
           "path": "repo-dev"
         },
         "assigner": {
-          "id": 708,
+          "id": "uuid",
           "login": "Lzm_0916",
           "name": "Lzm_0916"
         }
@@ -1541,11 +1541,6 @@ HTTP status 204 No Content
         "path": "test",
         "name_space": {
           "path": "repo-dev"
-        },
-        "assigner": {
-          "id": 708,
-          "login": "Lzm_0916",
-          "name": "Lzm_0916"
         }
       }
     }
