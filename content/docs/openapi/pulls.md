@@ -14,22 +14,22 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述                                                | 类型  | 数据类型  |
-| ------ |---------------------------------------------------| ------  |------|
-|  access_token* | 用户授权码                                             | query | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path)                            | path | string    |
-|  repo*   | 仓库路径(path)                                        | path | string    |
+| 参数名  | 描述                                          | 类型  | 数据类型  |
+| ------ |---------------------------------------------| ------  |------|
+|  access_token* | 用户授权码                                       | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path)                      | path | string    |
+|  repo*   | 仓库路径(path)                                  | path | string    |
 |  state | 可选。Pull Request 状态: all、open、closed、locked、merged | query | string    |
-|  base   | 可选。Pull Request 提交目标分支的名称                         | query | string    |
-|  since | 可选。起始的更新时间，要求时间格式为 ISO 8601                       | quey | string    |
-|  direction  | 可选。升序/降序                                          | query | string    |
-|  sort   | 可选。排序字段: created_at、updated_at          | query | string    |
-|  milestone_number | 可选。里程碑序号(id)                                      | quey | integer    |
-|  labels | 以逗号分隔的标签名称列表                                      | quey | string    |
-|  page   | 当前的页码                                             | query | integer    |
-|  per_page   | 每页的数量，最大为 100                                     | query | integer    |
-|  author   | 可选。PR 创建者用户名                                      | query | string    |
-|  assignee   | 可选。评审者用户名                                         | query | string    |
+|  base   | 可选。Pull Request 提交目标分支的名称                   | query | string    |
+|  since | 可选。起始的更新时间，要求时间格式为 ISO 8601                 | quey | string    |
+|  direction  | 可选。升序/降序                                    | query | string    |
+|  sort   | 可选。排序字段: created、updated          | query | string    |
+|  milestone_number | 可选。里程碑序号(id)                                | quey | integer    |
+|  labels | 以逗号分隔的标签名称列表                                | quey | string    |
+|  page   | 当前的页码                                       | query | integer    |
+|  per_page   | 每页的数量，最大为 100                               | query | integer    |
+|  author   | 可选。PR 创建者用户名                                | query | string    |
+|  assignee   | 可选。评审者用户名                                   | query | string    |
 
 ### 响应
 

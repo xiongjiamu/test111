@@ -1,5 +1,5 @@
 ---
-linkTitle: 用户账号 Users
+linkTitle: Users
 title: 用户账号API文档
 weight: 2
 sidebar:

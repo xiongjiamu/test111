@@ -1,12 +1,12 @@
 ---
-linkTitle: 仓库Repositories
+linkTitle: Repositories
 title: 仓库接口文档
 weight: 7
 sidebar:
   open: false
 ---
 
-## 1. 获取仓库所有分支
+## 1. 获取项目所有分支
 
 ### 请求
 
@@ -53,7 +53,7 @@ sidebar:
 
 ```
 
-## 2. 获取一个组织的仓库
+## 2. 获取组织项目列表
 
 ### 请求
 
@@ -107,7 +107,7 @@ sidebar:
 
 ```
 
-## 3 列出仓库所有的tags
+## 3 列出项目所有的tags
 
 ### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/tags`
@@ -141,6 +141,7 @@ sidebar:
 ```
 
 ## 4 获取仓库具体路径下的内容
+
 ### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/contents/{path}`
 
@@ -174,6 +175,7 @@ sidebar:
 ```
 
 ## 5. 获取用户的某个仓库
+
 ### 请求：
 `GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}`
 
@@ -611,7 +613,7 @@ HTTP status 200 No Content
 ```
 
 
-## 17. 添加仓库成员或更新仓库成员权限
+## 17. 添加项目成员或更新项目成员权限
 
 ### 请求
 
@@ -646,7 +648,7 @@ HTTP status 200 No Content
 }
 ```
 
-## 18. 移除仓库成员
+## 18. 移除项目成员
 
 ### 请求
 
@@ -667,7 +669,7 @@ HTTP status 200 No Content
 HTTP status 204 No Content
 ```
 
-## 19. 修改代码审查设置
+## 19. 修改项目代码审查设置
 
 ### 请求
 

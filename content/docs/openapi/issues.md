@@ -1,6 +1,6 @@
 ---
-linkTitle: 任务 Issues
-title: Issues接口文档
+linkTitle: Issues
+title: Issues 接口文档
 weight: 5
 sidebar:
   open: false
@@ -805,7 +805,7 @@ sidebar:
     "updated_at": null
 }
 ```
-## 12.获取某个iusse下的操作日志
+## 12.获取某个issue下的操作日志
 ### 请求
 `GET https://api.gitcode.com/api/v5/repos/{owner}/issues/{number}/operate_logs`
 
