@@ -14,21 +14,22 @@ sidebar:
 
 ### 参数
 
-| 参数名  | 描述  | 类型  | 数据类型  |
-| ------ | ------ | ------  |------|
-|  access_token* | 用户授权码 | query | string    | 
-|  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
-|  repo*   | 仓库路径(path) | path | string    |
+| 参数名  | 描述                                                | 类型  | 数据类型  |
+| ------ |---------------------------------------------------| ------  |------|
+|  access_token* | 用户授权码                                             | query | string    | 
+|  owner* | 仓库所属空间地址(组织或个人的地址path)                            | path | string    |
+|  repo*   | 仓库路径(path)                                        | path | string    |
 |  state | 可选。Pull Request 状态: all、open、closed、locked、merged | query | string    |
-|  base   | 可选。Pull Request 提交目标分支的名称 | query | string    |
-|  since | 可选。起始的更新时间，要求时间格式为 ISO 8601 | quey | string    |
-|  direction  | 可选。升序/降序 | query | string    |
-|  milestone_number | 可选。里程碑序号(id) | quey | integer    |
-|  labels | 以逗号分隔的标签名称列表 | quey | string    |
-|  page   | 当前的页码 | query | integer    |
-|  per_page   | 每页的数量，最大为 100 | query | integer    |
-|  author   | 可选。PR 创建者用户名 | query | string    |
-|  assignee   |  可选。评审者用户名 | query | string    |
+|  base   | 可选。Pull Request 提交目标分支的名称                         | query | string    |
+|  since | 可选。起始的更新时间，要求时间格式为 ISO 8601                       | quey | string    |
+|  direction  | 可选。升序/降序                                          | query | string    |
+|  sort   | 可选。排序字段: created_at、updated_at          | query | string    |
+|  milestone_number | 可选。里程碑序号(id)                                      | quey | integer    |
+|  labels | 以逗号分隔的标签名称列表                                      | quey | string    |
+|  page   | 当前的页码                                             | query | integer    |
+|  per_page   | 每页的数量，最大为 100                                     | query | integer    |
+|  author   | 可选。PR 创建者用户名                                      | query | string    |
+|  assignee   | 可选。评审者用户名                                         | query | string    |
 
 ### 响应
 
@@ -40,6 +41,7 @@ sidebar:
         "close_related_issue": null,
         "prune_branch": false,
         "draft": false,
+        "url":"https://api.gitcode.net/api/v5/repos/One/One/pulls/63",
         "labels": [
             {
                 "id": 381445,
@@ -396,6 +398,7 @@ sidebar:
     "title": "[bug] test",
     "state": "open",
     "title": "进行稳定性测试",
+    "url":"https://api.gitcode.com/api/v5/repos/sytest/paopao/issues/1",
     "body": "发生什么问题了？",
     "user": {
       "id": "681",
@@ -1076,6 +1079,8 @@ sidebar:
   "id": 111,
   "html_url": "http://gitcode.com/sytest/paopao/pull/1",
   "number": 1,
+  "url":"https://api.gitcode.com/api/v5/repos/sytest/paopao/pulls/1",
+  "issue_url":"https://api.gitcode.com/api/v5/repos/sytest/paopao/pulls/1/issues",
   "state": "open",
   "assignees_number": 1,
   "assignees": [
@@ -1123,12 +1128,20 @@ sidebar:
   "head": {
     "label": "test",
     "ref": "test",
-    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6",
+    "repo":{
+      "path":"paopao",
+      "name":"paopao"
+    }
   },
   "base": {
     "label": "main",
     "ref": "main",
-    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6"
+    "sha": "91861a9668041fc1c0ff51d1db66b6297179f5e6",
+    "repo":{
+      "path":"paopao",
+      "name":"paopao"
+    }
   }
 }
 ```
@@ -1160,7 +1173,8 @@ sidebar:
       "committer": {
         "name": "test",
         "email": "test@test.com"
-      }
+      },
+      "message":"!5 333 * add 1/2/3/4. * add 1/2/3. "
     },
     "author": {
       "id": "id123",
@@ -1175,6 +1189,10 @@ sidebar:
       "name": "test",
       "avatar_url": "https://gitcode/pic.png",
       "html_url": "https://gitcode.com/test"
+    },
+    "parents":{
+      "sha":"2e208a1e38f6a5a7b0cc3787688067ba082a8bb7",
+      "shas":["2e208a1e38f6a5a7b0cc3787688067ba082a8bb7"]
     }
   }
 ]
@@ -1510,7 +1528,7 @@ HTTP status 204 No Content
           "path": "repo-dev"
         },
         "assigner": {
-          "id": 708,
+          "id": "uuid",
           "login": "Lzm_0916",
           "name": "Lzm_0916"
         }
@@ -1523,11 +1541,6 @@ HTTP status 204 No Content
         "path": "test",
         "name_space": {
           "path": "repo-dev"
-        },
-        "assigner": {
-          "id": 708,
-          "login": "Lzm_0916",
-          "name": "Lzm_0916"
         }
       }
     }

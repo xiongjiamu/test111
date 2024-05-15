@@ -20,7 +20,6 @@ sidebar:
 |  owner* | 仓库所属空间地址(组织或个人的地址path) | path | string    |
 |  repo*   | 仓库路径(path) | path | string    |
 |  sort | 排序字段 name/updated | query | string    |
-|  base   | 可选。Pull Request 提交目标分支的名称 | query | string    |
 |  direction | 排序方向 asc/desc | quey | string    |
 |  page   | 当前的页码 | query | integer    |
 |  per_page   | 每页的数量，最大为 100 | query | integer    |
