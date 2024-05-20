@@ -613,7 +613,7 @@ HTTP status 200 No Content
 ```
 
 
-## 17. 添项目成员加或更新项目成员权限
+## 17. 添加项目成员或更新项目成员权限
 
 ### 请求
 
@@ -830,3 +830,29 @@ HTTP status 204 No Content
   }
 ]
 ```
+
+## 23. 获取仓库的语言
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/languages`
+
+### 参数
+
+| 参数名        | 描述                                   | 类型     | 数据类型 |
+| ------------- | -------------------------------------- | -------- | -------- |
+| access_token* | 用户授权码                             | formData | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*         | 仓库路径(path)                         | path     | string   |
+
+### 响应:  
+
+###### Map<语言名称,  百分比>
+
+```json
+{
+    "Shell": 49.77,
+    "Python": 50.23
+}
+```
+
