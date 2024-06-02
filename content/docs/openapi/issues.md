@@ -905,3 +905,30 @@ sidebar:
     }
 ]
 ```
+
+## 13.获取Issue标签
+### 请求
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/issues/{number}/labels`
+
+### 参数
+| 参数名  | 描述                       | 类型  | 数据类型  |
+|---------------|--------------------------|----------------|--------|
+|  access_token* | 用户授权码                    | query | string |
+|  owner* | 仓库所属空间地址(组织或个人的地址path)   | path | string |
+|  repo*   | 仓库路径(path)               | path | string |
+|  number*   | issue编号                  | path | string |
+
+### 响应
+```json
+[
+  {
+    "color": "#008672",
+    "name": "help wanted",
+    "id": 381445,
+    "title": "help wanted",
+    "repository_id": 267312,
+    "type": null,
+    "textColor": "#FFFFFF"
+  }
+]
+```

@@ -847,7 +847,7 @@ HTTP status 204 No Content
 
 ### 响应:  
 
-###### Map<语言名称,  百分比>
+Map`<语言名称,  百分比>`
 
 ```json
 {
